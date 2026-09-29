@@ -215,3 +215,49 @@ and install the needed packages as shown:
 [smart]: http://docs.smarthealthit.org
 [fhir-parser]: https://github.com/smart-on-fhir/fhir-parser
 [docs]: https://smart-on-fhir.github.io/client-py
+
+
+## Async FHIR and SMART
+
+Install `fhirclient[async]` for asynchronous FHIR operations and
+`fhirclient[smart]` for SMART authorization and verification. The existing
+synchronous API remains available without these extras.
+
+```python
+from fhirclient.async_client import async_client
+from fhirclient.models.patient import Patient
+
+async def patient_name(identifier: str) -> str:
+    async with async_client("https://example.test/fhir") as client:
+        patient = await client.read(Patient, identifier)
+        return patient.name[0].text
+```
+
+`AsyncFHIRClient(base, send)` borrows an async HTTPX request/response function.
+Its owner must disable redirects, bound response reads, and scope authentication
+and transport lifetimes. The client never closes borrowed transport. The
+`async_client` context owns a standalone pool, bounds decompressed responses,
+and closes response streams on cancellation or failure.
+
+Read, search, create, and ValueSet expansion use the generated R4 models. Search
+rejects incomplete results, inconsistent totals or duplicate identities,
+pagination cycles, and next links outside the configured base. `Limits` bounds
+pages, records, and aggregate bytes. An optional async response observer runs
+before decoding so applications can archive original evidence. Observer failures
+and cancellation propagate to the caller.
+
+Create sends once and returns `Created`, `Rejected`, or `Uncertain`. An uncertain
+write requires application reconciliation; it is never automatically retried.
+
+The `fhirclient.smart` functions build PKCE authorization requests, exchange codes,
+verify signed OIDC evidence against pinned endpoints, read patient/practitioner
+FHIR identities, and explicitly refresh or revoke credentials. Verification uses
+RS256 with a unique RSA signing key, issuer, audience, lifetime, nonce, and
+`at_hash` checks. Confidential clients support Basic authentication or RSA/RSASSA-PSS
+private-key assertions. SMART endpoints require HTTPS. Diagnostic observers
+receive protocol check events without tokens or patient identity.
+
+Applications own authorization state, nonce/verifier retention, replay prevention,
+durable refresh claims, credential storage, and live permission checks. The SDK
+does not persist tokens or implicitly refresh them. Cancellation or an uncertain
+exchange must not cause an authorization code or rotating token to be replayed.

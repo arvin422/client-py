@@ -30,7 +30,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[tests]
+          pip install ".[tests,smart]" --group dev
+
+      - name: Check async interfaces
+        run: make lint typecheck
 
       - name: Test with pytest
         run: |
