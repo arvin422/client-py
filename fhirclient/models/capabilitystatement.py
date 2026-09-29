@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class CapabilityStatement(domainresource.DomainResource):
     
     resource_type = "CapabilityStatement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,114 +27,114 @@ class CapabilityStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the capability statement.
         Type `str`. """
         
-        self.document = None
+        self.document: list[CapabilityStatementDocument] | None = None
         """ Document definition.
         List of `CapabilityStatementDocument` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.fhirVersion = None
+        self.fhirVersion: str | None = None
         """ FHIR Version the system supports.
         Type `str`. """
         
-        self.format = None
+        self.format: list[str | None] | None = None
         """ formats supported (xml | json | ttl | mime type).
         List of `str` items. """
         
-        self.implementation = None
+        self.implementation: CapabilityStatementImplementation | None = None
         """ If this describes a specific instance.
         Type `CapabilityStatementImplementation` (represented as `dict` in JSON). """
         
-        self.implementationGuide = None
+        self.implementationGuide: list[str | None] | None = None
         """ Implementation guides supported.
         List of `str` items. """
         
-        self.imports = None
+        self.imports: list[str | None] | None = None
         """ Canonical URL of another capability statement this adds to.
         List of `str` items. """
         
-        self.instantiates = None
+        self.instantiates: list[str | None] | None = None
         """ Canonical URL of another capability statement this implements.
         List of `str` items. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for capability statement (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ instance | capability | requirements.
         Type `str`. """
         
-        self.messaging = None
+        self.messaging: list[CapabilityStatementMessaging] | None = None
         """ If messaging is supported.
         List of `CapabilityStatementMessaging` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this capability statement (computer friendly).
         Type `str`. """
         
-        self.patchFormat = None
+        self.patchFormat: list[str | None] | None = None
         """ Patch formats supported.
         List of `str` items. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this capability statement is defined.
         Type `str`. """
         
-        self.rest = None
+        self.rest: list[CapabilityStatementRest] | None = None
         """ If the endpoint is a RESTful one.
         List of `CapabilityStatementRest` items (represented as `dict` in JSON). """
         
-        self.software = None
+        self.software: CapabilityStatementSoftware | None = None
         """ Software that is covered by this capability statement.
         Type `CapabilityStatementSoftware` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this capability statement (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this capability statement, represented as
         a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the capability statement.
         Type `str`. """
         
         super(CapabilityStatement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatement, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -173,7 +177,7 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementDocument"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -181,21 +185,21 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Description of document support.
         Type `str`. """
         
-        self.mode = None
+        self.mode: str | None = None
         """ producer | consumer.
         Type `str`. """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Constraint on the resources used in the document.
         Type `str`. """
         
         super(CapabilityStatementDocument, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementDocument, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),
@@ -215,7 +219,7 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementImplementation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -223,21 +227,21 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.custodian = None
+        self.custodian: fhirreference.FHIRReference | None = None
         """ Organization that manages the data.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Describes this specific instance.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Base URL for the installation.
         Type `str`. """
         
         super(CapabilityStatementImplementation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementImplementation, self).elementProperties()
         js.extend([
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
@@ -255,7 +259,7 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementMessaging"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -263,25 +267,25 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Messaging interface behavior details.
         Type `str`. """
         
-        self.endpoint = None
+        self.endpoint: list[CapabilityStatementMessagingEndpoint] | None = None
         """ Where messages should be sent.
         List of `CapabilityStatementMessagingEndpoint` items (represented as `dict` in JSON). """
         
-        self.reliableCache = None
+        self.reliableCache: int | None = None
         """ Reliable Message Cache Length (min).
         Type `int`. """
         
-        self.supportedMessage = None
+        self.supportedMessage: list[CapabilityStatementMessagingSupportedMessage] | None = None
         """ Messages supported by this system.
         List of `CapabilityStatementMessagingSupportedMessage` items (represented as `dict` in JSON). """
         
         super(CapabilityStatementMessaging, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementMessaging, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),
@@ -301,7 +305,7 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementMessagingEndpoint"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -309,17 +313,17 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.address = None
+        self.address: str | None = None
         """ Network address or identifier of the end-point.
         Type `str`. """
         
-        self.protocol = None
+        self.protocol: coding.Coding | None = None
         """ http | ftp | mllp +.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(CapabilityStatementMessagingEndpoint, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementMessagingEndpoint, self).elementProperties()
         js.extend([
             ("address", "address", str, False, None, True),
@@ -337,7 +341,7 @@ class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneEleme
     
     resource_type = "CapabilityStatementMessagingSupportedMessage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -345,17 +349,17 @@ class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneEleme
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definition = None
+        self.definition: str | None = None
         """ Message supported by this system.
         Type `str`. """
         
-        self.mode = None
+        self.mode: str | None = None
         """ sender | receiver.
         Type `str`. """
         
         super(CapabilityStatementMessagingSupportedMessage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementMessagingSupportedMessage, self).elementProperties()
         js.extend([
             ("definition", "definition", str, False, None, True),
@@ -372,7 +376,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementRest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -380,41 +384,41 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.compartment = None
+        self.compartment: list[str | None] | None = None
         """ Compartments served/used by system.
         List of `str` items. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ General description of implementation.
         Type `str`. """
         
-        self.interaction = None
+        self.interaction: list[CapabilityStatementRestInteraction] | None = None
         """ What operations are supported?.
         List of `CapabilityStatementRestInteraction` items (represented as `dict` in JSON). """
         
-        self.mode = None
+        self.mode: str | None = None
         """ client | server.
         Type `str`. """
         
-        self.operation = None
+        self.operation: list[CapabilityStatementRestResourceOperation] | None = None
         """ Definition of a system level operation.
         List of `CapabilityStatementRestResourceOperation` items (represented as `dict` in JSON). """
         
-        self.resource = None
+        self.resource: list[CapabilityStatementRestResource] | None = None
         """ Resource served on the REST interface.
         List of `CapabilityStatementRestResource` items (represented as `dict` in JSON). """
         
-        self.searchParam = None
+        self.searchParam: list[CapabilityStatementRestResourceSearchParam] | None = None
         """ Search parameters for searching all resources.
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
-        self.security = None
+        self.security: CapabilityStatementRestSecurity | None = None
         """ Information about security of implementation.
         Type `CapabilityStatementRestSecurity` (represented as `dict` in JSON). """
         
         super(CapabilityStatementRest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRest, self).elementProperties()
         js.extend([
             ("compartment", "compartment", str, True, None, False),
@@ -437,7 +441,7 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementRestInteraction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -445,17 +449,17 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ transaction | batch | search-system | history-system.
         Type `str`. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Anything special about operation behavior.
         Type `str`. """
         
         super(CapabilityStatementRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestInteraction, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -473,7 +477,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementRestResource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -481,78 +485,78 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.conditionalCreate = None
+        self.conditionalCreate: bool | None = None
         """ If allows/uses conditional create.
         Type `bool`. """
         
-        self.conditionalDelete = None
+        self.conditionalDelete: str | None = None
         """ not-supported | single | multiple - how conditional delete is
         supported.
         Type `str`. """
         
-        self.conditionalRead = None
+        self.conditionalRead: str | None = None
         """ not-supported | modified-since | not-match | full-support.
         Type `str`. """
         
-        self.conditionalUpdate = None
+        self.conditionalUpdate: bool | None = None
         """ If allows/uses conditional update.
         Type `bool`. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Additional information about the use of the resource type.
         Type `str`. """
         
-        self.interaction = None
+        self.interaction: list[CapabilityStatementRestResourceInteraction] | None = None
         """ What operations are supported?.
         List of `CapabilityStatementRestResourceInteraction` items (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: list[CapabilityStatementRestResourceOperation] | None = None
         """ Definition of a resource operation.
         List of `CapabilityStatementRestResourceOperation` items (represented as `dict` in JSON). """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Base System profile for all uses of resource.
         Type `str`. """
         
-        self.readHistory = None
+        self.readHistory: bool | None = None
         """ Whether vRead can return past versions.
         Type `bool`. """
         
-        self.referencePolicy = None
+        self.referencePolicy: list[str | None] | None = None
         """ literal | logical | resolves | enforced | local.
         List of `str` items. """
         
-        self.searchInclude = None
+        self.searchInclude: list[str | None] | None = None
         """ _include values supported by the server.
         List of `str` items. """
         
-        self.searchParam = None
+        self.searchParam: list[CapabilityStatementRestResourceSearchParam] | None = None
         """ Search parameters supported by implementation.
         List of `CapabilityStatementRestResourceSearchParam` items (represented as `dict` in JSON). """
         
-        self.searchRevInclude = None
+        self.searchRevInclude: list[str | None] | None = None
         """ _revinclude values supported by the server.
         List of `str` items. """
         
-        self.supportedProfile = None
+        self.supportedProfile: list[str | None] | None = None
         """ Profiles for use cases supported.
         List of `str` items. """
         
-        self.type = None
+        self.type: str | None = None
         """ A resource type that is supported.
         Type `str`. """
         
-        self.updateCreate = None
+        self.updateCreate: bool | None = None
         """ If update can commit to a new identity.
         Type `bool`. """
         
-        self.versioning = None
+        self.versioning: str | None = None
         """ no-version | versioned | versioned-update.
         Type `str`. """
         
         super(CapabilityStatementRestResource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestResource, self).elementProperties()
         js.extend([
             ("conditionalCreate", "conditionalCreate", bool, False, None, False),
@@ -584,7 +588,7 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
     
     resource_type = "CapabilityStatementRestResourceInteraction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -592,18 +596,18 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ read | vread | update | patch | delete | history-instance |
         history-type | create | search-type.
         Type `str`. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Anything special about operation behavior.
         Type `str`. """
         
         super(CapabilityStatementRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestResourceInteraction, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -622,7 +626,7 @@ class CapabilityStatementRestResourceOperation(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementRestResourceOperation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -630,21 +634,21 @@ class CapabilityStatementRestResourceOperation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definition = None
+        self.definition: str | None = None
         """ The defined operation/query.
         Type `str`. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Specific details about operation behavior.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name by which the operation/query is invoked.
         Type `str`. """
         
         super(CapabilityStatementRestResourceOperation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestResourceOperation, self).elementProperties()
         js.extend([
             ("definition", "definition", str, False, None, True),
@@ -664,7 +668,7 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
     
     resource_type = "CapabilityStatementRestResourceSearchParam"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -672,26 +676,26 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definition = None
+        self.definition: str | None = None
         """ Source of definition for parameter.
         Type `str`. """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Server-specific usage.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name of search parameter.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ number | date | string | token | reference | composite | quantity |
         uri | special.
         Type `str`. """
         
         super(CapabilityStatementRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestResourceSearchParam, self).elementProperties()
         js.extend([
             ("definition", "definition", str, False, None, False),
@@ -711,7 +715,7 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementRestSecurity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -719,21 +723,21 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.cors = None
+        self.cors: bool | None = None
         """ Adds CORS Headers (http://enable-cors.org/).
         Type `bool`. """
         
-        self.description = None
+        self.description: str | None = None
         """ General description of how security works.
         Type `str`. """
         
-        self.service = None
+        self.service: list[codeableconcept.CodeableConcept] | None = None
         """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(CapabilityStatementRestSecurity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementRestSecurity, self).elementProperties()
         js.extend([
             ("cors", "cors", bool, False, None, False),
@@ -753,7 +757,7 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
     
     resource_type = "CapabilityStatementSoftware"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -761,21 +765,21 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.name: str | None = None
         """ A name the software is known by.
         Type `str`. """
         
-        self.releaseDate = None
+        self.releaseDate: fhirdatetime.FHIRDateTime | None = None
         """ Date this version was released.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Version covered by this statement.
         Type `str`. """
         
         super(CapabilityStatementSoftware, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CapabilityStatementSoftware, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),

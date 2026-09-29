@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MarketingStatus).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import backboneelement
 
@@ -12,7 +16,7 @@ class MarketingStatus(backboneelement.BackboneElement):
     
     resource_type = "MarketingStatus"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,13 +24,13 @@ class MarketingStatus(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.country = None
+        self.country: codeableconcept.CodeableConcept | None = None
         """ The country in which the marketing authorisation has been granted
         shall be specified It should be specified using the ISO 3166 ‑ 1
         alpha-2 code elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.dateRange = None
+        self.dateRange: period.Period | None = None
         """ The date when the Medicinal Product is placed on the market by the
         Marketing Authorisation Holder (or where applicable, the
         manufacturer/distributor) in a country and/or jurisdiction shall be
@@ -36,7 +40,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         distribution chain.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: codeableconcept.CodeableConcept | None = None
         """ Where a Medicines Regulatory Agency has granted a marketing
         authorisation for which specific provisions within a jurisdiction
         apply, the jurisdiction can be specified using an appropriate
@@ -44,7 +48,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         identifier shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.restoreDate = None
+        self.restoreDate: fhirdatetime.FHIRDateTime | None = None
         """ The date when the Medicinal Product is placed on the market by the
         Marketing Authorisation Holder (or where applicable, the
         manufacturer/distributor) in a country and/or jurisdiction shall be
@@ -54,7 +58,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         distribution chain.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ This attribute provides information on the status of the marketing
         of the medicinal product See ISO/TS 20443 for more information and
         examples.
@@ -62,7 +66,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         
         super(MarketingStatus, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MarketingStatus, self).elementProperties()
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),

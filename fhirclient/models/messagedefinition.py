@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MessageDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class MessageDefinition(domainresource.DomainResource):
     
     resource_type = "MessageDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,109 +27,109 @@ class MessageDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allowedResponse = None
+        self.allowedResponse: list[MessageDefinitionAllowedResponse] | None = None
         """ Responses to this message.
         List of `MessageDefinitionAllowedResponse` items (represented as `dict` in JSON). """
         
-        self.base = None
+        self.base: str | None = None
         """ Definition this one is based on.
         Type `str`. """
         
-        self.category = None
+        self.category: str | None = None
         """ consequence | currency | notification.
         Type `str`. """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the message definition.
         Type `str`. """
         
-        self.eventCoding = None
+        self.eventCoding: coding.Coding | None = None
         """ Event code  or link to the EventDefinition.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.eventUri = None
+        self.eventUri: str | None = None
         """ Event code  or link to the EventDefinition.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.focus = None
+        self.focus: list[MessageDefinitionFocus] | None = None
         """ Resource(s) that are the subject of the event.
         List of `MessageDefinitionFocus` items (represented as `dict` in JSON). """
         
-        self.graph = None
+        self.graph: list[str | None] | None = None
         """ Canonical reference to a GraphDefinition.
         List of `str` items. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Primary key for the message definition on a given server.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for message definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this message definition (computer friendly).
         Type `str`. """
         
-        self.parent = None
+        self.parent: list[str | None] | None = None
         """ Protocol/workflow this is part of.
         List of `str` items. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this message definition is defined.
         Type `str`. """
         
-        self.replaces = None
+        self.replaces: list[str | None] | None = None
         """ Takes the place of.
         List of `str` items. """
         
-        self.responseRequired = None
+        self.responseRequired: str | None = None
         """ always | on-error | never | on-success.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this message definition (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Business Identifier for a given MessageDefinition.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the message definition.
         Type `str`. """
         
         super(MessageDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
             ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
@@ -168,7 +172,7 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     
     resource_type = "MessageDefinitionAllowedResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -176,17 +180,17 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.message = None
+        self.message: str | None = None
         """ Reference to allowed message definition response.
         Type `str`. """
         
-        self.situation = None
+        self.situation: str | None = None
         """ When should this response be used.
         Type `str`. """
         
         super(MessageDefinitionAllowedResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageDefinitionAllowedResponse, self).elementProperties()
         js.extend([
             ("message", "message", str, False, None, True),
@@ -205,7 +209,7 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     
     resource_type = "MessageDefinitionFocus"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -213,25 +217,25 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Type of resource.
         Type `str`. """
         
-        self.max = None
+        self.max: str | None = None
         """ Maximum number of focuses of this type.
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Minimum number of focuses of this type.
         Type `int`. """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Profile that must be adhered to by focus.
         Type `str`. """
         
         super(MessageDefinitionFocus, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageDefinitionFocus, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),

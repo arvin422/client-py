@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceAmount).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import backboneelement
 
@@ -16,7 +20,7 @@ class SubstanceAmount(backboneelement.BackboneElement):
     
     resource_type = "SubstanceAmount"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,32 +28,32 @@ class SubstanceAmount(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amountQuantity = None
+        self.amountQuantity: quantity.Quantity | None = None
         """ Used to capture quantitative values for a variety of elements. If
         only limits are given, the arithmetic mean would be the average. If
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.amountRange = None
+        self.amountRange: range.Range | None = None
         """ Used to capture quantitative values for a variety of elements. If
         only limits are given, the arithmetic mean would be the average. If
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.amountString = None
+        self.amountString: str | None = None
         """ Used to capture quantitative values for a variety of elements. If
         only limits are given, the arithmetic mean would be the average. If
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `str`. """
         
-        self.amountText = None
+        self.amountText: str | None = None
         """ A textual comment on a numeric value.
         Type `str`. """
         
-        self.amountType = None
+        self.amountType: codeableconcept.CodeableConcept | None = None
         """ Most elements that require a quantitative value will also have a
         field called amount type. Amount type should always be specified
         because the actual value of the amount is often dependent on it.
@@ -60,13 +64,13 @@ class SubstanceAmount(backboneelement.BackboneElement):
         definitional elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.referenceRange = None
+        self.referenceRange: SubstanceAmountReferenceRange | None = None
         """ Reference range of possible or expected values.
         Type `SubstanceAmountReferenceRange` (represented as `dict` in JSON). """
         
         super(SubstanceAmount, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceAmount, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
@@ -87,7 +91,7 @@ class SubstanceAmountReferenceRange(element.Element):
     
     resource_type = "SubstanceAmountReferenceRange"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -95,17 +99,17 @@ class SubstanceAmountReferenceRange(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.highLimit = None
+        self.highLimit: quantity.Quantity | None = None
         """ Upper limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.lowLimit = None
+        self.lowLimit: quantity.Quantity | None = None
         """ Lower limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SubstanceAmountReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceAmountReferenceRange, self).elementProperties()
         js.extend([
             ("highLimit", "highLimit", quantity.Quantity, False, None, False),

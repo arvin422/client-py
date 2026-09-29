@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SearchParameter).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class SearchParameter(domainresource.DomainResource):
     
     resource_type = "SearchParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,116 +25,116 @@ class SearchParameter(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.base = None
+        self.base: list[str | None] | None = None
         """ The resource type(s) this search parameter applies to.
         List of `str` items. """
         
-        self.chain = None
+        self.chain: list[str | None] | None = None
         """ Chained names supported.
         List of `str` items. """
         
-        self.code = None
+        self.code: str | None = None
         """ Code used in URL.
         Type `str`. """
         
-        self.comparator = None
+        self.comparator: list[str | None] | None = None
         """ eq | ne | gt | lt | ge | le | sa | eb | ap.
         List of `str` items. """
         
-        self.component = None
+        self.component: list[SearchParameterComponent] | None = None
         """ For Composite resources to define the parts.
         List of `SearchParameterComponent` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.derivedFrom = None
+        self.derivedFrom: str | None = None
         """ Original definition for the search parameter.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the search parameter.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ FHIRPath expression that extracts the values.
         Type `str`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for search parameter (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.modifier = None
+        self.modifier: list[str | None] | None = None
         """ missing | exact | contains | not | text | in | not-in | below |
         above | type | identifier | ofType.
         List of `str` items. """
         
-        self.multipleAnd = None
+        self.multipleAnd: bool | None = None
         """ Allow multiple parameters (and).
         Type `bool`. """
         
-        self.multipleOr = None
+        self.multipleOr: bool | None = None
         """ Allow multiple values per parameter (or).
         Type `bool`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this search parameter (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this search parameter is defined.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.target = None
+        self.target: list[str | None] | None = None
         """ Types of resource (if a resource reference).
         List of `str` items. """
         
-        self.type = None
+        self.type: str | None = None
         """ number | date | string | token | reference | composite | quantity |
         uri | special.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this search parameter, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the search parameter.
         Type `str`. """
         
-        self.xpath = None
+        self.xpath: str | None = None
         """ XPath that extracts the values.
         Type `str`. """
         
-        self.xpathUsage = None
+        self.xpathUsage: str | None = None
         """ normal | phonetic | nearby | distance | other.
         Type `str`. """
         
         super(SearchParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SearchParameter, self).elementProperties()
         js.extend([
             ("base", "base", str, True, None, True),
@@ -173,7 +177,7 @@ class SearchParameterComponent(backboneelement.BackboneElement):
     
     resource_type = "SearchParameterComponent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -181,17 +185,17 @@ class SearchParameterComponent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definition = None
+        self.definition: str | None = None
         """ Defines how the part works.
         Type `str`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ Subexpression relative to main expression.
         Type `str`. """
         
         super(SearchParameterComponent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SearchParameterComponent, self).elementProperties()
         js.extend([
             ("definition", "definition", str, False, None, True),

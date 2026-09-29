@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -11,7 +15,7 @@ class SubstanceSpecification(domainresource.DomainResource):
     
     resource_type = "SubstanceSpecification"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,88 +23,88 @@ class SubstanceSpecification(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: list[SubstanceSpecificationstr] | None = None
         """ Codes associated with the substance.
         List of `SubstanceSpecificationstr` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Textual comment about this record of a substance.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Textual description of the substance.
         Type `str`. """
         
-        self.domain = None
+        self.domain: codeableconcept.CodeableConcept | None = None
         """ If the substance applies to only human or veterinary use.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Identifier by which this substance is known.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.moiety = None
+        self.moiety: list[SubstanceSpecificationMoiety] | None = None
         """ Moiety, for structural modifications.
         List of `SubstanceSpecificationMoiety` items (represented as `dict` in JSON). """
         
-        self.molecularWeight = None
+        self.molecularWeight: list[SubstanceSpecificationStructureIsotopeMolecularWeight] | None = None
         """ The molecular weight or weight range (for proteins, polymers or
         nucleic acids).
         List of `SubstanceSpecificationStructureIsotopeMolecularWeight` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: list[SubstanceSpecificationName] | None = None
         """ Names applicable to this substance.
         List of `SubstanceSpecificationName` items (represented as `dict` in JSON). """
         
-        self.nucleicAcid = None
+        self.nucleicAcid: fhirreference.FHIRReference | None = None
         """ Data items specific to nucleic acids.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.polymer = None
+        self.polymer: fhirreference.FHIRReference | None = None
         """ Data items specific to polymers.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.property = None
+        self.property: list[SubstanceSpecificationProperty] | None = None
         """ General specifications for this substance, including how it is
         related to other substances.
         List of `SubstanceSpecificationProperty` items (represented as `dict` in JSON). """
         
-        self.protein = None
+        self.protein: fhirreference.FHIRReference | None = None
         """ Data items specific to proteins.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.referenceInformation = None
+        self.referenceInformation: fhirreference.FHIRReference | None = None
         """ General information detailing this substance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.relationship = None
+        self.relationship: list[SubstanceSpecificationRelationship] | None = None
         """ A link between this substance and another, with details of the
         relationship.
         List of `SubstanceSpecificationRelationship` items (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: list[fhirreference.FHIRReference] | None = None
         """ Supporting literature.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.sourceMaterial = None
+        self.sourceMaterial: fhirreference.FHIRReference | None = None
         """ Material or taxonomic/anatomical source for the substance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ Status of substance within the catalogue e.g. approved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.structure = None
+        self.structure: SubstanceSpecificationStructure | None = None
         """ Structural information.
         Type `SubstanceSpecificationStructure` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ High level categorization, e.g. polymer or nucleic acid.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecification, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecification, self).elementProperties()
         js.extend([
             ("code", "code", SubstanceSpecificationstr, True, None, False),
@@ -134,7 +138,7 @@ class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationMoiety"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -142,41 +146,41 @@ class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amountQuantity = None
+        self.amountQuantity: quantity.Quantity | None = None
         """ Quantitative value for this moiety.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.amountString = None
+        self.amountString: str | None = None
         """ Quantitative value for this moiety.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Identifier by which this moiety substance is known.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.molecularFormula = None
+        self.molecularFormula: str | None = None
         """ Molecular formula.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Textual name for this moiety substance.
         Type `str`. """
         
-        self.opticalActivity = None
+        self.opticalActivity: codeableconcept.CodeableConcept | None = None
         """ Optical activity type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.role: codeableconcept.CodeableConcept | None = None
         """ Role that the moiety is playing.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.stereochemistry = None
+        self.stereochemistry: codeableconcept.CodeableConcept | None = None
         """ Stereochemistry type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationMoiety, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationMoiety, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
@@ -197,7 +201,7 @@ class SubstanceSpecificationName(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationName"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -205,54 +209,54 @@ class SubstanceSpecificationName(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.domain = None
+        self.domain: list[codeableconcept.CodeableConcept] | None = None
         """ The use context of this name for example if there is a different
         name a drug active ingredient as opposed to a food colour additive.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ The jurisdiction where this name applies.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.language = None
+        self.language: list[codeableconcept.CodeableConcept] | None = None
         """ Language of the name.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ The actual name.
         Type `str`. """
         
-        self.official = None
+        self.official: list[SubstanceSpecificationNameOfficial] | None = None
         """ Details of the official nature of this name.
         List of `SubstanceSpecificationNameOfficial` items (represented as `dict` in JSON). """
         
-        self.preferred = None
+        self.preferred: bool | None = None
         """ If this is the preferred name for this substance.
         Type `bool`. """
         
-        self.source = None
+        self.source: list[fhirreference.FHIRReference] | None = None
         """ Supporting literature.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ The status of the name.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.synonym = None
+        self.synonym: list[SubstanceSpecificationName] | None = None
         """ A synonym of this name.
         List of `SubstanceSpecificationName` items (represented as `dict` in JSON). """
         
-        self.translation = None
+        self.translation: list[SubstanceSpecificationName] | None = None
         """ A translation for this name.
         List of `SubstanceSpecificationName` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Name type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationName, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationName, self).elementProperties()
         js.extend([
             ("domain", "domain", codeableconcept.CodeableConcept, True, None, False),
@@ -276,7 +280,7 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationNameOfficial"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -284,21 +288,21 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authority = None
+        self.authority: codeableconcept.CodeableConcept | None = None
         """ Which authority uses this official name.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date of official name change.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ The status of the official name.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationNameOfficial, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationNameOfficial, self).elementProperties()
         js.extend([
             ("authority", "authority", codeableconcept.CodeableConcept, False, None, False),
@@ -315,7 +319,7 @@ class SubstanceSpecificationProperty(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationProperty"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -323,40 +327,40 @@ class SubstanceSpecificationProperty(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amountQuantity = None
+        self.amountQuantity: quantity.Quantity | None = None
         """ Quantitative value for this property.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.amountString = None
+        self.amountString: str | None = None
         """ Quantitative value for this property.
         Type `str`. """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ A category for this property, e.g. Physical, Chemical, Enzymatic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Property type e.g. viscosity, pH, isoelectric point.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.definingSubstanceCodeableConcept = None
+        self.definingSubstanceCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ A substance upon which a defining property depends (e.g. for
         solubility: in water, in alcohol).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.definingSubstanceReference = None
+        self.definingSubstanceReference: fhirreference.FHIRReference | None = None
         """ A substance upon which a defining property depends (e.g. for
         solubility: in water, in alcohol).
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.parameters = None
+        self.parameters: str | None = None
         """ Parameters that were used in the measurement of a property (e.g.
         for viscosity: measured at 20C with a pH of 7.1).
         Type `str`. """
         
         super(SubstanceSpecificationProperty, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationProperty, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
@@ -376,7 +380,7 @@ class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationRelationship"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -384,66 +388,66 @@ class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amountQuantity = None
+        self.amountQuantity: quantity.Quantity | None = None
         """ A numeric factor for the relationship, for instance to express that
         the salt of a substance has some percentage of the active substance
         in relation to some other.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.amountRange = None
+        self.amountRange: range.Range | None = None
         """ A numeric factor for the relationship, for instance to express that
         the salt of a substance has some percentage of the active substance
         in relation to some other.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.amountRatio = None
+        self.amountRatio: ratio.Ratio | None = None
         """ A numeric factor for the relationship, for instance to express that
         the salt of a substance has some percentage of the active substance
         in relation to some other.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.amountRatioLowLimit = None
+        self.amountRatioLowLimit: ratio.Ratio | None = None
         """ For use when the numeric.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.amountString = None
+        self.amountString: str | None = None
         """ A numeric factor for the relationship, for instance to express that
         the salt of a substance has some percentage of the active substance
         in relation to some other.
         Type `str`. """
         
-        self.amountType = None
+        self.amountType: codeableconcept.CodeableConcept | None = None
         """ An operator for the amount, for example "average", "approximately",
         "less than".
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.isDefining = None
+        self.isDefining: bool | None = None
         """ For example where an enzyme strongly bonds with a particular
         substance, this is a defining relationship for that enzyme, out of
         several possible substance relationships.
         Type `bool`. """
         
-        self.relationship = None
+        self.relationship: codeableconcept.CodeableConcept | None = None
         """ For example "salt to parent", "active moiety", "starting material".
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: list[fhirreference.FHIRReference] | None = None
         """ Supporting literature.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.substanceCodeableConcept = None
+        self.substanceCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ A pointer to another substance, as a resource or just a
         representational code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.substanceReference = None
+        self.substanceReference: fhirreference.FHIRReference | None = None
         """ A pointer to another substance, as a resource or just a
         representational code.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationRelationship, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationRelationship, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
@@ -467,7 +471,7 @@ class SubstanceSpecificationStructure(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationStructure"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -475,44 +479,44 @@ class SubstanceSpecificationStructure(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.isotope = None
+        self.isotope: list[SubstanceSpecificationStructureIsotope] | None = None
         """ Applicable for single substances that contain a radionuclide or a
         non-natural isotopic ratio.
         List of `SubstanceSpecificationStructureIsotope` items (represented as `dict` in JSON). """
         
-        self.molecularFormula = None
+        self.molecularFormula: str | None = None
         """ Molecular formula.
         Type `str`. """
         
-        self.molecularFormulaByMoiety = None
+        self.molecularFormulaByMoiety: str | None = None
         """ Specified per moiety according to the Hill system, i.e. first C,
         then H, then alphabetical, each moiety separated by a dot.
         Type `str`. """
         
-        self.molecularWeight = None
+        self.molecularWeight: SubstanceSpecificationStructureIsotopeMolecularWeight | None = None
         """ The molecular weight or weight range (for proteins, polymers or
         nucleic acids).
         Type `SubstanceSpecificationStructureIsotopeMolecularWeight` (represented as `dict` in JSON). """
         
-        self.opticalActivity = None
+        self.opticalActivity: codeableconcept.CodeableConcept | None = None
         """ Optical activity type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.representation = None
+        self.representation: list[SubstanceSpecificationStructureRepresentation] | None = None
         """ Molecular structural representation.
         List of `SubstanceSpecificationStructureRepresentation` items (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: list[fhirreference.FHIRReference] | None = None
         """ Supporting literature.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.stereochemistry = None
+        self.stereochemistry: codeableconcept.CodeableConcept | None = None
         """ Stereochemistry type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationStructure, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationStructure, self).elementProperties()
         js.extend([
             ("isotope", "isotope", SubstanceSpecificationStructureIsotope, True, None, False),
@@ -534,7 +538,7 @@ class SubstanceSpecificationStructureIsotope(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationStructureIsotope"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -542,30 +546,30 @@ class SubstanceSpecificationStructureIsotope(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.halfLife = None
+        self.halfLife: quantity.Quantity | None = None
         """ Half life - for a non-natural nuclide.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Substance identifier for each non-natural or radioisotope.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.molecularWeight = None
+        self.molecularWeight: SubstanceSpecificationStructureIsotopeMolecularWeight | None = None
         """ The molecular weight or weight range (for proteins, polymers or
         nucleic acids).
         Type `SubstanceSpecificationStructureIsotopeMolecularWeight` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: codeableconcept.CodeableConcept | None = None
         """ Substance name for each non-natural or radioisotope.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.substitution = None
+        self.substitution: codeableconcept.CodeableConcept | None = None
         """ The type of isotopic substitution present in a single substance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationStructureIsotope, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationStructureIsotope, self).elementProperties()
         js.extend([
             ("halfLife", "halfLife", quantity.Quantity, False, None, False),
@@ -584,7 +588,7 @@ class SubstanceSpecificationStructureIsotopeMolecularWeight(backboneelement.Back
     
     resource_type = "SubstanceSpecificationStructureIsotopeMolecularWeight"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -592,25 +596,25 @@ class SubstanceSpecificationStructureIsotopeMolecularWeight(backboneelement.Back
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: quantity.Quantity | None = None
         """ Used to capture quantitative values for a variety of elements. If
         only limits are given, the arithmetic mean would be the average. If
         only a single definite value for a given element is given, it would
         be captured in this field.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ The method by which the molecular weight was determined.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of molecular weight such as exact, average (also known as.
         number average), weight average.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationStructureIsotopeMolecularWeight, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationStructureIsotopeMolecularWeight, self).elementProperties()
         js.extend([
             ("amount", "amount", quantity.Quantity, False, None, False),
@@ -626,7 +630,7 @@ class SubstanceSpecificationStructureRepresentation(backboneelement.BackboneElem
     
     resource_type = "SubstanceSpecificationStructureRepresentation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -634,22 +638,22 @@ class SubstanceSpecificationStructureRepresentation(backboneelement.BackboneElem
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.attachment = None
+        self.attachment: attachment.Attachment | None = None
         """ An attached file with the structural representation.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.representation = None
+        self.representation: str | None = None
         """ The structural representation as text string in a format e.g.
         InChI, SMILES, MOLFILE, CDX.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The type of structure (e.g. Full, Partial, Representative).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSpecificationStructureRepresentation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationStructureRepresentation, self).elementProperties()
         js.extend([
             ("attachment", "attachment", attachment.Attachment, False, None, False),
@@ -665,7 +669,7 @@ class SubstanceSpecificationstr(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSpecificationstr"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -673,30 +677,30 @@ class SubstanceSpecificationstr(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ The specific code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Any comment can be provided in this field, if necessary.
         Type `str`. """
         
-        self.source = None
+        self.source: list[fhirreference.FHIRReference] | None = None
         """ Supporting literature.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ Status of the code assignment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.statusDate = None
+        self.statusDate: fhirdatetime.FHIRDateTime | None = None
         """ The date at which the code status is changed as part of the
         terminology maintenance.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(SubstanceSpecificationstr, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSpecificationstr, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),

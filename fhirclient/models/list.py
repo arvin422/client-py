@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/List).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class List(domainresource.DomainResource):
     
     resource_type = "List"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,61 +22,61 @@ class List(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ What the purpose of this list is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ When the list was prepared.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.emptyReason = None
+        self.emptyReason: codeableconcept.CodeableConcept | None = None
         """ Why list is empty.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Context in which list created.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.entry = None
+        self.entry: list[ListEntry] | None = None
         """ Entries in the list.
         List of `ListEntry` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.mode = None
+        self.mode: str | None = None
         """ working | snapshot | changes.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments about the list.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.orderedBy = None
+        self.orderedBy: codeableconcept.CodeableConcept | None = None
         """ What order the list has.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: fhirreference.FHIRReference | None = None
         """ Who and/or what defined the list contents (aka Author).
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ current | retired | entered-in-error.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ If all resources have the same subject.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Descriptive name for the list.
         Type `str`. """
         
         super(List, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(List, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -102,7 +106,7 @@ class ListEntry(backboneelement.BackboneElement):
     
     resource_type = "ListEntry"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -110,25 +114,25 @@ class ListEntry(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ When item added to list.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.deleted = None
+        self.deleted: bool | None = None
         """ If this item is actually marked as deleted.
         Type `bool`. """
         
-        self.flag = None
+        self.flag: codeableconcept.CodeableConcept | None = None
         """ Status/Workflow information about this item.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.item: fhirreference.FHIRReference | None = None
         """ Actual entry.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ListEntry, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ListEntry, self).elementProperties()
         js.extend([
             ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),

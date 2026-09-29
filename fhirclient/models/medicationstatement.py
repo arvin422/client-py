@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationStatement).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -35,7 +39,7 @@ class MedicationStatement(domainresource.DomainResource):
     
     resource_type = "MedicationStatement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -43,88 +47,88 @@ class MedicationStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfils plan, proposal or order.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ Type of medication usage.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.context = None
+        self.context: fhirreference.FHIRReference | None = None
         """ Encounter / Episode associated with MedicationStatement.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.dateAsserted = None
+        self.dateAsserted: fhirdatetime.FHIRDateTime | None = None
         """ When the statement was asserted?.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.derivedFrom = None
+        self.derivedFrom: list[fhirreference.FHIRReference] | None = None
         """ Additional supporting information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.dosage = None
+        self.dosage: list[dosage.Dosage] | None = None
         """ Details of how medication is/was taken or should be taken.
         List of `Dosage` items (represented as `dict` in JSON). """
         
-        self.effectiveDateTime = None
+        self.effectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ The date/time or interval when the medication is/was/will be taken.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ The date/time or interval when the medication is/was/will be taken.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.informationSource = None
+        self.informationSource: fhirreference.FHIRReference | None = None
         """ Person or organization that provided the information about the
         taking of this medication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.medicationCodeableConcept = None
+        self.medicationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What medication was taken.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.medicationReference = None
+        self.medicationReference: fhirreference.FHIRReference | None = None
         """ What medication was taken.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Further information about the statement.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Reason for why the medication is being/was taken.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Condition or observation that supports why the medication is
         being/was taken.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | completed | entered-in-error | intended | stopped | on-
         hold | unknown | not-taken.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: list[codeableconcept.CodeableConcept] | None = None
         """ Reason for current status.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who is/was taking  the medication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MedicationStatement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationStatement, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),

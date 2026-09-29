@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EnrollmentResponse).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class EnrollmentResponse(domainresource.DomainResource):
     
     resource_type = "EnrollmentResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,41 +25,41 @@ class EnrollmentResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.disposition = None
+        self.disposition: str | None = None
         """ Disposition Message.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.organization = None
+        self.organization: fhirreference.FHIRReference | None = None
         """ Insurer.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: str | None = None
         """ queued | complete | error | partial.
         Type `str`. """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Claim reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requestProvider = None
+        self.requestProvider: fhirreference.FHIRReference | None = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
         super(EnrollmentResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EnrollmentResponse, self).elementProperties()
         js.extend([
             ("created", "created", fhirdatetime.FHIRDateTime, False, None, False),

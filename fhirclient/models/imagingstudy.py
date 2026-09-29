@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImagingStudy).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class ImagingStudy(domainresource.DomainResource):
     
     resource_type = "ImagingStudy"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,89 +29,89 @@ class ImagingStudy(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Request fulfilled.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Institution-generated description.
         Type `str`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter with which this imaging study is associated.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.endpoint = None
+        self.endpoint: list[fhirreference.FHIRReference] | None = None
         """ Study access endpoint.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifiers for the whole study.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.interpreter = None
+        self.interpreter: list[fhirreference.FHIRReference] | None = None
         """ Who interpreted images.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where ImagingStudy occurred.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.modality = None
+        self.modality: list[coding.Coding] | None = None
         """ All series modality if actual acquisition modalities.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ User-defined comments.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.numberOfInstances = None
+        self.numberOfInstances: int | None = None
         """ Number of Study Related Instances.
         Type `int`. """
         
-        self.numberOfSeries = None
+        self.numberOfSeries: int | None = None
         """ Number of Study Related Series.
         Type `int`. """
         
-        self.procedureCode = None
+        self.procedureCode: list[codeableconcept.CodeableConcept] | None = None
         """ The performed procedure code.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.procedureReference = None
+        self.procedureReference: fhirreference.FHIRReference | None = None
         """ The performed Procedure reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why the study was requested.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why was study performed.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.referrer = None
+        self.referrer: fhirreference.FHIRReference | None = None
         """ Referring physician.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.series = None
+        self.series: list[ImagingStudySeries] | None = None
         """ Each study has one or more series of instances.
         List of `ImagingStudySeries` items (represented as `dict` in JSON). """
         
-        self.started = None
+        self.started: fhirdatetime.FHIRDateTime | None = None
         """ When the study was started.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ registered | available | cancelled | entered-in-error | unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who or what is the subject of the study.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ImagingStudy, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImagingStudy, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
@@ -144,7 +148,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
     
     resource_type = "ImagingStudySeries"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -152,57 +156,57 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.bodySite = None
+        self.bodySite: coding.Coding | None = None
         """ Body part examined.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ A short human readable summary of the series.
         Type `str`. """
         
-        self.endpoint = None
+        self.endpoint: list[fhirreference.FHIRReference] | None = None
         """ Series access endpoint.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.instance = None
+        self.instance: list[ImagingStudySeriesInstance] | None = None
         """ A single SOP instance from the series.
         List of `ImagingStudySeriesInstance` items (represented as `dict` in JSON). """
         
-        self.laterality = None
+        self.laterality: coding.Coding | None = None
         """ Body part laterality.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.modality = None
+        self.modality: coding.Coding | None = None
         """ The modality of the instances in the series.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.number = None
+        self.number: int | None = None
         """ Numeric identifier of this series.
         Type `int`. """
         
-        self.numberOfInstances = None
+        self.numberOfInstances: int | None = None
         """ Number of Series Related Instances.
         Type `int`. """
         
-        self.performer = None
+        self.performer: list[ImagingStudySeriesPerformer] | None = None
         """ Who performed the series.
         List of `ImagingStudySeriesPerformer` items (represented as `dict` in JSON). """
         
-        self.specimen = None
+        self.specimen: list[fhirreference.FHIRReference] | None = None
         """ Specimen imaged.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.started = None
+        self.started: fhirdatetime.FHIRDateTime | None = None
         """ When the series started.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.uid = None
+        self.uid: str | None = None
         """ DICOM Series Instance UID for the series.
         Type `str`. """
         
         super(ImagingStudySeries, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImagingStudySeries, self).elementProperties()
         js.extend([
             ("bodySite", "bodySite", coding.Coding, False, None, False),
@@ -230,7 +234,7 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     
     resource_type = "ImagingStudySeriesInstance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -238,25 +242,25 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.number = None
+        self.number: int | None = None
         """ The number of this instance in the series.
         Type `int`. """
         
-        self.sopClass = None
+        self.sopClass: coding.Coding | None = None
         """ DICOM class type.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Description of instance.
         Type `str`. """
         
-        self.uid = None
+        self.uid: str | None = None
         """ DICOM SOP Instance UID.
         Type `str`. """
         
         super(ImagingStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImagingStudySeriesInstance, self).elementProperties()
         js.extend([
             ("number", "number", int, False, None, False),
@@ -275,7 +279,7 @@ class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
     
     resource_type = "ImagingStudySeriesPerformer"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -283,17 +287,17 @@ class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actor = None
+        self.actor: fhirreference.FHIRReference | None = None
         """ Who performed the series.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.function = None
+        self.function: codeableconcept.CodeableConcept | None = None
         """ Type of performance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ImagingStudySeriesPerformer, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImagingStudySeriesPerformer, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),

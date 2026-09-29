@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Linkage).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class Linkage(domainresource.DomainResource):
     
     resource_type = "Linkage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,21 +25,21 @@ class Linkage(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this linkage assertion is active or not.
         Type `bool`. """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ Who is responsible for linkages.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.item: list[LinkageItem] | None = None
         """ Item to be linked.
         List of `LinkageItem` items (represented as `dict` in JSON). """
         
         super(Linkage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Linkage, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -57,7 +61,7 @@ class LinkageItem(backboneelement.BackboneElement):
     
     resource_type = "LinkageItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -65,17 +69,17 @@ class LinkageItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.resource = None
+        self.resource: fhirreference.FHIRReference | None = None
         """ Resource being linked.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ source | alternate | historical.
         Type `str`. """
         
         super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(LinkageItem, self).elementProperties()
         js.extend([
             ("resource", "resource", fhirreference.FHIRReference, False, None, True),

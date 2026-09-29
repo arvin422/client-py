@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ConceptMap).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class ConceptMap(domainresource.DomainResource):
     
     resource_type = "ConceptMap"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,92 +26,92 @@ class ConceptMap(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the concept map.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.group = None
+        self.group: list[ConceptMapGroup] | None = None
         """ Same source and target systems.
         List of `ConceptMapGroup` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Additional identifier for the concept map.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for concept map (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this concept map (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this concept map is defined.
         Type `str`. """
         
-        self.sourceCanonical = None
+        self.sourceCanonical: str | None = None
         """ The source value set that contains the concepts that are being
         mapped.
         Type `str`. """
         
-        self.sourceUri = None
+        self.sourceUri: str | None = None
         """ The source value set that contains the concepts that are being
         mapped.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.targetCanonical = None
+        self.targetCanonical: str | None = None
         """ The target value set which provides context for the mappings.
         Type `str`. """
         
-        self.targetUri = None
+        self.targetUri: str | None = None
         """ The target value set which provides context for the mappings.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this concept map (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this concept map, represented as a URI
         (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the concept map.
         Type `str`. """
         
         super(ConceptMap, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMap, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -144,7 +148,7 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     
     resource_type = "ConceptMapGroup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -152,33 +156,33 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.element = None
+        self.element: list[ConceptMapGroupElement] | None = None
         """ Mappings for a concept from the source set.
         List of `ConceptMapGroupElement` items (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: str | None = None
         """ Source system where concepts to be mapped are defined.
         Type `str`. """
         
-        self.sourceVersion = None
+        self.sourceVersion: str | None = None
         """ Specific version of the  code system.
         Type `str`. """
         
-        self.target = None
+        self.target: str | None = None
         """ Target system that the concepts are to be mapped to.
         Type `str`. """
         
-        self.targetVersion = None
+        self.targetVersion: str | None = None
         """ Specific version of the  code system.
         Type `str`. """
         
-        self.unmapped = None
+        self.unmapped: ConceptMapGroupUnmapped | None = None
         """ What to do when there is no mapping for the source concept.
         Type `ConceptMapGroupUnmapped` (represented as `dict` in JSON). """
         
         super(ConceptMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMapGroup, self).elementProperties()
         js.extend([
             ("element", "element", ConceptMapGroupElement, True, None, True),
@@ -200,7 +204,7 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     
     resource_type = "ConceptMapGroupElement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -208,21 +212,21 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Identifies element being mapped.
         Type `str`. """
         
-        self.display = None
+        self.display: str | None = None
         """ Display for the code.
         Type `str`. """
         
-        self.target = None
+        self.target: list[ConceptMapGroupElementTarget] | None = None
         """ Concept in target system for element.
         List of `ConceptMapGroupElementTarget` items (represented as `dict` in JSON). """
         
         super(ConceptMapGroupElement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMapGroupElement, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
@@ -240,7 +244,7 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     
     resource_type = "ConceptMapGroupElementTarget"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -248,34 +252,34 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Code that identifies the target element.
         Type `str`. """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Description of status/issues in mapping.
         Type `str`. """
         
-        self.dependsOn = None
+        self.dependsOn: list[ConceptMapGroupElementTargetDependsOn] | None = None
         """ Other elements required for this mapping (from context).
         List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
-        self.display = None
+        self.display: str | None = None
         """ Display for the code.
         Type `str`. """
         
-        self.equivalence = None
+        self.equivalence: str | None = None
         """ relatedto | equivalent | equal | wider | subsumes | narrower |
         specializes | inexact | unmatched | disjoint.
         Type `str`. """
         
-        self.product = None
+        self.product: list[ConceptMapGroupElementTargetDependsOn] | None = None
         """ Other concepts that this mapping also produces.
         List of `ConceptMapGroupElementTargetDependsOn` items (represented as `dict` in JSON). """
         
         super(ConceptMapGroupElementTarget, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
@@ -298,7 +302,7 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     
     resource_type = "ConceptMapGroupElementTargetDependsOn"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -306,25 +310,25 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.display = None
+        self.display: str | None = None
         """ Display for the code (if value is a code).
         Type `str`. """
         
-        self.property = None
+        self.property: str | None = None
         """ Reference to property mapping depends on.
         Type `str`. """
         
-        self.system = None
+        self.system: str | None = None
         """ Code System (if necessary).
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ Value of the referenced element.
         Type `str`. """
         
         super(ConceptMapGroupElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
             ("display", "display", str, False, None, False),
@@ -345,7 +349,7 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
     
     resource_type = "ConceptMapGroupUnmapped"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -353,26 +357,26 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Fixed code when mode = fixed.
         Type `str`. """
         
-        self.display = None
+        self.display: str | None = None
         """ Display for the code.
         Type `str`. """
         
-        self.mode = None
+        self.mode: str | None = None
         """ provided | fixed | other-map.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ canonical reference to an additional ConceptMap to use for mapping
         if the source concept is unmapped.
         Type `str`. """
         
         super(ConceptMapGroupUnmapped, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConceptMapGroupUnmapped, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),

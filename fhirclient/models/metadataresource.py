@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MetadataResource).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 class MetadataResource(object):
     """ Common Ancestor declaration for definitional resources.
@@ -11,7 +15,7 @@ class MetadataResource(object):
     
     resource_type = "MetadataResource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,58 +23,58 @@ class MetadataResource(object):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the metadata resource.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for metadata resource (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this metadata resource (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this metadata resource (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this metadata resource, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the metadata resource.
         Type `str`. """
         
         super(MetadataResource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MetadataResource, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),

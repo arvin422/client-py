@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Group).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class Group(domainresource.DomainResource):
     
     resource_type = "Group"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,49 +27,49 @@ class Group(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this group's record is in active use.
         Type `bool`. """
         
-        self.actual = None
+        self.actual: bool | None = None
         """ Descriptive or actual.
         Type `bool`. """
         
-        self.characteristic = None
+        self.characteristic: list[GroupCharacteristic] | None = None
         """ Include / Exclude group members by Trait.
         List of `GroupCharacteristic` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Kind of Group members.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique id.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.managingEntity = None
+        self.managingEntity: fhirreference.FHIRReference | None = None
         """ Entity that is the custodian of the Group's definition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.member = None
+        self.member: list[GroupMember] | None = None
         """ Who or what is in group.
         List of `GroupMember` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Label for Group.
         Type `str`. """
         
-        self.quantity = None
+        self.quantity: int | None = None
         """ Number of members.
         Type `int`. """
         
-        self.type = None
+        self.type: str | None = None
         """ person | animal | practitioner | device | medication | substance.
         Type `str`. """
         
         super(Group, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Group, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -93,7 +97,7 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     
     resource_type = "GroupCharacteristic"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -101,41 +105,41 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Kind of characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.exclude = None
+        self.exclude: bool | None = None
         """ Group includes or excludes.
         Type `bool`. """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period over which characteristic is tested.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Value held by characteristic.
         Type `bool`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value held by characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Value held by characteristic.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Value held by characteristic.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Value held by characteristic.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(GroupCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GroupCharacteristic, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
@@ -158,7 +162,7 @@ class GroupMember(backboneelement.BackboneElement):
     
     resource_type = "GroupMember"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -166,21 +170,21 @@ class GroupMember(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.entity = None
+        self.entity: fhirreference.FHIRReference | None = None
         """ Reference to the group member.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.inactive = None
+        self.inactive: bool | None = None
         """ If member is no longer in group.
         Type `bool`. """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period member belonged to the group.
         Type `Period` (represented as `dict` in JSON). """
         
         super(GroupMember, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GroupMember, self).elementProperties()
         js.extend([
             ("entity", "entity", fhirreference.FHIRReference, False, None, True),

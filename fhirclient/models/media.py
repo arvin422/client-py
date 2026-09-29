@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Media).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -11,7 +15,7 @@ class Media(domainresource.DomainResource):
     
     resource_type = "Media"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,102 +23,102 @@ class Media(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Procedure that caused this media to be created.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: codeableconcept.CodeableConcept | None = None
         """ Observed body part.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.content = None
+        self.content: attachment.Attachment | None = None
         """ Actual Media - reference or data.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.createdDateTime = None
+        self.createdDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When Media was collected.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.createdPeriod = None
+        self.createdPeriod: period.Period | None = None
         """ When Media was collected.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.device = None
+        self.device: fhirreference.FHIRReference | None = None
         """ Observing Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.deviceName = None
+        self.deviceName: str | None = None
         """ Name of the device/manufacturer.
         Type `str`. """
         
-        self.duration = None
+        self.duration: float | None = None
         """ Length in seconds (audio / video).
         Type `float`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter associated with media.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.frames = None
+        self.frames: int | None = None
         """ Number of frames if > 1 (photo).
         Type `int`. """
         
-        self.height = None
+        self.height: int | None = None
         """ Height of the image in pixels (photo/video).
         Type `int`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifier(s) for the image.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.issued = None
+        self.issued: fhirinstant.FHIRInstant | None = None
         """ Date/Time this version was made available.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.modality = None
+        self.modality: codeableconcept.CodeableConcept | None = None
         """ The type of acquisition equipment/process.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments made about the media.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.operator = None
+        self.operator: fhirreference.FHIRReference | None = None
         """ The person who generated the image.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why was event performed?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ preparation | in-progress | not-done | on-hold | stopped |
         completed | entered-in-error | unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who/What this Media is a record of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Classification of media as image, video, or audio.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.view = None
+        self.view: codeableconcept.CodeableConcept | None = None
         """ Imaging view, e.g. Lateral or Antero-posterior.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.width = None
+        self.width: int | None = None
         """ Width of the image in pixels (photo/video).
         Type `int`. """
         
         super(Media, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Media, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),

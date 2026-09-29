@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Encounter).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class Encounter(domainresource.DomainResource):
     
     resource_type = "Encounter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,102 +26,102 @@ class Encounter(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.account = None
+        self.account: list[fhirreference.FHIRReference] | None = None
         """ The set of accounts that may be used for billing for this Encounter.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.appointment = None
+        self.appointment: list[fhirreference.FHIRReference] | None = None
         """ The appointment that scheduled this encounter.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ The ServiceRequest that initiated this encounter.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.classHistory = None
+        self.classHistory: list[EncounterClassHistory] | None = None
         """ List of past encounter classes.
         List of `EncounterClassHistory` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
+        self.class_fhir: coding.Coding | None = None
         """ Classification of patient encounter.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.diagnosis = None
+        self.diagnosis: list[EncounterDiagnosis] | None = None
         """ The list of diagnosis relevant to this encounter.
         List of `EncounterDiagnosis` items (represented as `dict` in JSON). """
         
-        self.episodeOfCare = None
+        self.episodeOfCare: list[fhirreference.FHIRReference] | None = None
         """ Episode(s) of care that this encounter should be recorded against.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.hospitalization = None
+        self.hospitalization: EncounterHospitalization | None = None
         """ Details about the admission to a healthcare service.
         Type `EncounterHospitalization` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifier(s) by which this encounter is known.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.length = None
+        self.length: duration.Duration | None = None
         """ Quantity of time the encounter lasted (less time absent).
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: list[EncounterLocation] | None = None
         """ List of locations where the patient has been.
         List of `EncounterLocation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: fhirreference.FHIRReference | None = None
         """ Another Encounter this encounter is part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.participant = None
+        self.participant: list[EncounterParticipant] | None = None
         """ List of participants involved in the encounter.
         List of `EncounterParticipant` items (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ The start and end time of the encounter.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: codeableconcept.CodeableConcept | None = None
         """ Indicates the urgency of the encounter.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Coded reason the encounter takes place.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Reason the encounter takes place (reference).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.serviceProvider = None
+        self.serviceProvider: fhirreference.FHIRReference | None = None
         """ The organization (facility) responsible for this encounter.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.serviceType = None
+        self.serviceType: codeableconcept.CodeableConcept | None = None
         """ Specific type of service.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ planned | arrived | triaged | in-progress | onleave | finished |
         cancelled +.
         Type `str`. """
         
-        self.statusHistory = None
+        self.statusHistory: list[EncounterStatusHistory] | None = None
         """ List of past encounter statuses.
         List of `EncounterStatusHistory` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ The patient or group present at the encounter.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Specific type of encounter.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(Encounter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Encounter, self).elementProperties()
         js.extend([
             ("account", "account", fhirreference.FHIRReference, True, None, False),
@@ -163,7 +167,7 @@ class EncounterClassHistory(backboneelement.BackboneElement):
     
     resource_type = "EncounterClassHistory"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -171,17 +175,17 @@ class EncounterClassHistory(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.class_fhir = None
+        self.class_fhir: coding.Coding | None = None
         """ inpatient | outpatient | ambulatory | emergency +.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ The time that the episode was in the specified class.
         Type `Period` (represented as `dict` in JSON). """
         
         super(EncounterClassHistory, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterClassHistory, self).elementProperties()
         js.extend([
             ("class_fhir", "class", coding.Coding, False, None, True),
@@ -196,7 +200,7 @@ class EncounterDiagnosis(backboneelement.BackboneElement):
     
     resource_type = "EncounterDiagnosis"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -204,22 +208,22 @@ class EncounterDiagnosis(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.condition = None
+        self.condition: fhirreference.FHIRReference | None = None
         """ The diagnosis or procedure relevant to the encounter.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.rank = None
+        self.rank: int | None = None
         """ Ranking of the diagnosis (for each role type).
         Type `int`. """
         
-        self.use = None
+        self.use: codeableconcept.CodeableConcept | None = None
         """ Role that this diagnosis has within the encounter (e.g. admission,
         billing, discharge …).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EncounterDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterDiagnosis, self).elementProperties()
         js.extend([
             ("condition", "condition", fhirreference.FHIRReference, False, None, True),
@@ -235,7 +239,7 @@ class EncounterHospitalization(backboneelement.BackboneElement):
     
     resource_type = "EncounterHospitalization"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -243,47 +247,47 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.admitSource = None
+        self.admitSource: codeableconcept.CodeableConcept | None = None
         """ From where patient was admitted (physician referral, transfer).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.destination = None
+        self.destination: fhirreference.FHIRReference | None = None
         """ Location/organization to which the patient is discharged.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.dietPreference = None
+        self.dietPreference: list[codeableconcept.CodeableConcept] | None = None
         """ Diet preferences reported by the patient.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.dischargeDisposition = None
+        self.dischargeDisposition: codeableconcept.CodeableConcept | None = None
         """ Category or kind of location after discharge.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.origin = None
+        self.origin: fhirreference.FHIRReference | None = None
         """ The location/organization from which the patient came before
         admission.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.preAdmissionIdentifier = None
+        self.preAdmissionIdentifier: identifier.Identifier | None = None
         """ Pre-admission identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.reAdmission = None
+        self.reAdmission: codeableconcept.CodeableConcept | None = None
         """ The type of hospital re-admission that has occurred (if any). If
         the value is absent, then this is not identified as a readmission.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.specialArrangement = None
+        self.specialArrangement: list[codeableconcept.CodeableConcept] | None = None
         """ Wheelchair, translator, stretcher, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.specialCourtesy = None
+        self.specialCourtesy: list[codeableconcept.CodeableConcept] | None = None
         """ Special courtesies (VIP, board member).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EncounterHospitalization, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterHospitalization, self).elementProperties()
         js.extend([
             ("admitSource", "admitSource", codeableconcept.CodeableConcept, False, None, False),
@@ -307,7 +311,7 @@ class EncounterLocation(backboneelement.BackboneElement):
     
     resource_type = "EncounterLocation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -315,26 +319,26 @@ class EncounterLocation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Location the encounter takes place.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Time period during which the patient was present at the location.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.physicalType = None
+        self.physicalType: codeableconcept.CodeableConcept | None = None
         """ The physical type of the location (usually the level in the
         location hierachy - bed room ward etc.).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ planned | active | reserved | completed.
         Type `str`. """
         
         super(EncounterLocation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterLocation, self).elementProperties()
         js.extend([
             ("location", "location", fhirreference.FHIRReference, False, None, True),
@@ -353,7 +357,7 @@ class EncounterParticipant(backboneelement.BackboneElement):
     
     resource_type = "EncounterParticipant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -361,22 +365,22 @@ class EncounterParticipant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.individual = None
+        self.individual: fhirreference.FHIRReference | None = None
         """ Persons involved in the encounter other than the patient.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period of time during the encounter that the participant
         participated.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Role of participant in encounter.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EncounterParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterParticipant, self).elementProperties()
         js.extend([
             ("individual", "individual", fhirreference.FHIRReference, False, None, False),
@@ -396,7 +400,7 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
     
     resource_type = "EncounterStatusHistory"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -404,18 +408,18 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ The time that the episode was in the specified status.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ planned | arrived | triaged | in-progress | onleave | finished |
         cancelled +.
         Type `str`. """
         
         super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EncounterStatusHistory, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, True),

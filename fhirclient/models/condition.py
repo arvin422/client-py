@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Condition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class Condition(domainresource.DomainResource):
     
     resource_type = "Condition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,110 +25,110 @@ class Condition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.abatementAge = None
+        self.abatementAge: age.Age | None = None
         """ When in resolution/remission.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.abatementDateTime = None
+        self.abatementDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When in resolution/remission.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.abatementPeriod = None
+        self.abatementPeriod: period.Period | None = None
         """ When in resolution/remission.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.abatementRange = None
+        self.abatementRange: range.Range | None = None
         """ When in resolution/remission.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.abatementString = None
+        self.abatementString: str | None = None
         """ When in resolution/remission.
         Type `str`. """
         
-        self.asserter = None
+        self.asserter: fhirreference.FHIRReference | None = None
         """ Person who asserts this condition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: list[codeableconcept.CodeableConcept] | None = None
         """ Anatomical location, if relevant.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ problem-list-item | encounter-diagnosis.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.clinicalStatus = None
+        self.clinicalStatus: codeableconcept.CodeableConcept | None = None
         """ active | recurrence | relapse | inactive | remission | resolved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Identification of the condition, problem or diagnosis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.evidence = None
+        self.evidence: list[ConditionEvidence] | None = None
         """ Supporting evidence.
         List of `ConditionEvidence` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this condition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Additional information about the Condition.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onsetAge = None
+        self.onsetAge: age.Age | None = None
         """ Estimated or actual date,  date-time, or age.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.onsetDateTime = None
+        self.onsetDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Estimated or actual date,  date-time, or age.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.onsetPeriod = None
+        self.onsetPeriod: period.Period | None = None
         """ Estimated or actual date,  date-time, or age.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.onsetRange = None
+        self.onsetRange: range.Range | None = None
         """ Estimated or actual date,  date-time, or age.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.onsetString = None
+        self.onsetString: str | None = None
         """ Estimated or actual date,  date-time, or age.
         Type `str`. """
         
-        self.recordedDate = None
+        self.recordedDate: fhirdatetime.FHIRDateTime | None = None
         """ Date record was first recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.recorder = None
+        self.recorder: fhirreference.FHIRReference | None = None
         """ Who recorded the condition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.severity = None
+        self.severity: codeableconcept.CodeableConcept | None = None
         """ Subjective severity of condition.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.stage = None
+        self.stage: list[ConditionStage] | None = None
         """ Stage/grade, usually assessed formally.
         List of `ConditionStage` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who has the condition?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.verificationStatus = None
+        self.verificationStatus: codeableconcept.CodeableConcept | None = None
         """ unconfirmed | provisional | differential | confirmed | refuted |
         entered-in-error.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Condition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Condition, self).elementProperties()
         js.extend([
             ("abatementAge", "abatementAge", age.Age, False, "abatement", False),
@@ -168,7 +172,7 @@ class ConditionEvidence(backboneelement.BackboneElement):
     
     resource_type = "ConditionEvidence"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -176,17 +180,17 @@ class ConditionEvidence(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: list[codeableconcept.CodeableConcept] | None = None
         """ Manifestation/symptom.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: list[fhirreference.FHIRReference] | None = None
         """ Supporting information found elsewhere.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(ConditionEvidence, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConditionEvidence, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
@@ -204,7 +208,7 @@ class ConditionStage(backboneelement.BackboneElement):
     
     resource_type = "ConditionStage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -212,21 +216,21 @@ class ConditionStage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assessment = None
+        self.assessment: list[fhirreference.FHIRReference] | None = None
         """ Formal record of assessment.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.summary = None
+        self.summary: codeableconcept.CodeableConcept | None = None
         """ Simple summary (disease specific).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Kind of staging.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ConditionStage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConditionStage, self).elementProperties()
         js.extend([
             ("assessment", "assessment", fhirreference.FHIRReference, True, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CatalogEntry).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class CatalogEntry(domainresource.DomainResource):
     
     resource_type = "CatalogEntry"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,63 +25,63 @@ class CatalogEntry(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additionalCharacteristic = None
+        self.additionalCharacteristic: list[codeableconcept.CodeableConcept] | None = None
         """ Additional characteristics of the catalog entry.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.additionalClassification = None
+        self.additionalClassification: list[codeableconcept.CodeableConcept] | None = None
         """ Additional classification of the catalog entry.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.additionalIdentifier = None
+        self.additionalIdentifier: list[identifier.Identifier] | None = None
         """ Any additional identifier(s) for the catalog item, in the same
         granularity or concept.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.classification = None
+        self.classification: list[codeableconcept.CodeableConcept] | None = None
         """ Classification (category or class) of the item entry.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique identifier of the catalog item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.lastUpdated = None
+        self.lastUpdated: fhirdatetime.FHIRDateTime | None = None
         """ When was this catalog last updated.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.orderable = None
+        self.orderable: bool | None = None
         """ Whether the entry represents an orderable item.
         Type `bool`. """
         
-        self.referencedItem = None
+        self.referencedItem: fhirreference.FHIRReference | None = None
         """ The item that is being defined.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.relatedEntry = None
+        self.relatedEntry: list[CatalogEntryRelatedEntry] | None = None
         """ An item that this catalog entry is related to.
         List of `CatalogEntryRelatedEntry` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The type of item - medication, device, service, protocol or other.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.validTo = None
+        self.validTo: fhirdatetime.FHIRDateTime | None = None
         """ The date until which this catalog entry is expected to be active.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.validityPeriod = None
+        self.validityPeriod: period.Period | None = None
         """ The time period in which this catalog entry is expected to be
         active.
         Type `Period` (represented as `dict` in JSON). """
         
         super(CatalogEntry, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CatalogEntry, self).elementProperties()
         js.extend([
             ("additionalCharacteristic", "additionalCharacteristic", codeableconcept.CodeableConcept, True, None, False),
@@ -108,7 +112,7 @@ class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
     
     resource_type = "CatalogEntryRelatedEntry"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -116,17 +120,17 @@ class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.item = None
+        self.item: fhirreference.FHIRReference | None = None
         """ The reference to the related item.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.relationtype = None
+        self.relationtype: str | None = None
         """ triggers | is-replaced-by.
         Type `str`. """
         
         super(CatalogEntryRelatedEntry, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CatalogEntryRelatedEntry, self).elementProperties()
         js.extend([
             ("item", "item", fhirreference.FHIRReference, False, None, True),

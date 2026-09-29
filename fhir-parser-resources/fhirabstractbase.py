@@ -3,10 +3,20 @@
 #
 #  Base class for all FHIR elements.
 
-import sys
+from __future__ import annotations
+
+from typing import TypeAlias
+
+from .fhirdate import FHIRDate
 import logging
 
 logger = logging.getLogger(__name__)
+
+JSONValue: TypeAlias = (
+    str | int | float | bool | None
+    | list["JSONValue"] | dict[str, "JSONValue"]
+)
+FHIRProperty: TypeAlias = tuple[str, str, type["FHIRAbstractBase | FHIRDate | str | int | float | bool"], bool, str | None, bool]
 
 
 class FHIRValidationError(Exception):
@@ -46,7 +56,7 @@ class FHIRAbstractBase(object):
     """ Abstract base class for all FHIR elements.
     """
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initializer. If strict is true, raises on errors, otherwise uses
         `logger.warning()`.
         
@@ -55,6 +65,7 @@ class FHIRAbstractBase(object):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self._primitive_extensions: dict[str, JSONValue] = {}
         self._resolved = None
         """ Dictionary of resolved resources. """
         
@@ -139,13 +150,13 @@ class FHIRAbstractBase(object):
     
     # MARK: (De)Serialization
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         """ Returns a list of tuples, one tuple for each property that should
         be serialized, as: ("name", "json_name", type, is_list, "of_many", not_optional)
         """
         return []
     
-    def update_with_json(self, jsondict):
+    def update_with_json(self, jsondict: dict[str, JSONValue] | None) -> None:
         """ Update the receiver with data in a JSON dictionary.
         
         :raises: FHIRValidationError on validation errors
@@ -162,59 +173,87 @@ class FHIRAbstractBase(object):
         # loop all registered properties and instantiate
         errs = []
         valid = set(['resourceType'])   # used to also contain `fhir_comments` until STU-3
-        found = set()
+        found = {name[1:] for name in self._primitive_extensions}
         nonoptionals = set()
         for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
             valid.add(jsname)
-            if of_many is not None:
-                valid.add(of_many)
             
             # bring the value in shape
             err = None
             value = jsondict.get(jsname)
             if value is not None and hasattr(typ, 'with_json_and_owner'):
                 try:
-                    value = typ.with_json_and_owner(value, self)
+                    value = (
+                        [None if item is None else typ.with_json_and_owner(item, self) for item in value]
+                        if isinstance(value, list) and None in value
+                        else typ.with_json_and_owner(value, self)
+                    )
                 except Exception as e:
                     value = None
                     err = e
             
             # got a value, test if it is of required type and assign
             if value is not None:
-                testval = value
-                if is_list:
-                    if not isinstance(value, list):
-                        err = TypeError("Wrong type {} for list property \"{}\" on {}, expecting a list of {}"
-                            .format(type(value), name, type(self), typ))
-                        testval = None
-                    else:
-                        testval = value[0] if value and len(value) > 0 else None
-                
-                if testval is not None and not self._matches_type(testval, typ):
-                    err = TypeError("Wrong type {} for property \"{}\" on {}, expecting {}"
-                        .format(type(testval), name, type(self), typ))
+                if is_list and not isinstance(value, list):
+                    err = TypeError('Expecting a list for property "{}"'.format(name))
                 else:
-                    setattr(self, name, value)
-                
-                found.add(jsname)
-                if of_many is not None:
-                    found.add(of_many)
-            
+                    items = value if is_list else [value]
+                    primitive = typ in (str, int, float, bool) or issubclass(typ, FHIRDate)
+                    details = jsondict.get('_' + jsname)
+                    for index, item in enumerate(items):
+                        if item is None and not (
+                            primitive and is_list and isinstance(details, list)
+                            and index < len(details) and details[index] is not None
+                        ):
+                            err = TypeError('Null property "{}" requires a primitive extension'.format(name))
+                            break
+                        if not self._matches_type(item, typ):
+                            err = TypeError('Wrong type {} for property "{}", expecting {}'.format(type(item), name, typ))
+                            break
+                    if err is None:
+                        setattr(self, name, value)
+                    if items:
+                        found.add(jsname)
+                        if of_many is not None:
+                            found.add(of_many)
+                    elif not_optional:
+                        nonoptionals.add(of_many or jsname)
+
             # not optional and missing, report (we clean `of_many` later on)
             elif not_optional:
                 nonoptionals.add(of_many or jsname)
             
-            # TODO: look at `_name` only if this is a primitive!
-            _jsname = '_'+jsname
+            _jsname = '_' + jsname
             _value = jsondict.get(_jsname)
             if _value is not None:
                 valid.add(_jsname)
-                found.add(_jsname)
-            
+                try:
+                    if typ not in (str, int, float, bool) and not issubclass(typ, FHIRDate):
+                        raise TypeError('Only primitives support sibling extensions')
+                    from .element import Element
+                    if is_list:
+                        if not isinstance(_value, list) or not _value:
+                            raise TypeError('Primitive array extensions require a nonempty array')
+                        extensions = [None if item is None else Element(item).as_json() for item in _value]
+                        if not any(item is not None for item in extensions):
+                            raise TypeError('Primitive extensions cannot be entirely null')
+                        if isinstance(value, list) and len(value) != len(extensions):
+                            raise TypeError('Primitive values and extensions must align')
+                        self._primitive_extensions[_jsname] = extensions
+                    else:
+                        if not isinstance(_value, dict) or not _value:
+                            raise TypeError('Primitive extension requires an element')
+                        self._primitive_extensions[_jsname] = Element(_value).as_json()
+                    found.add(of_many or jsname)
+                except (TypeError, ValueError, FHIRValidationError) as error:
+                    err = error
+
             # report errors
             if err is not None:
                 errs.append(err.prefixed(name) if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
         
+        errs.extend(self._structure_errors(jsondict))
+
         # were there missing non-optional entries?
         if len(nonoptionals) > 0:
             for miss in nonoptionals - found:
@@ -230,7 +269,7 @@ class FHIRAbstractBase(object):
         if len(errs) > 0:
             raise FHIRValidationError(errs)
     
-    def as_json(self):
+    def as_json(self) -> dict[str, JSONValue]:
         """ Serializes to JSON by inspecting `elementProperties()` and creating
         a JSON dictionary of all registered properties. Checks:
         
@@ -241,7 +280,7 @@ class FHIRAbstractBase(object):
             required properties are empty
         :returns: A validated dict object that can be JSON serialized
         """
-        js = {}
+        js: dict[str, JSONValue] = dict(self._primitive_extensions)
         errs = []
         
         # JSONify all registered properties
@@ -253,6 +292,8 @@ class FHIRAbstractBase(object):
             
             err = None
             value = getattr(self, name)
+            if '_' + jsname in self._primitive_extensions:
+                found.add(of_many or jsname)
             if value is None:
                 continue
             
@@ -261,7 +302,7 @@ class FHIRAbstractBase(object):
                    err = TypeError("Expecting property \"{}\" on {} to be list, but is {}"
                        .format(name, type(self), type(value)))
                 elif len(value) > 0:
-                    if not self._matches_type(value[0], typ):
+                    if any(not self._matches_type(item, typ) for item in value):
                         err = TypeError("Expecting property \"{}\" on {} to be {}, but is {}"
                             .format(name, type(self), typ, type(value[0])))
                     else:
@@ -287,6 +328,8 @@ class FHIRAbstractBase(object):
             if err is not None:
                 errs.append(err if isinstance(err, FHIRValidationError) else FHIRValidationError([err], name))
         
+        errs.extend(self._structure_errors(js))
+
         # any missing non-optionals?
         if len(nonoptionals - found) > 0:
             for nonop in nonoptionals - found:
@@ -297,18 +340,40 @@ class FHIRAbstractBase(object):
             raise FHIRValidationError(errs)
         return js
     
-    def _matches_type(self, value, typ):
+    def _structure_errors(self, values: dict[str, JSONValue]) -> list[ValueError]:
+        selected: dict[str, str] = {}
+        errors: list[ValueError] = []
+        for name, json_name, kind, is_list, group, required in self.elementProperties():
+            value = values.get(json_name)
+            details = values.get('_' + json_name)
+            if is_list and isinstance(value, list):
+                if isinstance(details, list) and len(details) != len(value):
+                    errors.append(ValueError('Primitive values and extensions must align'))
+                for index, item in enumerate(value):
+                    if item is None and not (
+                        isinstance(details, list) and index < len(details)
+                        and details[index] is not None
+                    ):
+                        errors.append(ValueError('Null array entries require primitive extensions'))
+            if group is None or (
+                values.get(json_name) is None
+                and values.get('_' + json_name) is None
+            ):
+                continue
+            if group in selected:
+                errors.append(ValueError('Conflicting properties "{}" and "{}" for choice "{}"'.format(selected[group], json_name, group)))
+            selected[group] = json_name
+        return errors
+
+    def _matches_type(self, value, typ) -> bool:
         if value is None:
             return True
-        if isinstance(value, typ):
-            return True
-        if int == typ or float == typ:
-            return (isinstance(value, int) or isinstance(value, float))
-        if (sys.version_info < (3, 0)) and (str == typ or unicode == typ):
-            return (isinstance(value, str) or isinstance(value, unicode))
-        return False
-    
-    
+        if typ is int:
+            return type(value) is int
+        if typ is float:
+            return type(value) in (int, float)
+        return isinstance(value, typ)
+
     # MARK: Handling References
     
     def owningResource(self):

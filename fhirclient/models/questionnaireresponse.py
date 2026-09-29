@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
     
     resource_type = "QuestionnaireResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,53 +26,53 @@ class QuestionnaireResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ Person who received and recorded the answers.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.authored = None
+        self.authored: fhirdatetime.FHIRDateTime | None = None
         """ Date the answers were gathered.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Request fulfilled by this QuestionnaireResponse.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Unique id for this set of answers.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.item: list[QuestionnaireResponseItem] | None = None
         """ Groups and questions.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of this action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.questionnaire = None
+        self.questionnaire: str | None = None
         """ Form being answered.
         Type `str`. """
         
-        self.source = None
+        self.source: fhirreference.FHIRReference | None = None
         """ The person who answered the questions.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ in-progress | completed | amended | entered-in-error | stopped.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ The subject of the questions.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(QuestionnaireResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
@@ -97,7 +101,7 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
     
     resource_type = "QuestionnaireResponseItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -105,29 +109,29 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.answer = None
+        self.answer: list[QuestionnaireResponseItemAnswer] | None = None
         """ The response(s) to the question.
         List of `QuestionnaireResponseItemAnswer` items (represented as `dict` in JSON). """
         
-        self.definition = None
+        self.definition: str | None = None
         """ ElementDefinition - details for the item.
         Type `str`. """
         
-        self.item = None
+        self.item: list[QuestionnaireResponseItem] | None = None
         """ Nested questionnaire response items.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
-        self.linkId = None
+        self.linkId: str | None = None
         """ Pointer to specific item from Questionnaire.
         Type `str`. """
         
-        self.text = None
+        self.text: str | None = None
         """ Name for group or question text.
         Type `str`. """
         
         super(QuestionnaireResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(QuestionnaireResponseItem, self).elementProperties()
         js.extend([
             ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False),
@@ -147,7 +151,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
     
     resource_type = "QuestionnaireResponseItemAnswer"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -155,61 +159,61 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.item = None
+        self.item: list[QuestionnaireResponseItem] | None = None
         """ Nested groups and questions.
         List of `QuestionnaireResponseItem` items (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ Single-valued answer to the question.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Single-valued answer to the question.
         Type `bool`. """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ Single-valued answer to the question.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ Single-valued answer to the question.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Single-valued answer to the question.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ Single-valued answer to the question.
         Type `float`. """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Single-valued answer to the question.
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Single-valued answer to the question.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Single-valued answer to the question.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Single-valued answer to the question.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Single-valued answer to the question.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ Single-valued answer to the question.
         Type `str`. """
         
         super(QuestionnaireResponseItemAnswer, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(QuestionnaireResponseItemAnswer, self).elementProperties()
         js.extend([
             ("item", "item", QuestionnaireResponseItem, True, None, False),

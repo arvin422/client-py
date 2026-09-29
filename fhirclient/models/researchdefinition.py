@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class ResearchDefinition(domainresource.DomainResource):
     
     resource_type = "ResearchDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,153 +27,153 @@ class ResearchDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the research definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: list[str | None] | None = None
         """ Used for footnotes or explanatory notes.
         List of `str` items. """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the research definition.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the research definition is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.exposure = None
+        self.exposure: fhirreference.FHIRReference | None = None
         """ What exposure?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.exposureAlternative = None
+        self.exposureAlternative: fhirreference.FHIRReference | None = None
         """ What alternative exposure state?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the research definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for research definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the research definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.library = None
+        self.library: list[str | None] | None = None
         """ Logic used by the ResearchDefinition.
         List of `str` items. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this research definition (computer friendly).
         Type `str`. """
         
-        self.outcome = None
+        self.outcome: fhirreference.FHIRReference | None = None
         """ What outcome?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.population = None
+        self.population: fhirreference.FHIRReference | None = None
         """ What population?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this research definition is defined.
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.shortTitle = None
+        self.shortTitle: str | None = None
         """ Title for use in informal contexts.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subjectCodeableConcept = None
+        self.subjectCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subjectReference = None
+        self.subjectReference: fhirreference.FHIRReference | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the ResearchDefinition.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this research definition (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ The category of the ResearchDefinition, such as Education,
         Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this research definition, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.usage = None
+        self.usage: str | None = None
         """ Describes the clinical usage of the ResearchDefinition.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the research definition.
         Type `str`. """
         
         super(ResearchDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ResearchDefinition, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),

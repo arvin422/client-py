@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestReport).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class TestReport(domainresource.DomainResource):
     
     resource_type = "TestReport"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,62 +24,62 @@ class TestReport(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ External identifier.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.issued = None
+        self.issued: fhirdatetime.FHIRDateTime | None = None
         """ When the TestScript was executed and this TestReport was generated.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Informal name of the executed TestScript.
         Type `str`. """
         
-        self.participant = None
+        self.participant: list[TestReportParticipant] | None = None
         """ A participant in the test execution, either the execution engine, a
         client, or a server.
         List of `TestReportParticipant` items (represented as `dict` in JSON). """
         
-        self.result = None
+        self.result: str | None = None
         """ pass | fail | pending.
         Type `str`. """
         
-        self.score = None
+        self.score: float | None = None
         """ The final score (percentage of tests passed) resulting from the
         execution of the TestScript.
         Type `float`. """
         
-        self.setup = None
+        self.setup: TestReportSetup | None = None
         """ The results of the series of required setup operations before the
         tests were executed.
         Type `TestReportSetup` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ completed | in-progress | waiting | stopped | entered-in-error.
         Type `str`. """
         
-        self.teardown = None
+        self.teardown: TestReportTeardown | None = None
         """ The results of running the series of required clean up steps.
         Type `TestReportTeardown` (represented as `dict` in JSON). """
         
-        self.test = None
+        self.test: list[TestReportTest] | None = None
         """ A test executed from the test script.
         List of `TestReportTest` items (represented as `dict` in JSON). """
         
-        self.testScript = None
+        self.testScript: fhirreference.FHIRReference | None = None
         """ Reference to the  version-specific TestScript that was executed to
         produce this TestReport.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.tester = None
+        self.tester: str | None = None
         """ Name of the tester producing this report (Organization or
         individual).
         Type `str`. """
         
         super(TestReport, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReport, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),
@@ -103,7 +107,7 @@ class TestReportParticipant(backboneelement.BackboneElement):
     
     resource_type = "TestReportParticipant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -111,21 +115,21 @@ class TestReportParticipant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.display = None
+        self.display: str | None = None
         """ The display name of the participant.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ test-engine | client | server.
         Type `str`. """
         
-        self.uri = None
+        self.uri: str | None = None
         """ The uri of the participant. An absolute URL is preferred.
         Type `str`. """
         
         super(TestReportParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportParticipant, self).elementProperties()
         js.extend([
             ("display", "display", str, False, None, False),
@@ -142,7 +146,7 @@ class TestReportSetup(backboneelement.BackboneElement):
     
     resource_type = "TestReportSetup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -150,13 +154,13 @@ class TestReportSetup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestReportSetupAction] | None = None
         """ A setup operation or assert that was executed.
         List of `TestReportSetupAction` items (represented as `dict` in JSON). """
         
         super(TestReportSetup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportSetup, self).elementProperties()
         js.extend([
             ("action", "action", TestReportSetupAction, True, None, True),
@@ -172,7 +176,7 @@ class TestReportSetupAction(backboneelement.BackboneElement):
     
     resource_type = "TestReportSetupAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -180,17 +184,17 @@ class TestReportSetupAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
+        self.assert_fhir: TestReportSetupActionAssert | None = None
         """ The assertion to perform.
         Type `TestReportSetupActionAssert` (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: TestReportSetupActionOperation | None = None
         """ The operation to perform.
         Type `TestReportSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestReportSetupAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportSetupAction, self).elementProperties()
         js.extend([
             ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False),
@@ -207,7 +211,7 @@ class TestReportSetupActionAssert(backboneelement.BackboneElement):
     
     resource_type = "TestReportSetupActionAssert"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -215,21 +219,21 @@ class TestReportSetupActionAssert(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.detail = None
+        self.detail: str | None = None
         """ A link to further details on the result.
         Type `str`. """
         
-        self.message = None
+        self.message: str | None = None
         """ A message associated with the result.
         Type `str`. """
         
-        self.result = None
+        self.result: str | None = None
         """ pass | skip | fail | warning | error.
         Type `str`. """
         
         super(TestReportSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportSetupActionAssert, self).elementProperties()
         js.extend([
             ("detail", "detail", str, False, None, False),
@@ -247,7 +251,7 @@ class TestReportSetupActionOperation(backboneelement.BackboneElement):
     
     resource_type = "TestReportSetupActionOperation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -255,21 +259,21 @@ class TestReportSetupActionOperation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.detail = None
+        self.detail: str | None = None
         """ A link to further details on the result.
         Type `str`. """
         
-        self.message = None
+        self.message: str | None = None
         """ A message associated with the result.
         Type `str`. """
         
-        self.result = None
+        self.result: str | None = None
         """ pass | skip | fail | warning | error.
         Type `str`. """
         
         super(TestReportSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportSetupActionOperation, self).elementProperties()
         js.extend([
             ("detail", "detail", str, False, None, False),
@@ -288,7 +292,7 @@ class TestReportTeardown(backboneelement.BackboneElement):
     
     resource_type = "TestReportTeardown"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -296,13 +300,13 @@ class TestReportTeardown(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestReportTeardownAction] | None = None
         """ One or more teardown operations performed.
         List of `TestReportTeardownAction` items (represented as `dict` in JSON). """
         
         super(TestReportTeardown, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportTeardown, self).elementProperties()
         js.extend([
             ("action", "action", TestReportTeardownAction, True, None, True),
@@ -318,7 +322,7 @@ class TestReportTeardownAction(backboneelement.BackboneElement):
     
     resource_type = "TestReportTeardownAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -326,13 +330,13 @@ class TestReportTeardownAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.operation = None
+        self.operation: TestReportSetupActionOperation | None = None
         """ The teardown operation performed.
         Type `TestReportSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestReportTeardownAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportTeardownAction, self).elementProperties()
         js.extend([
             ("operation", "operation", TestReportSetupActionOperation, False, None, True),
@@ -346,7 +350,7 @@ class TestReportTest(backboneelement.BackboneElement):
     
     resource_type = "TestReportTest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -354,21 +358,21 @@ class TestReportTest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestReportTestAction] | None = None
         """ A test operation or assert that was performed.
         List of `TestReportTestAction` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Tracking/reporting short description of the test.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Tracking/logging name of this test.
         Type `str`. """
         
         super(TestReportTest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportTest, self).elementProperties()
         js.extend([
             ("action", "action", TestReportTestAction, True, None, True),
@@ -386,7 +390,7 @@ class TestReportTestAction(backboneelement.BackboneElement):
     
     resource_type = "TestReportTestAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -394,17 +398,17 @@ class TestReportTestAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
+        self.assert_fhir: TestReportSetupActionAssert | None = None
         """ The assertion performed.
         Type `TestReportSetupActionAssert` (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: TestReportSetupActionOperation | None = None
         """ The operation performed.
         Type `TestReportSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestReportTestAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestReportTestAction, self).elementProperties()
         js.extend([
             ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False),

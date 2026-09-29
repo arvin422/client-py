@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ContactPoint).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -13,7 +17,7 @@ class ContactPoint(element.Element):
     
     resource_type = "ContactPoint"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,29 +25,29 @@ class ContactPoint(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Time period when the contact point was/is in use.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.rank = None
+        self.rank: int | None = None
         """ Specify preferred order of use (1 = highest).
         Type `int`. """
         
-        self.system = None
+        self.system: str | None = None
         """ phone | fax | email | pager | url | sms | other.
         Type `str`. """
         
-        self.use = None
+        self.use: str | None = None
         """ home | work | temp | old | mobile - purpose of this contact point.
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ The actual contact point details.
         Type `str`. """
         
         super(ContactPoint, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ContactPoint, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, False),

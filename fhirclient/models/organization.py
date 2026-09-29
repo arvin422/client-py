@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Organization).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class Organization(domainresource.DomainResource):
     
     resource_type = "Organization"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,51 +27,51 @@ class Organization(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether the organization's record is still in active use.
         Type `bool`. """
         
-        self.address = None
+        self.address: list[address.Address] | None = None
         """ An address for the organization.
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.alias = None
+        self.alias: list[str | None] | None = None
         """ A list of alternate names that the organization is known as, or was
         known as in the past.
         List of `str` items. """
         
-        self.contact = None
+        self.contact: list[OrganizationContact] | None = None
         """ Contact for the organization for a certain purpose.
         List of `OrganizationContact` items (represented as `dict` in JSON). """
         
-        self.endpoint = None
+        self.endpoint: list[fhirreference.FHIRReference] | None = None
         """ Technical endpoints providing access to services operated for the
         organization.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifies this organization  across multiple systems.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name used for the organization.
         Type `str`. """
         
-        self.partOf = None
+        self.partOf: fhirreference.FHIRReference | None = None
         """ The organization of which this organization forms a part.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the organization.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Kind of organization.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(Organization, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Organization, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -92,7 +96,7 @@ class OrganizationContact(backboneelement.BackboneElement):
     
     resource_type = "OrganizationContact"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -100,25 +104,25 @@ class OrganizationContact(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.address = None
+        self.address: address.Address | None = None
         """ Visiting or postal addresses for the contact.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: humanname.HumanName | None = None
         """ A name associated with the contact.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.purpose = None
+        self.purpose: codeableconcept.CodeableConcept | None = None
         """ The type of contact.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ Contact details (telephone, email, etc.)  for a contact.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(OrganizationContact, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OrganizationContact, self).elementProperties()
         js.extend([
             ("address", "address", address.Address, False, None, False),

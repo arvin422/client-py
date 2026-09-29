@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class MedicationRequest(domainresource.DomainResource):
     
     resource_type = "MedicationRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,148 +29,148 @@ class MedicationRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ When request was initially authored.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ What request fulfills.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Type of medication usage.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.courseOfTherapyType = None
+        self.courseOfTherapyType: codeableconcept.CodeableConcept | None = None
         """ Overall pattern of medication administration.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detectedIssue = None
+        self.detectedIssue: list[fhirreference.FHIRReference] | None = None
         """ Clinical Issue with action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.dispenseRequest = None
+        self.dispenseRequest: MedicationRequestDispenseRequest | None = None
         """ Medication supply authorization.
         Type `MedicationRequestDispenseRequest` (represented as `dict` in JSON). """
         
-        self.doNotPerform = None
+        self.doNotPerform: bool | None = None
         """ True if request is prohibiting action.
         Type `bool`. """
         
-        self.dosageInstruction = None
+        self.dosageInstruction: list[dosage.Dosage] | None = None
         """ How the medication should be taken.
         List of `Dosage` items (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of encounter/admission/stay.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.eventHistory = None
+        self.eventHistory: list[fhirreference.FHIRReference] | None = None
         """ A list of events of interest in the lifecycle.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.groupIdentifier = None
+        self.groupIdentifier: identifier.Identifier | None = None
         """ Composite request this is part of.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External ids for this request.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.insurance = None
+        self.insurance: list[fhirreference.FHIRReference] | None = None
         """ Associated insurance coverage.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | order | original-order | reflex-order | filler-
         order | instance-order | option.
         Type `str`. """
         
-        self.medicationCodeableConcept = None
+        self.medicationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Medication to be taken.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.medicationReference = None
+        self.medicationReference: fhirreference.FHIRReference | None = None
         """ Medication to be taken.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Information about the prescription.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: fhirreference.FHIRReference | None = None
         """ Intended performer of administration.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performerType = None
+        self.performerType: codeableconcept.CodeableConcept | None = None
         """ Desired kind of performer of the medication administration.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.priorPrescription = None
+        self.priorPrescription: fhirreference.FHIRReference | None = None
         """ An order/prescription that is being replaced.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Reason or indication for ordering or not ordering the medication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Condition or observation that supports why the prescription is
         being written.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.recorder = None
+        self.recorder: fhirreference.FHIRReference | None = None
         """ Person who entered the request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.reportedBoolean = None
+        self.reportedBoolean: bool | None = None
         """ Reported rather than primary record.
         Type `bool`. """
         
-        self.reportedReference = None
+        self.reportedReference: fhirreference.FHIRReference | None = None
         """ Reported rather than primary record.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requester = None
+        self.requester: fhirreference.FHIRReference | None = None
         """ Who/What requested the Request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | on-hold | cancelled | completed | entered-in-error |
         stopped | draft | unknown.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: codeableconcept.CodeableConcept | None = None
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who or group medication request is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.substitution = None
+        self.substitution: MedicationRequestSubstitution | None = None
         """ Any restrictions on medication substitution.
         Type `MedicationRequestSubstitution` (represented as `dict` in JSON). """
         
-        self.supportingInformation = None
+        self.supportingInformation: list[fhirreference.FHIRReference] | None = None
         """ Information to support ordering of the medication.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(MedicationRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationRequest, self).elementProperties()
         js.extend([
             ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
@@ -222,7 +226,7 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     
     resource_type = "MedicationRequestDispenseRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -230,37 +234,37 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dispenseInterval = None
+        self.dispenseInterval: duration.Duration | None = None
         """ Minimum period of time between dispenses.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.expectedSupplyDuration = None
+        self.expectedSupplyDuration: duration.Duration | None = None
         """ Number of days supply per dispense.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.initialFill = None
+        self.initialFill: MedicationRequestDispenseRequestInitialFill | None = None
         """ First fill details.
         Type `MedicationRequestDispenseRequestInitialFill` (represented as `dict` in JSON). """
         
-        self.numberOfRepeatsAllowed = None
+        self.numberOfRepeatsAllowed: int | None = None
         """ Number of refills authorized.
         Type `int`. """
         
-        self.performer = None
+        self.performer: fhirreference.FHIRReference | None = None
         """ Intended dispenser.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Amount of medication to supply per dispense.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.validityPeriod = None
+        self.validityPeriod: period.Period | None = None
         """ Time period supply is authorized for.
         Type `Period` (represented as `dict` in JSON). """
         
         super(MedicationRequestDispenseRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationRequestDispenseRequest, self).elementProperties()
         js.extend([
             ("dispenseInterval", "dispenseInterval", duration.Duration, False, None, False),
@@ -283,7 +287,7 @@ class MedicationRequestDispenseRequestInitialFill(backboneelement.BackboneElemen
     
     resource_type = "MedicationRequestDispenseRequestInitialFill"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -291,17 +295,17 @@ class MedicationRequestDispenseRequestInitialFill(backboneelement.BackboneElemen
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.duration = None
+        self.duration: duration.Duration | None = None
         """ First fill duration.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ First fill quantity.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(MedicationRequestDispenseRequestInitialFill, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationRequestDispenseRequestInitialFill, self).elementProperties()
         js.extend([
             ("duration", "duration", duration.Duration, False, None, False),
@@ -321,7 +325,7 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
     
     resource_type = "MedicationRequestSubstitution"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -329,21 +333,21 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allowedBoolean = None
+        self.allowedBoolean: bool | None = None
         """ Whether substitution is allowed or not.
         Type `bool`. """
         
-        self.allowedCodeableConcept = None
+        self.allowedCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Whether substitution is allowed or not.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reason = None
+        self.reason: codeableconcept.CodeableConcept | None = None
         """ Why should (not) substitution be made.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationRequestSubstitution, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationRequestSubstitution, self).elementProperties()
         js.extend([
             ("allowedBoolean", "allowedBoolean", bool, False, "allowed", True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class ActivityDefinition(domainresource.DomainResource):
     
     resource_type = "ActivityDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,223 +27,223 @@ class ActivityDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the activity definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: list[codeableconcept.CodeableConcept] | None = None
         """ What part of body to perform on.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Detail type of activity.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the activity definition.
         Type `str`. """
         
-        self.doNotPerform = None
+        self.doNotPerform: bool | None = None
         """ True if the activity should not be performed.
         Type `bool`. """
         
-        self.dosage = None
+        self.dosage: list[dosage.Dosage] | None = None
         """ Detailed dosage instructions.
         List of `Dosage` items (represented as `dict` in JSON). """
         
-        self.dynamicValue = None
+        self.dynamicValue: list[ActivityDefinitionDynamicValue] | None = None
         """ Dynamic aspects of the definition.
         List of `ActivityDefinitionDynamicValue` items (represented as `dict` in JSON). """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the activity definition is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the activity definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | directive | order | original-order | reflex-order
         | filler-order | instance-order | option.
         Type `str`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for activity definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ Kind of resource.
         Type `str`. """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the activity definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.library = None
+        self.library: list[str | None] | None = None
         """ Logic used by the activity definition.
         List of `str` items. """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where it should happen.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this activity definition (computer friendly).
         Type `str`. """
         
-        self.observationRequirement = None
+        self.observationRequirement: list[fhirreference.FHIRReference] | None = None
         """ What observations are required to perform this action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.observationResultRequirement = None
+        self.observationResultRequirement: list[fhirreference.FHIRReference] | None = None
         """ What observations must be produced by this action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.participant = None
+        self.participant: list[ActivityDefinitionParticipant] | None = None
         """ Who should participate in the action.
         List of `ActivityDefinitionParticipant` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.productCodeableConcept = None
+        self.productCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What's administered/supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.productReference = None
+        self.productReference: fhirreference.FHIRReference | None = None
         """ What's administered/supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.profile = None
+        self.profile: str | None = None
         """ What profile the resource needs to conform to.
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this activity definition is defined.
         Type `str`. """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ How much is administered/consumed/supplied.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.specimenRequirement = None
+        self.specimenRequirement: list[fhirreference.FHIRReference] | None = None
         """ What specimens are required to perform this action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subjectCodeableConcept = None
+        self.subjectCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Type of individual the activity definition is intended for.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subjectReference = None
+        self.subjectReference: fhirreference.FHIRReference | None = None
         """ Type of individual the activity definition is intended for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the activity definition.
         Type `str`. """
         
-        self.timingAge = None
+        self.timingAge: age.Age | None = None
         """ When activity is to occur.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.timingDateTime = None
+        self.timingDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When activity is to occur.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.timingDuration = None
+        self.timingDuration: duration.Duration | None = None
         """ When activity is to occur.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.timingPeriod = None
+        self.timingPeriod: period.Period | None = None
         """ When activity is to occur.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.timingRange = None
+        self.timingRange: range.Range | None = None
         """ When activity is to occur.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.timingTiming = None
+        self.timingTiming: timing.Timing | None = None
         """ When activity is to occur.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this activity definition (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ E.g. Education, Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.transform = None
+        self.transform: str | None = None
         """ Transform to apply the template.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this activity definition, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.usage = None
+        self.usage: str | None = None
         """ Describes the clinical usage of the activity definition.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the activity definition.
         Type `str`. """
         
         super(ActivityDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
@@ -313,7 +317,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     
     resource_type = "ActivityDefinitionDynamicValue"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -321,17 +325,17 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expression = None
+        self.expression: expression.Expression | None = None
         """ An expression that provides the dynamic value for the customization.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.path = None
+        self.path: str | None = None
         """ The path to the element to be set dynamically.
         Type `str`. """
         
         super(ActivityDefinitionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ActivityDefinitionDynamicValue, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, True),
@@ -348,7 +352,7 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
     
     resource_type = "ActivityDefinitionParticipant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -356,17 +360,17 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.role = None
+        self.role: codeableconcept.CodeableConcept | None = None
         """ E.g. Nurse, Surgeon, Parent, etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ patient | practitioner | related-person | device.
         Type `str`. """
         
         super(ActivityDefinitionParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ActivityDefinitionParticipant, self).elementProperties()
         js.extend([
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),

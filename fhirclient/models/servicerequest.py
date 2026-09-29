@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ServiceRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ServiceRequest(domainresource.DomainResource):
     
     resource_type = "ServiceRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,163 +25,163 @@ class ServiceRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.asNeededBoolean = None
+        self.asNeededBoolean: bool | None = None
         """ Preconditions for service.
         Type `bool`. """
         
-        self.asNeededCodeableConcept = None
+        self.asNeededCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Preconditions for service.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ Date request signed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ What request fulfills.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: list[codeableconcept.CodeableConcept] | None = None
         """ Location on Body.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Classification of service.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ What is being requested/ordered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.doNotPerform = None
+        self.doNotPerform: bool | None = None
         """ True if service/procedure should not be performed.
         Type `bool`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter in which the request was created.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifiers assigned to this order.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.insurance = None
+        self.insurance: list[fhirreference.FHIRReference] | None = None
         """ Associated insurance coverage.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | directive | order | original-order | reflex-order
         | filler-order | instance-order | option.
         Type `str`. """
         
-        self.locationCode = None
+        self.locationCode: list[codeableconcept.CodeableConcept] | None = None
         """ Requested location.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.locationReference = None
+        self.locationReference: list[fhirreference.FHIRReference] | None = None
         """ Requested location.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
+        self.occurrenceDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When service should occur.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.occurrencePeriod = None
+        self.occurrencePeriod: period.Period | None = None
         """ When service should occur.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.occurrenceTiming = None
+        self.occurrenceTiming: timing.Timing | None = None
         """ When service should occur.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.orderDetail = None
+        self.orderDetail: list[codeableconcept.CodeableConcept] | None = None
         """ Additional order information.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.patientInstruction = None
+        self.patientInstruction: str | None = None
         """ Patient or consumer-oriented instructions.
         Type `str`. """
         
-        self.performer = None
+        self.performer: list[fhirreference.FHIRReference] | None = None
         """ Requested performer.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.performerType = None
+        self.performerType: codeableconcept.CodeableConcept | None = None
         """ Performer role.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.quantityQuantity = None
+        self.quantityQuantity: quantity.Quantity | None = None
         """ Service amount.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.quantityRange = None
+        self.quantityRange: range.Range | None = None
         """ Service amount.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.quantityRatio = None
+        self.quantityRatio: ratio.Ratio | None = None
         """ Service amount.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Explanation/Justification for procedure or service.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Explanation/Justification for service or service.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.relevantHistory = None
+        self.relevantHistory: list[fhirreference.FHIRReference] | None = None
         """ Request provenance.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.replaces = None
+        self.replaces: list[fhirreference.FHIRReference] | None = None
         """ What request replaces.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requester = None
+        self.requester: fhirreference.FHIRReference | None = None
         """ Who/what is requesting service.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requisition = None
+        self.requisition: identifier.Identifier | None = None
         """ Composite Request ID.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.specimen = None
+        self.specimen: list[fhirreference.FHIRReference] | None = None
         """ Procedure Samples.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | on-hold | revoked | completed | entered-in-error |
         unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Individual or Entity the service is ordered for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.supportingInfo = None
+        self.supportingInfo: list[fhirreference.FHIRReference] | None = None
         """ Additional clinical information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(ServiceRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ServiceRequest, self).elementProperties()
         js.extend([
             ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),

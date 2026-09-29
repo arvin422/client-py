@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -15,7 +19,7 @@ class ParameterDefinition(element.Element):
     
     resource_type = "ParameterDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,37 +27,37 @@ class ParameterDefinition(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ A brief description of the parameter.
         Type `str`. """
         
-        self.max = None
+        self.max: str | None = None
         """ Maximum cardinality (a number of *).
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Minimum cardinality.
         Type `int`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name used to access the parameter value.
         Type `str`. """
         
-        self.profile = None
+        self.profile: str | None = None
         """ What profile the value is expected to be.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ What type of value.
         Type `str`. """
         
-        self.use = None
+        self.use: str | None = None
         """ in | out.
         Type `str`. """
         
         super(ParameterDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ParameterDefinition, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),

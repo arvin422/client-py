@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Account).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class Account(domainresource.DomainResource):
     
     resource_type = "Account"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,54 +26,54 @@ class Account(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.coverage = None
+        self.coverage: list[AccountCoverage] | None = None
         """ The party(s) that are responsible for covering the payment of this
         account, and what order should they be applied to the account.
         List of `AccountCoverage` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Explanation of purpose/use.
         Type `str`. """
         
-        self.guarantor = None
+        self.guarantor: list[AccountGuarantor] | None = None
         """ The parties ultimately responsible for balancing the Account.
         List of `AccountGuarantor` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Account number.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Human-readable label.
         Type `str`. """
         
-        self.owner = None
+        self.owner: fhirreference.FHIRReference | None = None
         """ Entity managing the Account.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: fhirreference.FHIRReference | None = None
         """ Reference to a parent Account.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.servicePeriod = None
+        self.servicePeriod: period.Period | None = None
         """ Transaction window.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | inactive | entered-in-error | on-hold | unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: list[fhirreference.FHIRReference] | None = None
         """ The entity that caused the expenses.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ E.g. patient, expense, depreciation.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Account, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Account, self).elementProperties()
         js.extend([
             ("coverage", "coverage", AccountCoverage, True, None, False),
@@ -96,7 +100,7 @@ class AccountCoverage(backboneelement.BackboneElement):
     
     resource_type = "AccountCoverage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -104,18 +108,18 @@ class AccountCoverage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.coverage = None
+        self.coverage: fhirreference.FHIRReference | None = None
         """ The party(s), such as insurances, that may contribute to the
         payment of this account.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: int | None = None
         """ The priority of the coverage in the context of this account.
         Type `int`. """
         
         super(AccountCoverage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AccountCoverage, self).elementProperties()
         js.extend([
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
@@ -133,7 +137,7 @@ class AccountGuarantor(backboneelement.BackboneElement):
     
     resource_type = "AccountGuarantor"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -141,21 +145,21 @@ class AccountGuarantor(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.onHold = None
+        self.onHold: bool | None = None
         """ Credit or other hold applied.
         Type `bool`. """
         
-        self.party = None
+        self.party: fhirreference.FHIRReference | None = None
         """ Responsible entity.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Guarantee account during.
         Type `Period` (represented as `dict` in JSON). """
         
         super(AccountGuarantor, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AccountGuarantor, self).elementProperties()
         js.extend([
             ("onHold", "onHold", bool, False, None, False),

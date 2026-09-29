@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Practitioner).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class Practitioner(domainresource.DomainResource):
     
     resource_type = "Practitioner"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,51 +26,51 @@ class Practitioner(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this practitioner's record is in active use.
         Type `bool`. """
         
-        self.address = None
+        self.address: list[address.Address] | None = None
         """ Address(es) of the practitioner that are not role specific
         (typically home address).
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.birthDate = None
+        self.birthDate: fhirdate.FHIRDate | None = None
         """ The date  on which the practitioner was born.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.communication = None
+        self.communication: list[codeableconcept.CodeableConcept] | None = None
         """ A language the practitioner can use in patient communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ An identifier for the person as this agent.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: list[humanname.HumanName] | None = None
         """ The name(s) associated with the practitioner.
         List of `HumanName` items (represented as `dict` in JSON). """
         
-        self.photo = None
+        self.photo: list[attachment.Attachment] | None = None
         """ Image of the person.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.qualification = None
+        self.qualification: list[PractitionerQualification] | None = None
         """ Certification, licenses, or training pertaining to the provision of
         care.
         List of `PractitionerQualification` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the practitioner (that apply to all roles).
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Practitioner, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Practitioner, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -96,7 +100,7 @@ class PractitionerQualification(backboneelement.BackboneElement):
     
     resource_type = "PractitionerQualification"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -104,25 +108,25 @@ class PractitionerQualification(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Coded representation of the qualification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ An identifier for this qualification for the practitioner.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.issuer = None
+        self.issuer: fhirreference.FHIRReference | None = None
         """ Organization that regulates and issues the qualification.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period during which the qualification is valid.
         Type `Period` (represented as `dict` in JSON). """
         
         super(PractitionerQualification, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PractitionerQualification, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Medication).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class Medication(domainresource.DomainResource):
     
     resource_type = "Medication"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,41 +26,41 @@ class Medication(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: ratio.Ratio | None = None
         """ Amount of drug in package.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.batch = None
+        self.batch: MedicationBatch | None = None
         """ Details about packaged medications.
         Type `MedicationBatch` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Codes that identify this medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.form = None
+        self.form: codeableconcept.CodeableConcept | None = None
         """ powder | tablets | capsule +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier for this medication.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.ingredient = None
+        self.ingredient: list[MedicationIngredient] | None = None
         """ Active or inactive ingredient.
         List of `MedicationIngredient` items (represented as `dict` in JSON). """
         
-        self.manufacturer = None
+        self.manufacturer: fhirreference.FHIRReference | None = None
         """ Manufacturer of the item.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | inactive | entered-in-error.
         Type `str`. """
         
         super(Medication, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Medication, self).elementProperties()
         js.extend([
             ("amount", "amount", ratio.Ratio, False, None, False),
@@ -81,7 +85,7 @@ class MedicationBatch(backboneelement.BackboneElement):
     
     resource_type = "MedicationBatch"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -89,17 +93,17 @@ class MedicationBatch(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expirationDate = None
+        self.expirationDate: fhirdatetime.FHIRDateTime | None = None
         """ When batch will expire.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.lotNumber = None
+        self.lotNumber: str | None = None
         """ Identifier assigned to batch.
         Type `str`. """
         
         super(MedicationBatch, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationBatch, self).elementProperties()
         js.extend([
             ("expirationDate", "expirationDate", fhirdatetime.FHIRDateTime, False, None, False),
@@ -116,7 +120,7 @@ class MedicationIngredient(backboneelement.BackboneElement):
     
     resource_type = "MedicationIngredient"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -124,25 +128,25 @@ class MedicationIngredient(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.isActive = None
+        self.isActive: bool | None = None
         """ Active ingredient indicator.
         Type `bool`. """
         
-        self.itemCodeableConcept = None
+        self.itemCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ The actual ingredient or content.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.itemReference = None
+        self.itemReference: fhirreference.FHIRReference | None = None
         """ The actual ingredient or content.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.strength = None
+        self.strength: ratio.Ratio | None = None
         """ Quantity of ingredient present.
         Type `Ratio` (represented as `dict` in JSON). """
         
         super(MedicationIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationIngredient, self).elementProperties()
         js.extend([
             ("isActive", "isActive", bool, False, None, False),

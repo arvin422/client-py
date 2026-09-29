@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EvidenceVariable).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class EvidenceVariable(domainresource.DomainResource):
     
     resource_type = "EvidenceVariable"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,119 +25,119 @@ class EvidenceVariable(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the evidence variable was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.characteristic = None
+        self.characteristic: list[EvidenceVariableCharacteristic] | None = None
         """ What defines the members of the evidence element.
         List of `EvidenceVariableCharacteristic` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the evidence variable.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the evidence variable is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the evidence variable.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for evidence variable (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the evidence variable was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this evidence variable (computer friendly).
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Used for footnotes or explanatory notes.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.shortTitle = None
+        self.shortTitle: str | None = None
         """ Title for use in informal contexts.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the EvidenceVariable.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this evidence variable (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ The category of the EvidenceVariable, such as Education, Treatment,
         Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ dichotomous | continuous | descriptive.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this evidence variable, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the evidence variable.
         Type `str`. """
         
         super(EvidenceVariable, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EvidenceVariable, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
@@ -178,7 +182,7 @@ class EvidenceVariableCharacteristic(backboneelement.BackboneElement):
     
     resource_type = "EvidenceVariableCharacteristic"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -186,70 +190,70 @@ class EvidenceVariableCharacteristic(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definitionCanonical = None
+        self.definitionCanonical: str | None = None
         """ What code or expression defines members?.
         Type `str`. """
         
-        self.definitionCodeableConcept = None
+        self.definitionCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What code or expression defines members?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.definitionDataRequirement = None
+        self.definitionDataRequirement: datarequirement.DataRequirement | None = None
         """ What code or expression defines members?.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.definitionExpression = None
+        self.definitionExpression: expression.Expression | None = None
         """ What code or expression defines members?.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.definitionReference = None
+        self.definitionReference: fhirreference.FHIRReference | None = None
         """ What code or expression defines members?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.definitionTriggerDefinition = None
+        self.definitionTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ What code or expression defines members?.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the characteristic.
         Type `str`. """
         
-        self.exclude = None
+        self.exclude: bool | None = None
         """ Whether the characteristic includes or excludes members.
         Type `bool`. """
         
-        self.groupMeasure = None
+        self.groupMeasure: str | None = None
         """ mean | median | mean-of-mean | mean-of-median | median-of-mean |
         median-of-median.
         Type `str`. """
         
-        self.participantEffectiveDateTime = None
+        self.participantEffectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ What time period do participants cover.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.participantEffectiveDuration = None
+        self.participantEffectiveDuration: duration.Duration | None = None
         """ What time period do participants cover.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.participantEffectivePeriod = None
+        self.participantEffectivePeriod: period.Period | None = None
         """ What time period do participants cover.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.participantEffectiveTiming = None
+        self.participantEffectiveTiming: timing.Timing | None = None
         """ What time period do participants cover.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.timeFromStart = None
+        self.timeFromStart: duration.Duration | None = None
         """ Observation time from study start.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.usageContext = None
+        self.usageContext: list[usagecontext.UsageContext] | None = None
         """ What code/value pairs define members?.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(EvidenceVariableCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EvidenceVariableCharacteristic, self).elementProperties()
         js.extend([
             ("definitionCanonical", "definitionCanonical", str, False, "definition", True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Patient).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class Patient(domainresource.DomainResource):
     
     resource_type = "Patient"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,83 +25,83 @@ class Patient(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this patient's record is in active use.
         Type `bool`. """
         
-        self.address = None
+        self.address: list[address.Address] | None = None
         """ An address for the individual.
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.birthDate = None
+        self.birthDate: fhirdate.FHIRDate | None = None
         """ The date of birth for the individual.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.communication = None
+        self.communication: list[PatientCommunication] | None = None
         """ A language which may be used to communicate with the patient about
         his or her health.
         List of `PatientCommunication` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[PatientContact] | None = None
         """ A contact party (e.g. guardian, partner, friend) for the patient.
         List of `PatientContact` items (represented as `dict` in JSON). """
         
-        self.deceasedBoolean = None
+        self.deceasedBoolean: bool | None = None
         """ Indicates if the individual is deceased or not.
         Type `bool`. """
         
-        self.deceasedDateTime = None
+        self.deceasedDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Indicates if the individual is deceased or not.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.generalPractitioner = None
+        self.generalPractitioner: list[fhirreference.FHIRReference] | None = None
         """ Patient's nominated primary care provider.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ An identifier for this patient.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[PatientLink] | None = None
         """ Link to another patient resource that concerns the same actual
         person.
         List of `PatientLink` items (represented as `dict` in JSON). """
         
-        self.managingOrganization = None
+        self.managingOrganization: fhirreference.FHIRReference | None = None
         """ Organization that is the custodian of the patient record.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.maritalStatus = None
+        self.maritalStatus: codeableconcept.CodeableConcept | None = None
         """ Marital (civil) status of a patient.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.multipleBirthBoolean = None
+        self.multipleBirthBoolean: bool | None = None
         """ Whether patient is part of a multiple birth.
         Type `bool`. """
         
-        self.multipleBirthInteger = None
+        self.multipleBirthInteger: int | None = None
         """ Whether patient is part of a multiple birth.
         Type `int`. """
         
-        self.name = None
+        self.name: list[humanname.HumanName] | None = None
         """ A name associated with the patient.
         List of `HumanName` items (represented as `dict` in JSON). """
         
-        self.photo = None
+        self.photo: list[attachment.Attachment] | None = None
         """ Image of the patient.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the individual.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Patient, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Patient, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -131,7 +135,7 @@ class PatientCommunication(backboneelement.BackboneElement):
     
     resource_type = "PatientCommunication"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -139,18 +143,18 @@ class PatientCommunication(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.language = None
+        self.language: codeableconcept.CodeableConcept | None = None
         """ The language which can be used to communicate with the patient
         about his or her health.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.preferred = None
+        self.preferred: bool | None = None
         """ Language preference indicator.
         Type `bool`. """
         
         super(PatientCommunication, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PatientCommunication, self).elementProperties()
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, True),
@@ -165,7 +169,7 @@ class PatientContact(backboneelement.BackboneElement):
     
     resource_type = "PatientContact"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -173,38 +177,38 @@ class PatientContact(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.address = None
+        self.address: address.Address | None = None
         """ Address for the contact person.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.name = None
+        self.name: humanname.HumanName | None = None
         """ A name associated with the contact person.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.organization = None
+        self.organization: fhirreference.FHIRReference | None = None
         """ Organization that is associated with the contact.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ The period during which this contact person or organization is
         valid to be contacted relating to this patient.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.relationship = None
+        self.relationship: list[codeableconcept.CodeableConcept] | None = None
         """ The kind of relationship.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the person.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(PatientContact, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PatientContact, self).elementProperties()
         js.extend([
             ("address", "address", address.Address, False, None, False),
@@ -226,7 +230,7 @@ class PatientLink(backboneelement.BackboneElement):
     
     resource_type = "PatientLink"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -234,18 +238,18 @@ class PatientLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.other = None
+        self.other: fhirreference.FHIRReference | None = None
         """ The other patient or related person resource that the link refers
         to.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ replaced-by | replaces | refer | seealso.
         Type `str`. """
         
         super(PatientLink, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PatientLink, self).elementProperties()
         js.extend([
             ("other", "other", fhirreference.FHIRReference, False, None, True),

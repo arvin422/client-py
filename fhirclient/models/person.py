@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Person).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class Person(domainresource.DomainResource):
     
     resource_type = "Person"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,49 +25,49 @@ class Person(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ This person's record is in active use.
         Type `bool`. """
         
-        self.address = None
+        self.address: list[address.Address] | None = None
         """ One or more addresses for the person.
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.birthDate = None
+        self.birthDate: fhirdate.FHIRDate | None = None
         """ The date on which the person was born.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ A human identifier for this person.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[PersonLink] | None = None
         """ Link to a resource that concerns the same actual person.
         List of `PersonLink` items (represented as `dict` in JSON). """
         
-        self.managingOrganization = None
+        self.managingOrganization: fhirreference.FHIRReference | None = None
         """ The organization that is the custodian of the person record.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: list[humanname.HumanName] | None = None
         """ A name associated with the person.
         List of `HumanName` items (represented as `dict` in JSON). """
         
-        self.photo = None
+        self.photo: attachment.Attachment | None = None
         """ Image of the person.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the person.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(Person, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Person, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -88,7 +92,7 @@ class PersonLink(backboneelement.BackboneElement):
     
     resource_type = "PersonLink"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -96,17 +100,17 @@ class PersonLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assurance = None
+        self.assurance: str | None = None
         """ level1 | level2 | level3 | level4.
         Type `str`. """
         
-        self.target = None
+        self.target: fhirreference.FHIRReference | None = None
         """ The resource to which this actual person is associated.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(PersonLink, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PersonLink, self).elementProperties()
         js.extend([
             ("assurance", "assurance", str, False, None, False),

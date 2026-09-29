@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HealthcareService).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class HealthcareService(domainresource.DomainResource):
     
     resource_type = "HealthcareService"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,108 +22,108 @@ class HealthcareService(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this HealthcareService record is in active use.
         Type `bool`. """
         
-        self.appointmentRequired = None
+        self.appointmentRequired: bool | None = None
         """ If an appointment is required for access to this service.
         Type `bool`. """
         
-        self.availabilityExceptions = None
+        self.availabilityExceptions: str | None = None
         """ Description of availability exceptions.
         Type `str`. """
         
-        self.availableTime = None
+        self.availableTime: list[HealthcareServiceAvailableTime] | None = None
         """ Times the Service Site is available.
         List of `HealthcareServiceAvailableTime` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Broad category of service being performed or delivered.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.characteristic = None
+        self.characteristic: list[codeableconcept.CodeableConcept] | None = None
         """ Collection of characteristics (attributes).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Additional description and/or any specific issues not covered
         elsewhere.
         Type `str`. """
         
-        self.communication = None
+        self.communication: list[codeableconcept.CodeableConcept] | None = None
         """ The language that this service is offered in.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.coverageArea = None
+        self.coverageArea: list[fhirreference.FHIRReference] | None = None
         """ Location(s) service is intended for/available to.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.eligibility = None
+        self.eligibility: list[HealthcareServiceEligibility] | None = None
         """ Specific eligibility requirements required to use the service.
         List of `HealthcareServiceEligibility` items (represented as `dict` in JSON). """
         
-        self.endpoint = None
+        self.endpoint: list[fhirreference.FHIRReference] | None = None
         """ Technical endpoints providing access to electronic services
         operated for the healthcare service.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.extraDetails = None
+        self.extraDetails: str | None = None
         """ Extra details about the service that can't be placed in the other
         fields.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External identifiers for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: list[fhirreference.FHIRReference] | None = None
         """ Location(s) where service may be provided.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Description of service as presented to a consumer while searching.
         Type `str`. """
         
-        self.notAvailable = None
+        self.notAvailable: list[HealthcareServiceNotAvailable] | None = None
         """ Not available during this time due to provided reason.
         List of `HealthcareServiceNotAvailable` items (represented as `dict` in JSON). """
         
-        self.photo = None
+        self.photo: attachment.Attachment | None = None
         """ Facilitates quick identification of the service.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.program = None
+        self.program: list[codeableconcept.CodeableConcept] | None = None
         """ Programs that this service is applicable to.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.providedBy = None
+        self.providedBy: fhirreference.FHIRReference | None = None
         """ Organization that provides this service.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.referralMethod = None
+        self.referralMethod: list[codeableconcept.CodeableConcept] | None = None
         """ Ways that the service accepts referrals.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.serviceProvisionCode = None
+        self.serviceProvisionCode: list[codeableconcept.CodeableConcept] | None = None
         """ Conditions under which service is available/offered.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.specialty = None
+        self.specialty: list[codeableconcept.CodeableConcept] | None = None
         """ Specialties handled by the HealthcareService.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ Contacts related to the healthcare service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Type of service that may be delivered or performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(HealthcareService, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(HealthcareService, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -160,7 +164,7 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     
     resource_type = "HealthcareServiceAvailableTime"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -168,25 +172,25 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allDay = None
+        self.allDay: bool | None = None
         """ Always available? e.g. 24 hour service.
         Type `bool`. """
         
-        self.availableEndTime = None
+        self.availableEndTime: fhirtime.FHIRTime | None = None
         """ Closing time of day (ignored if allDay = true).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.availableStartTime = None
+        self.availableStartTime: fhirtime.FHIRTime | None = None
         """ Opening time of day (ignored if allDay = true).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.daysOfWeek = None
+        self.daysOfWeek: list[str | None] | None = None
         """ mon | tue | wed | thu | fri | sat | sun.
         List of `str` items. """
         
         super(HealthcareServiceAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
@@ -206,7 +210,7 @@ class HealthcareServiceEligibility(backboneelement.BackboneElement):
     
     resource_type = "HealthcareServiceEligibility"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -214,17 +218,17 @@ class HealthcareServiceEligibility(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Coded value for the eligibility.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Describes the eligibility conditions for the service.
         Type `str`. """
         
         super(HealthcareServiceEligibility, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(HealthcareServiceEligibility, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -242,7 +246,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     
     resource_type = "HealthcareServiceNotAvailable"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -250,17 +254,17 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Reason presented to the user explaining why time not available.
         Type `str`. """
         
-        self.during = None
+        self.during: period.Period | None = None
         """ Service not available from this date.
         Type `Period` (represented as `dict` in JSON). """
         
         super(HealthcareServiceNotAvailable, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),

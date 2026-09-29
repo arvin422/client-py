@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ResearchElementDefinition(domainresource.DomainResource):
     
     resource_type = "ResearchElementDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,150 +25,150 @@ class ResearchElementDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the research element definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.characteristic = None
+        self.characteristic: list[ResearchElementDefinitionCharacteristic] | None = None
         """ What defines the members of the research element.
         List of `ResearchElementDefinitionCharacteristic` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: list[str | None] | None = None
         """ Used for footnotes or explanatory notes.
         List of `str` items. """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the research element definition.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the research element definition is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the research element definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for research element definition (if
         applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the research element definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.library = None
+        self.library: list[str | None] | None = None
         """ Logic used by the ResearchElementDefinition.
         List of `str` items. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this research element definition (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this research element definition is defined.
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.shortTitle = None
+        self.shortTitle: str | None = None
         """ Title for use in informal contexts.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subjectCodeableConcept = None
+        self.subjectCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subjectReference = None
+        self.subjectReference: fhirreference.FHIRReference | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the ResearchElementDefinition.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this research element definition (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ The category of the ResearchElementDefinition, such as Education,
         Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ population | exposure | outcome.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this research element definition,
         represented as a URI (globally unique).
         Type `str`. """
         
-        self.usage = None
+        self.usage: str | None = None
         """ Describes the clinical usage of the ResearchElementDefinition.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.variableType = None
+        self.variableType: str | None = None
         """ dichotomous | continuous | descriptive.
         Type `str`. """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the research element definition.
         Type `str`. """
         
         super(ResearchElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ResearchElementDefinition, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
@@ -216,7 +220,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
     
     resource_type = "ResearchElementDefinitionCharacteristic"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -224,95 +228,95 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.definitionCanonical = None
+        self.definitionCanonical: str | None = None
         """ What code or expression defines members?.
         Type `str`. """
         
-        self.definitionCodeableConcept = None
+        self.definitionCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What code or expression defines members?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.definitionDataRequirement = None
+        self.definitionDataRequirement: datarequirement.DataRequirement | None = None
         """ What code or expression defines members?.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.definitionExpression = None
+        self.definitionExpression: expression.Expression | None = None
         """ What code or expression defines members?.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.exclude = None
+        self.exclude: bool | None = None
         """ Whether the characteristic includes or excludes members.
         Type `bool`. """
         
-        self.participantEffectiveDateTime = None
+        self.participantEffectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ What time period do participants cover.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.participantEffectiveDescription = None
+        self.participantEffectiveDescription: str | None = None
         """ What time period do participants cover.
         Type `str`. """
         
-        self.participantEffectiveDuration = None
+        self.participantEffectiveDuration: duration.Duration | None = None
         """ What time period do participants cover.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.participantEffectiveGroupMeasure = None
+        self.participantEffectiveGroupMeasure: str | None = None
         """ mean | median | mean-of-mean | mean-of-median | median-of-mean |
         median-of-median.
         Type `str`. """
         
-        self.participantEffectivePeriod = None
+        self.participantEffectivePeriod: period.Period | None = None
         """ What time period do participants cover.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.participantEffectiveTimeFromStart = None
+        self.participantEffectiveTimeFromStart: duration.Duration | None = None
         """ Observation time from study start.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.participantEffectiveTiming = None
+        self.participantEffectiveTiming: timing.Timing | None = None
         """ What time period do participants cover.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.studyEffectiveDateTime = None
+        self.studyEffectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ What time period does the study cover.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.studyEffectiveDescription = None
+        self.studyEffectiveDescription: str | None = None
         """ What time period does the study cover.
         Type `str`. """
         
-        self.studyEffectiveDuration = None
+        self.studyEffectiveDuration: duration.Duration | None = None
         """ What time period does the study cover.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.studyEffectiveGroupMeasure = None
+        self.studyEffectiveGroupMeasure: str | None = None
         """ mean | median | mean-of-mean | mean-of-median | median-of-mean |
         median-of-median.
         Type `str`. """
         
-        self.studyEffectivePeriod = None
+        self.studyEffectivePeriod: period.Period | None = None
         """ What time period does the study cover.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.studyEffectiveTimeFromStart = None
+        self.studyEffectiveTimeFromStart: duration.Duration | None = None
         """ Observation time from study start.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.studyEffectiveTiming = None
+        self.studyEffectiveTiming: timing.Timing | None = None
         """ What time period does the study cover.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.unitOfMeasure = None
+        self.unitOfMeasure: codeableconcept.CodeableConcept | None = None
         """ What unit is the outcome described in?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.usageContext = None
+        self.usageContext: list[usagecontext.UsageContext] | None = None
         """ What code/value pairs define members?.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(ResearchElementDefinitionCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ResearchElementDefinitionCharacteristic, self).elementProperties()
         js.extend([
             ("definitionCanonical", "definitionCanonical", str, False, "definition", True),

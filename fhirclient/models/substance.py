@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Substance).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class Substance(domainresource.DomainResource):
     
     resource_type = "Substance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,37 +22,37 @@ class Substance(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ What class/type of substance this is.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ What substance this is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Textual description of the substance, comments.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.ingredient = None
+        self.ingredient: list[SubstanceIngredient] | None = None
         """ Composition information about the substance.
         List of `SubstanceIngredient` items (represented as `dict` in JSON). """
         
-        self.instance = None
+        self.instance: list[SubstanceInstance] | None = None
         """ If this describes a specific package/container of the substance.
         List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | inactive | entered-in-error.
         Type `str`. """
         
         super(Substance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Substance, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
@@ -72,7 +76,7 @@ class SubstanceIngredient(backboneelement.BackboneElement):
     
     resource_type = "SubstanceIngredient"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -80,21 +84,21 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.quantity = None
+        self.quantity: ratio.Ratio | None = None
         """ Optional amount (concentration).
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.substanceCodeableConcept = None
+        self.substanceCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ A component of the substance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.substanceReference = None
+        self.substanceReference: fhirreference.FHIRReference | None = None
         """ A component of the substance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(SubstanceIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceIngredient, self).elementProperties()
         js.extend([
             ("quantity", "quantity", ratio.Ratio, False, None, False),
@@ -113,7 +117,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
     
     resource_type = "SubstanceInstance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -121,21 +125,21 @@ class SubstanceInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expiry = None
+        self.expiry: fhirdatetime.FHIRDateTime | None = None
         """ When no longer valid to use.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Identifier of the package/container.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Amount of substance in the package.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SubstanceInstance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceInstance, self).elementProperties()
         js.extend([
             ("expiry", "expiry", fhirdatetime.FHIRDateTime, False, None, False),

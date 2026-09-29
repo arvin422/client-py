@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class GuidanceResponse(domainresource.DomainResource):
     
     resource_type = "GuidanceResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,78 +26,78 @@ class GuidanceResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dataRequirement = None
+        self.dataRequirement: list[datarequirement.DataRequirement] | None = None
         """ Additional required data.
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter during which the response was returned.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.evaluationMessage = None
+        self.evaluationMessage: list[fhirreference.FHIRReference] | None = None
         """ Messages resulting from the evaluation of the artifact or artifacts.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.moduleCanonical = None
+        self.moduleCanonical: str | None = None
         """ What guidance was requested.
         Type `str`. """
         
-        self.moduleCodeableConcept = None
+        self.moduleCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What guidance was requested.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.moduleUri = None
+        self.moduleUri: str | None = None
         """ What guidance was requested.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Additional notes about the response.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
+        self.occurrenceDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When the guidance response was processed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.outputParameters = None
+        self.outputParameters: fhirreference.FHIRReference | None = None
         """ The output parameters of the evaluation, if any.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: fhirreference.FHIRReference | None = None
         """ Device returning the guidance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why guidance is needed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why guidance is needed.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requestIdentifier = None
+        self.requestIdentifier: identifier.Identifier | None = None
         """ The identifier of the request associated with this response, if any.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.result = None
+        self.result: fhirreference.FHIRReference | None = None
         """ Proposed actions, if any.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ success | data-requested | data-required | in-progress | failure |
         entered-in-error.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Patient the request was performed for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(GuidanceResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GuidanceResponse, self).elementProperties()
         js.extend([
             ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False),

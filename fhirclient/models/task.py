@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Task).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class Task(domainresource.DomainResource):
     
     resource_type = "Task"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,134 +22,134 @@ class Task(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ Task Creation Date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Request fulfilled by this task.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.businessStatus = None
+        self.businessStatus: codeableconcept.CodeableConcept | None = None
         """ E.g. "Specimen collected", "IV prepped".
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Task Type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Human-readable explanation of task.
         Type `str`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Healthcare event during which this task originated.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.executionPeriod = None
+        self.executionPeriod: period.Period | None = None
         """ Start and end time of execution.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.focus = None
+        self.focus: fhirreference.FHIRReference | None = None
         """ What task is acting on.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.for_fhir = None
+        self.for_fhir: fhirreference.FHIRReference | None = None
         """ Beneficiary of the Task.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.groupIdentifier = None
+        self.groupIdentifier: identifier.Identifier | None = None
         """ Requisition or grouper id.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Task Instance Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.input = None
+        self.input: list[TaskInput] | None = None
         """ Information used to perform task.
         List of `TaskInput` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: str | None = None
         """ Formal definition of task.
         Type `str`. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: str | None = None
         """ Formal definition of task.
         Type `str`. """
         
-        self.insurance = None
+        self.insurance: list[fhirreference.FHIRReference] | None = None
         """ Associated insurance coverage.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.intent = None
+        self.intent: str | None = None
         """ unknown | proposal | plan | order | original-order | reflex-order |
         filler-order | instance-order | option.
         Type `str`. """
         
-        self.lastModified = None
+        self.lastModified: fhirdatetime.FHIRDateTime | None = None
         """ Task Last Modified Date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where task occurs.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments made about the task.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.output = None
+        self.output: list[TaskOutput] | None = None
         """ Information produced as part of task.
         List of `TaskOutput` items (represented as `dict` in JSON). """
         
-        self.owner = None
+        self.owner: fhirreference.FHIRReference | None = None
         """ Responsible individual.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Composite task.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.performerType = None
+        self.performerType: list[codeableconcept.CodeableConcept] | None = None
         """ Requested performer.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCode = None
+        self.reasonCode: codeableconcept.CodeableConcept | None = None
         """ Why task is needed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: fhirreference.FHIRReference | None = None
         """ Why task is needed.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.relevantHistory = None
+        self.relevantHistory: list[fhirreference.FHIRReference] | None = None
         """ Key events in history of the Task.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requester = None
+        self.requester: fhirreference.FHIRReference | None = None
         """ Who is asking for task to be done.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.restriction = None
+        self.restriction: TaskRestriction | None = None
         """ Constraints on fulfillment tasks.
         Type `TaskRestriction` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | requested | received | accepted | +.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: codeableconcept.CodeableConcept | None = None
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Task, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Task, self).elementProperties()
         js.extend([
             ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
@@ -193,7 +197,7 @@ class TaskInput(backboneelement.BackboneElement):
     
     resource_type = "TaskInput"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -201,213 +205,213 @@ class TaskInput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Label for the input.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueAddress = None
+        self.valueAddress: address.Address | None = None
         """ Content to use in performing the task.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.valueAge = None
+        self.valueAge: age.Age | None = None
         """ Content to use in performing the task.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.valueAnnotation = None
+        self.valueAnnotation: annotation.Annotation | None = None
         """ Content to use in performing the task.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ Content to use in performing the task.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Content to use in performing the task.
         Type `bool`. """
         
-        self.valueCanonical = None
+        self.valueCanonical: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueCode = None
+        self.valueCode: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Content to use in performing the task.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ Content to use in performing the task.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContactDetail = None
+        self.valueContactDetail: contactdetail.ContactDetail | None = None
         """ Content to use in performing the task.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.valueContactPoint = None
+        self.valueContactPoint: contactpoint.ContactPoint | None = None
         """ Content to use in performing the task.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.valueContributor = None
+        self.valueContributor: contributor.Contributor | None = None
         """ Content to use in performing the task.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.valueCount = None
+        self.valueCount: count.Count | None = None
         """ Content to use in performing the task.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.valueDataRequirement = None
+        self.valueDataRequirement: datarequirement.DataRequirement | None = None
         """ Content to use in performing the task.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ Content to use in performing the task.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Content to use in performing the task.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ Content to use in performing the task.
         Type `float`. """
         
-        self.valueDistance = None
+        self.valueDistance: distance.Distance | None = None
         """ Content to use in performing the task.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.valueDosage = None
+        self.valueDosage: dosage.Dosage | None = None
         """ Content to use in performing the task.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.valueDuration = None
+        self.valueDuration: duration.Duration | None = None
         """ Content to use in performing the task.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.valueExpression = None
+        self.valueExpression: expression.Expression | None = None
         """ Content to use in performing the task.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.valueHumanName = None
+        self.valueHumanName: humanname.HumanName | None = None
         """ Content to use in performing the task.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.valueId = None
+        self.valueId: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueIdentifier = None
+        self.valueIdentifier: identifier.Identifier | None = None
         """ Content to use in performing the task.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.valueInstant = None
+        self.valueInstant: fhirinstant.FHIRInstant | None = None
         """ Content to use in performing the task.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Content to use in performing the task.
         Type `int`. """
         
-        self.valueMarkdown = None
+        self.valueMarkdown: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueMeta = None
+        self.valueMeta: meta.Meta | None = None
         """ Content to use in performing the task.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.valueMoney = None
+        self.valueMoney: money.Money | None = None
         """ Content to use in performing the task.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.valueOid = None
+        self.valueOid: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueParameterDefinition = None
+        self.valueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Content to use in performing the task.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Content to use in performing the task.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valuePositiveInt = None
+        self.valuePositiveInt: int | None = None
         """ Content to use in performing the task.
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Content to use in performing the task.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Content to use in performing the task.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Content to use in performing the task.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Content to use in performing the task.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueRelatedArtifact = None
+        self.valueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Content to use in performing the task.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Content to use in performing the task.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueSignature = None
+        self.valueSignature: signature.Signature | None = None
         """ Content to use in performing the task.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Content to use in performing the task.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueTiming = None
+        self.valueTiming: timing.Timing | None = None
         """ Content to use in performing the task.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.valueTriggerDefinition = None
+        self.valueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Content to use in performing the task.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.valueUnsignedInt = None
+        self.valueUnsignedInt: int | None = None
         """ Content to use in performing the task.
         Type `int`. """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueUrl = None
+        self.valueUrl: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
-        self.valueUsageContext = None
+        self.valueUsageContext: usagecontext.UsageContext | None = None
         """ Content to use in performing the task.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.valueUuid = None
+        self.valueUuid: str | None = None
         """ Content to use in performing the task.
         Type `str`. """
         
         super(TaskInput, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TaskInput, self).elementProperties()
         js.extend([
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
@@ -473,7 +477,7 @@ class TaskOutput(backboneelement.BackboneElement):
     
     resource_type = "TaskOutput"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -481,213 +485,213 @@ class TaskOutput(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Label for output.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueAddress = None
+        self.valueAddress: address.Address | None = None
         """ Result of output.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.valueAge = None
+        self.valueAge: age.Age | None = None
         """ Result of output.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.valueAnnotation = None
+        self.valueAnnotation: annotation.Annotation | None = None
         """ Result of output.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ Result of output.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Result of output.
         Type `bool`. """
         
-        self.valueCanonical = None
+        self.valueCanonical: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueCode = None
+        self.valueCode: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Result of output.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ Result of output.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContactDetail = None
+        self.valueContactDetail: contactdetail.ContactDetail | None = None
         """ Result of output.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.valueContactPoint = None
+        self.valueContactPoint: contactpoint.ContactPoint | None = None
         """ Result of output.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.valueContributor = None
+        self.valueContributor: contributor.Contributor | None = None
         """ Result of output.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.valueCount = None
+        self.valueCount: count.Count | None = None
         """ Result of output.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.valueDataRequirement = None
+        self.valueDataRequirement: datarequirement.DataRequirement | None = None
         """ Result of output.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ Result of output.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Result of output.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ Result of output.
         Type `float`. """
         
-        self.valueDistance = None
+        self.valueDistance: distance.Distance | None = None
         """ Result of output.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.valueDosage = None
+        self.valueDosage: dosage.Dosage | None = None
         """ Result of output.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.valueDuration = None
+        self.valueDuration: duration.Duration | None = None
         """ Result of output.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.valueExpression = None
+        self.valueExpression: expression.Expression | None = None
         """ Result of output.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.valueHumanName = None
+        self.valueHumanName: humanname.HumanName | None = None
         """ Result of output.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.valueId = None
+        self.valueId: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueIdentifier = None
+        self.valueIdentifier: identifier.Identifier | None = None
         """ Result of output.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.valueInstant = None
+        self.valueInstant: fhirinstant.FHIRInstant | None = None
         """ Result of output.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Result of output.
         Type `int`. """
         
-        self.valueMarkdown = None
+        self.valueMarkdown: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueMeta = None
+        self.valueMeta: meta.Meta | None = None
         """ Result of output.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.valueMoney = None
+        self.valueMoney: money.Money | None = None
         """ Result of output.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.valueOid = None
+        self.valueOid: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueParameterDefinition = None
+        self.valueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Result of output.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Result of output.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valuePositiveInt = None
+        self.valuePositiveInt: int | None = None
         """ Result of output.
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Result of output.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Result of output.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Result of output.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Result of output.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueRelatedArtifact = None
+        self.valueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Result of output.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Result of output.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueSignature = None
+        self.valueSignature: signature.Signature | None = None
         """ Result of output.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Result of output.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueTiming = None
+        self.valueTiming: timing.Timing | None = None
         """ Result of output.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.valueTriggerDefinition = None
+        self.valueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Result of output.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.valueUnsignedInt = None
+        self.valueUnsignedInt: int | None = None
         """ Result of output.
         Type `int`. """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueUrl = None
+        self.valueUrl: str | None = None
         """ Result of output.
         Type `str`. """
         
-        self.valueUsageContext = None
+        self.valueUsageContext: usagecontext.UsageContext | None = None
         """ Result of output.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.valueUuid = None
+        self.valueUuid: str | None = None
         """ Result of output.
         Type `str`. """
         
         super(TaskOutput, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TaskOutput, self).elementProperties()
         js.extend([
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
@@ -755,7 +759,7 @@ class TaskRestriction(backboneelement.BackboneElement):
     
     resource_type = "TaskRestriction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -763,21 +767,21 @@ class TaskRestriction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ When fulfillment sought.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.recipient = None
+        self.recipient: list[fhirreference.FHIRReference] | None = None
         """ For whom is fulfillment sought?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.repetitions = None
+        self.repetitions: int | None = None
         """ How many times to repeat.
         Type `int`. """
         
         super(TaskRestriction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TaskRestriction, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, False),

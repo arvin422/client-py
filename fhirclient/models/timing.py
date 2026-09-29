@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Timing).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import backboneelement
 
@@ -16,7 +20,7 @@ class Timing(backboneelement.BackboneElement):
     
     resource_type = "Timing"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,21 +28,21 @@ class Timing(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ BID | TID | QID | AM | PM | QD | QOD | +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.event = None
+        self.event: list[fhirdatetime.FHIRDateTime | None] | None = None
         """ When the event occurs.
         List of `FHIRDateTime` items (represented as `str` in JSON). """
         
-        self.repeat = None
+        self.repeat: TimingRepeat | None = None
         """ When the event is to occur.
         Type `TimingRepeat` (represented as `dict` in JSON). """
         
         super(Timing, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Timing, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -58,7 +62,7 @@ class TimingRepeat(element.Element):
     
     resource_type = "TimingRepeat"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -66,77 +70,77 @@ class TimingRepeat(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.boundsDuration = None
+        self.boundsDuration: duration.Duration | None = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.boundsPeriod = None
+        self.boundsPeriod: period.Period | None = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.boundsRange = None
+        self.boundsRange: range.Range | None = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.count = None
+        self.count: int | None = None
         """ Number of times to repeat.
         Type `int`. """
         
-        self.countMax = None
+        self.countMax: int | None = None
         """ Maximum number of times to repeat.
         Type `int`. """
         
-        self.dayOfWeek = None
+        self.dayOfWeek: list[str | None] | None = None
         """ mon | tue | wed | thu | fri | sat | sun.
         List of `str` items. """
         
-        self.duration = None
+        self.duration: float | None = None
         """ How long when it happens.
         Type `float`. """
         
-        self.durationMax = None
+        self.durationMax: float | None = None
         """ How long when it happens (Max).
         Type `float`. """
         
-        self.durationUnit = None
+        self.durationUnit: str | None = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
-        self.frequency = None
+        self.frequency: int | None = None
         """ Event occurs frequency times per period.
         Type `int`. """
         
-        self.frequencyMax = None
+        self.frequencyMax: int | None = None
         """ Event occurs up to frequencyMax times per period.
         Type `int`. """
         
-        self.offset = None
+        self.offset: int | None = None
         """ Minutes from event (before or after).
         Type `int`. """
         
-        self.period = None
+        self.period: float | None = None
         """ Event occurs frequency times per period.
         Type `float`. """
         
-        self.periodMax = None
+        self.periodMax: float | None = None
         """ Upper limit of period (3-4 hours).
         Type `float`. """
         
-        self.periodUnit = None
+        self.periodUnit: str | None = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `str`. """
         
-        self.timeOfDay = None
+        self.timeOfDay: list[fhirtime.FHIRTime | None] | None = None
         """ Time of day for action.
         List of `FHIRTime` items (represented as `str` in JSON). """
         
-        self.when = None
+        self.when: list[str | None] | None = None
         """ Code for time period of occurrence.
         List of `str` items. """
         
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
             ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),

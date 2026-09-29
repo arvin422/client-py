@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Subscription).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -16,7 +20,7 @@ class Subscription(domainresource.DomainResource):
     
     resource_type = "Subscription"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,37 +28,37 @@ class Subscription(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.channel = None
+        self.channel: SubscriptionChannel | None = None
         """ The channel on which to report matches to the criteria.
         Type `SubscriptionChannel` (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactpoint.ContactPoint] | None = None
         """ Contact details for source (e.g. troubleshooting).
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.criteria = None
+        self.criteria: str | None = None
         """ Rule for server push.
         Type `str`. """
         
-        self.end = None
+        self.end: fhirinstant.FHIRInstant | None = None
         """ When to automatically delete the subscription.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.error = None
+        self.error: str | None = None
         """ Latest error note.
         Type `str`. """
         
-        self.reason = None
+        self.reason: str | None = None
         """ Description of why this subscription was created.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ requested | active | error | off.
         Type `str`. """
         
         super(Subscription, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Subscription, self).elementProperties()
         js.extend([
             ("channel", "channel", SubscriptionChannel, False, None, True),
@@ -79,7 +83,7 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     
     resource_type = "SubscriptionChannel"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -87,25 +91,25 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.endpoint = None
+        self.endpoint: str | None = None
         """ Where the channel points to.
         Type `str`. """
         
-        self.header = None
+        self.header: list[str | None] | None = None
         """ Usage depends on the channel type.
         List of `str` items. """
         
-        self.payload = None
+        self.payload: str | None = None
         """ MIME type to send, or omit for no payload.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ rest-hook | websocket | email | sms | message.
         Type `str`. """
         
         super(SubscriptionChannel, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
             ("endpoint", "endpoint", str, False, None, False),

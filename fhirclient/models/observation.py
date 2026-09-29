@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Observation).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class Observation(domainresource.DomainResource):
     
     resource_type = "Observation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,158 +25,158 @@ class Observation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfills plan, proposal or order.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: codeableconcept.CodeableConcept | None = None
         """ Observed body part.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Classification of  type of observation.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Type of observation (code / type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.component = None
+        self.component: list[ObservationComponent] | None = None
         """ Component results.
         List of `ObservationComponent` items (represented as `dict` in JSON). """
         
-        self.dataAbsentReason = None
+        self.dataAbsentReason: codeableconcept.CodeableConcept | None = None
         """ Why the result is missing.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.derivedFrom = None
+        self.derivedFrom: list[fhirreference.FHIRReference] | None = None
         """ Related measurements the observation is made from.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.device = None
+        self.device: fhirreference.FHIRReference | None = None
         """ (Measurement) Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.effectiveDateTime = None
+        self.effectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Clinically relevant time/time-period for observation.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.effectiveInstant = None
+        self.effectiveInstant: fhirinstant.FHIRInstant | None = None
         """ Clinically relevant time/time-period for observation.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ Clinically relevant time/time-period for observation.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.effectiveTiming = None
+        self.effectiveTiming: timing.Timing | None = None
         """ Clinically relevant time/time-period for observation.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Healthcare event during which this observation is made.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.focus = None
+        self.focus: list[fhirreference.FHIRReference] | None = None
         """ What the observation is about, when it is not about the subject of
         record.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.hasMember = None
+        self.hasMember: list[fhirreference.FHIRReference] | None = None
         """ Related resource that belongs to the Observation group.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for observation.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.interpretation = None
+        self.interpretation: list[codeableconcept.CodeableConcept] | None = None
         """ High, low, normal, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.issued = None
+        self.issued: fhirinstant.FHIRInstant | None = None
         """ Date/Time this version was made available.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ How it was done.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments about the observation.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: list[fhirreference.FHIRReference] | None = None
         """ Who is responsible for the observation.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.referenceRange = None
+        self.referenceRange: list[ObservationReferenceRange] | None = None
         """ Provides guide for interpretation.
         List of `ObservationReferenceRange` items (represented as `dict` in JSON). """
         
-        self.specimen = None
+        self.specimen: fhirreference.FHIRReference | None = None
         """ Specimen used for this observation.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ registered | preliminary | final | amended +.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who and/or what the observation is about.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Actual result.
         Type `bool`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Actual result.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Actual result.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Actual result.
         Type `int`. """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Actual result.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Actual result.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Actual result.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Actual result.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Actual result.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Actual result.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Actual result.
         Type `FHIRTime` (represented as `str` in JSON). """
         
         super(Observation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Observation, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
@@ -230,7 +234,7 @@ class ObservationComponent(backboneelement.BackboneElement):
     
     resource_type = "ObservationComponent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -238,69 +242,69 @@ class ObservationComponent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Type of component observation (code / type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.dataAbsentReason = None
+        self.dataAbsentReason: codeableconcept.CodeableConcept | None = None
         """ Why the component result is missing.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.interpretation = None
+        self.interpretation: list[codeableconcept.CodeableConcept] | None = None
         """ High, low, normal, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.referenceRange = None
+        self.referenceRange: list[ObservationReferenceRange] | None = None
         """ Provides guide for interpretation of component result.
         List of `ObservationReferenceRange` items (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Actual component result.
         Type `bool`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Actual component result.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Actual component result.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Actual component result.
         Type `int`. """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Actual component result.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Actual component result.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Actual component result.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Actual component result.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Actual component result.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Actual component result.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Actual component result.
         Type `FHIRTime` (represented as `str` in JSON). """
         
         super(ObservationComponent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ObservationComponent, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
@@ -333,7 +337,7 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
     
     resource_type = "ObservationReferenceRange"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -341,33 +345,33 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.age = None
+        self.age: range.Range | None = None
         """ Applicable age range, if relevant.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.appliesTo = None
+        self.appliesTo: list[codeableconcept.CodeableConcept] | None = None
         """ Reference range population.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.high = None
+        self.high: quantity.Quantity | None = None
         """ High Range, if relevant.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.low = None
+        self.low: quantity.Quantity | None = None
         """ Low Range, if relevant.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.text = None
+        self.text: str | None = None
         """ Text based reference range in an observation.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Reference range qualifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ObservationReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ObservationReferenceRange, self).elementProperties()
         js.extend([
             ("age", "age", range.Range, False, None, False),

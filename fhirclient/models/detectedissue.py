@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DetectedIssue).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class DetectedIssue(domainresource.DomainResource):
     
     resource_type = "DetectedIssue"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,61 +27,61 @@ class DetectedIssue(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ The provider or device that identified the issue.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Issue Category, e.g. drug-drug, duplicate therapy, etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: str | None = None
         """ Description and context.
         Type `str`. """
         
-        self.evidence = None
+        self.evidence: list[DetectedIssueEvidence] | None = None
         """ Supporting evidence.
         List of `DetectedIssueEvidence` items (represented as `dict` in JSON). """
         
-        self.identifiedDateTime = None
+        self.identifiedDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When identified.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifiedPeriod = None
+        self.identifiedPeriod: period.Period | None = None
         """ When identified.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique id for the detected issue.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.implicated = None
+        self.implicated: list[fhirreference.FHIRReference] | None = None
         """ Problem resource.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.mitigation = None
+        self.mitigation: list[DetectedIssueMitigation] | None = None
         """ Step taken to address.
         List of `DetectedIssueMitigation` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Associated patient.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.reference = None
+        self.reference: str | None = None
         """ Authority for issue.
         Type `str`. """
         
-        self.severity = None
+        self.severity: str | None = None
         """ high | moderate | low.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ registered | preliminary | final | amended +.
         Type `str`. """
         
         super(DetectedIssue, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DetectedIssue, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
@@ -108,7 +112,7 @@ class DetectedIssueEvidence(backboneelement.BackboneElement):
     
     resource_type = "DetectedIssueEvidence"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -116,17 +120,17 @@ class DetectedIssueEvidence(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: list[codeableconcept.CodeableConcept] | None = None
         """ Manifestation.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: list[fhirreference.FHIRReference] | None = None
         """ Supporting information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(DetectedIssueEvidence, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DetectedIssueEvidence, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
@@ -146,7 +150,7 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
     
     resource_type = "DetectedIssueMitigation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -154,21 +158,21 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: codeableconcept.CodeableConcept | None = None
         """ What mitigation?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ Who is committing?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date committed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(DetectedIssueMitigation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DetectedIssueMitigation, self).elementProperties()
         js.extend([
             ("action", "action", codeableconcept.CodeableConcept, False, None, True),

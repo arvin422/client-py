@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SupplyRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class SupplyRequest(domainresource.DomainResource):
     
     resource_type = "SupplyRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,81 +25,81 @@ class SupplyRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ When the request was made.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ The kind of supply (central, non-stock, etc.).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.deliverFrom = None
+        self.deliverFrom: fhirreference.FHIRReference | None = None
         """ The origin of the supply.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.deliverTo = None
+        self.deliverTo: fhirreference.FHIRReference | None = None
         """ The destination of the supply.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for SupplyRequest.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.itemCodeableConcept = None
+        self.itemCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Medication, Substance, or Device requested to be supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.itemReference = None
+        self.itemReference: fhirreference.FHIRReference | None = None
         """ Medication, Substance, or Device requested to be supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
+        self.occurrenceDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When the request should be fulfilled.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.occurrencePeriod = None
+        self.occurrencePeriod: period.Period | None = None
         """ When the request should be fulfilled.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.occurrenceTiming = None
+        self.occurrenceTiming: timing.Timing | None = None
         """ When the request should be fulfilled.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.parameter = None
+        self.parameter: list[SupplyRequestParameter] | None = None
         """ Ordered item details.
         List of `SupplyRequestParameter` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The requested amount of the item indicated.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ The reason why the supply item was requested.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ The reason why the supply item was requested.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requester = None
+        self.requester: fhirreference.FHIRReference | None = None
         """ Individual making the request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | suspended +.
         Type `str`. """
         
-        self.supplier = None
+        self.supplier: list[fhirreference.FHIRReference] | None = None
         """ Who is intended to fulfill the request.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(SupplyRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SupplyRequest, self).elementProperties()
         js.extend([
             ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
@@ -131,7 +135,7 @@ class SupplyRequestParameter(backboneelement.BackboneElement):
     
     resource_type = "SupplyRequestParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -139,29 +143,29 @@ class SupplyRequestParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Item detail.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Value of detail.
         Type `bool`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value of detail.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Value of detail.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Value of detail.
         Type `Range` (represented as `dict` in JSON). """
         
         super(SupplyRequestParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SupplyRequestParameter, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),

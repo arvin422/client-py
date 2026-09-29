@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MessageHeader).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -16,7 +20,7 @@ class MessageHeader(domainresource.DomainResource):
     
     resource_type = "MessageHeader"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,59 +28,59 @@ class MessageHeader(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ The source of the decision.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.definition = None
+        self.definition: str | None = None
         """ Link to the definition for this message.
         Type `str`. """
         
-        self.destination = None
+        self.destination: list[MessageHeaderDestination] | None = None
         """ Message destination application(s).
         List of `MessageHeaderDestination` items (represented as `dict` in JSON). """
         
-        self.enterer = None
+        self.enterer: fhirreference.FHIRReference | None = None
         """ The source of the data entry.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.eventCoding = None
+        self.eventCoding: coding.Coding | None = None
         """ Code for the event this message represents or link to event
         definition.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.eventUri = None
+        self.eventUri: str | None = None
         """ Code for the event this message represents or link to event
         definition.
         Type `str`. """
         
-        self.focus = None
+        self.focus: list[fhirreference.FHIRReference] | None = None
         """ The actual content of the message.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.reason = None
+        self.reason: codeableconcept.CodeableConcept | None = None
         """ Cause of event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.response: MessageHeaderResponse | None = None
         """ If this is a reply to prior message.
         Type `MessageHeaderResponse` (represented as `dict` in JSON). """
         
-        self.responsible = None
+        self.responsible: fhirreference.FHIRReference | None = None
         """ Final responsibility for event.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.sender = None
+        self.sender: fhirreference.FHIRReference | None = None
         """ Real world sender of the message.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: MessageHeaderSource | None = None
         """ Message source application.
         Type `MessageHeaderSource` (represented as `dict` in JSON). """
         
         super(MessageHeader, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageHeader, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
@@ -105,7 +109,7 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     
     resource_type = "MessageHeaderDestination"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -113,25 +117,25 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.endpoint = None
+        self.endpoint: str | None = None
         """ Actual destination address or id.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name of system.
         Type `str`. """
         
-        self.receiver = None
+        self.receiver: fhirreference.FHIRReference | None = None
         """ Intended "real-world" recipient for the data.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.target = None
+        self.target: fhirreference.FHIRReference | None = None
         """ Particular delivery destination within the destination.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MessageHeaderDestination, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageHeaderDestination, self).elementProperties()
         js.extend([
             ("endpoint", "endpoint", str, False, None, True),
@@ -151,7 +155,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
     
     resource_type = "MessageHeaderResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -159,21 +163,21 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ ok | transient-error | fatal-error.
         Type `str`. """
         
-        self.details = None
+        self.details: fhirreference.FHIRReference | None = None
         """ Specific list of hints/warnings/errors.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: str | None = None
         """ Id of original message.
         Type `str`. """
         
         super(MessageHeaderResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageHeaderResponse, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -191,7 +195,7 @@ class MessageHeaderSource(backboneelement.BackboneElement):
     
     resource_type = "MessageHeaderSource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -199,29 +203,29 @@ class MessageHeaderSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: contactpoint.ContactPoint | None = None
         """ Human contact for problems.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.endpoint = None
+        self.endpoint: str | None = None
         """ Actual message source address or id.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name of system.
         Type `str`. """
         
-        self.software = None
+        self.software: str | None = None
         """ Name of software running the system.
         Type `str`. """
         
-        self.version = None
+        self.version: str | None = None
         """ Version of software running.
         Type `str`. """
         
         super(MessageHeaderSource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MessageHeaderSource, self).elementProperties()
         js.extend([
             ("contact", "contact", contactpoint.ContactPoint, False, None, False),

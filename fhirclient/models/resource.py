@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Resource).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import fhirabstractresource
 
@@ -12,7 +16,7 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     
     resource_type = "Resource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,25 +24,25 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.id = None
+        self.id: str | None = None
         """ Logical id of this artifact.
         Type `str`. """
         
-        self.implicitRules = None
+        self.implicitRules: str | None = None
         """ A set of rules under which this content was created.
         Type `str`. """
         
-        self.language = None
+        self.language: str | None = None
         """ Language of the resource content.
         Type `str`. """
         
-        self.meta = None
+        self.meta: meta.Meta | None = None
         """ Metadata about the resource.
         Type `Meta` (represented as `dict` in JSON). """
         
         super(Resource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Resource, self).elementProperties()
         js.extend([
             ("id", "id", str, False, None, False),

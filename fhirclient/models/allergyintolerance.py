@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AllergyIntolerance).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class AllergyIntolerance(domainresource.DomainResource):
     
     resource_type = "AllergyIntolerance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,89 +25,89 @@ class AllergyIntolerance(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.asserter = None
+        self.asserter: fhirreference.FHIRReference | None = None
         """ Source of the information about the allergy.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[str | None] | None = None
         """ food | medication | environment | biologic.
         List of `str` items. """
         
-        self.clinicalStatus = None
+        self.clinicalStatus: codeableconcept.CodeableConcept | None = None
         """ active | inactive | resolved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Code that identifies the allergy or intolerance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criticality = None
+        self.criticality: str | None = None
         """ low | high | unable-to-assess.
         Type `str`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter when the allergy or intolerance was asserted.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.lastOccurrence = None
+        self.lastOccurrence: fhirdatetime.FHIRDateTime | None = None
         """ Date(/time) of last known occurrence of a reaction.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Additional text not captured in other fields.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onsetAge = None
+        self.onsetAge: age.Age | None = None
         """ When allergy or intolerance was identified.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.onsetDateTime = None
+        self.onsetDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When allergy or intolerance was identified.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.onsetPeriod = None
+        self.onsetPeriod: period.Period | None = None
         """ When allergy or intolerance was identified.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.onsetRange = None
+        self.onsetRange: range.Range | None = None
         """ When allergy or intolerance was identified.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.onsetString = None
+        self.onsetString: str | None = None
         """ When allergy or intolerance was identified.
         Type `str`. """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who the sensitivity is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.reaction = None
+        self.reaction: list[AllergyIntoleranceReaction] | None = None
         """ Adverse Reaction Events linked to exposure to substance.
         List of `AllergyIntoleranceReaction` items (represented as `dict` in JSON). """
         
-        self.recordedDate = None
+        self.recordedDate: fhirdatetime.FHIRDateTime | None = None
         """ Date first version of the resource instance was recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.recorder = None
+        self.recorder: fhirreference.FHIRReference | None = None
         """ Who recorded the sensitivity.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ allergy | intolerance - Underlying mechanism (if known).
         Type `str`. """
         
-        self.verificationStatus = None
+        self.verificationStatus: codeableconcept.CodeableConcept | None = None
         """ unconfirmed | confirmed | refuted | entered-in-error.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(AllergyIntolerance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AllergyIntolerance, self).elementProperties()
         js.extend([
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
@@ -141,7 +145,7 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     
     resource_type = "AllergyIntoleranceReaction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -149,38 +153,38 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Description of the event as a whole.
         Type `str`. """
         
-        self.exposureRoute = None
+        self.exposureRoute: codeableconcept.CodeableConcept | None = None
         """ How the subject was exposed to the substance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.manifestation = None
+        self.manifestation: list[codeableconcept.CodeableConcept] | None = None
         """ Clinical symptoms/signs associated with the Event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Text about event not captured in other fields.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onset = None
+        self.onset: fhirdatetime.FHIRDateTime | None = None
         """ Date(/time) when manifestations showed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.severity = None
+        self.severity: str | None = None
         """ mild | moderate | severe (of event as a whole).
         Type `str`. """
         
-        self.substance = None
+        self.substance: codeableconcept.CodeableConcept | None = None
         """ Specific substance or pharmaceutical product considered to be
         responsible for event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(AllergyIntoleranceReaction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AllergyIntoleranceReaction, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/OperationOutcome).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class OperationOutcome(domainresource.DomainResource):
     
     resource_type = "OperationOutcome"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,13 +25,13 @@ class OperationOutcome(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.issue = None
+        self.issue: list[OperationOutcomeIssue] | None = None
         """ A single issue associated with the action.
         List of `OperationOutcomeIssue` items (represented as `dict` in JSON). """
         
         super(OperationOutcome, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationOutcome, self).elementProperties()
         js.extend([
             ("issue", "issue", OperationOutcomeIssue, True, None, True),
@@ -46,7 +50,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     
     resource_type = "OperationOutcomeIssue"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -54,33 +58,33 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Error or warning code.
         Type `str`. """
         
-        self.details = None
+        self.details: codeableconcept.CodeableConcept | None = None
         """ Additional details about the error.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.diagnostics = None
+        self.diagnostics: str | None = None
         """ Additional diagnostic information about the issue.
         Type `str`. """
         
-        self.expression = None
+        self.expression: list[str | None] | None = None
         """ FHIRPath of element(s) related to issue.
         List of `str` items. """
         
-        self.location = None
+        self.location: list[str | None] | None = None
         """ Deprecated: Path of element(s) related to issue.
         List of `str` items. """
         
-        self.severity = None
+        self.severity: str | None = None
         """ fatal | error | warning | information.
         Type `str`. """
         
         super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),

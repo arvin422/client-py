@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentManifest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class DocumentManifest(domainresource.DomainResource):
     
     resource_type = "DocumentManifest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,57 +25,57 @@ class DocumentManifest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
+        self.author: list[fhirreference.FHIRReference] | None = None
         """ Who and/or what authored the DocumentManifest.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.content = None
+        self.content: list[fhirreference.FHIRReference] | None = None
         """ Items in manifest.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ When this document manifest created.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Human-readable description (title).
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Other identifiers for the manifest.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.masterIdentifier = None
+        self.masterIdentifier: identifier.Identifier | None = None
         """ Unique Identifier for the set of documents.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.recipient = None
+        self.recipient: list[fhirreference.FHIRReference] | None = None
         """ Intended to get notified about this set of documents.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.related = None
+        self.related: list[DocumentManifestRelated] | None = None
         """ Related things.
         List of `DocumentManifestRelated` items (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: str | None = None
         """ The source system/application/software.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ current | superseded | entered-in-error.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ The subject of the set of documents.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Kind of document set.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DocumentManifest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DocumentManifest, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, True, None, False),
@@ -100,7 +104,7 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
     
     resource_type = "DocumentManifestRelated"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -108,17 +112,17 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Identifiers of things that are related.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.ref = None
+        self.ref: fhirreference.FHIRReference | None = None
         """ Related Resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DocumentManifestRelated, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DocumentManifestRelated, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class DeviceRequest(domainresource.DomainResource):
     
     resource_type = "DeviceRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,119 +26,119 @@ class DeviceRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ When recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ What request fulfills.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.codeCodeableConcept = None
+        self.codeCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Device requested.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.codeReference = None
+        self.codeReference: fhirreference.FHIRReference | None = None
         """ Device requested.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter motivating request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.groupIdentifier = None
+        self.groupIdentifier: identifier.Identifier | None = None
         """ Identifier of composite request.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Request identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.insurance = None
+        self.insurance: list[fhirreference.FHIRReference] | None = None
         """ Associated insurance coverage.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | directive | order | original-order | reflex-order
         | filler-order | instance-order | option.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Notes or comments.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
+        self.occurrenceDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Desired time or schedule for use.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.occurrencePeriod = None
+        self.occurrencePeriod: period.Period | None = None
         """ Desired time or schedule for use.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.occurrenceTiming = None
+        self.occurrenceTiming: timing.Timing | None = None
         """ Desired time or schedule for use.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.parameter = None
+        self.parameter: list[DeviceRequestParameter] | None = None
         """ Device details.
         List of `DeviceRequestParameter` items (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: fhirreference.FHIRReference | None = None
         """ Requested Filler.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performerType = None
+        self.performerType: codeableconcept.CodeableConcept | None = None
         """ Filler role.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.priorRequest = None
+        self.priorRequest: list[fhirreference.FHIRReference] | None = None
         """ What request replaces.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Coded Reason for request.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Linked Reason for request.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.relevantHistory = None
+        self.relevantHistory: list[fhirreference.FHIRReference] | None = None
         """ Request provenance.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requester = None
+        self.requester: fhirreference.FHIRReference | None = None
         """ Who/what is requesting diagnostics.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | on-hold | revoked | completed | entered-in-error |
         unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Focus of request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.supportingInfo = None
+        self.supportingInfo: list[fhirreference.FHIRReference] | None = None
         """ Additional clinical information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(DeviceRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceRequest, self).elementProperties()
         js.extend([
             ("authoredOn", "authoredOn", fhirdatetime.FHIRDateTime, False, None, False),
@@ -179,7 +183,7 @@ class DeviceRequestParameter(backboneelement.BackboneElement):
     
     resource_type = "DeviceRequestParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -187,29 +191,29 @@ class DeviceRequestParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Device detail.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Value of detail.
         Type `bool`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value of detail.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Value of detail.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Value of detail.
         Type `Range` (represented as `dict` in JSON). """
         
         super(DeviceRequestParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceRequestParameter, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),

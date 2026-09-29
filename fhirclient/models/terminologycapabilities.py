@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class TerminologyCapabilities(domainresource.DomainResource):
     
     resource_type = "TerminologyCapabilities"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,110 +27,110 @@ class TerminologyCapabilities(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.closure = None
+        self.closure: TerminologyCapabilitiesClosure | None = None
         """ Information about the [ConceptMap/$closure](conceptmap-operation-
         closure.html) operation.
         Type `TerminologyCapabilitiesClosure` (represented as `dict` in JSON). """
         
-        self.codeSearch = None
+        self.codeSearch: str | None = None
         """ explicit | all.
         Type `str`. """
         
-        self.codeSystem = None
+        self.codeSystem: list[TerminologyCapabilitiesCodeSystem] | None = None
         """ A code system supported by the server.
         List of `TerminologyCapabilitiesCodeSystem` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the terminology capabilities.
         Type `str`. """
         
-        self.expansion = None
+        self.expansion: TerminologyCapabilitiesExpansion | None = None
         """ Information about the [ValueSet/$expand](valueset-operation-
         expand.html) operation.
         Type `TerminologyCapabilitiesExpansion` (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.implementation = None
+        self.implementation: TerminologyCapabilitiesImplementation | None = None
         """ If this describes a specific instance.
         Type `TerminologyCapabilitiesImplementation` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for terminology capabilities (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ instance | capability | requirements.
         Type `str`. """
         
-        self.lockedDate = None
+        self.lockedDate: bool | None = None
         """ Whether lockedDate is supported.
         Type `bool`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this terminology capabilities (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this terminology capabilities is defined.
         Type `str`. """
         
-        self.software = None
+        self.software: TerminologyCapabilitiesSoftware | None = None
         """ Software that is covered by this terminology capability statement.
         Type `TerminologyCapabilitiesSoftware` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this terminology capabilities (human friendly).
         Type `str`. """
         
-        self.translation = None
+        self.translation: TerminologyCapabilitiesTranslation | None = None
         """ Information about the [ConceptMap/$translate](conceptmap-operation-
         translate.html) operation.
         Type `TerminologyCapabilitiesTranslation` (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this terminology capabilities, represented
         as a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.validateCode = None
+        self.validateCode: TerminologyCapabilitiesValidateCode | None = None
         """ Information about the [ValueSet/$validate-code](valueset-operation-
         validate-code.html) operation.
         Type `TerminologyCapabilitiesValidateCode` (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the terminology capabilities.
         Type `str`. """
         
         super(TerminologyCapabilities, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilities, self).elementProperties()
         js.extend([
             ("closure", "closure", TerminologyCapabilitiesClosure, False, None, False),
@@ -168,7 +172,7 @@ class TerminologyCapabilitiesClosure(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesClosure"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -176,13 +180,13 @@ class TerminologyCapabilitiesClosure(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.translation = None
+        self.translation: bool | None = None
         """ If cross-system closure is supported.
         Type `bool`. """
         
         super(TerminologyCapabilitiesClosure, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesClosure, self).elementProperties()
         js.extend([
             ("translation", "translation", bool, False, None, False),
@@ -200,7 +204,7 @@ class TerminologyCapabilitiesCodeSystem(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesCodeSystem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -208,21 +212,21 @@ class TerminologyCapabilitiesCodeSystem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.subsumption = None
+        self.subsumption: bool | None = None
         """ Whether subsumption is supported.
         Type `bool`. """
         
-        self.uri = None
+        self.uri: str | None = None
         """ URI for the Code System.
         Type `str`. """
         
-        self.version = None
+        self.version: list[TerminologyCapabilitiesCodeSystemVersion] | None = None
         """ Version of Code System supported.
         List of `TerminologyCapabilitiesCodeSystemVersion` items (represented as `dict` in JSON). """
         
         super(TerminologyCapabilitiesCodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesCodeSystem, self).elementProperties()
         js.extend([
             ("subsumption", "subsumption", bool, False, None, False),
@@ -240,7 +244,7 @@ class TerminologyCapabilitiesCodeSystemVersion(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesCodeSystemVersion"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -248,33 +252,33 @@ class TerminologyCapabilitiesCodeSystemVersion(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Version identifier for this version.
         Type `str`. """
         
-        self.compositional = None
+        self.compositional: bool | None = None
         """ If compositional grammar is supported.
         Type `bool`. """
         
-        self.filter = None
+        self.filter: list[TerminologyCapabilitiesCodeSystemVersionFilter] | None = None
         """ Filter Properties supported.
         List of `TerminologyCapabilitiesCodeSystemVersionFilter` items (represented as `dict` in JSON). """
         
-        self.isDefault = None
+        self.isDefault: bool | None = None
         """ If this is the default version for this code system.
         Type `bool`. """
         
-        self.language = None
+        self.language: list[str | None] | None = None
         """ Language Displays supported.
         List of `str` items. """
         
-        self.property = None
+        self.property: list[str | None] | None = None
         """ Properties supported for $lookup.
         List of `str` items. """
         
         super(TerminologyCapabilitiesCodeSystemVersion, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesCodeSystemVersion, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),
@@ -293,7 +297,7 @@ class TerminologyCapabilitiesCodeSystemVersionFilter(backboneelement.BackboneEle
     
     resource_type = "TerminologyCapabilitiesCodeSystemVersionFilter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -301,17 +305,17 @@ class TerminologyCapabilitiesCodeSystemVersionFilter(backboneelement.BackboneEle
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Code of the property supported.
         Type `str`. """
         
-        self.op = None
+        self.op: list[str | None] | None = None
         """ Operations supported for the property.
         List of `str` items. """
         
         super(TerminologyCapabilitiesCodeSystemVersionFilter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesCodeSystemVersionFilter, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -327,7 +331,7 @@ class TerminologyCapabilitiesExpansion(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesExpansion"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -335,29 +339,29 @@ class TerminologyCapabilitiesExpansion(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.hierarchical = None
+        self.hierarchical: bool | None = None
         """ Whether the server can return nested value sets.
         Type `bool`. """
         
-        self.incomplete = None
+        self.incomplete: bool | None = None
         """ Allow request for incomplete expansions?.
         Type `bool`. """
         
-        self.paging = None
+        self.paging: bool | None = None
         """ Whether the server supports paging on expansion.
         Type `bool`. """
         
-        self.parameter = None
+        self.parameter: list[TerminologyCapabilitiesExpansionParameter] | None = None
         """ Supported expansion parameter.
         List of `TerminologyCapabilitiesExpansionParameter` items (represented as `dict` in JSON). """
         
-        self.textFilter = None
+        self.textFilter: str | None = None
         """ Documentation about text searching works.
         Type `str`. """
         
         super(TerminologyCapabilitiesExpansion, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesExpansion, self).elementProperties()
         js.extend([
             ("hierarchical", "hierarchical", bool, False, None, False),
@@ -375,7 +379,7 @@ class TerminologyCapabilitiesExpansionParameter(backboneelement.BackboneElement)
     
     resource_type = "TerminologyCapabilitiesExpansionParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -383,17 +387,17 @@ class TerminologyCapabilitiesExpansionParameter(backboneelement.BackboneElement)
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Description of support for parameter.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Expansion Parameter name.
         Type `str`. """
         
         super(TerminologyCapabilitiesExpansionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesExpansionParameter, self).elementProperties()
         js.extend([
             ("documentation", "documentation", str, False, None, False),
@@ -412,7 +416,7 @@ class TerminologyCapabilitiesImplementation(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesImplementation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -420,17 +424,17 @@ class TerminologyCapabilitiesImplementation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Describes this specific instance.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Base URL for the implementation.
         Type `str`. """
         
         super(TerminologyCapabilitiesImplementation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesImplementation, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),
@@ -449,7 +453,7 @@ class TerminologyCapabilitiesSoftware(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesSoftware"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -457,17 +461,17 @@ class TerminologyCapabilitiesSoftware(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.name: str | None = None
         """ A name the software is known by.
         Type `str`. """
         
-        self.version = None
+        self.version: str | None = None
         """ Version covered by this statement.
         Type `str`. """
         
         super(TerminologyCapabilitiesSoftware, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesSoftware, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),
@@ -483,7 +487,7 @@ class TerminologyCapabilitiesTranslation(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesTranslation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -491,13 +495,13 @@ class TerminologyCapabilitiesTranslation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.needsMap = None
+        self.needsMap: bool | None = None
         """ Whether the client must identify the map.
         Type `bool`. """
         
         super(TerminologyCapabilitiesTranslation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesTranslation, self).elementProperties()
         js.extend([
             ("needsMap", "needsMap", bool, False, None, True),
@@ -512,7 +516,7 @@ class TerminologyCapabilitiesValidateCode(backboneelement.BackboneElement):
     
     resource_type = "TerminologyCapabilitiesValidateCode"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -520,13 +524,13 @@ class TerminologyCapabilitiesValidateCode(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.translations = None
+        self.translations: bool | None = None
         """ Whether translations are validated.
         Type `bool`. """
         
         super(TerminologyCapabilitiesValidateCode, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TerminologyCapabilitiesValidateCode, self).elementProperties()
         js.extend([
             ("translations", "translations", bool, False, None, True),

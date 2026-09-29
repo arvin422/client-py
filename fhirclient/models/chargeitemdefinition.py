@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class ChargeItemDefinition(domainresource.DomainResource):
     
     resource_type = "ChargeItemDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,104 +29,104 @@ class ChargeItemDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.applicability = None
+        self.applicability: list[ChargeItemDefinitionApplicability] | None = None
         """ Whether or not the billing code is applicable.
         List of `ChargeItemDefinitionApplicability` items (represented as `dict` in JSON). """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the charge item definition was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Billing codes or product types this definition applies to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.derivedFromUri = None
+        self.derivedFromUri: list[str | None] | None = None
         """ Underlying externally-defined charge item definition.
         List of `str` items. """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the charge item definition.
         Type `str`. """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the charge item definition is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the charge item definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instance = None
+        self.instance: list[fhirreference.FHIRReference] | None = None
         """ Instances this definition applies to.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for charge item definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the charge item definition was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[str | None] | None = None
         """ A larger definition of which this particular definition is a
         component or step.
         List of `str` items. """
         
-        self.propertyGroup = None
+        self.propertyGroup: list[ChargeItemDefinitionPropertyGroup] | None = None
         """ Group of properties which are applicable under the same conditions.
         List of `ChargeItemDefinitionPropertyGroup` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.replaces = None
+        self.replaces: list[str | None] | None = None
         """ Completed or terminated request(s) whose function is taken by this
         new request.
         List of `str` items. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this charge item definition (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this charge item definition, represented
         as a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the charge item definition.
         Type `str`. """
         
         super(ChargeItemDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ChargeItemDefinition, self).elementProperties()
         js.extend([
             ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
@@ -162,7 +166,7 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
     
     resource_type = "ChargeItemDefinitionApplicability"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -170,21 +174,21 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the condition.
         Type `str`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ Boolean-valued expression.
         Type `str`. """
         
-        self.language = None
+        self.language: str | None = None
         """ Language of the expression.
         Type `str`. """
         
         super(ChargeItemDefinitionApplicability, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ChargeItemDefinitionApplicability, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -204,7 +208,7 @@ class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
     
     resource_type = "ChargeItemDefinitionPropertyGroup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -212,17 +216,17 @@ class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.applicability = None
+        self.applicability: list[ChargeItemDefinitionApplicability] | None = None
         """ Conditions under which the priceComponent is applicable.
         List of `ChargeItemDefinitionApplicability` items (represented as `dict` in JSON). """
         
-        self.priceComponent = None
+        self.priceComponent: list[ChargeItemDefinitionPropertyGroupPriceComponent] | None = None
         """ Components of total line item price.
         List of `ChargeItemDefinitionPropertyGroupPriceComponent` items (represented as `dict` in JSON). """
         
         super(ChargeItemDefinitionPropertyGroup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ChargeItemDefinitionPropertyGroup, self).elementProperties()
         js.extend([
             ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
@@ -244,7 +248,7 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
     
     resource_type = "ChargeItemDefinitionPropertyGroupPriceComponent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -252,25 +256,25 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Monetary amount associated with this component.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Code identifying the specific component.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.factor = None
+        self.factor: float | None = None
         """ Factor used for calculating this component.
         Type `float`. """
         
-        self.type = None
+        self.type: str | None = None
         """ base | surcharge | deduction | discount | tax | informational.
         Type `str`. """
         
         super(ChargeItemDefinitionPropertyGroupPriceComponent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ChargeItemDefinitionPropertyGroupPriceComponent, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, False),

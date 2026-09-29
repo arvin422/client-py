@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceProtein).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class SubstanceProtein(domainresource.DomainResource):
     
     resource_type = "SubstanceProtein"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,7 +29,7 @@ class SubstanceProtein(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.disulfideLinkage = None
+        self.disulfideLinkage: list[str | None] | None = None
         """ The disulphide bond between two cysteine residues either on the
         same subunit or on two different subunits shall be described. The
         position of the disulfide bonds in the SubstanceProtein shall be
@@ -35,20 +39,20 @@ class SubstanceProtein(domainresource.DomainResource):
         acid Cysteine at the respective positions.
         List of `str` items. """
         
-        self.numberOfSubunits = None
+        self.numberOfSubunits: int | None = None
         """ Number of linear sequences of amino acids linked through peptide
         bonds. The number of subunits constituting the SubstanceProtein
         shall be described. It is possible that the number of subunits can
         be variable.
         Type `int`. """
         
-        self.sequenceType = None
+        self.sequenceType: codeableconcept.CodeableConcept | None = None
         """ The SubstanceProtein descriptive elements will only be used when a
         complete or partial amino acid sequence is available or derivable
         from a nucleic acid sequence.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subunit = None
+        self.subunit: list[SubstanceProteinSubunit] | None = None
         """ This subclause refers to the description of each subunit
         constituting the SubstanceProtein. A subunit is a linear sequence
         of amino acids linked through peptide bonds. The Subunit
@@ -62,7 +66,7 @@ class SubstanceProtein(domainresource.DomainResource):
         
         super(SubstanceProtein, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceProtein, self).elementProperties()
         js.extend([
             ("disulfideLinkage", "disulfideLinkage", str, True, None, False),
@@ -88,7 +92,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
     
     resource_type = "SubstanceProteinSubunit"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -96,30 +100,30 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.cTerminalModification = None
+        self.cTerminalModification: str | None = None
         """ The modification at the C-terminal shall be specified.
         Type `str`. """
         
-        self.cTerminalModificationId = None
+        self.cTerminalModificationId: identifier.Identifier | None = None
         """ Unique identifier for molecular fragment modification based on the
         ISO 11238 Substance ID.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.length = None
+        self.length: int | None = None
         """ Length of linear sequences of amino acids contained in the subunit.
         Type `int`. """
         
-        self.nTerminalModification = None
+        self.nTerminalModification: str | None = None
         """ The name of the fragment modified at the N-terminal of the
         SubstanceProtein shall be specified.
         Type `str`. """
         
-        self.nTerminalModificationId = None
+        self.nTerminalModificationId: identifier.Identifier | None = None
         """ Unique identifier for molecular fragment modification based on the
         ISO 11238 Substance ID.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.sequence = None
+        self.sequence: str | None = None
         """ The sequence information shall be provided enumerating the amino
         acids from N- to C-terminal end using standard single-letter amino
         acid codes. Uppercase shall be used for L-amino acids and lowercase
@@ -130,7 +134,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         amino acids will be distinguished by their position in the sequence.
         Type `str`. """
         
-        self.sequenceAttachment = None
+        self.sequenceAttachment: attachment.Attachment | None = None
         """ The sequence information shall be provided enumerating the amino
         acids from N- to C-terminal end using standard single-letter amino
         acid codes. Uppercase shall be used for L-amino acids and lowercase
@@ -141,7 +145,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         amino acids will be distinguished by their position in the sequence.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.subunit = None
+        self.subunit: int | None = None
         """ Index of primary sequences of amino acids linked through peptide
         bonds in order of decreasing length. Sequences of the same length
         will be ordered by molecular weight. Subunits that have identical
@@ -150,7 +154,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         
         super(SubstanceProteinSubunit, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceProteinSubunit, self).elementProperties()
         js.extend([
             ("cTerminalModification", "cTerminalModification", str, False, None, False),

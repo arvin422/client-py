@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Parameters).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import resource
 
@@ -14,7 +18,7 @@ class Parameters(resource.Resource):
     
     resource_type = "Parameters"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,13 +26,13 @@ class Parameters(resource.Resource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.parameter = None
+        self.parameter: list[ParametersParameter] | None = None
         """ Operation Parameter.
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
         super(Parameters, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Parameters, self).elementProperties()
         js.extend([
             ("parameter", "parameter", ParametersParameter, True, None, False),
@@ -46,7 +50,7 @@ class ParametersParameter(backboneelement.BackboneElement):
     
     resource_type = "ParametersParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -54,221 +58,221 @@ class ParametersParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.name: str | None = None
         """ Name from the definition.
         Type `str`. """
         
-        self.part = None
+        self.part: list[ParametersParameter] | None = None
         """ Named part of a multi-part parameter.
         List of `ParametersParameter` items (represented as `dict` in JSON). """
         
-        self.resource = None
+        self.resource: resource.Resource | None = None
         """ If parameter is a whole resource.
         Type `Resource` (represented as `dict` in JSON). """
         
-        self.valueAddress = None
+        self.valueAddress: address.Address | None = None
         """ If parameter is a data type.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.valueAge = None
+        self.valueAge: age.Age | None = None
         """ If parameter is a data type.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.valueAnnotation = None
+        self.valueAnnotation: annotation.Annotation | None = None
         """ If parameter is a data type.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ If parameter is a data type.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ If parameter is a data type.
         Type `bool`. """
         
-        self.valueCanonical = None
+        self.valueCanonical: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueCode = None
+        self.valueCode: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ If parameter is a data type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ If parameter is a data type.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContactDetail = None
+        self.valueContactDetail: contactdetail.ContactDetail | None = None
         """ If parameter is a data type.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.valueContactPoint = None
+        self.valueContactPoint: contactpoint.ContactPoint | None = None
         """ If parameter is a data type.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.valueContributor = None
+        self.valueContributor: contributor.Contributor | None = None
         """ If parameter is a data type.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.valueCount = None
+        self.valueCount: count.Count | None = None
         """ If parameter is a data type.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.valueDataRequirement = None
+        self.valueDataRequirement: datarequirement.DataRequirement | None = None
         """ If parameter is a data type.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ If parameter is a data type.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ If parameter is a data type.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ If parameter is a data type.
         Type `float`. """
         
-        self.valueDistance = None
+        self.valueDistance: distance.Distance | None = None
         """ If parameter is a data type.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.valueDosage = None
+        self.valueDosage: dosage.Dosage | None = None
         """ If parameter is a data type.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.valueDuration = None
+        self.valueDuration: duration.Duration | None = None
         """ If parameter is a data type.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.valueExpression = None
+        self.valueExpression: expression.Expression | None = None
         """ If parameter is a data type.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.valueHumanName = None
+        self.valueHumanName: humanname.HumanName | None = None
         """ If parameter is a data type.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.valueId = None
+        self.valueId: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueIdentifier = None
+        self.valueIdentifier: identifier.Identifier | None = None
         """ If parameter is a data type.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.valueInstant = None
+        self.valueInstant: fhirinstant.FHIRInstant | None = None
         """ If parameter is a data type.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ If parameter is a data type.
         Type `int`. """
         
-        self.valueMarkdown = None
+        self.valueMarkdown: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueMeta = None
+        self.valueMeta: meta.Meta | None = None
         """ If parameter is a data type.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.valueMoney = None
+        self.valueMoney: money.Money | None = None
         """ If parameter is a data type.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.valueOid = None
+        self.valueOid: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueParameterDefinition = None
+        self.valueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ If parameter is a data type.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ If parameter is a data type.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valuePositiveInt = None
+        self.valuePositiveInt: int | None = None
         """ If parameter is a data type.
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ If parameter is a data type.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ If parameter is a data type.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ If parameter is a data type.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ If parameter is a data type.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueRelatedArtifact = None
+        self.valueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ If parameter is a data type.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ If parameter is a data type.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueSignature = None
+        self.valueSignature: signature.Signature | None = None
         """ If parameter is a data type.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ If parameter is a data type.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueTiming = None
+        self.valueTiming: timing.Timing | None = None
         """ If parameter is a data type.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.valueTriggerDefinition = None
+        self.valueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ If parameter is a data type.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.valueUnsignedInt = None
+        self.valueUnsignedInt: int | None = None
         """ If parameter is a data type.
         Type `int`. """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueUrl = None
+        self.valueUrl: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
-        self.valueUsageContext = None
+        self.valueUsageContext: usagecontext.UsageContext | None = None
         """ If parameter is a data type.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.valueUuid = None
+        self.valueUuid: str | None = None
         """ If parameter is a data type.
         Type `str`. """
         
         super(ParametersParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ParametersParameter, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ObservationDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ObservationDefinition(domainresource.DomainResource):
     
     resource_type = "ObservationDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,66 +25,66 @@ class ObservationDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.abnormalCodedValueSet = None
+        self.abnormalCodedValueSet: fhirreference.FHIRReference | None = None
         """ Value set of abnormal coded values for the observations conforming
         to this ObservationDefinition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Category of observation.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Type of observation (code / type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criticalCodedValueSet = None
+        self.criticalCodedValueSet: fhirreference.FHIRReference | None = None
         """ Value set of critical coded values for the observations conforming
         to this ObservationDefinition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier for this ObservationDefinition instance.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ Method used to produce the observation.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.multipleResultsAllowed = None
+        self.multipleResultsAllowed: bool | None = None
         """ Multiple results allowed.
         Type `bool`. """
         
-        self.normalCodedValueSet = None
+        self.normalCodedValueSet: fhirreference.FHIRReference | None = None
         """ Value set of normal coded values for the observations conforming to
         this ObservationDefinition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.permittedDataType = None
+        self.permittedDataType: list[str | None] | None = None
         """ Quantity | CodeableConcept | string | boolean | integer | Range |
         Ratio | SampledData | time | dateTime | Period.
         List of `str` items. """
         
-        self.preferredReportName = None
+        self.preferredReportName: str | None = None
         """ Preferred report name.
         Type `str`. """
         
-        self.qualifiedInterval = None
+        self.qualifiedInterval: list[ObservationDefinitionQualifiedInterval] | None = None
         """ Qualified range for continuous and ordinal observation results.
         List of `ObservationDefinitionQualifiedInterval` items (represented as `dict` in JSON). """
         
-        self.quantitativeDetails = None
+        self.quantitativeDetails: ObservationDefinitionQuantitativeDetails | None = None
         """ Characteristics of quantitative results.
         Type `ObservationDefinitionQuantitativeDetails` (represented as `dict` in JSON). """
         
-        self.validCodedValueSet = None
+        self.validCodedValueSet: fhirreference.FHIRReference | None = None
         """ Value set of valid coded values for the observations conforming to
         this ObservationDefinition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ObservationDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ObservationDefinition, self).elementProperties()
         js.extend([
             ("abnormalCodedValueSet", "abnormalCodedValueSet", fhirreference.FHIRReference, False, None, False),
@@ -111,7 +115,7 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
     
     resource_type = "ObservationDefinitionQualifiedInterval"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -119,41 +123,41 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.age = None
+        self.age: range.Range | None = None
         """ Applicable age range, if relevant.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.appliesTo = None
+        self.appliesTo: list[codeableconcept.CodeableConcept] | None = None
         """ Targetted population of the range.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: str | None = None
         """ reference | critical | absolute.
         Type `str`. """
         
-        self.condition = None
+        self.condition: str | None = None
         """ Condition associated with the reference range.
         Type `str`. """
         
-        self.context = None
+        self.context: codeableconcept.CodeableConcept | None = None
         """ Range context qualifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.gestationalAge = None
+        self.gestationalAge: range.Range | None = None
         """ Applicable gestational age range, if relevant.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.range = None
+        self.range: range.Range | None = None
         """ The interval itself, for continuous or ordinal observations.
         Type `Range` (represented as `dict` in JSON). """
         
         super(ObservationDefinitionQualifiedInterval, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ObservationDefinitionQualifiedInterval, self).elementProperties()
         js.extend([
             ("age", "age", range.Range, False, None, False),
@@ -176,7 +180,7 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
     
     resource_type = "ObservationDefinitionQuantitativeDetails"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -184,25 +188,25 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.conversionFactor = None
+        self.conversionFactor: float | None = None
         """ SI to Customary unit conversion factor.
         Type `float`. """
         
-        self.customaryUnit = None
+        self.customaryUnit: codeableconcept.CodeableConcept | None = None
         """ Customary unit for quantitative results.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.decimalPrecision = None
+        self.decimalPrecision: int | None = None
         """ Decimal precision of observation quantitative results.
         Type `int`. """
         
-        self.unit = None
+        self.unit: codeableconcept.CodeableConcept | None = None
         """ SI unit for quantitative results.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ObservationDefinitionQuantitativeDetails, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ObservationDefinitionQuantitativeDetails, self).elementProperties()
         js.extend([
             ("conversionFactor", "conversionFactor", float, False, None, False),

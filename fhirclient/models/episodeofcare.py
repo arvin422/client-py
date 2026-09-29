@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EpisodeOfCare).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class EpisodeOfCare(domainresource.DomainResource):
     
     resource_type = "EpisodeOfCare"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,60 +29,60 @@ class EpisodeOfCare(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.account = None
+        self.account: list[fhirreference.FHIRReference] | None = None
         """ The set of accounts that may be used for billing for this
         EpisodeOfCare.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.careManager = None
+        self.careManager: fhirreference.FHIRReference | None = None
         """ Care manager/care coordinator for the patient.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.diagnosis = None
+        self.diagnosis: list[EpisodeOfCareDiagnosis] | None = None
         """ The list of diagnosis relevant to this episode of care.
         List of `EpisodeOfCareDiagnosis` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier(s) relevant for this EpisodeOfCare.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.managingOrganization = None
+        self.managingOrganization: fhirreference.FHIRReference | None = None
         """ Organization that assumes care.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ The patient who is the focus of this episode of care.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Interval during responsibility is assumed.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.referralRequest = None
+        self.referralRequest: list[fhirreference.FHIRReference] | None = None
         """ Originating Referral Request(s).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ planned | waitlist | active | onhold | finished | cancelled |
         entered-in-error.
         Type `str`. """
         
-        self.statusHistory = None
+        self.statusHistory: list[EpisodeOfCareStatusHistory] | None = None
         """ Past list of status codes (the current status may be included to
         cover the start date of the status).
         List of `EpisodeOfCareStatusHistory` items (represented as `dict` in JSON). """
         
-        self.team = None
+        self.team: list[fhirreference.FHIRReference] | None = None
         """ Other practitioners facilitating this episode of care.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Type/class  - e.g. specialist referral, disease management.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EpisodeOfCare, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
             ("account", "account", fhirreference.FHIRReference, True, None, False),
@@ -105,7 +109,7 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
     
     resource_type = "EpisodeOfCareDiagnosis"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -113,22 +117,22 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.condition = None
+        self.condition: fhirreference.FHIRReference | None = None
         """ Conditions/problems/diagnoses this episode of care is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.rank = None
+        self.rank: int | None = None
         """ Ranking of the diagnosis (for each role type).
         Type `int`. """
         
-        self.role = None
+        self.role: codeableconcept.CodeableConcept | None = None
         """ Role that this diagnosis has within the episode of care (e.g.
         admission, billing, discharge …).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EpisodeOfCareDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EpisodeOfCareDiagnosis, self).elementProperties()
         js.extend([
             ("condition", "condition", fhirreference.FHIRReference, False, None, True),
@@ -148,7 +152,7 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     
     resource_type = "EpisodeOfCareStatusHistory"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -156,18 +160,18 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Duration the EpisodeOfCare was in the specified status.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ planned | waitlist | active | onhold | finished | cancelled |
         entered-in-error.
         Type `str`. """
         
         super(EpisodeOfCareStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, True),

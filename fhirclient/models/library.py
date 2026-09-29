@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Library).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class Library(domainresource.DomainResource):
     
     resource_type = "Library"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,139 +27,139 @@ class Library(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the library was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.content = None
+        self.content: list[attachment.Attachment] | None = None
         """ Contents of the library, either embedded or referenced.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.dataRequirement = None
+        self.dataRequirement: list[datarequirement.DataRequirement] | None = None
         """ What data is referenced by this library.
         List of `DataRequirement` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the library.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the library is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the library.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for library (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the library was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this library (computer friendly).
         Type `str`. """
         
-        self.parameter = None
+        self.parameter: list[parameterdefinition.ParameterDefinition] | None = None
         """ Parameters defined by the library.
         List of `ParameterDefinition` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this library is defined.
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subjectCodeableConcept = None
+        self.subjectCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Type of individual the library content is focused on.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subjectReference = None
+        self.subjectReference: fhirreference.FHIRReference | None = None
         """ Type of individual the library content is focused on.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the library.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this library (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ E.g. Education, Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ logic-library | model-definition | asset-collection | module-
         definition.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this library, represented as a URI
         (globally unique).
         Type `str`. """
         
-        self.usage = None
+        self.usage: str | None = None
         """ Describes the clinical usage of the library.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the library.
         Type `str`. """
         
         super(Library, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Library, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),

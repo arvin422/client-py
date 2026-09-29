@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class ImmunizationEvaluation(domainresource.DomainResource):
     
     resource_type = "ImmunizationEvaluation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,69 +26,69 @@ class ImmunizationEvaluation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authority = None
+        self.authority: fhirreference.FHIRReference | None = None
         """ Who is responsible for publishing the recommendations.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date evaluation was performed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Evaluation notes.
         Type `str`. """
         
-        self.doseNumberPositiveInt = None
+        self.doseNumberPositiveInt: int | None = None
         """ Dose number within series.
         Type `int`. """
         
-        self.doseNumberString = None
+        self.doseNumberString: str | None = None
         """ Dose number within series.
         Type `str`. """
         
-        self.doseStatus = None
+        self.doseStatus: codeableconcept.CodeableConcept | None = None
         """ Status of the dose relative to published recommendations.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.doseStatusReason = None
+        self.doseStatusReason: list[codeableconcept.CodeableConcept] | None = None
         """ Reason for the dose status.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.immunizationEvent = None
+        self.immunizationEvent: fhirreference.FHIRReference | None = None
         """ Immunization being evaluated.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who this evaluation is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.series = None
+        self.series: str | None = None
         """ Name of vaccine series.
         Type `str`. """
         
-        self.seriesDosesPositiveInt = None
+        self.seriesDosesPositiveInt: int | None = None
         """ Recommended number of doses for immunity.
         Type `int`. """
         
-        self.seriesDosesString = None
+        self.seriesDosesString: str | None = None
         """ Recommended number of doses for immunity.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ completed | entered-in-error.
         Type `str`. """
         
-        self.targetDisease = None
+        self.targetDisease: codeableconcept.CodeableConcept | None = None
         """ Evaluation target disease.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ImmunizationEvaluation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImmunizationEvaluation, self).elementProperties()
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Appointment).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class Appointment(domainresource.DomainResource):
     
     resource_type = "Appointment"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,103 +24,103 @@ class Appointment(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.appointmentType = None
+        self.appointmentType: codeableconcept.CodeableConcept | None = None
         """ The style of appointment or patient that has been booked in the
         slot (not service type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ The service request this appointment is allocated to assess.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.cancelationReason = None
+        self.cancelationReason: codeableconcept.CodeableConcept | None = None
         """ The coded reason for the appointment being cancelled.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Additional comments.
         Type `str`. """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ The date that this appointment was initially created.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Shown on a subject line in a meeting request, or appointment list.
         Type `str`. """
         
-        self.end = None
+        self.end: fhirinstant.FHIRInstant | None = None
         """ When appointment is to conclude.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.minutesDuration = None
+        self.minutesDuration: int | None = None
         """ Can be less than start/end (e.g. estimate).
         Type `int`. """
         
-        self.participant = None
+        self.participant: list[AppointmentParticipant] | None = None
         """ Participants involved in appointment.
         List of `AppointmentParticipant` items (represented as `dict` in JSON). """
         
-        self.patientInstruction = None
+        self.patientInstruction: str | None = None
         """ Detailed information and instructions for the patient.
         Type `str`. """
         
-        self.priority = None
+        self.priority: int | None = None
         """ Used to make informed decisions if needing to re-prioritize.
         Type `int`. """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Coded reason this appointment is scheduled.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Reason the appointment is to take place (resource).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.requestedPeriod = None
+        self.requestedPeriod: list[period.Period] | None = None
         """ Potential date/time interval(s) requested to allocate the
         appointment within.
         List of `Period` items (represented as `dict` in JSON). """
         
-        self.serviceCategory = None
+        self.serviceCategory: list[codeableconcept.CodeableConcept] | None = None
         """ A broad categorization of the service that is to be performed
         during this appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.serviceType = None
+        self.serviceType: list[codeableconcept.CodeableConcept] | None = None
         """ The specific service that is to be performed during this
         appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.slot = None
+        self.slot: list[fhirreference.FHIRReference] | None = None
         """ The slots that this appointment is filling.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.specialty = None
+        self.specialty: list[codeableconcept.CodeableConcept] | None = None
         """ The specialty of a practitioner that would be required to perform
         the service requested in this appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.start = None
+        self.start: fhirinstant.FHIRInstant | None = None
         """ When appointment is to take place.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ proposed | pending | booked | arrived | fulfilled | cancelled |
         noshow | entered-in-error | checked-in | waitlist.
         Type `str`. """
         
-        self.supportingInformation = None
+        self.supportingInformation: list[fhirreference.FHIRReference] | None = None
         """ Additional information to support the appointment.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(Appointment, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Appointment, self).elementProperties()
         js.extend([
             ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
@@ -155,7 +159,7 @@ class AppointmentParticipant(backboneelement.BackboneElement):
     
     resource_type = "AppointmentParticipant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -163,29 +167,29 @@ class AppointmentParticipant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actor = None
+        self.actor: fhirreference.FHIRReference | None = None
         """ Person, Location/HealthcareService or Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Participation period of the actor.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.required = None
+        self.required: str | None = None
         """ required | optional | information-only.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ accepted | declined | tentative | needs-action.
         Type `str`. """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Role of participant in the appointment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(AppointmentParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AppointmentParticipant, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, False),

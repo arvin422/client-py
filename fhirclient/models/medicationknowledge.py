@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationKnowledge).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class MedicationKnowledge(domainresource.DomainResource):
     
     resource_type = "MedicationKnowledge"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,99 +24,99 @@ class MedicationKnowledge(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.administrationGuidelines = None
+        self.administrationGuidelines: list[MedicationKnowledgeAdministrationGuidelines] | None = None
         """ Guidelines for administration of the medication.
         List of `MedicationKnowledgeAdministrationGuidelines` items (represented as `dict` in JSON). """
         
-        self.amount = None
+        self.amount: quantity.Quantity | None = None
         """ Amount of drug in package.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.associatedMedication = None
+        self.associatedMedication: list[fhirreference.FHIRReference] | None = None
         """ A medication resource that is associated with this medication.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Code that identifies this medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.contraindication = None
+        self.contraindication: list[fhirreference.FHIRReference] | None = None
         """ Potential clinical issue with or between medication(s).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.cost = None
+        self.cost: list[MedicationKnowledgeCost] | None = None
         """ The pricing of the medication.
         List of `MedicationKnowledgeCost` items (represented as `dict` in JSON). """
         
-        self.doseForm = None
+        self.doseForm: codeableconcept.CodeableConcept | None = None
         """ powder | tablets | capsule +.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.drugCharacteristic = None
+        self.drugCharacteristic: list[MedicationKnowledgeDrugCharacteristic] | None = None
         """ Specifies descriptive properties of the medicine.
         List of `MedicationKnowledgeDrugCharacteristic` items (represented as `dict` in JSON). """
         
-        self.ingredient = None
+        self.ingredient: list[MedicationKnowledgeIngredient] | None = None
         """ Active or inactive ingredient.
         List of `MedicationKnowledgeIngredient` items (represented as `dict` in JSON). """
         
-        self.intendedRoute = None
+        self.intendedRoute: list[codeableconcept.CodeableConcept] | None = None
         """ The intended or approved route of administration.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kinetics = None
+        self.kinetics: list[MedicationKnowledgeKinetics] | None = None
         """ The time course of drug absorption, distribution, metabolism and
         excretion of a medication from the body.
         List of `MedicationKnowledgeKinetics` items (represented as `dict` in JSON). """
         
-        self.manufacturer = None
+        self.manufacturer: fhirreference.FHIRReference | None = None
         """ Manufacturer of the item.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.medicineClassification = None
+        self.medicineClassification: list[MedicationKnowledgeMedicineClassification] | None = None
         """ Categorization of the medication within a formulary or
         classification system.
         List of `MedicationKnowledgeMedicineClassification` items (represented as `dict` in JSON). """
         
-        self.monitoringProgram = None
+        self.monitoringProgram: list[MedicationKnowledgeMonitoringProgram] | None = None
         """ Program under which a medication is reviewed.
         List of `MedicationKnowledgeMonitoringProgram` items (represented as `dict` in JSON). """
         
-        self.monograph = None
+        self.monograph: list[MedicationKnowledgeMonograph] | None = None
         """ Associated documentation about the medication.
         List of `MedicationKnowledgeMonograph` items (represented as `dict` in JSON). """
         
-        self.packaging = None
+        self.packaging: MedicationKnowledgePackaging | None = None
         """ Details about packaged medications.
         Type `MedicationKnowledgePackaging` (represented as `dict` in JSON). """
         
-        self.preparationInstruction = None
+        self.preparationInstruction: str | None = None
         """ The instructions for preparing the medication.
         Type `str`. """
         
-        self.productType = None
+        self.productType: list[codeableconcept.CodeableConcept] | None = None
         """ Category of the medication or product.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.regulatory = None
+        self.regulatory: list[MedicationKnowledgeRegulatory] | None = None
         """ Regulatory information about a medication.
         List of `MedicationKnowledgeRegulatory` items (represented as `dict` in JSON). """
         
-        self.relatedMedicationKnowledge = None
+        self.relatedMedicationKnowledge: list[MedicationKnowledgeRelatedMedicationKnowledge] | None = None
         """ Associated or related medication information.
         List of `MedicationKnowledgeRelatedMedicationKnowledge` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | inactive | entered-in-error.
         Type `str`. """
         
-        self.synonym = None
+        self.synonym: list[str | None] | None = None
         """ Additional names for a medication.
         List of `str` items. """
         
         super(MedicationKnowledge, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledge, self).elementProperties()
         js.extend([
             ("administrationGuidelines", "administrationGuidelines", MedicationKnowledgeAdministrationGuidelines, True, None, False),
@@ -151,7 +155,7 @@ class MedicationKnowledgeAdministrationGuidelines(backboneelement.BackboneElemen
     
     resource_type = "MedicationKnowledgeAdministrationGuidelines"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -159,28 +163,28 @@ class MedicationKnowledgeAdministrationGuidelines(backboneelement.BackboneElemen
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dosage = None
+        self.dosage: list[MedicationKnowledgeAdministrationGuidelinesDosage] | None = None
         """ Dosage for the medication for the specific guidelines.
         List of `MedicationKnowledgeAdministrationGuidelinesDosage` items (represented as `dict` in JSON). """
         
-        self.indicationCodeableConcept = None
+        self.indicationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Indication for use that apply to the specific administration
         guidelines.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.indicationReference = None
+        self.indicationReference: fhirreference.FHIRReference | None = None
         """ Indication for use that apply to the specific administration
         guidelines.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.patientCharacteristics = None
+        self.patientCharacteristics: list[MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics] | None = None
         """ Characteristics of the patient that are relevant to the
         administration guidelines.
         List of `MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics` items (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeAdministrationGuidelines, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeAdministrationGuidelines, self).elementProperties()
         js.extend([
             ("dosage", "dosage", MedicationKnowledgeAdministrationGuidelinesDosage, True, None, False),
@@ -197,7 +201,7 @@ class MedicationKnowledgeAdministrationGuidelinesDosage(backboneelement.Backbone
     
     resource_type = "MedicationKnowledgeAdministrationGuidelinesDosage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -205,17 +209,17 @@ class MedicationKnowledgeAdministrationGuidelinesDosage(backboneelement.Backbone
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dosage = None
+        self.dosage: list[dosage.Dosage] | None = None
         """ Dosage for the medication for the specific guidelines.
         List of `Dosage` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of dosage.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeAdministrationGuidelinesDosage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeAdministrationGuidelinesDosage, self).elementProperties()
         js.extend([
             ("dosage", "dosage", dosage.Dosage, True, None, True),
@@ -234,7 +238,7 @@ class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(backbone
     
     resource_type = "MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -242,23 +246,23 @@ class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(backbone
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.characteristicCodeableConcept = None
+        self.characteristicCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Specific characteristic that is relevant to the administration
         guideline.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.characteristicQuantity = None
+        self.characteristicQuantity: quantity.Quantity | None = None
         """ Specific characteristic that is relevant to the administration
         guideline.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.value = None
+        self.value: list[str | None] | None = None
         """ The specific characteristic.
         List of `str` items. """
         
         super(MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics, self).elementProperties()
         js.extend([
             ("characteristicCodeableConcept", "characteristicCodeableConcept", codeableconcept.CodeableConcept, False, "characteristic", True),
@@ -276,7 +280,7 @@ class MedicationKnowledgeCost(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeCost"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -284,21 +288,21 @@ class MedicationKnowledgeCost(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.cost = None
+        self.cost: money.Money | None = None
         """ The price of the medication.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.source = None
+        self.source: str | None = None
         """ The source or owner for the price information.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The category of the cost information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeCost, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeCost, self).elementProperties()
         js.extend([
             ("cost", "cost", money.Money, False, None, True),
@@ -317,7 +321,7 @@ class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeDrugCharacteristic"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -325,29 +329,29 @@ class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Code specifying the type of characteristic of medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Description of the characteristic.
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Description of the characteristic.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Description of the characteristic.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Description of the characteristic.
         Type `str`. """
         
         super(MedicationKnowledgeDrugCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeDrugCharacteristic, self).elementProperties()
         js.extend([
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -367,7 +371,7 @@ class MedicationKnowledgeIngredient(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeIngredient"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -375,25 +379,25 @@ class MedicationKnowledgeIngredient(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.isActive = None
+        self.isActive: bool | None = None
         """ Active ingredient indicator.
         Type `bool`. """
         
-        self.itemCodeableConcept = None
+        self.itemCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Medication(s) or substance(s) contained in the medication.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.itemReference = None
+        self.itemReference: fhirreference.FHIRReference | None = None
         """ Medication(s) or substance(s) contained in the medication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.strength = None
+        self.strength: ratio.Ratio | None = None
         """ Quantity of ingredient present.
         Type `Ratio` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeIngredient, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeIngredient, self).elementProperties()
         js.extend([
             ("isActive", "isActive", bool, False, None, False),
@@ -411,7 +415,7 @@ class MedicationKnowledgeKinetics(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeKinetics"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -419,21 +423,21 @@ class MedicationKnowledgeKinetics(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.areaUnderCurve = None
+        self.areaUnderCurve: list[quantity.Quantity] | None = None
         """ The drug concentration measured at certain discrete points in time.
         List of `Quantity` items (represented as `dict` in JSON). """
         
-        self.halfLifePeriod = None
+        self.halfLifePeriod: duration.Duration | None = None
         """ Time required for concentration in the body to decrease by half.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.lethalDose50 = None
+        self.lethalDose50: list[quantity.Quantity] | None = None
         """ The median lethal dose of a drug.
         List of `Quantity` items (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeKinetics, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeKinetics, self).elementProperties()
         js.extend([
             ("areaUnderCurve", "areaUnderCurve", quantity.Quantity, True, None, False),
@@ -450,7 +454,7 @@ class MedicationKnowledgeMedicineClassification(backboneelement.BackboneElement)
     
     resource_type = "MedicationKnowledgeMedicineClassification"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -458,18 +462,18 @@ class MedicationKnowledgeMedicineClassification(backboneelement.BackboneElement)
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.classification = None
+        self.classification: list[codeableconcept.CodeableConcept] | None = None
         """ Specific category assigned to the medication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The type of category for the medication (for example, therapeutic
         classification, therapeutic sub-classification).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeMedicineClassification, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeMedicineClassification, self).elementProperties()
         js.extend([
             ("classification", "classification", codeableconcept.CodeableConcept, True, None, False),
@@ -486,7 +490,7 @@ class MedicationKnowledgeMonitoringProgram(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeMonitoringProgram"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -494,17 +498,17 @@ class MedicationKnowledgeMonitoringProgram(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.name: str | None = None
         """ Name of the reviewing program.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of program under which the medication is monitored.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeMonitoringProgram, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeMonitoringProgram, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, False),
@@ -519,7 +523,7 @@ class MedicationKnowledgeMonograph(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeMonograph"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -527,17 +531,17 @@ class MedicationKnowledgeMonograph(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.source = None
+        self.source: fhirreference.FHIRReference | None = None
         """ Associated documentation about the medication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The category of medication document.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeMonograph, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeMonograph, self).elementProperties()
         js.extend([
             ("source", "source", fhirreference.FHIRReference, False, None, False),
@@ -554,7 +558,7 @@ class MedicationKnowledgePackaging(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgePackaging"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -562,19 +566,19 @@ class MedicationKnowledgePackaging(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The number of product units the package would contain if fully
         loaded.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ A code that defines the specific type of packaging that the
         medication can be found in.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgePackaging, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgePackaging, self).elementProperties()
         js.extend([
             ("quantity", "quantity", quantity.Quantity, False, None, False),
@@ -589,7 +593,7 @@ class MedicationKnowledgeRegulatory(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeRegulatory"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -597,27 +601,27 @@ class MedicationKnowledgeRegulatory(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.maxDispense = None
+        self.maxDispense: MedicationKnowledgeRegulatoryMaxDispense | None = None
         """ The maximum number of units of the medication that can be dispensed
         in a period.
         Type `MedicationKnowledgeRegulatoryMaxDispense` (represented as `dict` in JSON). """
         
-        self.regulatoryAuthority = None
+        self.regulatoryAuthority: fhirreference.FHIRReference | None = None
         """ Specifies the authority of the regulation.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.schedule = None
+        self.schedule: list[MedicationKnowledgeRegulatorySchedule] | None = None
         """ Specifies the schedule of a medication in jurisdiction.
         List of `MedicationKnowledgeRegulatorySchedule` items (represented as `dict` in JSON). """
         
-        self.substitution = None
+        self.substitution: list[MedicationKnowledgeRegulatorySubstitution] | None = None
         """ Specifies if changes are allowed when dispensing a medication from
         a regulatory perspective.
         List of `MedicationKnowledgeRegulatorySubstitution` items (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeRegulatory, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeRegulatory, self).elementProperties()
         js.extend([
             ("maxDispense", "maxDispense", MedicationKnowledgeRegulatoryMaxDispense, False, None, False),
@@ -635,7 +639,7 @@ class MedicationKnowledgeRegulatoryMaxDispense(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeRegulatoryMaxDispense"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -643,17 +647,17 @@ class MedicationKnowledgeRegulatoryMaxDispense(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
+        self.period: duration.Duration | None = None
         """ The period that applies to the maximum number of units.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The maximum number of units of the medication that can be dispensed.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeRegulatoryMaxDispense, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeRegulatoryMaxDispense, self).elementProperties()
         js.extend([
             ("period", "period", duration.Duration, False, None, False),
@@ -668,7 +672,7 @@ class MedicationKnowledgeRegulatorySchedule(backboneelement.BackboneElement):
     
     resource_type = "MedicationKnowledgeRegulatorySchedule"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -676,13 +680,13 @@ class MedicationKnowledgeRegulatorySchedule(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.schedule = None
+        self.schedule: codeableconcept.CodeableConcept | None = None
         """ Specifies the specific drug schedule.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeRegulatorySchedule, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeRegulatorySchedule, self).elementProperties()
         js.extend([
             ("schedule", "schedule", codeableconcept.CodeableConcept, False, None, True),
@@ -697,7 +701,7 @@ class MedicationKnowledgeRegulatorySubstitution(backboneelement.BackboneElement)
     
     resource_type = "MedicationKnowledgeRegulatorySubstitution"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -705,18 +709,18 @@ class MedicationKnowledgeRegulatorySubstitution(backboneelement.BackboneElement)
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allowed = None
+        self.allowed: bool | None = None
         """ Specifies if regulation allows for changes in the medication when
         dispensing.
         Type `bool`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Specifies the type of substitution allowed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeRegulatorySubstitution, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeRegulatorySubstitution, self).elementProperties()
         js.extend([
             ("allowed", "allowed", bool, False, None, True),
@@ -733,7 +737,7 @@ class MedicationKnowledgeRelatedMedicationKnowledge(backboneelement.BackboneElem
     
     resource_type = "MedicationKnowledgeRelatedMedicationKnowledge"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -741,17 +745,17 @@ class MedicationKnowledgeRelatedMedicationKnowledge(backboneelement.BackboneElem
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.reference = None
+        self.reference: list[fhirreference.FHIRReference] | None = None
         """ Associated documentation about the associated medication knowledge.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Category of medicationKnowledge.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationKnowledgeRelatedMedicationKnowledge, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationKnowledgeRelatedMedicationKnowledge, self).elementProperties()
         js.extend([
             ("reference", "reference", fhirreference.FHIRReference, True, None, True),

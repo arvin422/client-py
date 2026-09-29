@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Extension).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -12,7 +16,7 @@ class Extension(element.Element):
     
     resource_type = "Extension"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,213 +24,213 @@ class Extension(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.url = None
+        self.url: str | None = None
         """ identifies the meaning of the extension.
         Type `str`. """
         
-        self.valueAddress = None
+        self.valueAddress: address.Address | None = None
         """ Value of extension.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.valueAge = None
+        self.valueAge: age.Age | None = None
         """ Value of extension.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.valueAnnotation = None
+        self.valueAnnotation: annotation.Annotation | None = None
         """ Value of extension.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ Value of extension.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Value of extension.
         Type `bool`. """
         
-        self.valueCanonical = None
+        self.valueCanonical: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueCode = None
+        self.valueCode: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value of extension.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ Value of extension.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContactDetail = None
+        self.valueContactDetail: contactdetail.ContactDetail | None = None
         """ Value of extension.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.valueContactPoint = None
+        self.valueContactPoint: contactpoint.ContactPoint | None = None
         """ Value of extension.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.valueContributor = None
+        self.valueContributor: contributor.Contributor | None = None
         """ Value of extension.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.valueCount = None
+        self.valueCount: count.Count | None = None
         """ Value of extension.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.valueDataRequirement = None
+        self.valueDataRequirement: datarequirement.DataRequirement | None = None
         """ Value of extension.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ Value of extension.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Value of extension.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ Value of extension.
         Type `float`. """
         
-        self.valueDistance = None
+        self.valueDistance: distance.Distance | None = None
         """ Value of extension.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.valueDosage = None
+        self.valueDosage: dosage.Dosage | None = None
         """ Value of extension.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.valueDuration = None
+        self.valueDuration: duration.Duration | None = None
         """ Value of extension.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.valueExpression = None
+        self.valueExpression: expression.Expression | None = None
         """ Value of extension.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.valueHumanName = None
+        self.valueHumanName: humanname.HumanName | None = None
         """ Value of extension.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.valueId = None
+        self.valueId: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueIdentifier = None
+        self.valueIdentifier: identifier.Identifier | None = None
         """ Value of extension.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.valueInstant = None
+        self.valueInstant: fhirinstant.FHIRInstant | None = None
         """ Value of extension.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Value of extension.
         Type `int`. """
         
-        self.valueMarkdown = None
+        self.valueMarkdown: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueMeta = None
+        self.valueMeta: meta.Meta | None = None
         """ Value of extension.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.valueMoney = None
+        self.valueMoney: money.Money | None = None
         """ Value of extension.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.valueOid = None
+        self.valueOid: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueParameterDefinition = None
+        self.valueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Value of extension.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Value of extension.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valuePositiveInt = None
+        self.valuePositiveInt: int | None = None
         """ Value of extension.
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Value of extension.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Value of extension.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Value of extension.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Value of extension.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueRelatedArtifact = None
+        self.valueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Value of extension.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Value of extension.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueSignature = None
+        self.valueSignature: signature.Signature | None = None
         """ Value of extension.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Value of extension.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueTiming = None
+        self.valueTiming: timing.Timing | None = None
         """ Value of extension.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.valueTriggerDefinition = None
+        self.valueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Value of extension.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.valueUnsignedInt = None
+        self.valueUnsignedInt: int | None = None
         """ Value of extension.
         Type `int`. """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueUrl = None
+        self.valueUrl: str | None = None
         """ Value of extension.
         Type `str`. """
         
-        self.valueUsageContext = None
+        self.valueUsageContext: usagecontext.UsageContext | None = None
         """ Value of extension.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.valueUuid = None
+        self.valueUuid: str | None = None
         """ Value of extension.
         Type `str`. """
         
         super(Extension, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Extension, self).elementProperties()
         js.extend([
             ("url", "url", str, False, None, True),

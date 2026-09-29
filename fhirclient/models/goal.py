@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Goal).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class Goal(domainresource.DomainResource):
     
     resource_type = "Goal"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,79 +27,79 @@ class Goal(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.achievementStatus = None
+        self.achievementStatus: codeableconcept.CodeableConcept | None = None
         """ in-progress | improving | worsening | no-change | achieved |
         sustaining | not-achieved | no-progress | not-attainable.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.addresses = None
+        self.addresses: list[fhirreference.FHIRReference] | None = None
         """ Issues addressed by this goal.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ E.g. Treatment, dietary, behavioral, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: codeableconcept.CodeableConcept | None = None
         """ Code or text describing goal.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.expressedBy = None
+        self.expressedBy: fhirreference.FHIRReference | None = None
         """ Who's responsible for creating Goal?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this goal.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.lifecycleStatus = None
+        self.lifecycleStatus: str | None = None
         """ proposed | planned | accepted | active | on-hold | completed |
         cancelled | entered-in-error | rejected.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments about the goal.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.outcomeCode = None
+        self.outcomeCode: list[codeableconcept.CodeableConcept] | None = None
         """ What result was achieved regarding the goal?.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.outcomeReference = None
+        self.outcomeReference: list[fhirreference.FHIRReference] | None = None
         """ Observation that resulted from goal.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: codeableconcept.CodeableConcept | None = None
         """ high-priority | medium-priority | low-priority.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.startCodeableConcept = None
+        self.startCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ When goal pursuit begins.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.startDate = None
+        self.startDate: fhirdate.FHIRDate | None = None
         """ When goal pursuit begins.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.statusDate = None
+        self.statusDate: fhirdate.FHIRDate | None = None
         """ When goal status took effect.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.statusReason = None
+        self.statusReason: str | None = None
         """ Reason for current status.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who this goal is intended for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.target = None
+        self.target: list[GoalTarget] | None = None
         """ Target outcome for the goal.
         List of `GoalTarget` items (represented as `dict` in JSON). """
         
         super(Goal, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Goal, self).elementProperties()
         js.extend([
             ("achievementStatus", "achievementStatus", codeableconcept.CodeableConcept, False, None, False),
@@ -129,7 +133,7 @@ class GoalTarget(backboneelement.BackboneElement):
     
     resource_type = "GoalTarget"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -137,49 +141,49 @@ class GoalTarget(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.detailBoolean = None
+        self.detailBoolean: bool | None = None
         """ The target value to be achieved.
         Type `bool`. """
         
-        self.detailCodeableConcept = None
+        self.detailCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ The target value to be achieved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detailInteger = None
+        self.detailInteger: int | None = None
         """ The target value to be achieved.
         Type `int`. """
         
-        self.detailQuantity = None
+        self.detailQuantity: quantity.Quantity | None = None
         """ The target value to be achieved.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.detailRange = None
+        self.detailRange: range.Range | None = None
         """ The target value to be achieved.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.detailRatio = None
+        self.detailRatio: ratio.Ratio | None = None
         """ The target value to be achieved.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.detailString = None
+        self.detailString: str | None = None
         """ The target value to be achieved.
         Type `str`. """
         
-        self.dueDate = None
+        self.dueDate: fhirdate.FHIRDate | None = None
         """ Reach goal on or before.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.dueDuration = None
+        self.dueDuration: duration.Duration | None = None
         """ Reach goal on or before.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.measure = None
+        self.measure: codeableconcept.CodeableConcept | None = None
         """ The parameter whose value is being tracked.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(GoalTarget, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GoalTarget, self).elementProperties()
         js.extend([
             ("detailBoolean", "detailBoolean", bool, False, "detail", False),

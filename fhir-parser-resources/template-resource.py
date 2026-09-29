@@ -1,6 +1,10 @@
 # Generated from FHIR {{ info.version }} ({{ profile.url }}).
 # {{ info.year }}, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 {%- set imported = {} %}
 {%- for klass in classes %}
 
@@ -32,7 +36,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
     resource_type = "{{ klass.name }}"
 {%- endif %}
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -42,7 +46,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
     {#- sorted just to avoid churn during another update - can remove as its own PR at some point #}
     {%- for prop in klass.properties|sort(attribute="name", case_sensitive=True) %}
         
-        self.{{ prop.name }} = None
+        self.{{ prop.name }}: {% if prop.is_array %}list[{% endif %}{% if prop.module_name %}{{ prop.module_name }}.{% endif %}{{ prop.class_name }}{% if prop.is_array %}{% if prop.class_name in ('str', 'int', 'float', 'bool', 'FHIRDate', 'FHIRDateTime', 'FHIRInstant', 'FHIRTime') %} | None{% endif %}]{% endif %} | None = None
         """ {{ prop.short|wordwrap(67, wrapstring="\n        ") }}.
         {% if prop.is_array %}List of{% else %}Type{% endif %} `{{ prop.class_name }}`{% if prop.is_array %} items{% endif %}
         {%- if prop.reference_to_names|length > 0 %} referencing `{{ prop.reference_to_names|join(', ') }}`{% endif %}
@@ -53,14 +57,8 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
     
 {%- if klass.properties %}
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super({{ klass.name }}, self).elementProperties()
-        {%- if 'element' == klass.module and 'Element' == klass.name %}
-        {%- for imp in imports %}{% if imp.module not in imported %}
-        from . import {{ imp.module }}
-        {%- set _ = imported.update({imp.module: True}) %}
-        {%- endif %}{% endfor %}
-        {%- endif %}
         js.extend([
         {#- sorted just to avoid churn during another update - can remove as its own PR at some point #}
         {%- for prop in klass.properties|sort(attribute="name", case_sensitive=True) %}

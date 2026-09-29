@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstancePolymer).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class SubstancePolymer(domainresource.DomainResource):
     
     resource_type = "SubstancePolymer"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,33 +22,33 @@ class SubstancePolymer(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.class_fhir = None
+        self.class_fhir: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.copolymerConnectivity = None
+        self.copolymerConnectivity: list[codeableconcept.CodeableConcept] | None = None
         """ Todo.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.geometry = None
+        self.geometry: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.modification = None
+        self.modification: list[str | None] | None = None
         """ Todo.
         List of `str` items. """
         
-        self.monomerSet = None
+        self.monomerSet: list[SubstancePolymerMonomerSet] | None = None
         """ Todo.
         List of `SubstancePolymerMonomerSet` items (represented as `dict` in JSON). """
         
-        self.repeat = None
+        self.repeat: list[SubstancePolymerRepeat] | None = None
         """ Todo.
         List of `SubstancePolymerRepeat` items (represented as `dict` in JSON). """
         
         super(SubstancePolymer, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymer, self).elementProperties()
         js.extend([
             ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
@@ -65,7 +69,7 @@ class SubstancePolymerMonomerSet(backboneelement.BackboneElement):
     
     resource_type = "SubstancePolymerMonomerSet"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -73,17 +77,17 @@ class SubstancePolymerMonomerSet(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.ratioType = None
+        self.ratioType: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.startingMaterial = None
+        self.startingMaterial: list[SubstancePolymerMonomerSetStartingMaterial] | None = None
         """ Todo.
         List of `SubstancePolymerMonomerSetStartingMaterial` items (represented as `dict` in JSON). """
         
         super(SubstancePolymerMonomerSet, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerMonomerSet, self).elementProperties()
         js.extend([
             ("ratioType", "ratioType", codeableconcept.CodeableConcept, False, None, False),
@@ -98,7 +102,7 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
     
     resource_type = "SubstancePolymerMonomerSetStartingMaterial"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -106,25 +110,25 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: substanceamount.SubstanceAmount | None = None
         """ Todo.
         Type `SubstanceAmount` (represented as `dict` in JSON). """
         
-        self.isDefining = None
+        self.isDefining: bool | None = None
         """ Todo.
         Type `bool`. """
         
-        self.material = None
+        self.material: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstancePolymerMonomerSetStartingMaterial, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerMonomerSetStartingMaterial, self).elementProperties()
         js.extend([
             ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
@@ -141,7 +145,7 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
     
     resource_type = "SubstancePolymerRepeat"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -149,25 +153,25 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.averageMolecularFormula = None
+        self.averageMolecularFormula: str | None = None
         """ Todo.
         Type `str`. """
         
-        self.numberOfUnits = None
+        self.numberOfUnits: int | None = None
         """ Todo.
         Type `int`. """
         
-        self.repeatUnit = None
+        self.repeatUnit: list[SubstancePolymerRepeatRepeatUnit] | None = None
         """ Todo.
         List of `SubstancePolymerRepeatRepeatUnit` items (represented as `dict` in JSON). """
         
-        self.repeatUnitAmountType = None
+        self.repeatUnitAmountType: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerRepeat, self).elementProperties()
         js.extend([
             ("averageMolecularFormula", "averageMolecularFormula", str, False, None, False),
@@ -184,7 +188,7 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
     
     resource_type = "SubstancePolymerRepeatRepeatUnit"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -192,29 +196,29 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: substanceamount.SubstanceAmount | None = None
         """ Todo.
         Type `SubstanceAmount` (represented as `dict` in JSON). """
         
-        self.degreeOfPolymerisation = None
+        self.degreeOfPolymerisation: list[SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation] | None = None
         """ Todo.
         List of `SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation` items (represented as `dict` in JSON). """
         
-        self.orientationOfPolymerisation = None
+        self.orientationOfPolymerisation: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.repeatUnit = None
+        self.repeatUnit: str | None = None
         """ Todo.
         Type `str`. """
         
-        self.structuralRepresentation = None
+        self.structuralRepresentation: list[SubstancePolymerRepeatRepeatUnitStructuralRepresentation] | None = None
         """ Todo.
         List of `SubstancePolymerRepeatRepeatUnitStructuralRepresentation` items (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeatRepeatUnit, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerRepeatRepeatUnit, self).elementProperties()
         js.extend([
             ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
@@ -232,7 +236,7 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.Bac
     
     resource_type = "SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -240,17 +244,17 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.Bac
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: substanceamount.SubstanceAmount | None = None
         """ Todo.
         Type `SubstanceAmount` (represented as `dict` in JSON). """
         
-        self.degree = None
+        self.degree: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, self).elementProperties()
         js.extend([
             ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
@@ -265,7 +269,7 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
     
     resource_type = "SubstancePolymerRepeatRepeatUnitStructuralRepresentation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -273,21 +277,21 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.attachment = None
+        self.attachment: attachment.Attachment | None = None
         """ Todo.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.representation = None
+        self.representation: str | None = None
         """ Todo.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Todo.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).elementProperties()
         js.extend([
             ("attachment", "attachment", attachment.Attachment, False, None, False),

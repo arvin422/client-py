@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RequestGroup).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class RequestGroup(domainresource.DomainResource):
     
     resource_type = "RequestGroup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,83 +25,83 @@ class RequestGroup(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[RequestGroupAction] | None = None
         """ Proposed actions, if any.
         List of `RequestGroupAction` items (represented as `dict` in JSON). """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ Device or practitioner that authored the request group.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.authoredOn = None
+        self.authoredOn: fhirdatetime.FHIRDateTime | None = None
         """ When the request group was authored.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfills plan, proposal, or order.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ What's being requested/ordered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.groupIdentifier = None
+        self.groupIdentifier: identifier.Identifier | None = None
         """ Composite request this is part of.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | directive | order | original-order | reflex-order
         | filler-order | instance-order | option.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Additional notes about the response.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why the request group is needed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why the request group is needed.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.replaces = None
+        self.replaces: list[fhirreference.FHIRReference] | None = None
         """ Request(s) replaced by this request.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | on-hold | revoked | completed | entered-in-error |
         unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who the request group is about.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(RequestGroup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RequestGroup, self).elementProperties()
         js.extend([
             ("action", "action", RequestGroupAction, True, None, False),
@@ -132,7 +136,7 @@ class RequestGroupAction(backboneelement.BackboneElement):
     
     resource_type = "RequestGroupAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -140,106 +144,106 @@ class RequestGroupAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[RequestGroupAction] | None = None
         """ Sub action.
         List of `RequestGroupAction` items (represented as `dict` in JSON). """
         
-        self.cardinalityBehavior = None
+        self.cardinalityBehavior: str | None = None
         """ single | multiple.
         Type `str`. """
         
-        self.code = None
+        self.code: list[codeableconcept.CodeableConcept] | None = None
         """ Code representing the meaning of the action or sub-actions.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.condition = None
+        self.condition: list[RequestGroupActionCondition] | None = None
         """ Whether or not the action is applicable.
         List of `RequestGroupActionCondition` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Short description of the action.
         Type `str`. """
         
-        self.documentation = None
+        self.documentation: list[relatedartifact.RelatedArtifact] | None = None
         """ Supporting documentation for the intended performer of the action.
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.groupingBehavior = None
+        self.groupingBehavior: str | None = None
         """ visual-group | logical-group | sentence-group.
         Type `str`. """
         
-        self.participant = None
+        self.participant: list[fhirreference.FHIRReference] | None = None
         """ Who should perform the action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.precheckBehavior = None
+        self.precheckBehavior: str | None = None
         """ yes | no.
         Type `str`. """
         
-        self.prefix = None
+        self.prefix: str | None = None
         """ User-visible prefix for the action (e.g. 1. or A.).
         Type `str`. """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.relatedAction = None
+        self.relatedAction: list[RequestGroupActionRelatedAction] | None = None
         """ Relationship to another action.
         List of `RequestGroupActionRelatedAction` items (represented as `dict` in JSON). """
         
-        self.requiredBehavior = None
+        self.requiredBehavior: str | None = None
         """ must | could | must-unless-documented.
         Type `str`. """
         
-        self.resource = None
+        self.resource: fhirreference.FHIRReference | None = None
         """ The target of the action.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.selectionBehavior = None
+        self.selectionBehavior: str | None = None
         """ any | all | all-or-none | exactly-one | at-most-one | one-or-more.
         Type `str`. """
         
-        self.textEquivalent = None
+        self.textEquivalent: str | None = None
         """ Static text equivalent of the action, used if the dynamic aspects
         cannot be interpreted by the receiving system.
         Type `str`. """
         
-        self.timingAge = None
+        self.timingAge: age.Age | None = None
         """ When the action should take place.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.timingDateTime = None
+        self.timingDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When the action should take place.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.timingDuration = None
+        self.timingDuration: duration.Duration | None = None
         """ When the action should take place.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.timingPeriod = None
+        self.timingPeriod: period.Period | None = None
         """ When the action should take place.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.timingRange = None
+        self.timingRange: range.Range | None = None
         """ When the action should take place.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.timingTiming = None
+        self.timingTiming: timing.Timing | None = None
         """ When the action should take place.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ User-visible title.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ create | update | remove | fire-event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(RequestGroupAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RequestGroupAction, self).elementProperties()
         js.extend([
             ("action", "action", RequestGroupAction, True, None, False),
@@ -279,7 +283,7 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
     
     resource_type = "RequestGroupActionCondition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -287,17 +291,17 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expression = None
+        self.expression: expression.Expression | None = None
         """ Boolean-valued expression.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ applicability | start | stop.
         Type `str`. """
         
         super(RequestGroupActionCondition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RequestGroupActionCondition, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, False),
@@ -315,7 +319,7 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
     
     resource_type = "RequestGroupActionRelatedAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -323,26 +327,26 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actionId = None
+        self.actionId: str | None = None
         """ What action this is related to.
         Type `str`. """
         
-        self.offsetDuration = None
+        self.offsetDuration: duration.Duration | None = None
         """ Time offset for the relationship.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.offsetRange = None
+        self.offsetRange: range.Range | None = None
         """ Time offset for the relationship.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.relationship = None
+        self.relationship: str | None = None
         """ before-start | before | before-end | concurrent-with-start |
         concurrent | concurrent-with-end | after-start | after | after-end.
         Type `str`. """
         
         super(RequestGroupActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RequestGroupActionRelatedAction, self).elementProperties()
         js.extend([
             ("actionId", "actionId", str, False, None, True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentReconciliation).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class PaymentReconciliation(domainresource.DomainResource):
     
     resource_type = "PaymentReconciliation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,69 +25,69 @@ class PaymentReconciliation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.detail = None
+        self.detail: list[PaymentReconciliationDetail] | None = None
         """ Settlement particulars.
         List of `PaymentReconciliationDetail` items (represented as `dict` in JSON). """
         
-        self.disposition = None
+        self.disposition: str | None = None
         """ Disposition message.
         Type `str`. """
         
-        self.formCode = None
+        self.formCode: codeableconcept.CodeableConcept | None = None
         """ Printed form identifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for a payment reconciliation.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: str | None = None
         """ queued | complete | error | partial.
         Type `str`. """
         
-        self.paymentAmount = None
+        self.paymentAmount: money.Money | None = None
         """ Total amount of Payment.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.paymentDate = None
+        self.paymentDate: fhirdate.FHIRDate | None = None
         """ When payment issued.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.paymentIdentifier = None
+        self.paymentIdentifier: identifier.Identifier | None = None
         """ Business identifier for the payment.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.paymentIssuer = None
+        self.paymentIssuer: fhirreference.FHIRReference | None = None
         """ Party generating payment.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period covered.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.processNote = None
+        self.processNote: list[PaymentReconciliationProcessNote] | None = None
         """ Note concerning processing.
         List of `PaymentReconciliationProcessNote` items (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Reference to requesting resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requestor = None
+        self.requestor: fhirreference.FHIRReference | None = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
         super(PaymentReconciliation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PaymentReconciliation, self).elementProperties()
         js.extend([
             ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
@@ -115,7 +119,7 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     
     resource_type = "PaymentReconciliationDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -123,49 +127,49 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Amount allocated to this payable.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdate.FHIRDate | None = None
         """ Date of commitment to pay.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Business identifier of the payment detail.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.payee = None
+        self.payee: fhirreference.FHIRReference | None = None
         """ Recipient of the payment.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.predecessor = None
+        self.predecessor: identifier.Identifier | None = None
         """ Business identifier of the prior payment detail.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Request giving rise to the payment.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.response: fhirreference.FHIRReference | None = None
         """ Response committing to a payment.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.responsible = None
+        self.responsible: fhirreference.FHIRReference | None = None
         """ Contact for the response.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.submitter = None
+        self.submitter: fhirreference.FHIRReference | None = None
         """ Submitter of the request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Category of payment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(PaymentReconciliationDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PaymentReconciliationDetail, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, False),
@@ -190,7 +194,7 @@ class PaymentReconciliationProcessNote(backboneelement.BackboneElement):
     
     resource_type = "PaymentReconciliationProcessNote"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -198,17 +202,17 @@ class PaymentReconciliationProcessNote(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.text = None
+        self.text: str | None = None
         """ Note explanatory text.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ display | print | printoper.
         Type `str`. """
         
         super(PaymentReconciliationProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PaymentReconciliationProcessNote, self).elementProperties()
         js.extend([
             ("text", "text", str, False, None, False),

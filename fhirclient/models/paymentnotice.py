@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentNotice).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class PaymentNotice(domainresource.DomainResource):
     
     resource_type = "PaymentNotice"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,57 +25,57 @@ class PaymentNotice(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Monetary amount of the payment.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for the payment noctice.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.payee = None
+        self.payee: fhirreference.FHIRReference | None = None
         """ Party being paid.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.payment = None
+        self.payment: fhirreference.FHIRReference | None = None
         """ Payment reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.paymentDate = None
+        self.paymentDate: fhirdate.FHIRDate | None = None
         """ Payment or clearing date.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.paymentStatus = None
+        self.paymentStatus: codeableconcept.CodeableConcept | None = None
         """ Issued or cleared Status of the payment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.provider: fhirreference.FHIRReference | None = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.recipient = None
+        self.recipient: fhirreference.FHIRReference | None = None
         """ Party being notified.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Request reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.response: fhirreference.FHIRReference | None = None
         """ Response reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
         super(PaymentNotice, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PaymentNotice, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, True),

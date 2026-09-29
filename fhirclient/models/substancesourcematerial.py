@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -23,7 +27,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
     
     resource_type = "SubstanceSourceMaterial"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -31,7 +35,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.countryOfOrigin = None
+        self.countryOfOrigin: list[codeableconcept.CodeableConcept] | None = None
         """ The country where the plant material is harvested or the countries
         where the plasma is sourced from as laid down in accordance with
         the Plasma Master File. For “Plasma-derived substances” the
@@ -40,13 +44,13 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         Crioprecipitate.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.developmentStage = None
+        self.developmentStage: codeableconcept.CodeableConcept | None = None
         """ Stage of life for animals, plants, insects and microorganisms. This
         information shall be provided only when the substance is
         significantly different in these stages (e.g. foetal bovine serum).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.fractionDescription = None
+        self.fractionDescription: list[SubstanceSourceMaterialFractionDescription] | None = None
         """ Many complex materials are fractions of parts of plants, animals,
         or minerals. Fraction elements are often necessary to define both
         Substances and Specified Group 1 Substances. For substances derived
@@ -59,52 +63,52 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         levels.
         List of `SubstanceSourceMaterialFractionDescription` items (represented as `dict` in JSON). """
         
-        self.geographicalLocation = None
+        self.geographicalLocation: list[str | None] | None = None
         """ The place/region where the plant is harvested or the places/regions
         where the animal source material has its habitat.
         List of `str` items. """
         
-        self.organism = None
+        self.organism: SubstanceSourceMaterialOrganism | None = None
         """ This subclause describes the organism which the substance is
         derived from. For vaccines, the parent organism shall be specified
         based on these subclause elements. As an example, full taxonomy
         will be described for the Substance Name: ., Leaf.
         Type `SubstanceSourceMaterialOrganism` (represented as `dict` in JSON). """
         
-        self.organismId = None
+        self.organismId: identifier.Identifier | None = None
         """ The unique identifier associated with the source material parent
         organism shall be specified.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.organismName = None
+        self.organismName: str | None = None
         """ The organism accepted Scientific name shall be provided based on
         the organism taxonomy.
         Type `str`. """
         
-        self.parentSubstanceId = None
+        self.parentSubstanceId: list[identifier.Identifier] | None = None
         """ The parent of the herbal drug Ginkgo biloba, Leaf is the substance
         ID of the substance (fresh) of Ginkgo biloba L. or Ginkgo biloba L.
         (Whole plant).
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.parentSubstanceName = None
+        self.parentSubstanceName: list[str | None] | None = None
         """ The parent substance of the Herbal Drug, or Herbal preparation.
         List of `str` items. """
         
-        self.partDescription = None
+        self.partDescription: list[SubstanceSourceMaterialPartDescription] | None = None
         """ To do.
         List of `SubstanceSourceMaterialPartDescription` items (represented as `dict` in JSON). """
         
-        self.sourceMaterialClass = None
+        self.sourceMaterialClass: codeableconcept.CodeableConcept | None = None
         """ General high level classification of the source material specific
         to the origin of the material.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.sourceMaterialState = None
+        self.sourceMaterialState: codeableconcept.CodeableConcept | None = None
         """ The state of the source material when extracted.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.sourceMaterialType = None
+        self.sourceMaterialType: codeableconcept.CodeableConcept | None = None
         """ The type of the source material shall be specified based on a
         controlled vocabulary. For vaccines, this subclause refers to the
         class of infectious agent.
@@ -112,7 +116,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         
         super(SubstanceSourceMaterial, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterial, self).elementProperties()
         js.extend([
             ("countryOfOrigin", "countryOfOrigin", codeableconcept.CodeableConcept, True, None, False),
@@ -148,7 +152,7 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
     
     resource_type = "SubstanceSourceMaterialFractionDescription"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -156,12 +160,12 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.fraction = None
+        self.fraction: str | None = None
         """ This element is capturing information about the fraction of a plant
         part, or human plasma for fractionation.
         Type `str`. """
         
-        self.materialType = None
+        self.materialType: codeableconcept.CodeableConcept | None = None
         """ The specific type of the material constituting the component. For
         Herbal preparations the particulars of the extracts (liquid/dry) is
         described in Specified Substance Group 1.
@@ -169,7 +173,7 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
         
         super(SubstanceSourceMaterialFractionDescription, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialFractionDescription, self).elementProperties()
         js.extend([
             ("fraction", "fraction", str, False, None, False),
@@ -187,7 +191,7 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSourceMaterialOrganism"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -195,40 +199,40 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
+        self.author: list[SubstanceSourceMaterialOrganismAuthor] | None = None
         """ 4.9.13.6.1 Author type (Conditional).
         List of `SubstanceSourceMaterialOrganismAuthor` items (represented as `dict` in JSON). """
         
-        self.family = None
+        self.family: codeableconcept.CodeableConcept | None = None
         """ The family of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.genus = None
+        self.genus: codeableconcept.CodeableConcept | None = None
         """ The genus of an organism shall be specified; refers to the Latin
         epithet of the genus element of the plant/animal scientific name;
         it is present in names for genera, species and infraspecies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.hybrid = None
+        self.hybrid: SubstanceSourceMaterialOrganismHybrid | None = None
         """ 4.9.13.8.1 Hybrid species maternal organism ID (Optional).
         Type `SubstanceSourceMaterialOrganismHybrid` (represented as `dict` in JSON). """
         
-        self.intraspecificDescription = None
+        self.intraspecificDescription: str | None = None
         """ The intraspecific description of an organism shall be specified
         based on a controlled vocabulary. For Influenza Vaccine, the
         intraspecific description shall contain the syntax of the antigen
         in line with the WHO convention.
         Type `str`. """
         
-        self.intraspecificType = None
+        self.intraspecificType: codeableconcept.CodeableConcept | None = None
         """ The Intraspecific type of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.organismGeneral = None
+        self.organismGeneral: SubstanceSourceMaterialOrganismOrganismGeneral | None = None
         """ 4.9.13.7.1 Kingdom (Conditional).
         Type `SubstanceSourceMaterialOrganismOrganismGeneral` (represented as `dict` in JSON). """
         
-        self.species = None
+        self.species: codeableconcept.CodeableConcept | None = None
         """ The species of an organism shall be specified; refers to the Latin
         epithet of the species of the plant/animal; it is present in names
         for species and infraspecies.
@@ -236,7 +240,7 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
         
         super(SubstanceSourceMaterialOrganism, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialOrganism, self).elementProperties()
         js.extend([
             ("author", "author", SubstanceSourceMaterialOrganismAuthor, True, None, False),
@@ -257,7 +261,7 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSourceMaterialOrganismAuthor"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -265,14 +269,14 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authorDescription = None
+        self.authorDescription: str | None = None
         """ The author of an organism species shall be specified. The author
         year of an organism shall also be specified when applicable; refers
         to the year in which the first author(s) published the
         infraspecific plant/animal name (of any rank).
         Type `str`. """
         
-        self.authorType = None
+        self.authorType: codeableconcept.CodeableConcept | None = None
         """ The type of author of an organism species shall be specified. The
         parenthetical author of an organism species refers to the first
         author who published the plant/animal name (of any rank). The
@@ -282,7 +286,7 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
         
         super(SubstanceSourceMaterialOrganismAuthor, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialOrganismAuthor, self).elementProperties()
         js.extend([
             ("authorDescription", "authorDescription", str, False, None, False),
@@ -297,7 +301,7 @@ class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSourceMaterialOrganismHybrid"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -305,37 +309,37 @@ class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.hybridType = None
+        self.hybridType: codeableconcept.CodeableConcept | None = None
         """ The hybrid type of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.maternalOrganismId = None
+        self.maternalOrganismId: str | None = None
         """ The identifier of the maternal species constituting the hybrid
         organism shall be specified based on a controlled vocabulary. For
         plants, the parents aren’t always known, and it is unlikely that it
         will be known which is maternal and which is paternal.
         Type `str`. """
         
-        self.maternalOrganismName = None
+        self.maternalOrganismName: str | None = None
         """ The name of the maternal species constituting the hybrid organism
         shall be specified. For plants, the parents aren’t always known,
         and it is unlikely that it will be known which is maternal and
         which is paternal.
         Type `str`. """
         
-        self.paternalOrganismId = None
+        self.paternalOrganismId: str | None = None
         """ The identifier of the paternal species constituting the hybrid
         organism shall be specified based on a controlled vocabulary.
         Type `str`. """
         
-        self.paternalOrganismName = None
+        self.paternalOrganismName: str | None = None
         """ The name of the paternal species constituting the hybrid organism
         shall be specified.
         Type `str`. """
         
         super(SubstanceSourceMaterialOrganismHybrid, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialOrganismHybrid, self).elementProperties()
         js.extend([
             ("hybridType", "hybridType", codeableconcept.CodeableConcept, False, None, False),
@@ -353,7 +357,7 @@ class SubstanceSourceMaterialOrganismOrganismGeneral(backboneelement.BackboneEle
     
     resource_type = "SubstanceSourceMaterialOrganismOrganismGeneral"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -361,25 +365,25 @@ class SubstanceSourceMaterialOrganismOrganismGeneral(backboneelement.BackboneEle
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.class_fhir = None
+        self.class_fhir: codeableconcept.CodeableConcept | None = None
         """ The class of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.kingdom = None
+        self.kingdom: codeableconcept.CodeableConcept | None = None
         """ The kingdom of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.order = None
+        self.order: codeableconcept.CodeableConcept | None = None
         """ The order of an organism shall be specified,.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.phylum = None
+        self.phylum: codeableconcept.CodeableConcept | None = None
         """ The phylum of an organism shall be specified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SubstanceSourceMaterialOrganismOrganismGeneral, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialOrganismOrganismGeneral, self).elementProperties()
         js.extend([
             ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
@@ -396,7 +400,7 @@ class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
     
     resource_type = "SubstanceSourceMaterialPartDescription"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -404,11 +408,11 @@ class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.part = None
+        self.part: codeableconcept.CodeableConcept | None = None
         """ Entity of anatomical origin of source material within an organism.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.partLocation = None
+        self.partLocation: codeableconcept.CodeableConcept | None = None
         """ The detailed anatomic location when the part can be extracted from
         different anatomical locations of the organism. Multiple
         alternative locations may apply.
@@ -416,7 +420,7 @@ class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
         
         super(SubstanceSourceMaterialPartDescription, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SubstanceSourceMaterialPartDescription, self).elementProperties()
         js.extend([
             ("part", "part", codeableconcept.CodeableConcept, False, None, False),

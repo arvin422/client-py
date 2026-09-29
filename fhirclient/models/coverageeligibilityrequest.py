@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -16,7 +20,7 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
     
     resource_type = "CoverageEligibilityRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,69 +28,69 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.enterer = None
+        self.enterer: fhirreference.FHIRReference | None = None
         """ Author.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.facility = None
+        self.facility: fhirreference.FHIRReference | None = None
         """ Servicing facility.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for coverage eligiblity request.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.insurance = None
+        self.insurance: list[CoverageEligibilityRequestInsurance] | None = None
         """ Patient insurance information.
         List of `CoverageEligibilityRequestInsurance` items (represented as `dict` in JSON). """
         
-        self.insurer = None
+        self.insurer: fhirreference.FHIRReference | None = None
         """ Coverage issuer.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.item: list[CoverageEligibilityRequestItem] | None = None
         """ Item to be evaluated for eligibiity.
         List of `CoverageEligibilityRequestItem` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Intended recipient of products and services.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: codeableconcept.CodeableConcept | None = None
         """ Desired processing priority.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.provider: fhirreference.FHIRReference | None = None
         """ Party responsible for the request.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.purpose = None
+        self.purpose: list[str | None] | None = None
         """ auth-requirements | benefits | discovery | validation.
         List of `str` items. """
         
-        self.servicedDate = None
+        self.servicedDate: fhirdate.FHIRDate | None = None
         """ Estimated date or dates of service.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.servicedPeriod = None
+        self.servicedPeriod: period.Period | None = None
         """ Estimated date or dates of service.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.supportingInfo = None
+        self.supportingInfo: list[CoverageEligibilityRequestSupportingInfo] | None = None
         """ Supporting information.
         List of `CoverageEligibilityRequestSupportingInfo` items (represented as `dict` in JSON). """
         
         super(CoverageEligibilityRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CoverageEligibilityRequest, self).elementProperties()
         js.extend([
             ("created", "created", fhirdatetime.FHIRDateTime, False, None, True),
@@ -119,7 +123,7 @@ class CoverageEligibilityRequestInsurance(backboneelement.BackboneElement):
     
     resource_type = "CoverageEligibilityRequestInsurance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -127,21 +131,21 @@ class CoverageEligibilityRequestInsurance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.businessArrangement = None
+        self.businessArrangement: str | None = None
         """ Additional provider contract number.
         Type `str`. """
         
-        self.coverage = None
+        self.coverage: fhirreference.FHIRReference | None = None
         """ Insurance information.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.focal = None
+        self.focal: bool | None = None
         """ Applicable coverage.
         Type `bool`. """
         
         super(CoverageEligibilityRequestInsurance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CoverageEligibilityRequestInsurance, self).elementProperties()
         js.extend([
             ("businessArrangement", "businessArrangement", str, False, None, False),
@@ -160,7 +164,7 @@ class CoverageEligibilityRequestItem(backboneelement.BackboneElement):
     
     resource_type = "CoverageEligibilityRequestItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -168,49 +172,49 @@ class CoverageEligibilityRequestItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ Benefit classification.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: list[fhirreference.FHIRReference] | None = None
         """ Product or service details.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.diagnosis = None
+        self.diagnosis: list[CoverageEligibilityRequestItemDiagnosis] | None = None
         """ Applicable diagnosis.
         List of `CoverageEligibilityRequestItemDiagnosis` items (represented as `dict` in JSON). """
         
-        self.facility = None
+        self.facility: fhirreference.FHIRReference | None = None
         """ Servicing facility.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.modifier = None
+        self.modifier: list[codeableconcept.CodeableConcept] | None = None
         """ Product or service billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.productOrService = None
+        self.productOrService: codeableconcept.CodeableConcept | None = None
         """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.provider: fhirreference.FHIRReference | None = None
         """ Perfoming practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.supportingInfoSequence = None
+        self.supportingInfoSequence: list[int | None] | None = None
         """ Applicable exception or supporting information.
         List of `int` items. """
         
-        self.unitPrice = None
+        self.unitPrice: money.Money | None = None
         """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(CoverageEligibilityRequestItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CoverageEligibilityRequestItem, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
@@ -235,7 +239,7 @@ class CoverageEligibilityRequestItemDiagnosis(backboneelement.BackboneElement):
     
     resource_type = "CoverageEligibilityRequestItemDiagnosis"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -243,17 +247,17 @@ class CoverageEligibilityRequestItemDiagnosis(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.diagnosisCodeableConcept = None
+        self.diagnosisCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Nature of illness or problem.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.diagnosisReference = None
+        self.diagnosisReference: fhirreference.FHIRReference | None = None
         """ Nature of illness or problem.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(CoverageEligibilityRequestItemDiagnosis, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CoverageEligibilityRequestItemDiagnosis, self).elementProperties()
         js.extend([
             ("diagnosisCodeableConcept", "diagnosisCodeableConcept", codeableconcept.CodeableConcept, False, "diagnosis", False),
@@ -271,7 +275,7 @@ class CoverageEligibilityRequestSupportingInfo(backboneelement.BackboneElement):
     
     resource_type = "CoverageEligibilityRequestSupportingInfo"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -279,21 +283,21 @@ class CoverageEligibilityRequestSupportingInfo(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.appliesToAll = None
+        self.appliesToAll: bool | None = None
         """ Applies to all items.
         Type `bool`. """
         
-        self.information = None
+        self.information: fhirreference.FHIRReference | None = None
         """ Data to be provided.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.sequence = None
+        self.sequence: int | None = None
         """ Information instance identifier.
         Type `int`. """
         
         super(CoverageEligibilityRequestSupportingInfo, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CoverageEligibilityRequestSupportingInfo, self).elementProperties()
         js.extend([
             ("appliesToAll", "appliesToAll", bool, False, None, False),

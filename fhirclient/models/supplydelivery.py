@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SupplyDelivery).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class SupplyDelivery(domainresource.DomainResource):
     
     resource_type = "SupplyDelivery"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,61 +24,61 @@ class SupplyDelivery(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfills plan, proposal or order.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.destination = None
+        self.destination: fhirreference.FHIRReference | None = None
         """ Where the Supply was sent.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.occurrenceDateTime = None
+        self.occurrenceDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When event occurred.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.occurrencePeriod = None
+        self.occurrencePeriod: period.Period | None = None
         """ When event occurred.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.occurrenceTiming = None
+        self.occurrenceTiming: timing.Timing | None = None
         """ When event occurred.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Patient for whom the item is supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.receiver = None
+        self.receiver: list[fhirreference.FHIRReference] | None = None
         """ Who collected the Supply.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ in-progress | completed | abandoned | entered-in-error.
         Type `str`. """
         
-        self.suppliedItem = None
+        self.suppliedItem: SupplyDeliverySuppliedItem | None = None
         """ The item that is delivered or supplied.
         Type `SupplyDeliverySuppliedItem` (represented as `dict` in JSON). """
         
-        self.supplier = None
+        self.supplier: fhirreference.FHIRReference | None = None
         """ Dispenser.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Category of dispense event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SupplyDelivery, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SupplyDelivery, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
@@ -104,7 +108,7 @@ class SupplyDeliverySuppliedItem(backboneelement.BackboneElement):
     
     resource_type = "SupplyDeliverySuppliedItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -112,21 +116,21 @@ class SupplyDeliverySuppliedItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.itemCodeableConcept = None
+        self.itemCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Medication, Substance, or Device supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.itemReference = None
+        self.itemReference: fhirreference.FHIRReference | None = None
         """ Medication, Substance, or Device supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Amount dispensed.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SupplyDeliverySuppliedItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SupplyDeliverySuppliedItem, self).elementProperties()
         js.extend([
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", False),

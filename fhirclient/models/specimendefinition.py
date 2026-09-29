@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SpecimenDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class SpecimenDefinition(domainresource.DomainResource):
     
     resource_type = "SpecimenDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,33 +24,33 @@ class SpecimenDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.collection = None
+        self.collection: list[codeableconcept.CodeableConcept] | None = None
         """ Specimen collection procedure.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Business identifier of a kind of specimen.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.patientPreparation = None
+        self.patientPreparation: list[codeableconcept.CodeableConcept] | None = None
         """ Patient preparation for collection.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.timeAspect = None
+        self.timeAspect: str | None = None
         """ Time aspect for collection.
         Type `str`. """
         
-        self.typeCollected = None
+        self.typeCollected: codeableconcept.CodeableConcept | None = None
         """ Kind of material to collect.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.typeTested = None
+        self.typeTested: list[SpecimenDefinitionTypeTested] | None = None
         """ Specimen in container intended for testing by lab.
         List of `SpecimenDefinitionTypeTested` items (represented as `dict` in JSON). """
         
         super(SpecimenDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SpecimenDefinition, self).elementProperties()
         js.extend([
             ("collection", "collection", codeableconcept.CodeableConcept, True, None, False),
@@ -69,7 +73,7 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
     
     resource_type = "SpecimenDefinitionTypeTested"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -77,41 +81,41 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.container = None
+        self.container: SpecimenDefinitionTypeTestedContainer | None = None
         """ The specimen's container.
         Type `SpecimenDefinitionTypeTestedContainer` (represented as `dict` in JSON). """
         
-        self.handling = None
+        self.handling: list[SpecimenDefinitionTypeTestedHandling] | None = None
         """ Specimen handling before testing.
         List of `SpecimenDefinitionTypeTestedHandling` items (represented as `dict` in JSON). """
         
-        self.isDerived = None
+        self.isDerived: bool | None = None
         """ Primary or secondary specimen.
         Type `bool`. """
         
-        self.preference = None
+        self.preference: str | None = None
         """ preferred | alternate.
         Type `str`. """
         
-        self.rejectionCriterion = None
+        self.rejectionCriterion: list[codeableconcept.CodeableConcept] | None = None
         """ Rejection criterion.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.requirement = None
+        self.requirement: str | None = None
         """ Specimen requirements.
         Type `str`. """
         
-        self.retentionTime = None
+        self.retentionTime: duration.Duration | None = None
         """ Specimen retention time.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of intended specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SpecimenDefinitionTypeTested, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SpecimenDefinitionTypeTested, self).elementProperties()
         js.extend([
             ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False),
@@ -132,7 +136,7 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
     
     resource_type = "SpecimenDefinitionTypeTestedContainer"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -140,45 +144,45 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additive = None
+        self.additive: list[SpecimenDefinitionTypeTestedContainerAdditive] | None = None
         """ Additive associated with container.
         List of `SpecimenDefinitionTypeTestedContainerAdditive` items (represented as `dict` in JSON). """
         
-        self.cap = None
+        self.cap: codeableconcept.CodeableConcept | None = None
         """ Color of container cap.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.capacity = None
+        self.capacity: quantity.Quantity | None = None
         """ Container capacity.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Container description.
         Type `str`. """
         
-        self.material = None
+        self.material: codeableconcept.CodeableConcept | None = None
         """ Container material.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.minimumVolumeQuantity = None
+        self.minimumVolumeQuantity: quantity.Quantity | None = None
         """ Minimum volume.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.minimumVolumeString = None
+        self.minimumVolumeString: str | None = None
         """ Minimum volume.
         Type `str`. """
         
-        self.preparation = None
+        self.preparation: str | None = None
         """ Specimen container preparation.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Kind of container associated with the kind of specimen.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(SpecimenDefinitionTypeTestedContainer, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SpecimenDefinitionTypeTestedContainer, self).elementProperties()
         js.extend([
             ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False),
@@ -203,7 +207,7 @@ class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElem
     
     resource_type = "SpecimenDefinitionTypeTestedContainerAdditive"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -211,17 +215,17 @@ class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElem
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additiveCodeableConcept = None
+        self.additiveCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Additive associated with container.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.additiveReference = None
+        self.additiveReference: fhirreference.FHIRReference | None = None
         """ Additive associated with container.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(SpecimenDefinitionTypeTestedContainerAdditive, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SpecimenDefinitionTypeTestedContainerAdditive, self).elementProperties()
         js.extend([
             ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", True),
@@ -239,7 +243,7 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
     
     resource_type = "SpecimenDefinitionTypeTestedHandling"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -247,25 +251,25 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.instruction = None
+        self.instruction: str | None = None
         """ Preservation instruction.
         Type `str`. """
         
-        self.maxDuration = None
+        self.maxDuration: duration.Duration | None = None
         """ Maximum preservation time.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.temperatureQualifier = None
+        self.temperatureQualifier: codeableconcept.CodeableConcept | None = None
         """ Temperature qualifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.temperatureRange = None
+        self.temperatureRange: range.Range | None = None
         """ Temperature range.
         Type `Range` (represented as `dict` in JSON). """
         
         super(SpecimenDefinitionTypeTestedHandling, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(SpecimenDefinitionTypeTestedHandling, self).elementProperties()
         js.extend([
             ("instruction", "instruction", str, False, None, False),

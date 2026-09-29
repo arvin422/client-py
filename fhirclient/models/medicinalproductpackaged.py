@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class MedicinalProductPackaged(domainresource.DomainResource):
     
     resource_type = "MedicinalProductPackaged"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,47 +22,47 @@ class MedicinalProductPackaged(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.batchIdentifier = None
+        self.batchIdentifier: list[MedicinalProductPackagedBatchIdentifier] | None = None
         """ Batch numbering.
         List of `MedicinalProductPackagedBatchIdentifier` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Textual description.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.legalStatusOfSupply = None
+        self.legalStatusOfSupply: codeableconcept.CodeableConcept | None = None
         """ The legal status of supply of the medicinal product as classified
         by the regulator.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.manufacturer = None
+        self.manufacturer: list[fhirreference.FHIRReference] | None = None
         """ Manufacturer of this Package Item.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.marketingAuthorization = None
+        self.marketingAuthorization: fhirreference.FHIRReference | None = None
         """ Manufacturer of this Package Item.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.marketingStatus = None
+        self.marketingStatus: list[marketingstatus.MarketingStatus] | None = None
         """ Marketing information.
         List of `MarketingStatus` items (represented as `dict` in JSON). """
         
-        self.packageItem = None
+        self.packageItem: list[MedicinalProductPackagedPackageItem] | None = None
         """ A packaging item, as a contained for medicine, possibly with other
         packaging items within.
         List of `MedicinalProductPackagedPackageItem` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: list[fhirreference.FHIRReference] | None = None
         """ The product with this is a pack for.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(MedicinalProductPackaged, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductPackaged, self).elementProperties()
         js.extend([
             ("batchIdentifier", "batchIdentifier", MedicinalProductPackagedBatchIdentifier, True, None, False),
@@ -82,7 +86,7 @@ class MedicinalProductPackagedBatchIdentifier(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductPackagedBatchIdentifier"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -90,18 +94,18 @@ class MedicinalProductPackagedBatchIdentifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.immediatePackaging = None
+        self.immediatePackaging: identifier.Identifier | None = None
         """ A number appearing on the immediate packaging (and not the outer
         packaging).
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.outerPackaging = None
+        self.outerPackaging: identifier.Identifier | None = None
         """ A number appearing on the outer packaging of a specific batch.
         Type `Identifier` (represented as `dict` in JSON). """
         
         super(MedicinalProductPackagedBatchIdentifier, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductPackagedBatchIdentifier, self).elementProperties()
         js.extend([
             ("immediatePackaging", "immediatePackaging", identifier.Identifier, False, None, False),
@@ -117,7 +121,7 @@ class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductPackagedPackageItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -125,59 +129,59 @@ class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.alternateMaterial = None
+        self.alternateMaterial: list[codeableconcept.CodeableConcept] | None = None
         """ A possible alternate material for the packaging.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.device = None
+        self.device: list[fhirreference.FHIRReference] | None = None
         """ A device accompanying a medicinal product.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Including possibly Data Carrier Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.manufacturedItem = None
+        self.manufacturedItem: list[fhirreference.FHIRReference] | None = None
         """ The manufactured item as contained in the packaged medicinal
         product.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.manufacturer = None
+        self.manufacturer: list[fhirreference.FHIRReference] | None = None
         """ Manufacturer of this Package Item.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.material = None
+        self.material: list[codeableconcept.CodeableConcept] | None = None
         """ Material type of the package item.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.otherCharacteristics = None
+        self.otherCharacteristics: list[codeableconcept.CodeableConcept] | None = None
         """ Other codeable characteristics.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.packageItem = None
+        self.packageItem: list[MedicinalProductPackagedPackageItem] | None = None
         """ Allows containers within containers.
         List of `MedicinalProductPackagedPackageItem` items (represented as `dict` in JSON). """
         
-        self.physicalCharacteristics = None
+        self.physicalCharacteristics: prodcharacteristic.ProdCharacteristic | None = None
         """ Dimensions, color etc..
         Type `ProdCharacteristic` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The quantity of this package in the medicinal product, at the
         current level of packaging. The outermost is always 1.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.shelfLifeStorage = None
+        self.shelfLifeStorage: list[productshelflife.ProductShelfLife] | None = None
         """ Shelf Life and storage information.
         List of `ProductShelfLife` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The physical type of the container of the medicine.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicinalProductPackagedPackageItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductPackagedPackageItem, self).elementProperties()
         js.extend([
             ("alternateMaterial", "alternateMaterial", codeableconcept.CodeableConcept, True, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ProductShelfLife).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import backboneelement
 
@@ -11,7 +15,7 @@ class ProductShelfLife(backboneelement.BackboneElement):
     
     resource_type = "ProductShelfLife"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,11 +23,11 @@ class ProductShelfLife(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Unique identifier for the packaged Medicinal Product.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: quantity.Quantity | None = None
         """ The shelf life time period can be specified using a numerical value
         for the period of time and its unit of time measurement The unit of
         measurement shall be specified in accordance with ISO 11240 and the
@@ -31,13 +35,13 @@ class ProductShelfLife(backboneelement.BackboneElement):
         used.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.specialPrecautionsForStorage = None
+        self.specialPrecautionsForStorage: list[codeableconcept.CodeableConcept] | None = None
         """ Special precautions for storage, if any, can be specified using an
         appropriate controlled vocabulary The controlled term and the
         controlled term identifier shall be specified.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ This describes the shelf life, taking into account various
         scenarios such as shelf life of the packaged Medicinal Product
         itself, shelf life after transformation where necessary and shelf
@@ -49,7 +53,7 @@ class ProductShelfLife(backboneelement.BackboneElement):
         
         super(ProductShelfLife, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ProductShelfLife, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),

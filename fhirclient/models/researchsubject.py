@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchSubject).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ResearchSubject(domainresource.DomainResource):
     
     resource_type = "ResearchSubject"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,43 +25,43 @@ class ResearchSubject(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actualArm = None
+        self.actualArm: str | None = None
         """ What path was followed.
         Type `str`. """
         
-        self.assignedArm = None
+        self.assignedArm: str | None = None
         """ What path should be followed.
         Type `str`. """
         
-        self.consent = None
+        self.consent: fhirreference.FHIRReference | None = None
         """ Agreement to participate in study.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for research subject in a study.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.individual = None
+        self.individual: fhirreference.FHIRReference | None = None
         """ Who is part of study.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Start and end of participation.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ candidate | eligible | follow-up | ineligible | not-registered |
         off-study | on-study | on-study-intervention | on-study-observation
         | pending-on-study | potential-candidate | screening | withdrawn.
         Type `str`. """
         
-        self.study = None
+        self.study: fhirreference.FHIRReference | None = None
         """ Study subject is part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ResearchSubject, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ResearchSubject, self).elementProperties()
         js.extend([
             ("actualArm", "actualArm", str, False, None, False),

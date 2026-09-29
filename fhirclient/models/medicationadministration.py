@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -16,7 +20,7 @@ class MedicationAdministration(domainresource.DomainResource):
     
     resource_type = "MedicationAdministration"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,95 +28,95 @@ class MedicationAdministration(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ Type of medication usage.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.context = None
+        self.context: fhirreference.FHIRReference | None = None
         """ Encounter or Episode of Care administered as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.device = None
+        self.device: list[fhirreference.FHIRReference] | None = None
         """ Device used to administer.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.dosage = None
+        self.dosage: MedicationAdministrationDosage | None = None
         """ Details of how medication was taken.
         Type `MedicationAdministrationDosage` (represented as `dict` in JSON). """
         
-        self.effectiveDateTime = None
+        self.effectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Start and end time of administration.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ Start and end time of administration.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.eventHistory = None
+        self.eventHistory: list[fhirreference.FHIRReference] | None = None
         """ A list of events of interest in the lifecycle.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiates = None
+        self.instantiates: list[str | None] | None = None
         """ Instantiates protocol or definition.
         List of `str` items. """
         
-        self.medicationCodeableConcept = None
+        self.medicationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.medicationReference = None
+        self.medicationReference: fhirreference.FHIRReference | None = None
         """ What was administered.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Information about the administration.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: list[MedicationAdministrationPerformer] | None = None
         """ Who performed the medication administration and what they did.
         List of `MedicationAdministrationPerformer` items (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Reason administration performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Condition or observation that supports why the medication was
         administered.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Request administration performed against.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ in-progress | not-done | on-hold | completed | entered-in-error |
         stopped | unknown.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: list[codeableconcept.CodeableConcept] | None = None
         """ Reason administration not performed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who received medication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.supportingInformation = None
+        self.supportingInformation: list[fhirreference.FHIRReference] | None = None
         """ Additional information to support administration.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(MedicationAdministration, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationAdministration, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
@@ -151,7 +155,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
     
     resource_type = "MedicationAdministrationDosage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -159,37 +163,37 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dose = None
+        self.dose: quantity.Quantity | None = None
         """ Amount of medication per dose.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ How drug was administered.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.rateQuantity = None
+        self.rateQuantity: quantity.Quantity | None = None
         """ Dose quantity per unit of time.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.rateRatio = None
+        self.rateRatio: ratio.Ratio | None = None
         """ Dose quantity per unit of time.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.route = None
+        self.route: codeableconcept.CodeableConcept | None = None
         """ Path of substance into body.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.site = None
+        self.site: codeableconcept.CodeableConcept | None = None
         """ Body site administered to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.text = None
+        self.text: str | None = None
         """ Free text dosage instructions e.g. SIG.
         Type `str`. """
         
         super(MedicationAdministrationDosage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationAdministrationDosage, self).elementProperties()
         js.extend([
             ("dose", "dose", quantity.Quantity, False, None, False),
@@ -212,7 +216,7 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
     
     resource_type = "MedicationAdministrationPerformer"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -220,17 +224,17 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actor = None
+        self.actor: fhirreference.FHIRReference | None = None
         """ Who performed the medication administration.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.function = None
+        self.function: codeableconcept.CodeableConcept | None = None
         """ Type of performance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicationAdministrationPerformer, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicationAdministrationPerformer, self).elementProperties()
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, True),

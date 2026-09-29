@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DomainResource).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import resource
 
@@ -12,7 +16,7 @@ class DomainResource(resource.Resource):
     
     resource_type = "DomainResource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,25 +24,25 @@ class DomainResource(resource.Resource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contained = None
+        self.contained: list[resource.Resource] | None = None
         """ Contained, inline Resources.
         List of `Resource` items (represented as `dict` in JSON). """
         
-        self.extension = None
+        self.extension: list[extension.Extension] | None = None
         """ Additional content defined by implementations.
         List of `Extension` items (represented as `dict` in JSON). """
         
-        self.modifierExtension = None
+        self.modifierExtension: list[extension.Extension] | None = None
         """ Extensions that cannot be ignored.
         List of `Extension` items (represented as `dict` in JSON). """
         
-        self.text = None
+        self.text: narrative.Narrative | None = None
         """ Text summary of the resource, for human interpretation.
         Type `Narrative` (represented as `dict` in JSON). """
         
         super(DomainResource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DomainResource, self).elementProperties()
         js.extend([
             ("contained", "contained", resource.Resource, True, None, False),

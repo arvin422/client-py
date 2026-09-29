@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DiagnosticReport).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -17,7 +21,7 @@ class DiagnosticReport(domainresource.DomainResource):
     
     resource_type = "DiagnosticReport"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -25,86 +29,86 @@ class DiagnosticReport(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ What was requested.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Service category.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Name/Code for this diagnostic report.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.conclusion = None
+        self.conclusion: str | None = None
         """ Clinical conclusion (interpretation) of test results.
         Type `str`. """
         
-        self.conclusionCode = None
+        self.conclusionCode: list[codeableconcept.CodeableConcept] | None = None
         """ Codes for the clinical conclusion of test results.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.effectiveDateTime = None
+        self.effectiveDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Clinically relevant time/time-period for report.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ Clinically relevant time/time-period for report.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Health care event when test ordered.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier for report.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.imagingStudy = None
+        self.imagingStudy: list[fhirreference.FHIRReference] | None = None
         """ Reference to full details of imaging associated with the diagnostic
         report.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.issued = None
+        self.issued: fhirinstant.FHIRInstant | None = None
         """ DateTime this version was made.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.media = None
+        self.media: list[DiagnosticReportMedia] | None = None
         """ Key images associated with this report.
         List of `DiagnosticReportMedia` items (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: list[fhirreference.FHIRReference] | None = None
         """ Responsible Diagnostic Service.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.presentedForm = None
+        self.presentedForm: list[attachment.Attachment] | None = None
         """ Entire report as issued.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.result = None
+        self.result: list[fhirreference.FHIRReference] | None = None
         """ Observations.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.resultsInterpreter = None
+        self.resultsInterpreter: list[fhirreference.FHIRReference] | None = None
         """ Primary result interpreter.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.specimen = None
+        self.specimen: list[fhirreference.FHIRReference] | None = None
         """ Specimens this report is based on.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ registered | partial | preliminary | final +.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ The subject of the report - usually, but not always, the patient.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DiagnosticReport, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DiagnosticReport, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
@@ -142,7 +146,7 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
     
     resource_type = "DiagnosticReportMedia"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -150,17 +154,17 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Comment about the image (e.g. explanation).
         Type `str`. """
         
-        self.link = None
+        self.link: fhirreference.FHIRReference | None = None
         """ Reference to the image source.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(DiagnosticReportMedia, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DiagnosticReportMedia, self).elementProperties()
         js.extend([
             ("comment", "comment", str, False, None, False),

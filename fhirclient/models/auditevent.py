@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AuditEvent).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class AuditEvent(domainresource.DomainResource):
     
     resource_type = "AuditEvent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,53 +26,53 @@ class AuditEvent(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: str | None = None
         """ Type of action performed during the event.
         Type `str`. """
         
-        self.agent = None
+        self.agent: list[AuditEventAgent] | None = None
         """ Actor involved in the event.
         List of `AuditEventAgent` items (represented as `dict` in JSON). """
         
-        self.entity = None
+        self.entity: list[AuditEventEntity] | None = None
         """ Data or objects used.
         List of `AuditEventEntity` items (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: str | None = None
         """ Whether the event succeeded or failed.
         Type `str`. """
         
-        self.outcomeDesc = None
+        self.outcomeDesc: str | None = None
         """ Description of the event outcome.
         Type `str`. """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ When the activity occurred.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.purposeOfEvent = None
+        self.purposeOfEvent: list[codeableconcept.CodeableConcept] | None = None
         """ The purposeOfUse of the event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.recorded = None
+        self.recorded: fhirinstant.FHIRInstant | None = None
         """ Time when the event was recorded.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.source = None
+        self.source: AuditEventSource | None = None
         """ Audit Event Reporter.
         Type `AuditEventSource` (represented as `dict` in JSON). """
         
-        self.subtype = None
+        self.subtype: list[coding.Coding] | None = None
         """ More specific type/id for the event.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: coding.Coding | None = None
         """ Type/identifier of event.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(AuditEvent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEvent, self).elementProperties()
         js.extend([
             ("action", "action", str, False, None, False),
@@ -96,7 +100,7 @@ class AuditEventAgent(backboneelement.BackboneElement):
     
     resource_type = "AuditEventAgent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -104,53 +108,53 @@ class AuditEventAgent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.altId = None
+        self.altId: str | None = None
         """ Alternative User identity.
         Type `str`. """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.media = None
+        self.media: coding.Coding | None = None
         """ Type of media.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Human friendly name for the agent.
         Type `str`. """
         
-        self.network = None
+        self.network: AuditEventAgentNetwork | None = None
         """ Logical network location for application activity.
         Type `AuditEventAgentNetwork` (represented as `dict` in JSON). """
         
-        self.policy = None
+        self.policy: list[str | None] | None = None
         """ Policy that authorized event.
         List of `str` items. """
         
-        self.purposeOfUse = None
+        self.purposeOfUse: list[codeableconcept.CodeableConcept] | None = None
         """ Reason given for this user.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.requestor = None
+        self.requestor: bool | None = None
         """ Whether user is initiator.
         Type `bool`. """
         
-        self.role = None
+        self.role: list[codeableconcept.CodeableConcept] | None = None
         """ Agent role in the event.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ How agent participated.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.who = None
+        self.who: fhirreference.FHIRReference | None = None
         """ Identifier of who.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AuditEventAgent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEventAgent, self).elementProperties()
         js.extend([
             ("altId", "altId", str, False, None, False),
@@ -177,7 +181,7 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
     
     resource_type = "AuditEventAgentNetwork"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -185,17 +189,17 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.address = None
+        self.address: str | None = None
         """ Identifier for the network access point of the user device.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ The type of network access point.
         Type `str`. """
         
         super(AuditEventAgentNetwork, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEventAgentNetwork, self).elementProperties()
         js.extend([
             ("address", "address", str, False, None, False),
@@ -212,7 +216,7 @@ class AuditEventEntity(backboneelement.BackboneElement):
     
     resource_type = "AuditEventEntity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -220,45 +224,45 @@ class AuditEventEntity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Descriptive text.
         Type `str`. """
         
-        self.detail = None
+        self.detail: list[AuditEventEntityDetail] | None = None
         """ Additional Information about the entity.
         List of `AuditEventEntityDetail` items (represented as `dict` in JSON). """
         
-        self.lifecycle = None
+        self.lifecycle: coding.Coding | None = None
         """ Life-cycle stage for the entity.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Descriptor for entity.
         Type `str`. """
         
-        self.query = None
+        self.query: str | None = None
         """ Query parameters.
         Type `str`. """
         
-        self.role = None
+        self.role: coding.Coding | None = None
         """ What role the entity played.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.securityLabel = None
+        self.securityLabel: list[coding.Coding] | None = None
         """ Security labels on the entity.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: coding.Coding | None = None
         """ Type of entity involved.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.what = None
+        self.what: fhirreference.FHIRReference | None = None
         """ Specific instance of resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AuditEventEntity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEventEntity, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -282,7 +286,7 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
     
     resource_type = "AuditEventEntityDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -290,21 +294,21 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
+        self.type: str | None = None
         """ Name of the property.
         Type `str`. """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Property value.
         Type `str`. """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Property value.
         Type `str`. """
         
         super(AuditEventEntityDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEventEntityDetail, self).elementProperties()
         js.extend([
             ("type", "type", str, False, None, True),
@@ -322,7 +326,7 @@ class AuditEventSource(backboneelement.BackboneElement):
     
     resource_type = "AuditEventSource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -330,21 +334,21 @@ class AuditEventSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.observer = None
+        self.observer: fhirreference.FHIRReference | None = None
         """ The identity of source detecting the event.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.site = None
+        self.site: str | None = None
         """ Logical source location within the enterprise.
         Type `str`. """
         
-        self.type = None
+        self.type: list[coding.Coding] | None = None
         """ The type of source where event originated.
         List of `Coding` items (represented as `dict` in JSON). """
         
         super(AuditEventSource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
             ("observer", "observer", fhirreference.FHIRReference, False, None, True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProduct).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -11,7 +15,7 @@ class MedicinalProduct(domainresource.DomainResource):
     
     resource_type = "MedicinalProduct"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,98 +23,98 @@ class MedicinalProduct(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additionalMonitoringIndicator = None
+        self.additionalMonitoringIndicator: codeableconcept.CodeableConcept | None = None
         """ Whether the Medicinal Product is subject to additional monitoring
         for regulatory reasons.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.attachedDocument = None
+        self.attachedDocument: list[fhirreference.FHIRReference] | None = None
         """ Supporting documentation, typically for regulatory submission.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.clinicalTrial = None
+        self.clinicalTrial: list[fhirreference.FHIRReference] | None = None
         """ Clinical trials or studies that this product is involved in.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.combinedPharmaceuticalDoseForm = None
+        self.combinedPharmaceuticalDoseForm: codeableconcept.CodeableConcept | None = None
         """ The dose form for a single part product, or combined form of a
         multiple part product.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[fhirreference.FHIRReference] | None = None
         """ A product specific contact, person (in a role), or an organization.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.crossReference = None
+        self.crossReference: list[identifier.Identifier] | None = None
         """ Reference to another product, e.g. for linking authorised to
         investigational product.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.domain = None
+        self.domain: coding.Coding | None = None
         """ If this medicine applies to human or veterinary uses.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier for this product. Could be an MPID.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.legalStatusOfSupply = None
+        self.legalStatusOfSupply: codeableconcept.CodeableConcept | None = None
         """ The legal status of supply of the medicinal product as classified
         by the regulator.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.manufacturingBusinessOperation = None
+        self.manufacturingBusinessOperation: list[MedicinalProductManufacturingBusinessOperation] | None = None
         """ An operation applied to the product, for manufacturing or
         adminsitrative purpose.
         List of `MedicinalProductManufacturingBusinessOperation` items (represented as `dict` in JSON). """
         
-        self.marketingStatus = None
+        self.marketingStatus: list[marketingstatus.MarketingStatus] | None = None
         """ Marketing status of the medicinal product, in contrast to marketing
         authorizaton.
         List of `MarketingStatus` items (represented as `dict` in JSON). """
         
-        self.masterFile = None
+        self.masterFile: list[fhirreference.FHIRReference] | None = None
         """ A master file for to the medicinal product (e.g. Pharmacovigilance
         System Master File).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: list[MedicinalProductName] | None = None
         """ The product's name, including full name and possibly coded parts.
         List of `MedicinalProductName` items (represented as `dict` in JSON). """
         
-        self.packagedMedicinalProduct = None
+        self.packagedMedicinalProduct: list[fhirreference.FHIRReference] | None = None
         """ Package representation for the product.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.paediatricUseIndicator = None
+        self.paediatricUseIndicator: codeableconcept.CodeableConcept | None = None
         """ If authorised for use in children.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.pharmaceuticalProduct = None
+        self.pharmaceuticalProduct: list[fhirreference.FHIRReference] | None = None
         """ Pharmaceutical aspects of product.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.productClassification = None
+        self.productClassification: list[codeableconcept.CodeableConcept] | None = None
         """ Allows the product to be classified by various systems.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.specialDesignation = None
+        self.specialDesignation: list[MedicinalProductSpecialDesignation] | None = None
         """ Indicates if the medicinal product has an orphan designation for
         the treatment of a rare disease.
         List of `MedicinalProductSpecialDesignation` items (represented as `dict` in JSON). """
         
-        self.specialMeasures = None
+        self.specialMeasures: list[str | None] | None = None
         """ Whether the Medicinal Product is subject to special measures for
         regulatory reasons.
         List of `str` items. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Regulatory type, e.g. Investigational or Authorized.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicinalProduct, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProduct, self).elementProperties()
         js.extend([
             ("additionalMonitoringIndicator", "additionalMonitoringIndicator", codeableconcept.CodeableConcept, False, None, False),
@@ -146,7 +150,7 @@ class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneEle
     
     resource_type = "MedicinalProductManufacturingBusinessOperation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -154,33 +158,33 @@ class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneEle
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authorisationReferenceNumber = None
+        self.authorisationReferenceNumber: identifier.Identifier | None = None
         """ Regulatory authorization reference number.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.confidentialityIndicator = None
+        self.confidentialityIndicator: codeableconcept.CodeableConcept | None = None
         """ To indicate if this proces is commercially confidential.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.effectiveDate = None
+        self.effectiveDate: fhirdatetime.FHIRDateTime | None = None
         """ Regulatory authorization date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.manufacturer = None
+        self.manufacturer: list[fhirreference.FHIRReference] | None = None
         """ The manufacturer or establishment associated with the process.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.operationType = None
+        self.operationType: codeableconcept.CodeableConcept | None = None
         """ The type of manufacturing operation.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.regulator = None
+        self.regulator: fhirreference.FHIRReference | None = None
         """ A regulator which oversees the operation.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MedicinalProductManufacturingBusinessOperation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductManufacturingBusinessOperation, self).elementProperties()
         js.extend([
             ("authorisationReferenceNumber", "authorisationReferenceNumber", identifier.Identifier, False, None, False),
@@ -199,7 +203,7 @@ class MedicinalProductName(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductName"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -207,21 +211,21 @@ class MedicinalProductName(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.countryLanguage = None
+        self.countryLanguage: list[MedicinalProductNameCountryLanguage] | None = None
         """ Country where the name applies.
         List of `MedicinalProductNameCountryLanguage` items (represented as `dict` in JSON). """
         
-        self.namePart = None
+        self.namePart: list[MedicinalProductNameNamePart] | None = None
         """ Coding words or phrases of the name.
         List of `MedicinalProductNameNamePart` items (represented as `dict` in JSON). """
         
-        self.productName = None
+        self.productName: str | None = None
         """ The full product name.
         Type `str`. """
         
         super(MedicinalProductName, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductName, self).elementProperties()
         js.extend([
             ("countryLanguage", "countryLanguage", MedicinalProductNameCountryLanguage, True, None, False),
@@ -237,7 +241,7 @@ class MedicinalProductNameCountryLanguage(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductNameCountryLanguage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -245,21 +249,21 @@ class MedicinalProductNameCountryLanguage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.country = None
+        self.country: codeableconcept.CodeableConcept | None = None
         """ Country code for where this name applies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: codeableconcept.CodeableConcept | None = None
         """ Jurisdiction code for where this name applies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.language = None
+        self.language: codeableconcept.CodeableConcept | None = None
         """ Language code for this name.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicinalProductNameCountryLanguage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductNameCountryLanguage, self).elementProperties()
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),
@@ -275,7 +279,7 @@ class MedicinalProductNameNamePart(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductNameNamePart"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -283,17 +287,17 @@ class MedicinalProductNameNamePart(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.part = None
+        self.part: str | None = None
         """ A fragment of a product name.
         Type `str`. """
         
-        self.type = None
+        self.type: coding.Coding | None = None
         """ Idenifying type for this part of the name (e.g. strength part).
         Type `Coding` (represented as `dict` in JSON). """
         
         super(MedicinalProductNameNamePart, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductNameNamePart, self).elementProperties()
         js.extend([
             ("part", "part", str, False, None, True),
@@ -309,7 +313,7 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductSpecialDesignation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -317,41 +321,41 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date when the designation was granted.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifier for the designation, or procedure number.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.indicationCodeableConcept = None
+        self.indicationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Condition for which the medicinal use applies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.indicationReference = None
+        self.indicationReference: fhirreference.FHIRReference | None = None
         """ Condition for which the medicinal use applies.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.intendedUse = None
+        self.intendedUse: codeableconcept.CodeableConcept | None = None
         """ The intended use of the product, e.g. prevention, treatment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.species = None
+        self.species: codeableconcept.CodeableConcept | None = None
         """ Animal species for which this applies.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: codeableconcept.CodeableConcept | None = None
         """ For example granted, pending, expired or withdrawn.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The type of special designation, e.g. orphan drug, minor use.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicinalProductSpecialDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductSpecialDesignation, self).elementProperties()
         js.extend([
             ("date", "date", fhirdatetime.FHIRDateTime, False, None, False),

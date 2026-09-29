@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Provenance).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -21,7 +25,7 @@ class Provenance(domainresource.DomainResource):
     
     resource_type = "Provenance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -29,53 +33,53 @@ class Provenance(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.activity = None
+        self.activity: codeableconcept.CodeableConcept | None = None
         """ Activity that occurred.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.agent = None
+        self.agent: list[ProvenanceAgent] | None = None
         """ Actor involved.
         List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
-        self.entity = None
+        self.entity: list[ProvenanceEntity] | None = None
         """ An entity used in this activity.
         List of `ProvenanceEntity` items (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where the activity occurred, if relevant.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.occurredDateTime = None
+        self.occurredDateTime: fhirdatetime.FHIRDateTime | None = None
         """ When the activity occurred.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.occurredPeriod = None
+        self.occurredPeriod: period.Period | None = None
         """ When the activity occurred.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.policy = None
+        self.policy: list[str | None] | None = None
         """ Policy or plan the activity was defined by.
         List of `str` items. """
         
-        self.reason = None
+        self.reason: list[codeableconcept.CodeableConcept] | None = None
         """ Reason the activity is occurring.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.recorded = None
+        self.recorded: fhirinstant.FHIRInstant | None = None
         """ When the activity was recorded / updated.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.signature = None
+        self.signature: list[signature.Signature] | None = None
         """ Signature on target.
         List of `Signature` items (represented as `dict` in JSON). """
         
-        self.target = None
+        self.target: list[fhirreference.FHIRReference] | None = None
         """ Target Reference(s) (usually version specific).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         super(Provenance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Provenance, self).elementProperties()
         js.extend([
             ("activity", "activity", codeableconcept.CodeableConcept, False, None, False),
@@ -104,7 +108,7 @@ class ProvenanceAgent(backboneelement.BackboneElement):
     
     resource_type = "ProvenanceAgent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -112,25 +116,25 @@ class ProvenanceAgent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.onBehalfOf = None
+        self.onBehalfOf: fhirreference.FHIRReference | None = None
         """ Who the agent is representing.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.role: list[codeableconcept.CodeableConcept] | None = None
         """ What the agents role was.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ How the agent participated.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.who = None
+        self.who: fhirreference.FHIRReference | None = None
         """ Who participated.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ProvenanceAgent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
@@ -147,7 +151,7 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     
     resource_type = "ProvenanceEntity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -155,21 +159,21 @@ class ProvenanceEntity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.agent = None
+        self.agent: list[ProvenanceAgent] | None = None
         """ Entity is attributed to this agent.
         List of `ProvenanceAgent` items (represented as `dict` in JSON). """
         
-        self.role = None
+        self.role: str | None = None
         """ derivation | revision | quotation | source | removal.
         Type `str`. """
         
-        self.what = None
+        self.what: fhirreference.FHIRReference | None = None
         """ Identity of entity.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ProvenanceEntity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
             ("agent", "agent", ProvenanceAgent, True, None, False),

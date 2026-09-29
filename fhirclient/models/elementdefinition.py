@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ElementDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import backboneelement
 
@@ -13,7 +17,7 @@ class ElementDefinition(backboneelement.BackboneElement):
     
     resource_type = "ElementDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,798 +25,798 @@ class ElementDefinition(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.alias = None
+        self.alias: list[str | None] | None = None
         """ Other names.
         List of `str` items. """
         
-        self.base = None
+        self.base: ElementDefinitionBase | None = None
         """ Base definition information for tools.
         Type `ElementDefinitionBase` (represented as `dict` in JSON). """
         
-        self.binding = None
+        self.binding: ElementDefinitionBinding | None = None
         """ ValueSet details if this is coded.
         Type `ElementDefinitionBinding` (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: list[coding.Coding] | None = None
         """ Corresponding codes in terminologies.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Comments about the use of this element.
         Type `str`. """
         
-        self.condition = None
+        self.condition: list[str | None] | None = None
         """ Reference to invariant about presence.
         List of `str` items. """
         
-        self.constraint = None
+        self.constraint: list[ElementDefinitionConstraint] | None = None
         """ Condition that must evaluate to true.
         List of `ElementDefinitionConstraint` items (represented as `dict` in JSON). """
         
-        self.contentReference = None
+        self.contentReference: str | None = None
         """ Reference to definition of content for the element.
         Type `str`. """
         
-        self.defaultValueAddress = None
+        self.defaultValueAddress: address.Address | None = None
         """ Specified value if missing from instance.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.defaultValueAge = None
+        self.defaultValueAge: age.Age | None = None
         """ Specified value if missing from instance.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.defaultValueAnnotation = None
+        self.defaultValueAnnotation: annotation.Annotation | None = None
         """ Specified value if missing from instance.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.defaultValueAttachment = None
+        self.defaultValueAttachment: attachment.Attachment | None = None
         """ Specified value if missing from instance.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.defaultValueBase64Binary = None
+        self.defaultValueBase64Binary: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueBoolean = None
+        self.defaultValueBoolean: bool | None = None
         """ Specified value if missing from instance.
         Type `bool`. """
         
-        self.defaultValueCanonical = None
+        self.defaultValueCanonical: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueCode = None
+        self.defaultValueCode: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueCodeableConcept = None
+        self.defaultValueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Specified value if missing from instance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.defaultValueCoding = None
+        self.defaultValueCoding: coding.Coding | None = None
         """ Specified value if missing from instance.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.defaultValueContactDetail = None
+        self.defaultValueContactDetail: contactdetail.ContactDetail | None = None
         """ Specified value if missing from instance.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.defaultValueContactPoint = None
+        self.defaultValueContactPoint: contactpoint.ContactPoint | None = None
         """ Specified value if missing from instance.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.defaultValueContributor = None
+        self.defaultValueContributor: contributor.Contributor | None = None
         """ Specified value if missing from instance.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.defaultValueCount = None
+        self.defaultValueCount: count.Count | None = None
         """ Specified value if missing from instance.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.defaultValueDataRequirement = None
+        self.defaultValueDataRequirement: datarequirement.DataRequirement | None = None
         """ Specified value if missing from instance.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.defaultValueDate = None
+        self.defaultValueDate: fhirdate.FHIRDate | None = None
         """ Specified value if missing from instance.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.defaultValueDateTime = None
+        self.defaultValueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Specified value if missing from instance.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.defaultValueDecimal = None
+        self.defaultValueDecimal: float | None = None
         """ Specified value if missing from instance.
         Type `float`. """
         
-        self.defaultValueDistance = None
+        self.defaultValueDistance: distance.Distance | None = None
         """ Specified value if missing from instance.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.defaultValueDosage = None
+        self.defaultValueDosage: dosage.Dosage | None = None
         """ Specified value if missing from instance.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.defaultValueDuration = None
+        self.defaultValueDuration: duration.Duration | None = None
         """ Specified value if missing from instance.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.defaultValueExpression = None
+        self.defaultValueExpression: expression.Expression | None = None
         """ Specified value if missing from instance.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.defaultValueHumanName = None
+        self.defaultValueHumanName: humanname.HumanName | None = None
         """ Specified value if missing from instance.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.defaultValueId = None
+        self.defaultValueId: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueIdentifier = None
+        self.defaultValueIdentifier: identifier.Identifier | None = None
         """ Specified value if missing from instance.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.defaultValueInstant = None
+        self.defaultValueInstant: fhirinstant.FHIRInstant | None = None
         """ Specified value if missing from instance.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.defaultValueInteger = None
+        self.defaultValueInteger: int | None = None
         """ Specified value if missing from instance.
         Type `int`. """
         
-        self.defaultValueMarkdown = None
+        self.defaultValueMarkdown: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueMeta = None
+        self.defaultValueMeta: meta.Meta | None = None
         """ Specified value if missing from instance.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.defaultValueMoney = None
+        self.defaultValueMoney: money.Money | None = None
         """ Specified value if missing from instance.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.defaultValueOid = None
+        self.defaultValueOid: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueParameterDefinition = None
+        self.defaultValueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Specified value if missing from instance.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.defaultValuePeriod = None
+        self.defaultValuePeriod: period.Period | None = None
         """ Specified value if missing from instance.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.defaultValuePositiveInt = None
+        self.defaultValuePositiveInt: int | None = None
         """ Specified value if missing from instance.
         Type `int`. """
         
-        self.defaultValueQuantity = None
+        self.defaultValueQuantity: quantity.Quantity | None = None
         """ Specified value if missing from instance.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.defaultValueRange = None
+        self.defaultValueRange: range.Range | None = None
         """ Specified value if missing from instance.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.defaultValueRatio = None
+        self.defaultValueRatio: ratio.Ratio | None = None
         """ Specified value if missing from instance.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.defaultValueReference = None
+        self.defaultValueReference: fhirreference.FHIRReference | None = None
         """ Specified value if missing from instance.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.defaultValueRelatedArtifact = None
+        self.defaultValueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Specified value if missing from instance.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.defaultValueSampledData = None
+        self.defaultValueSampledData: sampleddata.SampledData | None = None
         """ Specified value if missing from instance.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.defaultValueSignature = None
+        self.defaultValueSignature: signature.Signature | None = None
         """ Specified value if missing from instance.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.defaultValueString = None
+        self.defaultValueString: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueTime = None
+        self.defaultValueTime: fhirtime.FHIRTime | None = None
         """ Specified value if missing from instance.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.defaultValueTiming = None
+        self.defaultValueTiming: timing.Timing | None = None
         """ Specified value if missing from instance.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.defaultValueTriggerDefinition = None
+        self.defaultValueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Specified value if missing from instance.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.defaultValueUnsignedInt = None
+        self.defaultValueUnsignedInt: int | None = None
         """ Specified value if missing from instance.
         Type `int`. """
         
-        self.defaultValueUri = None
+        self.defaultValueUri: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueUrl = None
+        self.defaultValueUrl: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.defaultValueUsageContext = None
+        self.defaultValueUsageContext: usagecontext.UsageContext | None = None
         """ Specified value if missing from instance.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.defaultValueUuid = None
+        self.defaultValueUuid: str | None = None
         """ Specified value if missing from instance.
         Type `str`. """
         
-        self.definition = None
+        self.definition: str | None = None
         """ Full formal definition as narrative text.
         Type `str`. """
         
-        self.example = None
+        self.example: list[ElementDefinitionExample] | None = None
         """ Example value (as defined for type).
         List of `ElementDefinitionExample` items (represented as `dict` in JSON). """
         
-        self.fixedAddress = None
+        self.fixedAddress: address.Address | None = None
         """ Value must be exactly this.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.fixedAge = None
+        self.fixedAge: age.Age | None = None
         """ Value must be exactly this.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.fixedAnnotation = None
+        self.fixedAnnotation: annotation.Annotation | None = None
         """ Value must be exactly this.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.fixedAttachment = None
+        self.fixedAttachment: attachment.Attachment | None = None
         """ Value must be exactly this.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.fixedBase64Binary = None
+        self.fixedBase64Binary: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedBoolean = None
+        self.fixedBoolean: bool | None = None
         """ Value must be exactly this.
         Type `bool`. """
         
-        self.fixedCanonical = None
+        self.fixedCanonical: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedCode = None
+        self.fixedCode: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedCodeableConcept = None
+        self.fixedCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value must be exactly this.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.fixedCoding = None
+        self.fixedCoding: coding.Coding | None = None
         """ Value must be exactly this.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.fixedContactDetail = None
+        self.fixedContactDetail: contactdetail.ContactDetail | None = None
         """ Value must be exactly this.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.fixedContactPoint = None
+        self.fixedContactPoint: contactpoint.ContactPoint | None = None
         """ Value must be exactly this.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.fixedContributor = None
+        self.fixedContributor: contributor.Contributor | None = None
         """ Value must be exactly this.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.fixedCount = None
+        self.fixedCount: count.Count | None = None
         """ Value must be exactly this.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.fixedDataRequirement = None
+        self.fixedDataRequirement: datarequirement.DataRequirement | None = None
         """ Value must be exactly this.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.fixedDate = None
+        self.fixedDate: fhirdate.FHIRDate | None = None
         """ Value must be exactly this.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.fixedDateTime = None
+        self.fixedDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Value must be exactly this.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.fixedDecimal = None
+        self.fixedDecimal: float | None = None
         """ Value must be exactly this.
         Type `float`. """
         
-        self.fixedDistance = None
+        self.fixedDistance: distance.Distance | None = None
         """ Value must be exactly this.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.fixedDosage = None
+        self.fixedDosage: dosage.Dosage | None = None
         """ Value must be exactly this.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.fixedDuration = None
+        self.fixedDuration: duration.Duration | None = None
         """ Value must be exactly this.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.fixedExpression = None
+        self.fixedExpression: expression.Expression | None = None
         """ Value must be exactly this.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.fixedHumanName = None
+        self.fixedHumanName: humanname.HumanName | None = None
         """ Value must be exactly this.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.fixedId = None
+        self.fixedId: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedIdentifier = None
+        self.fixedIdentifier: identifier.Identifier | None = None
         """ Value must be exactly this.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.fixedInstant = None
+        self.fixedInstant: fhirinstant.FHIRInstant | None = None
         """ Value must be exactly this.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.fixedInteger = None
+        self.fixedInteger: int | None = None
         """ Value must be exactly this.
         Type `int`. """
         
-        self.fixedMarkdown = None
+        self.fixedMarkdown: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedMeta = None
+        self.fixedMeta: meta.Meta | None = None
         """ Value must be exactly this.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.fixedMoney = None
+        self.fixedMoney: money.Money | None = None
         """ Value must be exactly this.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.fixedOid = None
+        self.fixedOid: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedParameterDefinition = None
+        self.fixedParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Value must be exactly this.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.fixedPeriod = None
+        self.fixedPeriod: period.Period | None = None
         """ Value must be exactly this.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.fixedPositiveInt = None
+        self.fixedPositiveInt: int | None = None
         """ Value must be exactly this.
         Type `int`. """
         
-        self.fixedQuantity = None
+        self.fixedQuantity: quantity.Quantity | None = None
         """ Value must be exactly this.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.fixedRange = None
+        self.fixedRange: range.Range | None = None
         """ Value must be exactly this.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.fixedRatio = None
+        self.fixedRatio: ratio.Ratio | None = None
         """ Value must be exactly this.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.fixedReference = None
+        self.fixedReference: fhirreference.FHIRReference | None = None
         """ Value must be exactly this.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.fixedRelatedArtifact = None
+        self.fixedRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Value must be exactly this.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.fixedSampledData = None
+        self.fixedSampledData: sampleddata.SampledData | None = None
         """ Value must be exactly this.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.fixedSignature = None
+        self.fixedSignature: signature.Signature | None = None
         """ Value must be exactly this.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.fixedString = None
+        self.fixedString: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedTime = None
+        self.fixedTime: fhirtime.FHIRTime | None = None
         """ Value must be exactly this.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.fixedTiming = None
+        self.fixedTiming: timing.Timing | None = None
         """ Value must be exactly this.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.fixedTriggerDefinition = None
+        self.fixedTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Value must be exactly this.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.fixedUnsignedInt = None
+        self.fixedUnsignedInt: int | None = None
         """ Value must be exactly this.
         Type `int`. """
         
-        self.fixedUri = None
+        self.fixedUri: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedUrl = None
+        self.fixedUrl: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.fixedUsageContext = None
+        self.fixedUsageContext: usagecontext.UsageContext | None = None
         """ Value must be exactly this.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.fixedUuid = None
+        self.fixedUuid: str | None = None
         """ Value must be exactly this.
         Type `str`. """
         
-        self.isModifier = None
+        self.isModifier: bool | None = None
         """ If this modifies the meaning of other elements.
         Type `bool`. """
         
-        self.isModifierReason = None
+        self.isModifierReason: str | None = None
         """ Reason that this element is marked as a modifier.
         Type `str`. """
         
-        self.isSummary = None
+        self.isSummary: bool | None = None
         """ Include when _summary = true?.
         Type `bool`. """
         
-        self.label = None
+        self.label: str | None = None
         """ Name for element to display with or prompt for element.
         Type `str`. """
         
-        self.mapping = None
+        self.mapping: list[ElementDefinitionMapping] | None = None
         """ Map element to another set of definitions.
         List of `ElementDefinitionMapping` items (represented as `dict` in JSON). """
         
-        self.max = None
+        self.max: str | None = None
         """ Maximum Cardinality (a number or *).
         Type `str`. """
         
-        self.maxLength = None
+        self.maxLength: int | None = None
         """ Max length for strings.
         Type `int`. """
         
-        self.maxValueDate = None
+        self.maxValueDate: fhirdate.FHIRDate | None = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.maxValueDateTime = None
+        self.maxValueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.maxValueDecimal = None
+        self.maxValueDecimal: float | None = None
         """ Maximum Allowed Value (for some types).
         Type `float`. """
         
-        self.maxValueInstant = None
+        self.maxValueInstant: fhirinstant.FHIRInstant | None = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.maxValueInteger = None
+        self.maxValueInteger: int | None = None
         """ Maximum Allowed Value (for some types).
         Type `int`. """
         
-        self.maxValuePositiveInt = None
+        self.maxValuePositiveInt: int | None = None
         """ Maximum Allowed Value (for some types).
         Type `int`. """
         
-        self.maxValueQuantity = None
+        self.maxValueQuantity: quantity.Quantity | None = None
         """ Maximum Allowed Value (for some types).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.maxValueTime = None
+        self.maxValueTime: fhirtime.FHIRTime | None = None
         """ Maximum Allowed Value (for some types).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.maxValueUnsignedInt = None
+        self.maxValueUnsignedInt: int | None = None
         """ Maximum Allowed Value (for some types).
         Type `int`. """
         
-        self.meaningWhenMissing = None
+        self.meaningWhenMissing: str | None = None
         """ Implicit meaning when this element is missing.
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Minimum Cardinality.
         Type `int`. """
         
-        self.minValueDate = None
+        self.minValueDate: fhirdate.FHIRDate | None = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.minValueDateTime = None
+        self.minValueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.minValueDecimal = None
+        self.minValueDecimal: float | None = None
         """ Minimum Allowed Value (for some types).
         Type `float`. """
         
-        self.minValueInstant = None
+        self.minValueInstant: fhirinstant.FHIRInstant | None = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.minValueInteger = None
+        self.minValueInteger: int | None = None
         """ Minimum Allowed Value (for some types).
         Type `int`. """
         
-        self.minValuePositiveInt = None
+        self.minValuePositiveInt: int | None = None
         """ Minimum Allowed Value (for some types).
         Type `int`. """
         
-        self.minValueQuantity = None
+        self.minValueQuantity: quantity.Quantity | None = None
         """ Minimum Allowed Value (for some types).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.minValueTime = None
+        self.minValueTime: fhirtime.FHIRTime | None = None
         """ Minimum Allowed Value (for some types).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.minValueUnsignedInt = None
+        self.minValueUnsignedInt: int | None = None
         """ Minimum Allowed Value (for some types).
         Type `int`. """
         
-        self.mustSupport = None
+        self.mustSupport: bool | None = None
         """ If the element must be supported.
         Type `bool`. """
         
-        self.orderMeaning = None
+        self.orderMeaning: str | None = None
         """ What the order of the elements means.
         Type `str`. """
         
-        self.path = None
+        self.path: str | None = None
         """ Path of the element in the hierarchy of elements.
         Type `str`. """
         
-        self.patternAddress = None
+        self.patternAddress: address.Address | None = None
         """ Value must have at least these property values.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.patternAge = None
+        self.patternAge: age.Age | None = None
         """ Value must have at least these property values.
         Type `Age` (represented as `dict` in JSON). """
         
-        self.patternAnnotation = None
+        self.patternAnnotation: annotation.Annotation | None = None
         """ Value must have at least these property values.
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.patternAttachment = None
+        self.patternAttachment: attachment.Attachment | None = None
         """ Value must have at least these property values.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.patternBase64Binary = None
+        self.patternBase64Binary: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternBoolean = None
+        self.patternBoolean: bool | None = None
         """ Value must have at least these property values.
         Type `bool`. """
         
-        self.patternCanonical = None
+        self.patternCanonical: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternCode = None
+        self.patternCode: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternCodeableConcept = None
+        self.patternCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value must have at least these property values.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.patternCoding = None
+        self.patternCoding: coding.Coding | None = None
         """ Value must have at least these property values.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.patternContactDetail = None
+        self.patternContactDetail: contactdetail.ContactDetail | None = None
         """ Value must have at least these property values.
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.patternContactPoint = None
+        self.patternContactPoint: contactpoint.ContactPoint | None = None
         """ Value must have at least these property values.
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.patternContributor = None
+        self.patternContributor: contributor.Contributor | None = None
         """ Value must have at least these property values.
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.patternCount = None
+        self.patternCount: count.Count | None = None
         """ Value must have at least these property values.
         Type `Count` (represented as `dict` in JSON). """
         
-        self.patternDataRequirement = None
+        self.patternDataRequirement: datarequirement.DataRequirement | None = None
         """ Value must have at least these property values.
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.patternDate = None
+        self.patternDate: fhirdate.FHIRDate | None = None
         """ Value must have at least these property values.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.patternDateTime = None
+        self.patternDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Value must have at least these property values.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.patternDecimal = None
+        self.patternDecimal: float | None = None
         """ Value must have at least these property values.
         Type `float`. """
         
-        self.patternDistance = None
+        self.patternDistance: distance.Distance | None = None
         """ Value must have at least these property values.
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.patternDosage = None
+        self.patternDosage: dosage.Dosage | None = None
         """ Value must have at least these property values.
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.patternDuration = None
+        self.patternDuration: duration.Duration | None = None
         """ Value must have at least these property values.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.patternExpression = None
+        self.patternExpression: expression.Expression | None = None
         """ Value must have at least these property values.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.patternHumanName = None
+        self.patternHumanName: humanname.HumanName | None = None
         """ Value must have at least these property values.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.patternId = None
+        self.patternId: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternIdentifier = None
+        self.patternIdentifier: identifier.Identifier | None = None
         """ Value must have at least these property values.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.patternInstant = None
+        self.patternInstant: fhirinstant.FHIRInstant | None = None
         """ Value must have at least these property values.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.patternInteger = None
+        self.patternInteger: int | None = None
         """ Value must have at least these property values.
         Type `int`. """
         
-        self.patternMarkdown = None
+        self.patternMarkdown: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternMeta = None
+        self.patternMeta: meta.Meta | None = None
         """ Value must have at least these property values.
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.patternMoney = None
+        self.patternMoney: money.Money | None = None
         """ Value must have at least these property values.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.patternOid = None
+        self.patternOid: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternParameterDefinition = None
+        self.patternParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Value must have at least these property values.
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.patternPeriod = None
+        self.patternPeriod: period.Period | None = None
         """ Value must have at least these property values.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.patternPositiveInt = None
+        self.patternPositiveInt: int | None = None
         """ Value must have at least these property values.
         Type `int`. """
         
-        self.patternQuantity = None
+        self.patternQuantity: quantity.Quantity | None = None
         """ Value must have at least these property values.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.patternRange = None
+        self.patternRange: range.Range | None = None
         """ Value must have at least these property values.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.patternRatio = None
+        self.patternRatio: ratio.Ratio | None = None
         """ Value must have at least these property values.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.patternReference = None
+        self.patternReference: fhirreference.FHIRReference | None = None
         """ Value must have at least these property values.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.patternRelatedArtifact = None
+        self.patternRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Value must have at least these property values.
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.patternSampledData = None
+        self.patternSampledData: sampleddata.SampledData | None = None
         """ Value must have at least these property values.
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.patternSignature = None
+        self.patternSignature: signature.Signature | None = None
         """ Value must have at least these property values.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.patternString = None
+        self.patternString: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternTime = None
+        self.patternTime: fhirtime.FHIRTime | None = None
         """ Value must have at least these property values.
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.patternTiming = None
+        self.patternTiming: timing.Timing | None = None
         """ Value must have at least these property values.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.patternTriggerDefinition = None
+        self.patternTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Value must have at least these property values.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.patternUnsignedInt = None
+        self.patternUnsignedInt: int | None = None
         """ Value must have at least these property values.
         Type `int`. """
         
-        self.patternUri = None
+        self.patternUri: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternUrl = None
+        self.patternUrl: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.patternUsageContext = None
+        self.patternUsageContext: usagecontext.UsageContext | None = None
         """ Value must have at least these property values.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.patternUuid = None
+        self.patternUuid: str | None = None
         """ Value must have at least these property values.
         Type `str`. """
         
-        self.representation = None
+        self.representation: list[str | None] | None = None
         """ xmlAttr | xmlText | typeAttr | cdaText | xhtml.
         List of `str` items. """
         
-        self.requirements = None
+        self.requirements: str | None = None
         """ Why this resource has been created.
         Type `str`. """
         
-        self.short = None
+        self.short: str | None = None
         """ Concise definition for space-constrained presentation.
         Type `str`. """
         
-        self.sliceIsConstraining = None
+        self.sliceIsConstraining: bool | None = None
         """ If this slice definition constrains an inherited slice definition
         (or not).
         Type `bool`. """
         
-        self.sliceName = None
+        self.sliceName: str | None = None
         """ Name for this particular element (in a set of slices).
         Type `str`. """
         
-        self.slicing = None
+        self.slicing: ElementDefinitionSlicing | None = None
         """ This element is sliced - slices follow.
         Type `ElementDefinitionSlicing` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[ElementDefinitionType] | None = None
         """ Data type and Profile for this element.
         List of `ElementDefinitionType` items (represented as `dict` in JSON). """
         
         super(ElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinition, self).elementProperties()
         js.extend([
             ("alias", "alias", str, True, None, False),
@@ -1033,7 +1037,7 @@ class ElementDefinitionBase(element.Element):
     
     resource_type = "ElementDefinitionBase"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1041,21 +1045,21 @@ class ElementDefinitionBase(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.max = None
+        self.max: str | None = None
         """ Max cardinality of the base element.
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Min cardinality of the base element.
         Type `int`. """
         
-        self.path = None
+        self.path: str | None = None
         """ Path that identifies the base element.
         Type `str`. """
         
         super(ElementDefinitionBase, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionBase, self).elementProperties()
         js.extend([
             ("max", "max", str, False, None, True),
@@ -1074,7 +1078,7 @@ class ElementDefinitionBinding(element.Element):
     
     resource_type = "ElementDefinitionBinding"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1082,21 +1086,21 @@ class ElementDefinitionBinding(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Human explanation of the value set.
         Type `str`. """
         
-        self.strength = None
+        self.strength: str | None = None
         """ required | extensible | preferred | example.
         Type `str`. """
         
-        self.valueSet = None
+        self.valueSet: str | None = None
         """ Source of value set.
         Type `str`. """
         
         super(ElementDefinitionBinding, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionBinding, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -1115,7 +1119,7 @@ class ElementDefinitionConstraint(element.Element):
     
     resource_type = "ElementDefinitionConstraint"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1123,37 +1127,37 @@ class ElementDefinitionConstraint(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expression = None
+        self.expression: str | None = None
         """ FHIRPath expression of constraint.
         Type `str`. """
         
-        self.human = None
+        self.human: str | None = None
         """ Human description of constraint.
         Type `str`. """
         
-        self.key = None
+        self.key: str | None = None
         """ Target of 'condition' reference above.
         Type `str`. """
         
-        self.requirements = None
+        self.requirements: str | None = None
         """ Why this constraint is necessary or appropriate.
         Type `str`. """
         
-        self.severity = None
+        self.severity: str | None = None
         """ error | warning.
         Type `str`. """
         
-        self.source = None
+        self.source: str | None = None
         """ Reference to original source of constraint.
         Type `str`. """
         
-        self.xpath = None
+        self.xpath: str | None = None
         """ XPath expression of constraint.
         Type `str`. """
         
         super(ElementDefinitionConstraint, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
             ("expression", "expression", str, False, None, False),
@@ -1176,7 +1180,7 @@ class ElementDefinitionExample(element.Element):
     
     resource_type = "ElementDefinitionExample"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1184,213 +1188,213 @@ class ElementDefinitionExample(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.label = None
+        self.label: str | None = None
         """ Describes the purpose of this example.
         Type `str`. """
         
-        self.valueAddress = None
+        self.valueAddress: address.Address | None = None
         """ Value of Example (one of allowed types).
         Type `Address` (represented as `dict` in JSON). """
         
-        self.valueAge = None
+        self.valueAge: age.Age | None = None
         """ Value of Example (one of allowed types).
         Type `Age` (represented as `dict` in JSON). """
         
-        self.valueAnnotation = None
+        self.valueAnnotation: annotation.Annotation | None = None
         """ Value of Example (one of allowed types).
         Type `Annotation` (represented as `dict` in JSON). """
         
-        self.valueAttachment = None
+        self.valueAttachment: attachment.Attachment | None = None
         """ Value of Example (one of allowed types).
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.valueBase64Binary = None
+        self.valueBase64Binary: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueBoolean = None
+        self.valueBoolean: bool | None = None
         """ Value of Example (one of allowed types).
         Type `bool`. """
         
-        self.valueCanonical = None
+        self.valueCanonical: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueCode = None
+        self.valueCode: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueCodeableConcept = None
+        self.valueCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Value of Example (one of allowed types).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCoding = None
+        self.valueCoding: coding.Coding | None = None
         """ Value of Example (one of allowed types).
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.valueContactDetail = None
+        self.valueContactDetail: contactdetail.ContactDetail | None = None
         """ Value of Example (one of allowed types).
         Type `ContactDetail` (represented as `dict` in JSON). """
         
-        self.valueContactPoint = None
+        self.valueContactPoint: contactpoint.ContactPoint | None = None
         """ Value of Example (one of allowed types).
         Type `ContactPoint` (represented as `dict` in JSON). """
         
-        self.valueContributor = None
+        self.valueContributor: contributor.Contributor | None = None
         """ Value of Example (one of allowed types).
         Type `Contributor` (represented as `dict` in JSON). """
         
-        self.valueCount = None
+        self.valueCount: count.Count | None = None
         """ Value of Example (one of allowed types).
         Type `Count` (represented as `dict` in JSON). """
         
-        self.valueDataRequirement = None
+        self.valueDataRequirement: datarequirement.DataRequirement | None = None
         """ Value of Example (one of allowed types).
         Type `DataRequirement` (represented as `dict` in JSON). """
         
-        self.valueDate = None
+        self.valueDate: fhirdate.FHIRDate | None = None
         """ Value of Example (one of allowed types).
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.valueDateTime = None
+        self.valueDateTime: fhirdatetime.FHIRDateTime | None = None
         """ Value of Example (one of allowed types).
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDecimal = None
+        self.valueDecimal: float | None = None
         """ Value of Example (one of allowed types).
         Type `float`. """
         
-        self.valueDistance = None
+        self.valueDistance: distance.Distance | None = None
         """ Value of Example (one of allowed types).
         Type `Distance` (represented as `dict` in JSON). """
         
-        self.valueDosage = None
+        self.valueDosage: dosage.Dosage | None = None
         """ Value of Example (one of allowed types).
         Type `Dosage` (represented as `dict` in JSON). """
         
-        self.valueDuration = None
+        self.valueDuration: duration.Duration | None = None
         """ Value of Example (one of allowed types).
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.valueExpression = None
+        self.valueExpression: expression.Expression | None = None
         """ Value of Example (one of allowed types).
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.valueHumanName = None
+        self.valueHumanName: humanname.HumanName | None = None
         """ Value of Example (one of allowed types).
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.valueId = None
+        self.valueId: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueIdentifier = None
+        self.valueIdentifier: identifier.Identifier | None = None
         """ Value of Example (one of allowed types).
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.valueInstant = None
+        self.valueInstant: fhirinstant.FHIRInstant | None = None
         """ Value of Example (one of allowed types).
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.valueInteger = None
+        self.valueInteger: int | None = None
         """ Value of Example (one of allowed types).
         Type `int`. """
         
-        self.valueMarkdown = None
+        self.valueMarkdown: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueMeta = None
+        self.valueMeta: meta.Meta | None = None
         """ Value of Example (one of allowed types).
         Type `Meta` (represented as `dict` in JSON). """
         
-        self.valueMoney = None
+        self.valueMoney: money.Money | None = None
         """ Value of Example (one of allowed types).
         Type `Money` (represented as `dict` in JSON). """
         
-        self.valueOid = None
+        self.valueOid: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueParameterDefinition = None
+        self.valueParameterDefinition: parameterdefinition.ParameterDefinition | None = None
         """ Value of Example (one of allowed types).
         Type `ParameterDefinition` (represented as `dict` in JSON). """
         
-        self.valuePeriod = None
+        self.valuePeriod: period.Period | None = None
         """ Value of Example (one of allowed types).
         Type `Period` (represented as `dict` in JSON). """
         
-        self.valuePositiveInt = None
+        self.valuePositiveInt: int | None = None
         """ Value of Example (one of allowed types).
         Type `int`. """
         
-        self.valueQuantity = None
+        self.valueQuantity: quantity.Quantity | None = None
         """ Value of Example (one of allowed types).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.valueRange = None
+        self.valueRange: range.Range | None = None
         """ Value of Example (one of allowed types).
         Type `Range` (represented as `dict` in JSON). """
         
-        self.valueRatio = None
+        self.valueRatio: ratio.Ratio | None = None
         """ Value of Example (one of allowed types).
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.valueReference = None
+        self.valueReference: fhirreference.FHIRReference | None = None
         """ Value of Example (one of allowed types).
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.valueRelatedArtifact = None
+        self.valueRelatedArtifact: relatedartifact.RelatedArtifact | None = None
         """ Value of Example (one of allowed types).
         Type `RelatedArtifact` (represented as `dict` in JSON). """
         
-        self.valueSampledData = None
+        self.valueSampledData: sampleddata.SampledData | None = None
         """ Value of Example (one of allowed types).
         Type `SampledData` (represented as `dict` in JSON). """
         
-        self.valueSignature = None
+        self.valueSignature: signature.Signature | None = None
         """ Value of Example (one of allowed types).
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.valueString = None
+        self.valueString: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueTime = None
+        self.valueTime: fhirtime.FHIRTime | None = None
         """ Value of Example (one of allowed types).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.valueTiming = None
+        self.valueTiming: timing.Timing | None = None
         """ Value of Example (one of allowed types).
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.valueTriggerDefinition = None
+        self.valueTriggerDefinition: triggerdefinition.TriggerDefinition | None = None
         """ Value of Example (one of allowed types).
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.valueUnsignedInt = None
+        self.valueUnsignedInt: int | None = None
         """ Value of Example (one of allowed types).
         Type `int`. """
         
-        self.valueUri = None
+        self.valueUri: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueUrl = None
+        self.valueUrl: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
-        self.valueUsageContext = None
+        self.valueUsageContext: usagecontext.UsageContext | None = None
         """ Value of Example (one of allowed types).
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.valueUuid = None
+        self.valueUuid: str | None = None
         """ Value of Example (one of allowed types).
         Type `str`. """
         
         super(ElementDefinitionExample, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionExample, self).elementProperties()
         js.extend([
             ("label", "label", str, False, None, True),
@@ -1457,7 +1461,7 @@ class ElementDefinitionMapping(element.Element):
     
     resource_type = "ElementDefinitionMapping"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1465,25 +1469,25 @@ class ElementDefinitionMapping(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Comments about the mapping or its use.
         Type `str`. """
         
-        self.identity = None
+        self.identity: str | None = None
         """ Reference to mapping declaration.
         Type `str`. """
         
-        self.language = None
+        self.language: str | None = None
         """ Computable language of mapping.
         Type `str`. """
         
-        self.map = None
+        self.map: str | None = None
         """ Details of the mapping.
         Type `str`. """
         
         super(ElementDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionMapping, self).elementProperties()
         js.extend([
             ("comment", "comment", str, False, None, False),
@@ -1508,7 +1512,7 @@ class ElementDefinitionSlicing(element.Element):
     
     resource_type = "ElementDefinitionSlicing"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1516,25 +1520,25 @@ class ElementDefinitionSlicing(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Text description of how slicing works (or not).
         Type `str`. """
         
-        self.discriminator = None
+        self.discriminator: list[ElementDefinitionSlicingDiscriminator] | None = None
         """ Element values that are used to distinguish the slices.
         List of `ElementDefinitionSlicingDiscriminator` items (represented as `dict` in JSON). """
         
-        self.ordered = None
+        self.ordered: bool | None = None
         """ If elements must be in same order as slices.
         Type `bool`. """
         
-        self.rules = None
+        self.rules: str | None = None
         """ closed | open | openAtEnd.
         Type `str`. """
         
         super(ElementDefinitionSlicing, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionSlicing, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -1557,7 +1561,7 @@ class ElementDefinitionSlicingDiscriminator(element.Element):
     
     resource_type = "ElementDefinitionSlicingDiscriminator"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1565,17 +1569,17 @@ class ElementDefinitionSlicingDiscriminator(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.path = None
+        self.path: str | None = None
         """ Path to element value.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ value | exists | pattern | type | profile.
         Type `str`. """
         
         super(ElementDefinitionSlicingDiscriminator, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionSlicingDiscriminator, self).elementProperties()
         js.extend([
             ("path", "path", str, False, None, True),
@@ -1593,7 +1597,7 @@ class ElementDefinitionType(element.Element):
     
     resource_type = "ElementDefinitionType"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -1601,30 +1605,30 @@ class ElementDefinitionType(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.aggregation = None
+        self.aggregation: list[str | None] | None = None
         """ contained | referenced | bundled - how aggregated.
         List of `str` items. """
         
-        self.code = None
+        self.code: str | None = None
         """ Data type or Resource (reference to definition).
         Type `str`. """
         
-        self.profile = None
+        self.profile: list[str | None] | None = None
         """ Profiles (StructureDefinition or IG) - one must apply.
         List of `str` items. """
         
-        self.targetProfile = None
+        self.targetProfile: list[str | None] | None = None
         """ Profile (StructureDefinition or IG) on the Reference/canonical
         target - one must apply.
         List of `str` items. """
         
-        self.versioning = None
+        self.versioning: str | None = None
         """ either | independent | specific.
         Type `str`. """
         
         super(ElementDefinitionType, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ElementDefinitionType, self).elementProperties()
         js.extend([
             ("aggregation", "aggregation", str, True, None, False),

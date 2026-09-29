@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Communication).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class Communication(domainresource.DomainResource):
     
     resource_type = "Communication"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,102 +26,102 @@ class Communication(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.about = None
+        self.about: list[fhirreference.FHIRReference] | None = None
         """ Resources that pertain to this communication.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Request fulfilled by this communication.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Message category.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.inResponseTo = None
+        self.inResponseTo: list[fhirreference.FHIRReference] | None = None
         """ Reply to.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.medium = None
+        self.medium: list[codeableconcept.CodeableConcept] | None = None
         """ A channel of communication.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments made about the communication.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of this action.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.payload = None
+        self.payload: list[CommunicationPayload] | None = None
         """ Message payload.
         List of `CommunicationPayload` items (represented as `dict` in JSON). """
         
-        self.priority = None
+        self.priority: str | None = None
         """ routine | urgent | asap | stat.
         Type `str`. """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Indication for message.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why was communication done?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.received = None
+        self.received: fhirdatetime.FHIRDateTime | None = None
         """ When received.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.recipient = None
+        self.recipient: list[fhirreference.FHIRReference] | None = None
         """ Message recipient.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.sender = None
+        self.sender: fhirreference.FHIRReference | None = None
         """ Message sender.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.sent = None
+        self.sent: fhirdatetime.FHIRDateTime | None = None
         """ When sent.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ preparation | in-progress | not-done | on-hold | stopped |
         completed | entered-in-error | unknown.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: codeableconcept.CodeableConcept | None = None
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Focus of message.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.topic = None
+        self.topic: codeableconcept.CodeableConcept | None = None
         """ Description of the purpose/content.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(Communication, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Communication, self).elementProperties()
         js.extend([
             ("about", "about", fhirreference.FHIRReference, True, None, False),
@@ -157,7 +161,7 @@ class CommunicationPayload(backboneelement.BackboneElement):
     
     resource_type = "CommunicationPayload"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -165,21 +169,21 @@ class CommunicationPayload(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contentAttachment = None
+        self.contentAttachment: attachment.Attachment | None = None
         """ Message part content.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.contentReference = None
+        self.contentReference: fhirreference.FHIRReference | None = None
         """ Message part content.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.contentString = None
+        self.contentString: str | None = None
         """ Message part content.
         Type `str`. """
         
         super(CommunicationPayload, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CommunicationPayload, self).elementProperties()
         js.extend([
             ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),

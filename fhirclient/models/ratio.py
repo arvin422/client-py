@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Ratio).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -13,7 +17,7 @@ class Ratio(element.Element):
     
     resource_type = "Ratio"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,17 +25,17 @@ class Ratio(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.denominator = None
+        self.denominator: quantity.Quantity | None = None
         """ Denominator value.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.numerator = None
+        self.numerator: quantity.Quantity | None = None
         """ Numerator value.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Ratio, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Ratio, self).elementProperties()
         js.extend([
             ("denominator", "denominator", quantity.Quantity, False, None, False),

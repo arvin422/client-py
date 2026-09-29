@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BackboneElement).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -13,7 +17,7 @@ class BackboneElement(element.Element):
     
     resource_type = "BackboneElement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,13 +25,13 @@ class BackboneElement(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.modifierExtension = None
+        self.modifierExtension: list[extension.Extension] | None = None
         """ Extensions that cannot be ignored even if unrecognized.
         List of `Extension` items (represented as `dict` in JSON). """
         
         super(BackboneElement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BackboneElement, self).elementProperties()
         js.extend([
             ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/OperationDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class OperationDefinition(domainresource.DomainResource):
     
     resource_type = "OperationDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,114 +25,114 @@ class OperationDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.affectsState = None
+        self.affectsState: bool | None = None
         """ Whether content is changed by the operation.
         Type `bool`. """
         
-        self.base = None
+        self.base: str | None = None
         """ Marks this as a profile of the base.
         Type `str`. """
         
-        self.code = None
+        self.code: str | None = None
         """ Name used to invoke the operation.
         Type `str`. """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Additional information about use.
         Type `str`. """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the operation definition.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.inputProfile = None
+        self.inputProfile: str | None = None
         """ Validation information for in parameters.
         Type `str`. """
         
-        self.instance = None
+        self.instance: bool | None = None
         """ Invoke on an instance?.
         Type `bool`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for operation definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ operation | query.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this operation definition (computer friendly).
         Type `str`. """
         
-        self.outputProfile = None
+        self.outputProfile: str | None = None
         """ Validation information for out parameters.
         Type `str`. """
         
-        self.overload = None
+        self.overload: list[OperationDefinitionOverload] | None = None
         """ Define overloaded variants for when  generating code.
         List of `OperationDefinitionOverload` items (represented as `dict` in JSON). """
         
-        self.parameter = None
+        self.parameter: list[OperationDefinitionParameter] | None = None
         """ Parameters for the operation/query.
         List of `OperationDefinitionParameter` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this operation definition is defined.
         Type `str`. """
         
-        self.resource = None
+        self.resource: list[str | None] | None = None
         """ Types this operation applies to.
         List of `str` items. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.system = None
+        self.system: bool | None = None
         """ Invoke at the system level?.
         Type `bool`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this operation definition (human friendly).
         Type `str`. """
         
-        self.type = None
+        self.type: bool | None = None
         """ Invoke at the type level?.
         Type `bool`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this operation definition, represented as
         a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the operation definition.
         Type `str`. """
         
         super(OperationDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationDefinition, self).elementProperties()
         js.extend([
             ("affectsState", "affectsState", bool, False, None, False),
@@ -173,7 +177,7 @@ class OperationDefinitionOverload(backboneelement.BackboneElement):
     
     resource_type = "OperationDefinitionOverload"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -181,17 +185,17 @@ class OperationDefinitionOverload(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Comments to go on overload.
         Type `str`. """
         
-        self.parameterName = None
+        self.parameterName: list[str | None] | None = None
         """ Name of parameter to include in overload.
         List of `str` items. """
         
         super(OperationDefinitionOverload, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationDefinitionOverload, self).elementProperties()
         js.extend([
             ("comment", "comment", str, False, None, False),
@@ -208,7 +212,7 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
     
     resource_type = "OperationDefinitionParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -216,54 +220,54 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.binding = None
+        self.binding: OperationDefinitionParameterBinding | None = None
         """ ValueSet details if this is coded.
         Type `OperationDefinitionParameterBinding` (represented as `dict` in JSON). """
         
-        self.documentation = None
+        self.documentation: str | None = None
         """ Description of meaning/use.
         Type `str`. """
         
-        self.max = None
+        self.max: str | None = None
         """ Maximum Cardinality (a number or *).
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Minimum Cardinality.
         Type `int`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name in Parameters.parameter.name or in URL.
         Type `str`. """
         
-        self.part = None
+        self.part: list[OperationDefinitionParameter] | None = None
         """ Parts of a nested Parameter.
         List of `OperationDefinitionParameter` items (represented as `dict` in JSON). """
         
-        self.referencedFrom = None
+        self.referencedFrom: list[OperationDefinitionParameterReferencedFrom] | None = None
         """ References to this parameter.
         List of `OperationDefinitionParameterReferencedFrom` items (represented as `dict` in JSON). """
         
-        self.searchType = None
+        self.searchType: str | None = None
         """ number | date | string | token | reference | composite | quantity |
         uri | special.
         Type `str`. """
         
-        self.targetProfile = None
+        self.targetProfile: list[str | None] | None = None
         """ If type is Reference | canonical, allowed targets.
         List of `str` items. """
         
-        self.type = None
+        self.type: str | None = None
         """ What type this parameter has.
         Type `str`. """
         
-        self.use = None
+        self.use: str | None = None
         """ in | out.
         Type `str`. """
         
         super(OperationDefinitionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationDefinitionParameter, self).elementProperties()
         js.extend([
             ("binding", "binding", OperationDefinitionParameterBinding, False, None, False),
@@ -290,7 +294,7 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     
     resource_type = "OperationDefinitionParameterBinding"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -298,17 +302,17 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.strength = None
+        self.strength: str | None = None
         """ required | extensible | preferred | example.
         Type `str`. """
         
-        self.valueSet = None
+        self.valueSet: str | None = None
         """ Source of value set.
         Type `str`. """
         
         super(OperationDefinitionParameterBinding, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationDefinitionParameterBinding, self).elementProperties()
         js.extend([
             ("strength", "strength", str, False, None, True),
@@ -326,7 +330,7 @@ class OperationDefinitionParameterReferencedFrom(backboneelement.BackboneElement
     
     resource_type = "OperationDefinitionParameterReferencedFrom"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -334,17 +338,17 @@ class OperationDefinitionParameterReferencedFrom(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.source = None
+        self.source: str | None = None
         """ Referencing parameter.
         Type `str`. """
         
-        self.sourceId = None
+        self.sourceId: str | None = None
         """ Element id of reference.
         Type `str`. """
         
         super(OperationDefinitionParameterReferencedFrom, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(OperationDefinitionParameterReferencedFrom, self).elementProperties()
         js.extend([
             ("source", "source", str, False, None, True),

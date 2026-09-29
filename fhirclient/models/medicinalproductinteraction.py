@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductInteraction).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class MedicinalProductInteraction(domainresource.DomainResource):
     
     resource_type = "MedicinalProductInteraction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,39 +25,39 @@ class MedicinalProductInteraction(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ The interaction described.
         Type `str`. """
         
-        self.effect = None
+        self.effect: codeableconcept.CodeableConcept | None = None
         """ The effect of the interaction, for example "reduced gastric
         absorption of primary medication".
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.incidence = None
+        self.incidence: codeableconcept.CodeableConcept | None = None
         """ The incidence of the interaction, e.g. theoretical, observed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.interactant = None
+        self.interactant: list[MedicinalProductInteractionInteractant] | None = None
         """ The specific medication, food or laboratory test that interacts.
         List of `MedicinalProductInteractionInteractant` items (represented as `dict` in JSON). """
         
-        self.management = None
+        self.management: codeableconcept.CodeableConcept | None = None
         """ Actions for managing the interaction.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: list[fhirreference.FHIRReference] | None = None
         """ The medication for which this is a described interaction.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ The type of the interaction e.g. drug-drug interaction, drug-food
         interaction, drug-lab test interaction.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MedicinalProductInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductInteraction, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -75,7 +79,7 @@ class MedicinalProductInteractionInteractant(backboneelement.BackboneElement):
     
     resource_type = "MedicinalProductInteractionInteractant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -83,17 +87,17 @@ class MedicinalProductInteractionInteractant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.itemCodeableConcept = None
+        self.itemCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ The specific medication, food or laboratory test that interacts.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.itemReference = None
+        self.itemReference: fhirreference.FHIRReference | None = None
         """ The specific medication, food or laboratory test that interacts.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MedicinalProductInteractionInteractant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MedicinalProductInteractionInteractant, self).elementProperties()
         js.extend([
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),

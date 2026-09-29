@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MolecularSequence).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class MolecularSequence(domainresource.DomainResource):
     
     resource_type = "MolecularSequence"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,77 +24,77 @@ class MolecularSequence(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.coordinateSystem = None
+        self.coordinateSystem: int | None = None
         """ Base number of coordinate system (0 for 0-based numbering or
         coordinates, inclusive start, exclusive end, 1 for 1-based
         numbering, inclusive start, inclusive end).
         Type `int`. """
         
-        self.device = None
+        self.device: fhirreference.FHIRReference | None = None
         """ The method for sequencing.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Unique ID for this particular sequence. This is a FHIR-defined id.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.observedSeq = None
+        self.observedSeq: str | None = None
         """ Sequence that was observed.
         Type `str`. """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who and/or what this is about.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: fhirreference.FHIRReference | None = None
         """ Who should be responsible for test result.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.pointer = None
+        self.pointer: list[fhirreference.FHIRReference] | None = None
         """ Pointer to next atomic sequence.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.quality = None
+        self.quality: list[MolecularSequenceQuality] | None = None
         """ An set of value as quality of sequence.
         List of `MolecularSequenceQuality` items (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The number of copies of the sequence of interest.  (RNASeq).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.readCoverage = None
+        self.readCoverage: int | None = None
         """ Average number of reads representing a given nucleotide in the
         reconstructed sequence.
         Type `int`. """
         
-        self.referenceSeq = None
+        self.referenceSeq: MolecularSequenceReferenceSeq | None = None
         """ A sequence used as reference.
         Type `MolecularSequenceReferenceSeq` (represented as `dict` in JSON). """
         
-        self.repository = None
+        self.repository: list[MolecularSequenceRepository] | None = None
         """ External repository which contains detailed report related with
         observedSeq in this resource.
         List of `MolecularSequenceRepository` items (represented as `dict` in JSON). """
         
-        self.specimen = None
+        self.specimen: fhirreference.FHIRReference | None = None
         """ Specimen used for sequencing.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.structureVariant = None
+        self.structureVariant: list[MolecularSequenceStructureVariant] | None = None
         """ Structural variant.
         List of `MolecularSequenceStructureVariant` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ aa | dna | rna.
         Type `str`. """
         
-        self.variant = None
+        self.variant: list[MolecularSequenceVariant] | None = None
         """ Variant in sequence.
         List of `MolecularSequenceVariant` items (represented as `dict` in JSON). """
         
         super(MolecularSequence, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequence, self).elementProperties()
         js.extend([
             ("coordinateSystem", "coordinateSystem", int, False, None, True),
@@ -125,7 +129,7 @@ class MolecularSequenceQuality(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceQuality"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -133,70 +137,70 @@ class MolecularSequenceQuality(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.end = None
+        self.end: int | None = None
         """ End position of the sequence.
         Type `int`. """
         
-        self.fScore = None
+        self.fScore: float | None = None
         """ F-score.
         Type `float`. """
         
-        self.gtFP = None
+        self.gtFP: float | None = None
         """ False positives where the non-REF alleles in the Truth and Query
         Call Sets match.
         Type `float`. """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ Method to get quality.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.precision = None
+        self.precision: float | None = None
         """ Precision of comparison.
         Type `float`. """
         
-        self.queryFP = None
+        self.queryFP: float | None = None
         """ False positives.
         Type `float`. """
         
-        self.queryTP = None
+        self.queryTP: float | None = None
         """ True positives from the perspective of the query data.
         Type `float`. """
         
-        self.recall = None
+        self.recall: float | None = None
         """ Recall of comparison.
         Type `float`. """
         
-        self.roc = None
+        self.roc: MolecularSequenceQualityRoc | None = None
         """ Receiver Operator Characteristic (ROC) Curve.
         Type `MolecularSequenceQualityRoc` (represented as `dict` in JSON). """
         
-        self.score = None
+        self.score: quantity.Quantity | None = None
         """ Quality score for the comparison.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.standardSequence = None
+        self.standardSequence: codeableconcept.CodeableConcept | None = None
         """ Standard sequence for comparison.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.start = None
+        self.start: int | None = None
         """ Start position of the sequence.
         Type `int`. """
         
-        self.truthFN = None
+        self.truthFN: float | None = None
         """ False negatives.
         Type `float`. """
         
-        self.truthTP = None
+        self.truthTP: float | None = None
         """ True positives from the perspective of the truth data.
         Type `float`. """
         
-        self.type = None
+        self.type: str | None = None
         """ indel | snp | unknown.
         Type `str`. """
         
         super(MolecularSequenceQuality, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceQuality, self).elementProperties()
         js.extend([
             ("end", "end", int, False, None, False),
@@ -227,7 +231,7 @@ class MolecularSequenceQualityRoc(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceQualityRoc"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -235,37 +239,37 @@ class MolecularSequenceQualityRoc(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.fMeasure = None
+        self.fMeasure: list[float | None] | None = None
         """ FScore of the GQ score.
         List of `float` items. """
         
-        self.numFN = None
+        self.numFN: list[int | None] | None = None
         """ Roc score false negative numbers.
         List of `int` items. """
         
-        self.numFP = None
+        self.numFP: list[int | None] | None = None
         """ Roc score false positive numbers.
         List of `int` items. """
         
-        self.numTP = None
+        self.numTP: list[int | None] | None = None
         """ Roc score true positive numbers.
         List of `int` items. """
         
-        self.precision = None
+        self.precision: list[float | None] | None = None
         """ Precision of the GQ score.
         List of `float` items. """
         
-        self.score = None
+        self.score: list[int | None] | None = None
         """ Genotype quality score.
         List of `int` items. """
         
-        self.sensitivity = None
+        self.sensitivity: list[float | None] | None = None
         """ Sensitivity of the GQ score.
         List of `float` items. """
         
         super(MolecularSequenceQualityRoc, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceQualityRoc, self).elementProperties()
         js.extend([
             ("fMeasure", "fMeasure", float, True, None, False),
@@ -288,7 +292,7 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceReferenceSeq"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -296,46 +300,46 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.chromosome = None
+        self.chromosome: codeableconcept.CodeableConcept | None = None
         """ Chromosome containing genetic finding.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.genomeBuild = None
+        self.genomeBuild: str | None = None
         """ The Genome Build used for reference, following GRCh build versions
         e.g. 'GRCh 37'.
         Type `str`. """
         
-        self.orientation = None
+        self.orientation: str | None = None
         """ sense | antisense.
         Type `str`. """
         
-        self.referenceSeqId = None
+        self.referenceSeqId: codeableconcept.CodeableConcept | None = None
         """ Reference identifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.referenceSeqPointer = None
+        self.referenceSeqPointer: fhirreference.FHIRReference | None = None
         """ A pointer to another MolecularSequence entity as reference sequence.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.referenceSeqString = None
+        self.referenceSeqString: str | None = None
         """ A string to represent reference sequence.
         Type `str`. """
         
-        self.strand = None
+        self.strand: str | None = None
         """ watson | crick.
         Type `str`. """
         
-        self.windowEnd = None
+        self.windowEnd: int | None = None
         """ End position of the window on the reference sequence.
         Type `int`. """
         
-        self.windowStart = None
+        self.windowStart: int | None = None
         """ Start position of the window on the  reference sequence.
         Type `int`. """
         
         super(MolecularSequenceReferenceSeq, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceReferenceSeq, self).elementProperties()
         js.extend([
             ("chromosome", "chromosome", codeableconcept.CodeableConcept, False, None, False),
@@ -361,7 +365,7 @@ class MolecularSequenceRepository(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceRepository"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -369,33 +373,33 @@ class MolecularSequenceRepository(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.datasetId = None
+        self.datasetId: str | None = None
         """ Id of the dataset that used to call for dataset in repository.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Repository's name.
         Type `str`. """
         
-        self.readsetId = None
+        self.readsetId: str | None = None
         """ Id of the read.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ directlink | openapi | login | oauth | other.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ URI of the repository.
         Type `str`. """
         
-        self.variantsetId = None
+        self.variantsetId: str | None = None
         """ Id of the variantset that used to call for variantset in repository.
         Type `str`. """
         
         super(MolecularSequenceRepository, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceRepository, self).elementProperties()
         js.extend([
             ("datasetId", "datasetId", str, False, None, False),
@@ -416,7 +420,7 @@ class MolecularSequenceStructureVariant(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceStructureVariant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -424,29 +428,29 @@ class MolecularSequenceStructureVariant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.exact = None
+        self.exact: bool | None = None
         """ Does the structural variant have base pair resolution breakpoints?.
         Type `bool`. """
         
-        self.inner = None
+        self.inner: MolecularSequenceStructureVariantInner | None = None
         """ Structural variant inner.
         Type `MolecularSequenceStructureVariantInner` (represented as `dict` in JSON). """
         
-        self.length = None
+        self.length: int | None = None
         """ Structural variant length.
         Type `int`. """
         
-        self.outer = None
+        self.outer: MolecularSequenceStructureVariantOuter | None = None
         """ Structural variant outer.
         Type `MolecularSequenceStructureVariantOuter` (represented as `dict` in JSON). """
         
-        self.variantType = None
+        self.variantType: codeableconcept.CodeableConcept | None = None
         """ Structural variant change type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(MolecularSequenceStructureVariant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceStructureVariant, self).elementProperties()
         js.extend([
             ("exact", "exact", bool, False, None, False),
@@ -464,7 +468,7 @@ class MolecularSequenceStructureVariantInner(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceStructureVariantInner"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -472,17 +476,17 @@ class MolecularSequenceStructureVariantInner(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.end = None
+        self.end: int | None = None
         """ Structural variant inner end.
         Type `int`. """
         
-        self.start = None
+        self.start: int | None = None
         """ Structural variant inner start.
         Type `int`. """
         
         super(MolecularSequenceStructureVariantInner, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceStructureVariantInner, self).elementProperties()
         js.extend([
             ("end", "end", int, False, None, False),
@@ -497,7 +501,7 @@ class MolecularSequenceStructureVariantOuter(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceStructureVariantOuter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -505,17 +509,17 @@ class MolecularSequenceStructureVariantOuter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.end = None
+        self.end: int | None = None
         """ Structural variant outer end.
         Type `int`. """
         
-        self.start = None
+        self.start: int | None = None
         """ Structural variant outer start.
         Type `int`. """
         
         super(MolecularSequenceStructureVariantOuter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceStructureVariantOuter, self).elementProperties()
         js.extend([
             ("end", "end", int, False, None, False),
@@ -536,7 +540,7 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
     
     resource_type = "MolecularSequenceVariant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -544,34 +548,34 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.cigar = None
+        self.cigar: str | None = None
         """ Extended CIGAR string for aligning the sequence with reference
         bases.
         Type `str`. """
         
-        self.end = None
+        self.end: int | None = None
         """ End position of the variant on the reference sequence.
         Type `int`. """
         
-        self.observedAllele = None
+        self.observedAllele: str | None = None
         """ Allele that was observed.
         Type `str`. """
         
-        self.referenceAllele = None
+        self.referenceAllele: str | None = None
         """ Allele in the reference sequence.
         Type `str`. """
         
-        self.start = None
+        self.start: int | None = None
         """ Start position of the variant on the  reference sequence.
         Type `int`. """
         
-        self.variantPointer = None
+        self.variantPointer: fhirreference.FHIRReference | None = None
         """ Pointer to observed variant information.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(MolecularSequenceVariant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MolecularSequenceVariant, self).elementProperties()
         js.extend([
             ("cigar", "cigar", str, False, None, False),

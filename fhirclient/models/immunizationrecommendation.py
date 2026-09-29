@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     
     resource_type = "ImmunizationRecommendation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,29 +25,29 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authority = None
+        self.authority: fhirreference.FHIRReference | None = None
         """ Who is responsible for protocol.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date recommendation(s) created.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who this profile is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.recommendation = None
+        self.recommendation: list[ImmunizationRecommendationRecommendation] | None = None
         """ Vaccine administration recommendations.
         List of `ImmunizationRecommendationRecommendation` items (represented as `dict` in JSON). """
         
         super(ImmunizationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
@@ -63,7 +67,7 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     
     resource_type = "ImmunizationRecommendationRecommendation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -71,65 +75,65 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contraindicatedVaccineCode = None
+        self.contraindicatedVaccineCode: list[codeableconcept.CodeableConcept] | None = None
         """ Vaccine which is contraindicated to fulfill the recommendation.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.dateCriterion = None
+        self.dateCriterion: list[ImmunizationRecommendationRecommendationDateCriterion] | None = None
         """ Dates governing proposed immunization.
         List of `ImmunizationRecommendationRecommendationDateCriterion` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Protocol details.
         Type `str`. """
         
-        self.doseNumberPositiveInt = None
+        self.doseNumberPositiveInt: int | None = None
         """ Recommended dose number within series.
         Type `int`. """
         
-        self.doseNumberString = None
+        self.doseNumberString: str | None = None
         """ Recommended dose number within series.
         Type `str`. """
         
-        self.forecastReason = None
+        self.forecastReason: list[codeableconcept.CodeableConcept] | None = None
         """ Vaccine administration status reason.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.forecastStatus = None
+        self.forecastStatus: codeableconcept.CodeableConcept | None = None
         """ Vaccine recommendation status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.series = None
+        self.series: str | None = None
         """ Name of vaccination series.
         Type `str`. """
         
-        self.seriesDosesPositiveInt = None
+        self.seriesDosesPositiveInt: int | None = None
         """ Recommended number of doses for immunity.
         Type `int`. """
         
-        self.seriesDosesString = None
+        self.seriesDosesString: str | None = None
         """ Recommended number of doses for immunity.
         Type `str`. """
         
-        self.supportingImmunization = None
+        self.supportingImmunization: list[fhirreference.FHIRReference] | None = None
         """ Past immunizations supporting recommendation.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.supportingPatientInformation = None
+        self.supportingPatientInformation: list[fhirreference.FHIRReference] | None = None
         """ Patient observations supporting recommendation.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.targetDisease = None
+        self.targetDisease: codeableconcept.CodeableConcept | None = None
         """ Disease to be immunized against.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.vaccineCode = None
+        self.vaccineCode: list[codeableconcept.CodeableConcept] | None = None
         """ Vaccine  or vaccine group recommendation applies to.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(ImmunizationRecommendationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
         js.extend([
             ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False),
@@ -159,7 +163,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     
     resource_type = "ImmunizationRecommendationRecommendationDateCriterion"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -167,17 +171,17 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Type of date.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.value = None
+        self.value: fhirdatetime.FHIRDateTime | None = None
         """ Recommended date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),

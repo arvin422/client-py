@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AdverseEvent).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -16,7 +20,7 @@ class AdverseEvent(domainresource.DomainResource):
     
     resource_type = "AdverseEvent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,11 +28,11 @@ class AdverseEvent(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actuality = None
+        self.actuality: str | None = None
         """ actual | potential.
         Type `str`. """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ product-problem | product-quality | product-use-error | wrong-dose
         | incorrect-prescribing-information | wrong-technique | wrong-
         route-of-administration | wrong-rate | wrong-duration | wrong-time
@@ -36,83 +40,83 @@ class AdverseEvent(domainresource.DomainResource):
         manufacturer | unsafe-physical-environment.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.contributor = None
+        self.contributor: list[fhirreference.FHIRReference] | None = None
         """ Who  was involved in the adverse event or the potential adverse
         event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ When the event occurred.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.detected = None
+        self.detected: fhirdatetime.FHIRDateTime | None = None
         """ When the event was detected.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.event = None
+        self.event: codeableconcept.CodeableConcept | None = None
         """ Type of the event itself in relation to the subject.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Business identifier for the event.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Location where adverse event occurred.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: codeableconcept.CodeableConcept | None = None
         """ resolved | recovering | ongoing | resolvedWithSequelae | fatal |
         unknown.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.recordedDate = None
+        self.recordedDate: fhirdatetime.FHIRDateTime | None = None
         """ When the event was recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.recorder = None
+        self.recorder: fhirreference.FHIRReference | None = None
         """ Who recorded the adverse event.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.referenceDocument = None
+        self.referenceDocument: list[fhirreference.FHIRReference] | None = None
         """ AdverseEvent.referenceDocument.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.resultingCondition = None
+        self.resultingCondition: list[fhirreference.FHIRReference] | None = None
         """ Effect on the subject due to this event.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.seriousness = None
+        self.seriousness: codeableconcept.CodeableConcept | None = None
         """ Seriousness of the event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.severity = None
+        self.severity: codeableconcept.CodeableConcept | None = None
         """ mild | moderate | severe.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.study = None
+        self.study: list[fhirreference.FHIRReference] | None = None
         """ AdverseEvent.study.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Subject impacted by event.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subjectMedicalHistory = None
+        self.subjectMedicalHistory: list[fhirreference.FHIRReference] | None = None
         """ AdverseEvent.subjectMedicalHistory.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.suspectEntity = None
+        self.suspectEntity: list[AdverseEventSuspectEntity] | None = None
         """ The suspected agent causing the adverse event.
         List of `AdverseEventSuspectEntity` items (represented as `dict` in JSON). """
         
         super(AdverseEvent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AdverseEvent, self).elementProperties()
         js.extend([
             ("actuality", "actuality", str, False, None, True),
@@ -149,7 +153,7 @@ class AdverseEventSuspectEntity(backboneelement.BackboneElement):
     
     resource_type = "AdverseEventSuspectEntity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -157,17 +161,17 @@ class AdverseEventSuspectEntity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.causality = None
+        self.causality: list[AdverseEventSuspectEntityCausality] | None = None
         """ Information on the possible cause of the event.
         List of `AdverseEventSuspectEntityCausality` items (represented as `dict` in JSON). """
         
-        self.instance = None
+        self.instance: fhirreference.FHIRReference | None = None
         """ Refers to the specific entity that caused the adverse event.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(AdverseEventSuspectEntity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AdverseEventSuspectEntity, self).elementProperties()
         js.extend([
             ("causality", "causality", AdverseEventSuspectEntityCausality, True, None, False),
@@ -182,7 +186,7 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
     
     resource_type = "AdverseEventSuspectEntityCausality"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -190,25 +194,25 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assessment = None
+        self.assessment: codeableconcept.CodeableConcept | None = None
         """ Assessment of if the entity caused the event.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ AdverseEvent.suspectEntity.causalityAuthor.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.method = None
+        self.method: codeableconcept.CodeableConcept | None = None
         """ ProbabilityScale | Bayesian | Checklist.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.productRelatedness = None
+        self.productRelatedness: str | None = None
         """ AdverseEvent.suspectEntity.causalityProductRelatedness.
         Type `str`. """
         
         super(AdverseEventSuspectEntityCausality, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(AdverseEventSuspectEntityCausality, self).elementProperties()
         js.extend([
             ("assessment", "assessment", codeableconcept.CodeableConcept, False, None, False),

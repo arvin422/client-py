@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MoneyQuantity).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -14,7 +18,7 @@ class Quantity(element.Element):
     
     resource_type = "Quantity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,29 +26,29 @@ class Quantity(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Coded form of the unit.
         Type `str`. """
         
-        self.comparator = None
+        self.comparator: str | None = None
         """ < | <= | >= | > - how to understand the value.
         Type `str`. """
         
-        self.system = None
+        self.system: str | None = None
         """ System that defines coded unit form.
         Type `str`. """
         
-        self.unit = None
+        self.unit: str | None = None
         """ Unit representation.
         Type `str`. """
         
-        self.value = None
+        self.value: float | None = None
         """ Numerical value (with implicit precision).
         Type `float`. """
         
         super(Quantity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Quantity, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, False),

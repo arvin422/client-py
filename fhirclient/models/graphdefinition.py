@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GraphDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class GraphDefinition(domainresource.DomainResource):
     
     resource_type = "GraphDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,70 +26,70 @@ class GraphDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the graph definition.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for graph definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[GraphDefinitionLink] | None = None
         """ Links this graph makes rules about.
         List of `GraphDefinitionLink` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this graph definition (computer friendly).
         Type `str`. """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Profile on base resource.
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this graph definition is defined.
         Type `str`. """
         
-        self.start = None
+        self.start: str | None = None
         """ Type of resource at which the graph starts.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this graph definition, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the graph definition.
         Type `str`. """
         
         super(GraphDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GraphDefinition, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -115,7 +119,7 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
     
     resource_type = "GraphDefinitionLink"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -123,33 +127,33 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Why this link is specified.
         Type `str`. """
         
-        self.max = None
+        self.max: str | None = None
         """ Maximum occurrences for this link.
         Type `str`. """
         
-        self.min = None
+        self.min: int | None = None
         """ Minimum occurrences for this link.
         Type `int`. """
         
-        self.path = None
+        self.path: str | None = None
         """ Path in the resource that contains the link.
         Type `str`. """
         
-        self.sliceName = None
+        self.sliceName: str | None = None
         """ Which slice (if profiled).
         Type `str`. """
         
-        self.target = None
+        self.target: list[GraphDefinitionLinkTarget] | None = None
         """ Potential target for the link.
         List of `GraphDefinitionLinkTarget` items (represented as `dict` in JSON). """
         
         super(GraphDefinitionLink, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GraphDefinitionLink, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -168,7 +172,7 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
     
     resource_type = "GraphDefinitionLinkTarget"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -176,29 +180,29 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.compartment = None
+        self.compartment: list[GraphDefinitionLinkTargetCompartment] | None = None
         """ Compartment Consistency Rules.
         List of `GraphDefinitionLinkTargetCompartment` items (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[GraphDefinitionLink] | None = None
         """ Additional links from target resource.
         List of `GraphDefinitionLink` items (represented as `dict` in JSON). """
         
-        self.params = None
+        self.params: str | None = None
         """ Criteria for reverse lookup.
         Type `str`. """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Profile for the target resource.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ Type of resource this link refers to.
         Type `str`. """
         
         super(GraphDefinitionLinkTarget, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GraphDefinitionLinkTarget, self).elementProperties()
         js.extend([
             ("compartment", "compartment", GraphDefinitionLinkTargetCompartment, True, None, False),
@@ -216,7 +220,7 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
     
     resource_type = "GraphDefinitionLinkTargetCompartment"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -224,29 +228,29 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Patient | Encounter | RelatedPerson | Practitioner | Device.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Documentation for FHIRPath expression.
         Type `str`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ Custom rule, as a FHIRPath expression.
         Type `str`. """
         
-        self.rule = None
+        self.rule: str | None = None
         """ identical | matching | different | custom.
         Type `str`. """
         
-        self.use = None
+        self.use: str | None = None
         """ condition | requirement.
         Type `str`. """
         
         super(GraphDefinitionLinkTargetCompartment, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(GraphDefinitionLinkTargetCompartment, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),

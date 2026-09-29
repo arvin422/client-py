@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CareTeam).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class CareTeam(domainresource.DomainResource):
     
     resource_type = "CareTeam"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,61 +26,61 @@ class CareTeam(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Type of team.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this team.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.managingOrganization = None
+        self.managingOrganization: list[fhirreference.FHIRReference] | None = None
         """ Organization responsible for the care team.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name of the team, such as crisis assessment team.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments made about the CareTeam.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.participant = None
+        self.participant: list[CareTeamParticipant] | None = None
         """ Members of the team.
         List of `CareTeamParticipant` items (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Time period team covers.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why the care team exists.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why the care team exists.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ proposed | active | suspended | inactive | entered-in-error.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who care team is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the care team (that applies to all members).
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(CareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CareTeam, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
@@ -107,7 +111,7 @@ class CareTeamParticipant(backboneelement.BackboneElement):
     
     resource_type = "CareTeamParticipant"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -115,25 +119,25 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.member = None
+        self.member: fhirreference.FHIRReference | None = None
         """ Who is involved.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.onBehalfOf = None
+        self.onBehalfOf: fhirreference.FHIRReference | None = None
         """ Organization of the practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Time period of participant.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.role: list[codeableconcept.CodeableConcept] | None = None
         """ Type of involvement.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(CareTeamParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CareTeamParticipant, self).elementProperties()
         js.extend([
             ("member", "member", fhirreference.FHIRReference, False, None, False),

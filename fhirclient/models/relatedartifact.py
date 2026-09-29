@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RelatedArtifact).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -13,7 +17,7 @@ class RelatedArtifact(element.Element):
     
     resource_type = "RelatedArtifact"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,38 +25,38 @@ class RelatedArtifact(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.citation = None
+        self.citation: str | None = None
         """ Bibliographic citation for the artifact.
         Type `str`. """
         
-        self.display = None
+        self.display: str | None = None
         """ Brief description of the related artifact.
         Type `str`. """
         
-        self.document = None
+        self.document: attachment.Attachment | None = None
         """ What document is being referenced.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.label = None
+        self.label: str | None = None
         """ Short label.
         Type `str`. """
         
-        self.resource = None
+        self.resource: str | None = None
         """ What resource is being referenced.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ documentation | justification | citation | predecessor | successor
         | derived-from | depends-on | composed-of.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Where the artifact can be accessed.
         Type `str`. """
         
         super(RelatedArtifact, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RelatedArtifact, self).elementProperties()
         js.extend([
             ("citation", "citation", str, False, None, False),

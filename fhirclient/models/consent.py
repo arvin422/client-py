@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Consent).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class Consent(domainresource.DomainResource):
     
     resource_type = "Consent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,65 +27,65 @@ class Consent(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Classification of the consent statement - for indexing/retrieval.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.dateTime = None
+        self.dateTime: fhirdatetime.FHIRDateTime | None = None
         """ When this Consent was created or indexed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifier for this record (external references).
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.organization = None
+        self.organization: list[fhirreference.FHIRReference] | None = None
         """ Custodian of the consent.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who the consent applies to.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: list[fhirreference.FHIRReference] | None = None
         """ Who is agreeing to the policy and rules.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.policy = None
+        self.policy: list[ConsentPolicy] | None = None
         """ Policies covered by this consent.
         List of `ConsentPolicy` items (represented as `dict` in JSON). """
         
-        self.policyRule = None
+        self.policyRule: codeableconcept.CodeableConcept | None = None
         """ Regulation that this consents to.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.provision = None
+        self.provision: ConsentProvision | None = None
         """ Constraints to the base Consent.policyRule.
         Type `ConsentProvision` (represented as `dict` in JSON). """
         
-        self.scope = None
+        self.scope: codeableconcept.CodeableConcept | None = None
         """ Which of the four areas this resource covers (extensible).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.sourceAttachment = None
+        self.sourceAttachment: attachment.Attachment | None = None
         """ Source from which this consent is taken.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.sourceReference = None
+        self.sourceReference: fhirreference.FHIRReference | None = None
         """ Source from which this consent is taken.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | proposed | active | rejected | inactive | entered-in-error.
         Type `str`. """
         
-        self.verification = None
+        self.verification: list[ConsentVerification] | None = None
         """ Consent Verified by patient or family.
         List of `ConsentVerification` items (represented as `dict` in JSON). """
         
         super(Consent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Consent, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, True),
@@ -114,7 +118,7 @@ class ConsentPolicy(backboneelement.BackboneElement):
     
     resource_type = "ConsentPolicy"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -122,17 +126,17 @@ class ConsentPolicy(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authority = None
+        self.authority: str | None = None
         """ Enforcement source for policy.
         Type `str`. """
         
-        self.uri = None
+        self.uri: str | None = None
         """ Specific policy covered by this consent.
         Type `str`. """
         
         super(ConsentPolicy, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConsentPolicy, self).elementProperties()
         js.extend([
             ("authority", "authority", str, False, None, False),
@@ -150,7 +154,7 @@ class ConsentProvision(backboneelement.BackboneElement):
     
     resource_type = "ConsentProvision"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -158,53 +162,53 @@ class ConsentProvision(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[codeableconcept.CodeableConcept] | None = None
         """ Actions controlled by this rule.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.actor = None
+        self.actor: list[ConsentProvisionActor] | None = None
         """ Who|what controlled by this rule (or group, by role).
         List of `ConsentProvisionActor` items (represented as `dict` in JSON). """
         
-        self.class_fhir = None
+        self.class_fhir: list[coding.Coding] | None = None
         """ e.g. Resource Type, Profile, CDA, etc..
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: list[codeableconcept.CodeableConcept] | None = None
         """ e.g. LOINC or SNOMED CT code, etc. in the content.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.data = None
+        self.data: list[ConsentProvisionData] | None = None
         """ Data controlled by this rule.
         List of `ConsentProvisionData` items (represented as `dict` in JSON). """
         
-        self.dataPeriod = None
+        self.dataPeriod: period.Period | None = None
         """ Timeframe for data controlled by this rule.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Timeframe for this rule.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.provision = None
+        self.provision: list[ConsentProvision] | None = None
         """ Nested Exception Rules.
         List of `ConsentProvision` items (represented as `dict` in JSON). """
         
-        self.purpose = None
+        self.purpose: list[coding.Coding] | None = None
         """ Context of activities covered by this rule.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.securityLabel = None
+        self.securityLabel: list[coding.Coding] | None = None
         """ Security Labels that define affected resources.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ deny | permit.
         Type `str`. """
         
         super(ConsentProvision, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConsentProvision, self).elementProperties()
         js.extend([
             ("action", "action", codeableconcept.CodeableConcept, True, None, False),
@@ -231,7 +235,7 @@ class ConsentProvisionActor(backboneelement.BackboneElement):
     
     resource_type = "ConsentProvisionActor"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -239,17 +243,17 @@ class ConsentProvisionActor(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.reference = None
+        self.reference: fhirreference.FHIRReference | None = None
         """ Resource for the actor (or group, by role).
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.role = None
+        self.role: codeableconcept.CodeableConcept | None = None
         """ How the actor is involved.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ConsentProvisionActor, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConsentProvisionActor, self).elementProperties()
         js.extend([
             ("reference", "reference", fhirreference.FHIRReference, False, None, True),
@@ -266,7 +270,7 @@ class ConsentProvisionData(backboneelement.BackboneElement):
     
     resource_type = "ConsentProvisionData"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -274,17 +278,17 @@ class ConsentProvisionData(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.meaning = None
+        self.meaning: str | None = None
         """ instance | related | dependents | authoredby.
         Type `str`. """
         
-        self.reference = None
+        self.reference: fhirreference.FHIRReference | None = None
         """ The actual data reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ConsentProvisionData, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConsentProvisionData, self).elementProperties()
         js.extend([
             ("meaning", "meaning", str, False, None, True),
@@ -302,7 +306,7 @@ class ConsentVerification(backboneelement.BackboneElement):
     
     resource_type = "ConsentVerification"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -310,21 +314,21 @@ class ConsentVerification(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.verificationDate = None
+        self.verificationDate: fhirdatetime.FHIRDateTime | None = None
         """ When consent verified.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.verified = None
+        self.verified: bool | None = None
         """ Has been verified.
         Type `bool`. """
         
-        self.verifiedWith = None
+        self.verifiedWith: fhirreference.FHIRReference | None = None
         """ Person who verified.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ConsentVerification, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ConsentVerification, self).elementProperties()
         js.extend([
             ("verificationDate", "verificationDate", fhirdatetime.FHIRDateTime, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Signature).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import element
 
@@ -16,7 +20,7 @@ class Signature(element.Element):
     
     resource_type = "Signature"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -24,37 +28,37 @@ class Signature(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.data = None
+        self.data: str | None = None
         """ The actual signature content (XML DigSig. JWS, picture, etc.).
         Type `str`. """
         
-        self.onBehalfOf = None
+        self.onBehalfOf: fhirreference.FHIRReference | None = None
         """ The party represented.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.sigFormat = None
+        self.sigFormat: str | None = None
         """ The technical format of the signature.
         Type `str`. """
         
-        self.targetFormat = None
+        self.targetFormat: str | None = None
         """ The technical format of the signed resources.
         Type `str`. """
         
-        self.type = None
+        self.type: list[coding.Coding] | None = None
         """ Indication of the reason the entity signed the object(s).
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.when = None
+        self.when: fhirinstant.FHIRInstant | None = None
         """ When the signature was created.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.who = None
+        self.who: fhirreference.FHIRReference | None = None
         """ Who signed.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Signature, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Signature, self).elementProperties()
         js.extend([
             ("data", "data", str, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EnrollmentRequest).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class EnrollmentRequest(domainresource.DomainResource):
     
     resource_type = "EnrollmentRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,37 +25,37 @@ class EnrollmentRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.candidate = None
+        self.candidate: fhirreference.FHIRReference | None = None
         """ The subject to be enrolled.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.coverage = None
+        self.coverage: fhirreference.FHIRReference | None = None
         """ Insurance information.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.insurer = None
+        self.insurer: fhirreference.FHIRReference | None = None
         """ Target.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.provider: fhirreference.FHIRReference | None = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
         super(EnrollmentRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
             ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),

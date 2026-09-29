@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PractitionerRole).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class PractitionerRole(domainresource.DomainResource):
     
     resource_type = "PractitionerRole"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,69 +25,69 @@ class PractitionerRole(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this practitioner role record is in active use.
         Type `bool`. """
         
-        self.availabilityExceptions = None
+        self.availabilityExceptions: str | None = None
         """ Description of availability exceptions.
         Type `str`. """
         
-        self.availableTime = None
+        self.availableTime: list[PractitionerRoleAvailableTime] | None = None
         """ Times the Service Site is available.
         List of `PractitionerRoleAvailableTime` items (represented as `dict` in JSON). """
         
-        self.code = None
+        self.code: list[codeableconcept.CodeableConcept] | None = None
         """ Roles which this practitioner may perform.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.endpoint = None
+        self.endpoint: list[fhirreference.FHIRReference] | None = None
         """ Technical endpoints providing access to services operated for the
         practitioner with this role.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.healthcareService = None
+        self.healthcareService: list[fhirreference.FHIRReference] | None = None
         """ The list of healthcare services that this worker provides for this
         role's Organization/Location(s).
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifiers that are specific to a role/location.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: list[fhirreference.FHIRReference] | None = None
         """ The location(s) at which this practitioner provides care.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.notAvailable = None
+        self.notAvailable: list[PractitionerRoleNotAvailable] | None = None
         """ Not available during this time due to provided reason.
         List of `PractitionerRoleNotAvailable` items (represented as `dict` in JSON). """
         
-        self.organization = None
+        self.organization: fhirreference.FHIRReference | None = None
         """ Organization where the roles are available.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ The period during which the practitioner is authorized to perform
         in these role(s).
         Type `Period` (represented as `dict` in JSON). """
         
-        self.practitioner = None
+        self.practitioner: fhirreference.FHIRReference | None = None
         """ Practitioner that is able to provide the defined services for the
         organization.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.specialty = None
+        self.specialty: list[codeableconcept.CodeableConcept] | None = None
         """ Specific specialty of the practitioner.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ Contact details that are specific to the role/location/service.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(PractitionerRole, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PractitionerRole, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -115,7 +119,7 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     
     resource_type = "PractitionerRoleAvailableTime"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -123,25 +127,25 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allDay = None
+        self.allDay: bool | None = None
         """ Always available? e.g. 24 hour service.
         Type `bool`. """
         
-        self.availableEndTime = None
+        self.availableEndTime: fhirtime.FHIRTime | None = None
         """ Closing time of day (ignored if allDay = true).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.availableStartTime = None
+        self.availableStartTime: fhirtime.FHIRTime | None = None
         """ Opening time of day (ignored if allDay = true).
         Type `FHIRTime` (represented as `str` in JSON). """
         
-        self.daysOfWeek = None
+        self.daysOfWeek: list[str | None] | None = None
         """ mon | tue | wed | thu | fri | sat | sun.
         List of `str` items. """
         
         super(PractitionerRoleAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PractitionerRoleAvailableTime, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
@@ -161,7 +165,7 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     
     resource_type = "PractitionerRoleNotAvailable"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -169,17 +173,17 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Reason presented to the user explaining why time not available.
         Type `str`. """
         
-        self.during = None
+        self.during: period.Period | None = None
         """ Service not available from this date.
         Type `Period` (represented as `dict` in JSON). """
         
         super(PractitionerRoleNotAvailable, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(PractitionerRoleNotAvailable, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),

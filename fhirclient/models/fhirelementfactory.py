@@ -5,12 +5,15 @@
 #  2024, SMART Health IT.
 
 
+from .fhirabstractbase import FHIRAbstractBase, JSONValue
+
+
 class FHIRElementFactory(object):
     """ Factory class to instantiate resources by resource name.
     """
     
     @classmethod
-    def instantiate(cls, resource_type, jsondict):
+    def instantiate(cls, resource_type: str, jsondict: dict[str, JSONValue] | None) -> FHIRAbstractBase:
         """ Instantiate a resource of the type correlating to "resource_type".
         
         :param str resource_type: The name/type of the resource to instantiate

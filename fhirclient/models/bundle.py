@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Bundle).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import resource
 
@@ -12,7 +16,7 @@ class Bundle(resource.Resource):
     
     resource_type = "Bundle"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,38 +24,38 @@ class Bundle(resource.Resource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.entry = None
+        self.entry: list[BundleEntry] | None = None
         """ Entry in the bundle - will have a resource or information.
         List of `BundleEntry` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Persistent identifier for the bundle.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[BundleLink] | None = None
         """ Links related to this Bundle.
         List of `BundleLink` items (represented as `dict` in JSON). """
         
-        self.signature = None
+        self.signature: signature.Signature | None = None
         """ Digital Signature.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.timestamp = None
+        self.timestamp: fhirinstant.FHIRInstant | None = None
         """ When the bundle was assembled.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.total = None
+        self.total: int | None = None
         """ If search, the total number of matches.
         Type `int`. """
         
-        self.type = None
+        self.type: str | None = None
         """ document | message | transaction | transaction-response | batch |
         batch-response | history | searchset | collection.
         Type `str`. """
         
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
 
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Bundle, self).elementProperties()
         js.extend([
             ("entry", "entry", BundleEntry, True, None, False),
@@ -76,7 +80,7 @@ class BundleEntry(backboneelement.BackboneElement):
     
     resource_type = "BundleEntry"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -84,33 +88,33 @@ class BundleEntry(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.fullUrl = None
+        self.fullUrl: str | None = None
         """ URI for resource (Absolute URL server address or URI for UUID/OID).
         Type `str`. """
         
-        self.link = None
+        self.link: list[BundleLink] | None = None
         """ Links related to this entry.
         List of `BundleLink` items (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: BundleEntryRequest | None = None
         """ Additional execution information (transaction/batch/history).
         Type `BundleEntryRequest` (represented as `dict` in JSON). """
         
-        self.resource = None
+        self.resource: resource.Resource | None = None
         """ A resource in the bundle.
         Type `Resource` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.response: BundleEntryResponse | None = None
         """ Results of execution (transaction/batch/history).
         Type `BundleEntryResponse` (represented as `dict` in JSON). """
         
-        self.search = None
+        self.search: BundleEntrySearch | None = None
         """ Search related information.
         Type `BundleEntrySearch` (represented as `dict` in JSON). """
         
         super(BundleEntry, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BundleEntry, self).elementProperties()
         js.extend([
             ("fullUrl", "fullUrl", str, False, None, False),
@@ -133,7 +137,7 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     
     resource_type = "BundleEntryRequest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -141,33 +145,33 @@ class BundleEntryRequest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.ifMatch = None
+        self.ifMatch: str | None = None
         """ For managing update contention.
         Type `str`. """
         
-        self.ifModifiedSince = None
+        self.ifModifiedSince: fhirinstant.FHIRInstant | None = None
         """ For managing cache currency.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.ifNoneExist = None
+        self.ifNoneExist: str | None = None
         """ For conditional creates.
         Type `str`. """
         
-        self.ifNoneMatch = None
+        self.ifNoneMatch: str | None = None
         """ For managing cache currency.
         Type `str`. """
         
-        self.method = None
+        self.method: str | None = None
         """ GET | HEAD | POST | PUT | DELETE | PATCH.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ URL for HTTP equivalent of this entry.
         Type `str`. """
         
         super(BundleEntryRequest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
             ("ifMatch", "ifMatch", str, False, None, False),
@@ -190,7 +194,7 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     
     resource_type = "BundleEntryResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -198,29 +202,29 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.etag = None
+        self.etag: str | None = None
         """ The Etag for the resource (if relevant).
         Type `str`. """
         
-        self.lastModified = None
+        self.lastModified: fhirinstant.FHIRInstant | None = None
         """ Server's date time modified.
         Type `FHIRInstant` (represented as `str` in JSON). """
         
-        self.location = None
+        self.location: str | None = None
         """ The location (if the operation returns a location).
         Type `str`. """
         
-        self.outcome = None
+        self.outcome: resource.Resource | None = None
         """ OperationOutcome with hints and warnings (for batch/transaction).
         Type `Resource` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ Status response code (text optional).
         Type `str`. """
         
         super(BundleEntryResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
             ("etag", "etag", str, False, None, False),
@@ -241,7 +245,7 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     
     resource_type = "BundleEntrySearch"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -249,17 +253,17 @@ class BundleEntrySearch(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.mode = None
+        self.mode: str | None = None
         """ match | include | outcome - why this is in the result set.
         Type `str`. """
         
-        self.score = None
+        self.score: float | None = None
         """ Search ranking (between 0 and 1).
         Type `float`. """
         
         super(BundleEntrySearch, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BundleEntrySearch, self).elementProperties()
         js.extend([
             ("mode", "mode", str, False, None, False),
@@ -276,7 +280,7 @@ class BundleLink(backboneelement.BackboneElement):
     
     resource_type = "BundleLink"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -284,18 +288,18 @@ class BundleLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.relation = None
+        self.relation: str | None = None
         """ See http://www.iana.org/assignments/link-relations/link-
         relations.xhtml#link-relations-1.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Reference details for the link.
         Type `str`. """
         
         super(BundleLink, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BundleLink, self).elementProperties()
         js.extend([
             ("relation", "relation", str, False, None, True),

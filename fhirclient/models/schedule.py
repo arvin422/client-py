@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Schedule).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -11,7 +15,7 @@ class Schedule(domainresource.DomainResource):
     
     resource_type = "Schedule"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -19,41 +23,41 @@ class Schedule(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this schedule is in active use.
         Type `bool`. """
         
-        self.actor = None
+        self.actor: list[fhirreference.FHIRReference] | None = None
         """ Resource(s) that availability information is being provided for.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Comments on availability.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.planningHorizon = None
+        self.planningHorizon: period.Period | None = None
         """ Period of time covered by schedule.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.serviceCategory = None
+        self.serviceCategory: list[codeableconcept.CodeableConcept] | None = None
         """ High-level category.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.serviceType = None
+        self.serviceType: list[codeableconcept.CodeableConcept] | None = None
         """ Specific service.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.specialty = None
+        self.specialty: list[codeableconcept.CodeableConcept] | None = None
         """ Type of specialty needed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(Schedule, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Schedule, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestScript).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class TestScript(domainresource.DomainResource):
     
     resource_type = "TestScript"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,109 +25,109 @@ class TestScript(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the test script.
         Type `str`. """
         
-        self.destination = None
+        self.destination: list[TestScriptDestination] | None = None
         """ An abstract server representing a destination or receiver in a
         message exchange.
         List of `TestScriptDestination` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.fixture = None
+        self.fixture: list[TestScriptFixture] | None = None
         """ Fixture in the test script - by reference (uri).
         List of `TestScriptFixture` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Additional identifier for the test script.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for test script (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.metadata = None
+        self.metadata: TestScriptMetadata | None = None
         """ Required capability that is assumed to function correctly on the
         FHIR server being tested.
         Type `TestScriptMetadata` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this test script (computer friendly).
         Type `str`. """
         
-        self.origin = None
+        self.origin: list[TestScriptOrigin] | None = None
         """ An abstract server representing a client or sender in a message
         exchange.
         List of `TestScriptOrigin` items (represented as `dict` in JSON). """
         
-        self.profile = None
+        self.profile: list[fhirreference.FHIRReference] | None = None
         """ Reference of the validation profile.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this test script is defined.
         Type `str`. """
         
-        self.setup = None
+        self.setup: TestScriptSetup | None = None
         """ A series of required setup operations before tests are executed.
         Type `TestScriptSetup` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.teardown = None
+        self.teardown: TestScriptTeardown | None = None
         """ A series of required clean up steps.
         Type `TestScriptTeardown` (represented as `dict` in JSON). """
         
-        self.test = None
+        self.test: list[TestScriptTest] | None = None
         """ A test in this script.
         List of `TestScriptTest` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this test script (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this test script, represented as a URI
         (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.variable = None
+        self.variable: list[TestScriptVariable] | None = None
         """ Placeholder for evaluated elements.
         List of `TestScriptVariable` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the test script.
         Type `str`. """
         
         super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScript, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -166,7 +170,7 @@ class TestScriptDestination(backboneelement.BackboneElement):
     
     resource_type = "TestScriptDestination"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -174,18 +178,18 @@ class TestScriptDestination(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.index = None
+        self.index: int | None = None
         """ The index of the abstract destination server starting at 1.
         Type `int`. """
         
-        self.profile = None
+        self.profile: coding.Coding | None = None
         """ FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-
         SDC-FormProcessor.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(TestScriptDestination, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptDestination, self).elementProperties()
         js.extend([
             ("index", "index", int, False, None, True),
@@ -203,7 +207,7 @@ class TestScriptFixture(backboneelement.BackboneElement):
     
     resource_type = "TestScriptFixture"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -211,21 +215,21 @@ class TestScriptFixture(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.autocreate = None
+        self.autocreate: bool | None = None
         """ Whether or not to implicitly create the fixture during setup.
         Type `bool`. """
         
-        self.autodelete = None
+        self.autodelete: bool | None = None
         """ Whether or not to implicitly delete the fixture during teardown.
         Type `bool`. """
         
-        self.resource = None
+        self.resource: fhirreference.FHIRReference | None = None
         """ Reference of the resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(TestScriptFixture, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptFixture, self).elementProperties()
         js.extend([
             ("autocreate", "autocreate", bool, False, None, True),
@@ -245,7 +249,7 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     
     resource_type = "TestScriptMetadata"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -253,18 +257,18 @@ class TestScriptMetadata(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.capability = None
+        self.capability: list[TestScriptMetadataCapability] | None = None
         """ Capabilities  that are assumed to function correctly on the FHIR
         server being tested.
         List of `TestScriptMetadataCapability` items (represented as `dict` in JSON). """
         
-        self.link = None
+        self.link: list[TestScriptMetadataLink] | None = None
         """ Links to the FHIR specification.
         List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
         
         super(TestScriptMetadata, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptMetadata, self).elementProperties()
         js.extend([
             ("capability", "capability", TestScriptMetadataCapability, True, None, True),
@@ -283,7 +287,7 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     
     resource_type = "TestScriptMetadataCapability"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -291,37 +295,37 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.capabilities = None
+        self.capabilities: str | None = None
         """ Required Capability Statement.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ The expected capabilities of the server.
         Type `str`. """
         
-        self.destination = None
+        self.destination: int | None = None
         """ Which server these requirements apply to.
         Type `int`. """
         
-        self.link = None
+        self.link: list[str | None] | None = None
         """ Links to the FHIR specification.
         List of `str` items. """
         
-        self.origin = None
+        self.origin: list[int | None] | None = None
         """ Which origin server these requirements apply to.
         List of `int` items. """
         
-        self.required = None
+        self.required: bool | None = None
         """ Are the capabilities required?.
         Type `bool`. """
         
-        self.validated = None
+        self.validated: bool | None = None
         """ Are the capabilities validated?.
         Type `bool`. """
         
         super(TestScriptMetadataCapability, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
             ("capabilities", "capabilities", str, False, None, True),
@@ -343,7 +347,7 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     
     resource_type = "TestScriptMetadataLink"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -351,17 +355,17 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Short description.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ URL to the specification.
         Type `str`. """
         
         super(TestScriptMetadataLink, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptMetadataLink, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -379,7 +383,7 @@ class TestScriptOrigin(backboneelement.BackboneElement):
     
     resource_type = "TestScriptOrigin"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -387,17 +391,17 @@ class TestScriptOrigin(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.index = None
+        self.index: int | None = None
         """ The index of the abstract origin server starting at 1.
         Type `int`. """
         
-        self.profile = None
+        self.profile: coding.Coding | None = None
         """ FHIR-Client | FHIR-SDC-FormFiller.
         Type `Coding` (represented as `dict` in JSON). """
         
         super(TestScriptOrigin, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptOrigin, self).elementProperties()
         js.extend([
             ("index", "index", int, False, None, True),
@@ -412,7 +416,7 @@ class TestScriptSetup(backboneelement.BackboneElement):
     
     resource_type = "TestScriptSetup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -420,13 +424,13 @@ class TestScriptSetup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestScriptSetupAction] | None = None
         """ A setup operation or assert to perform.
         List of `TestScriptSetupAction` items (represented as `dict` in JSON). """
         
         super(TestScriptSetup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptSetup, self).elementProperties()
         js.extend([
             ("action", "action", TestScriptSetupAction, True, None, True),
@@ -442,7 +446,7 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     
     resource_type = "TestScriptSetupAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -450,17 +454,17 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
+        self.assert_fhir: TestScriptSetupActionAssert | None = None
         """ The assertion to perform.
         Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: TestScriptSetupActionOperation | None = None
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptSetupAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptSetupAction, self).elementProperties()
         js.extend([
             ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
@@ -478,7 +482,7 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     
     resource_type = "TestScriptSetupActionAssert"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -486,100 +490,100 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.compareToSourceExpression = None
+        self.compareToSourceExpression: str | None = None
         """ The FHIRPath expression to evaluate against the source fixture.
         Type `str`. """
         
-        self.compareToSourceId = None
+        self.compareToSourceId: str | None = None
         """ Id of the source fixture to be evaluated.
         Type `str`. """
         
-        self.compareToSourcePath = None
+        self.compareToSourcePath: str | None = None
         """ XPath or JSONPath expression to evaluate against the source fixture.
         Type `str`. """
         
-        self.contentType = None
+        self.contentType: str | None = None
         """ Mime type to compare against the 'Content-Type' header.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Tracking/reporting assertion description.
         Type `str`. """
         
-        self.direction = None
+        self.direction: str | None = None
         """ response | request.
         Type `str`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ The FHIRPath expression to be evaluated.
         Type `str`. """
         
-        self.headerField = None
+        self.headerField: str | None = None
         """ HTTP header field name.
         Type `str`. """
         
-        self.label = None
+        self.label: str | None = None
         """ Tracking/logging assertion label.
         Type `str`. """
         
-        self.minimumId = None
+        self.minimumId: str | None = None
         """ Fixture Id of minimum content resource.
         Type `str`. """
         
-        self.navigationLinks = None
+        self.navigationLinks: bool | None = None
         """ Perform validation on navigation links?.
         Type `bool`. """
         
-        self.operator = None
+        self.operator: str | None = None
         """ equals | notEquals | in | notIn | greaterThan | lessThan | empty |
         notEmpty | contains | notContains | eval.
         Type `str`. """
         
-        self.path = None
+        self.path: str | None = None
         """ XPath or JSONPath expression.
         Type `str`. """
         
-        self.requestMethod = None
+        self.requestMethod: str | None = None
         """ delete | get | options | patch | post | put | head.
         Type `str`. """
         
-        self.requestURL = None
+        self.requestURL: str | None = None
         """ Request URL comparison value.
         Type `str`. """
         
-        self.resource = None
+        self.resource: str | None = None
         """ Resource type.
         Type `str`. """
         
-        self.response = None
+        self.response: str | None = None
         """ okay | created | noContent | notModified | bad | forbidden |
         notFound | methodNotAllowed | conflict | gone | preconditionFailed
         | unprocessable.
         Type `str`. """
         
-        self.responseCode = None
+        self.responseCode: str | None = None
         """ HTTP response code to test.
         Type `str`. """
         
-        self.sourceId = None
+        self.sourceId: str | None = None
         """ Fixture Id of source expression or headerField.
         Type `str`. """
         
-        self.validateProfileId = None
+        self.validateProfileId: str | None = None
         """ Profile Id of validation profile reference.
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ The value to compare to.
         Type `str`. """
         
-        self.warningOnly = None
+        self.warningOnly: bool | None = None
         """ Will this assert produce a warning only on error?.
         Type `bool`. """
         
         super(TestScriptSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptSetupActionAssert, self).elementProperties()
         js.extend([
             ("compareToSourceExpression", "compareToSourceExpression", str, False, None, False),
@@ -616,7 +620,7 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     
     resource_type = "TestScriptSetupActionOperation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -624,79 +628,79 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.accept = None
+        self.accept: str | None = None
         """ Mime type to accept in the payload of the response, with charset
         etc..
         Type `str`. """
         
-        self.contentType = None
+        self.contentType: str | None = None
         """ Mime type of the request payload contents, with charset etc..
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Tracking/reporting operation description.
         Type `str`. """
         
-        self.destination = None
+        self.destination: int | None = None
         """ Server responding to the request.
         Type `int`. """
         
-        self.encodeRequestUrl = None
+        self.encodeRequestUrl: bool | None = None
         """ Whether or not to send the request url in encoded format.
         Type `bool`. """
         
-        self.label = None
+        self.label: str | None = None
         """ Tracking/logging operation label.
         Type `str`. """
         
-        self.method = None
+        self.method: str | None = None
         """ delete | get | options | patch | post | put | head.
         Type `str`. """
         
-        self.origin = None
+        self.origin: int | None = None
         """ Server initiating the request.
         Type `int`. """
         
-        self.params = None
+        self.params: str | None = None
         """ Explicitly defined path parameters.
         Type `str`. """
         
-        self.requestHeader = None
+        self.requestHeader: list[TestScriptSetupActionOperationRequestHeader] | None = None
         """ Each operation can have one or more header elements.
         List of `TestScriptSetupActionOperationRequestHeader` items (represented as `dict` in JSON). """
         
-        self.requestId = None
+        self.requestId: str | None = None
         """ Fixture Id of mapped request.
         Type `str`. """
         
-        self.resource = None
+        self.resource: str | None = None
         """ Resource type.
         Type `str`. """
         
-        self.responseId = None
+        self.responseId: str | None = None
         """ Fixture Id of mapped response.
         Type `str`. """
         
-        self.sourceId = None
+        self.sourceId: str | None = None
         """ Fixture Id of body for PUT and POST requests.
         Type `str`. """
         
-        self.targetId = None
+        self.targetId: str | None = None
         """ Id of fixture used for extracting the [id],  [type], and [vid] for
         GET requests.
         Type `str`. """
         
-        self.type = None
+        self.type: coding.Coding | None = None
         """ The operation code type that will be executed.
         Type `Coding` (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Request URL.
         Type `str`. """
         
         super(TestScriptSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptSetupActionOperation, self).elementProperties()
         js.extend([
             ("accept", "accept", str, False, None, False),
@@ -728,7 +732,7 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     
     resource_type = "TestScriptSetupActionOperationRequestHeader"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -736,17 +740,17 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.field = None
+        self.field: str | None = None
         """ HTTP header field name.
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ HTTP headerfield value.
         Type `str`. """
         
         super(TestScriptSetupActionOperationRequestHeader, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptSetupActionOperationRequestHeader, self).elementProperties()
         js.extend([
             ("field", "field", str, False, None, True),
@@ -764,7 +768,7 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     
     resource_type = "TestScriptTeardown"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -772,13 +776,13 @@ class TestScriptTeardown(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestScriptTeardownAction] | None = None
         """ One or more teardown operations to perform.
         List of `TestScriptTeardownAction` items (represented as `dict` in JSON). """
         
         super(TestScriptTeardown, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptTeardown, self).elementProperties()
         js.extend([
             ("action", "action", TestScriptTeardownAction, True, None, True),
@@ -794,7 +798,7 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     
     resource_type = "TestScriptTeardownAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -802,13 +806,13 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.operation = None
+        self.operation: TestScriptSetupActionOperation | None = None
         """ The teardown operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptTeardownAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptTeardownAction, self).elementProperties()
         js.extend([
             ("operation", "operation", TestScriptSetupActionOperation, False, None, True),
@@ -822,7 +826,7 @@ class TestScriptTest(backboneelement.BackboneElement):
     
     resource_type = "TestScriptTest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -830,21 +834,21 @@ class TestScriptTest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
+        self.action: list[TestScriptTestAction] | None = None
         """ A test operation or assert to perform.
         List of `TestScriptTestAction` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Tracking/reporting short description of the test.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Tracking/logging name of this test.
         Type `str`. """
         
         super(TestScriptTest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptTest, self).elementProperties()
         js.extend([
             ("action", "action", TestScriptTestAction, True, None, True),
@@ -862,7 +866,7 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     
     resource_type = "TestScriptTestAction"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -870,17 +874,17 @@ class TestScriptTestAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
+        self.assert_fhir: TestScriptSetupActionAssert | None = None
         """ The setup assertion to perform.
         Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: TestScriptSetupActionOperation | None = None
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
         
         super(TestScriptTestAction, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptTestAction, self).elementProperties()
         js.extend([
             ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
@@ -898,7 +902,7 @@ class TestScriptVariable(backboneelement.BackboneElement):
     
     resource_type = "TestScriptVariable"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -906,41 +910,41 @@ class TestScriptVariable(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.defaultValue = None
+        self.defaultValue: str | None = None
         """ Default, hard-coded, or user-defined value for this variable.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the variable.
         Type `str`. """
         
-        self.expression = None
+        self.expression: str | None = None
         """ The FHIRPath expression against the fixture body.
         Type `str`. """
         
-        self.headerField = None
+        self.headerField: str | None = None
         """ HTTP header field name for source.
         Type `str`. """
         
-        self.hint = None
+        self.hint: str | None = None
         """ Hint help text for default value to enter.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Descriptive name for this variable.
         Type `str`. """
         
-        self.path = None
+        self.path: str | None = None
         """ XPath or JSONPath against the fixture body.
         Type `str`. """
         
-        self.sourceId = None
+        self.sourceId: str | None = None
         """ Fixture Id of source expression or headerField within this variable.
         Type `str`. """
         
         super(TestScriptVariable, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
             ("defaultValue", "defaultValue", str, False, None, False),

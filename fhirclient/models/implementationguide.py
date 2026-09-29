@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImplementationGuide).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class ImplementationGuide(domainresource.DomainResource):
     
     resource_type = "ImplementationGuide"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,90 +27,90 @@ class ImplementationGuide(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.definition = None
+        self.definition: ImplementationGuideDefinition | None = None
         """ Information needed to build the IG.
         Type `ImplementationGuideDefinition` (represented as `dict` in JSON). """
         
-        self.dependsOn = None
+        self.dependsOn: list[ImplementationGuideDependsOn] | None = None
         """ Another Implementation guide this depends on.
         List of `ImplementationGuideDependsOn` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the implementation guide.
         Type `str`. """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.fhirVersion = None
+        self.fhirVersion: list[str | None] | None = None
         """ FHIR Version(s) this Implementation Guide targets.
         List of `str` items. """
         
-        self.global_fhir = None
+        self.global_fhir: list[ImplementationGuideGlobal] | None = None
         """ Profiles that apply globally.
         List of `ImplementationGuideGlobal` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for implementation guide (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.license = None
+        self.license: str | None = None
         """ SPDX license code for this IG (or not-open-source).
         Type `str`. """
         
-        self.manifest = None
+        self.manifest: ImplementationGuideManifest | None = None
         """ Information about an assembled IG.
         Type `ImplementationGuideManifest` (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this implementation guide (computer friendly).
         Type `str`. """
         
-        self.packageId = None
+        self.packageId: str | None = None
         """ NPM Package name for IG.
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this implementation guide (human friendly).
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this implementation guide, represented as
         a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the implementation guide.
         Type `str`. """
         
         super(ImplementationGuide, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuide, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -144,7 +148,7 @@ class ImplementationGuideDefinition(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -152,29 +156,29 @@ class ImplementationGuideDefinition(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.grouping = None
+        self.grouping: list[ImplementationGuideDefinitionGrouping] | None = None
         """ Grouping used to present related resources in the IG.
         List of `ImplementationGuideDefinitionGrouping` items (represented as `dict` in JSON). """
         
-        self.page = None
+        self.page: ImplementationGuideDefinitionPage | None = None
         """ Page/Section in the Guide.
         Type `ImplementationGuideDefinitionPage` (represented as `dict` in JSON). """
         
-        self.parameter = None
+        self.parameter: list[ImplementationGuideDefinitionParameter] | None = None
         """ Defines how IG is built by tools.
         List of `ImplementationGuideDefinitionParameter` items (represented as `dict` in JSON). """
         
-        self.resource = None
+        self.resource: list[ImplementationGuideDefinitionResource] | None = None
         """ Resource in the implementation guide.
         List of `ImplementationGuideDefinitionResource` items (represented as `dict` in JSON). """
         
-        self.template = None
+        self.template: list[ImplementationGuideDefinitionTemplate] | None = None
         """ A template for building resources.
         List of `ImplementationGuideDefinitionTemplate` items (represented as `dict` in JSON). """
         
         super(ImplementationGuideDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinition, self).elementProperties()
         js.extend([
             ("grouping", "grouping", ImplementationGuideDefinitionGrouping, True, None, False),
@@ -195,7 +199,7 @@ class ImplementationGuideDefinitionGrouping(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinitionGrouping"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -203,17 +207,17 @@ class ImplementationGuideDefinitionGrouping(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Human readable text describing the package.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Descriptive name for the package.
         Type `str`. """
         
         super(ImplementationGuideDefinitionGrouping, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinitionGrouping, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -231,7 +235,7 @@ class ImplementationGuideDefinitionPage(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinitionPage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -239,29 +243,29 @@ class ImplementationGuideDefinitionPage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.generation = None
+        self.generation: str | None = None
         """ html | markdown | xml | generated.
         Type `str`. """
         
-        self.nameReference = None
+        self.nameReference: fhirreference.FHIRReference | None = None
         """ Where to find that page.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.nameUrl = None
+        self.nameUrl: str | None = None
         """ Where to find that page.
         Type `str`. """
         
-        self.page = None
+        self.page: list[ImplementationGuideDefinitionPage] | None = None
         """ Nested Pages / Sections.
         List of `ImplementationGuideDefinitionPage` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Short title shown for navigational assistance.
         Type `str`. """
         
         super(ImplementationGuideDefinitionPage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinitionPage, self).elementProperties()
         js.extend([
             ("generation", "generation", str, False, None, True),
@@ -279,7 +283,7 @@ class ImplementationGuideDefinitionParameter(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinitionParameter"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -287,19 +291,19 @@ class ImplementationGuideDefinitionParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ apply | path-resource | path-pages | path-tx-cache | expansion-
         parameter | rule-broken-links | generate-xml | generate-json |
         generate-turtle | html-template.
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ Value for named type.
         Type `str`. """
         
         super(ImplementationGuideDefinitionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinitionParameter, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -319,7 +323,7 @@ class ImplementationGuideDefinitionResource(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinitionResource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -327,37 +331,37 @@ class ImplementationGuideDefinitionResource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Reason why included in guide.
         Type `str`. """
         
-        self.exampleBoolean = None
+        self.exampleBoolean: bool | None = None
         """ Is an example/What is this an example of?.
         Type `bool`. """
         
-        self.exampleCanonical = None
+        self.exampleCanonical: str | None = None
         """ Is an example/What is this an example of?.
         Type `str`. """
         
-        self.fhirVersion = None
+        self.fhirVersion: list[str | None] | None = None
         """ Versions this applies to (if different to IG).
         List of `str` items. """
         
-        self.groupingId = None
+        self.groupingId: str | None = None
         """ Grouping this is part of.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Human Name for the resource.
         Type `str`. """
         
-        self.reference = None
+        self.reference: fhirreference.FHIRReference | None = None
         """ Location of the resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ImplementationGuideDefinitionResource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinitionResource, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -377,7 +381,7 @@ class ImplementationGuideDefinitionTemplate(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDefinitionTemplate"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -385,21 +389,21 @@ class ImplementationGuideDefinitionTemplate(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: str | None = None
         """ Type of template specified.
         Type `str`. """
         
-        self.scope = None
+        self.scope: str | None = None
         """ The scope in which the template applies.
         Type `str`. """
         
-        self.source = None
+        self.source: str | None = None
         """ The source location for the template.
         Type `str`. """
         
         super(ImplementationGuideDefinitionTemplate, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDefinitionTemplate, self).elementProperties()
         js.extend([
             ("code", "code", str, False, None, True),
@@ -419,7 +423,7 @@ class ImplementationGuideDependsOn(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideDependsOn"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -427,21 +431,21 @@ class ImplementationGuideDependsOn(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.packageId = None
+        self.packageId: str | None = None
         """ NPM Package name for IG this depends on.
         Type `str`. """
         
-        self.uri = None
+        self.uri: str | None = None
         """ Identity of the IG that this depends on.
         Type `str`. """
         
-        self.version = None
+        self.version: str | None = None
         """ Version of the IG.
         Type `str`. """
         
         super(ImplementationGuideDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideDependsOn, self).elementProperties()
         js.extend([
             ("packageId", "packageId", str, False, None, False),
@@ -460,7 +464,7 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideGlobal"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -468,17 +472,17 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.profile = None
+        self.profile: str | None = None
         """ Profile that all resources must conform to.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ Type this profile applies to.
         Type `str`. """
         
         super(ImplementationGuideGlobal, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideGlobal, self).elementProperties()
         js.extend([
             ("profile", "profile", str, False, None, True),
@@ -496,7 +500,7 @@ class ImplementationGuideManifest(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideManifest"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -504,29 +508,29 @@ class ImplementationGuideManifest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.image = None
+        self.image: list[str | None] | None = None
         """ Image within the IG.
         List of `str` items. """
         
-        self.other = None
+        self.other: list[str | None] | None = None
         """ Additional linkable file in IG.
         List of `str` items. """
         
-        self.page = None
+        self.page: list[ImplementationGuideManifestPage] | None = None
         """ HTML page within the parent IG.
         List of `ImplementationGuideManifestPage` items (represented as `dict` in JSON). """
         
-        self.rendering = None
+        self.rendering: str | None = None
         """ Location of rendered implementation guide.
         Type `str`. """
         
-        self.resource = None
+        self.resource: list[ImplementationGuideManifestResource] | None = None
         """ Resource in the implementation guide.
         List of `ImplementationGuideManifestResource` items (represented as `dict` in JSON). """
         
         super(ImplementationGuideManifest, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideManifest, self).elementProperties()
         js.extend([
             ("image", "image", str, True, None, False),
@@ -546,7 +550,7 @@ class ImplementationGuideManifestPage(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideManifestPage"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -554,21 +558,21 @@ class ImplementationGuideManifestPage(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.anchor = None
+        self.anchor: list[str | None] | None = None
         """ Anchor available on the page.
         List of `str` items. """
         
-        self.name = None
+        self.name: str | None = None
         """ HTML page name.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Title of the page, for references.
         Type `str`. """
         
         super(ImplementationGuideManifestPage, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideManifestPage, self).elementProperties()
         js.extend([
             ("anchor", "anchor", str, True, None, False),
@@ -589,7 +593,7 @@ class ImplementationGuideManifestResource(backboneelement.BackboneElement):
     
     resource_type = "ImplementationGuideManifestResource"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -597,25 +601,25 @@ class ImplementationGuideManifestResource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.exampleBoolean = None
+        self.exampleBoolean: bool | None = None
         """ Is an example/What is this an example of?.
         Type `bool`. """
         
-        self.exampleCanonical = None
+        self.exampleCanonical: str | None = None
         """ Is an example/What is this an example of?.
         Type `str`. """
         
-        self.reference = None
+        self.reference: fhirreference.FHIRReference | None = None
         """ Location of the resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.relativePath = None
+        self.relativePath: str | None = None
         """ Relative path for page in IG.
         Type `str`. """
         
         super(ImplementationGuideManifestResource, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ImplementationGuideManifestResource, self).elementProperties()
         js.extend([
             ("exampleBoolean", "exampleBoolean", bool, False, "example", False),

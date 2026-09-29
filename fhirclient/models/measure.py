@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Measure).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -12,7 +16,7 @@ class Measure(domainresource.DomainResource):
     
     resource_type = "Measure"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -20,182 +24,182 @@ class Measure(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the measure was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.clinicalRecommendationStatement = None
+        self.clinicalRecommendationStatement: str | None = None
         """ Summary of clinical guidelines.
         Type `str`. """
         
-        self.compositeScoring = None
+        self.compositeScoring: codeableconcept.CodeableConcept | None = None
         """ opportunity | all-or-nothing | linear | weighted.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.definition = None
+        self.definition: list[str | None] | None = None
         """ Defined terms used in the measure documentation.
         List of `str` items. """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the measure.
         Type `str`. """
         
-        self.disclaimer = None
+        self.disclaimer: str | None = None
         """ Disclaimer for use of the measure or its referenced content.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the measure is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.group = None
+        self.group: list[MeasureGroup] | None = None
         """ Population criteria group.
         List of `MeasureGroup` items (represented as `dict` in JSON). """
         
-        self.guidance = None
+        self.guidance: str | None = None
         """ Additional guidance for implementers.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the measure.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.improvementNotation = None
+        self.improvementNotation: codeableconcept.CodeableConcept | None = None
         """ increase | decrease.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for measure (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the measure was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.library = None
+        self.library: list[str | None] | None = None
         """ Logic used by the measure.
         List of `str` items. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this measure (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this measure is defined.
         Type `str`. """
         
-        self.rateAggregation = None
+        self.rateAggregation: str | None = None
         """ How is rate aggregation performed for this measure.
         Type `str`. """
         
-        self.rationale = None
+        self.rationale: str | None = None
         """ Detailed description of why the measure exists.
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.riskAdjustment = None
+        self.riskAdjustment: str | None = None
         """ How risk adjustment is applied for this measure.
         Type `str`. """
         
-        self.scoring = None
+        self.scoring: codeableconcept.CodeableConcept | None = None
         """ proportion | ratio | continuous-variable | cohort.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.subjectCodeableConcept = None
+        self.subjectCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.subjectReference = None
+        self.subjectReference: fhirreference.FHIRReference | None = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
         Device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.subtitle = None
+        self.subtitle: str | None = None
         """ Subordinate title of the measure.
         Type `str`. """
         
-        self.supplementalData = None
+        self.supplementalData: list[MeasureSupplementalData] | None = None
         """ What other data should be reported with the measure.
         List of `MeasureSupplementalData` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this measure (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ The category of the measure, such as Education, Treatment,
         Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ process | outcome | structure | patient-reported-outcome |
         composite.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this measure, represented as a URI
         (globally unique).
         Type `str`. """
         
-        self.usage = None
+        self.usage: str | None = None
         """ Describes the clinical usage of the measure.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the measure.
         Type `str`. """
         
         super(Measure, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(Measure, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
@@ -254,7 +258,7 @@ class MeasureGroup(backboneelement.BackboneElement):
     
     resource_type = "MeasureGroup"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -262,25 +266,25 @@ class MeasureGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Meaning of the group.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Summary description.
         Type `str`. """
         
-        self.population = None
+        self.population: list[MeasureGroupPopulation] | None = None
         """ Population criteria.
         List of `MeasureGroupPopulation` items (represented as `dict` in JSON). """
         
-        self.stratifier = None
+        self.stratifier: list[MeasureGroupStratifier] | None = None
         """ Stratifier criteria for the measure.
         List of `MeasureGroupStratifier` items (represented as `dict` in JSON). """
         
         super(MeasureGroup, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MeasureGroup, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -299,7 +303,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
     
     resource_type = "MeasureGroupPopulation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -307,23 +311,23 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ initial-population | numerator | numerator-exclusion | denominator
         | denominator-exclusion | denominator-exception | measure-
         population | measure-population-exclusion | measure-observation.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criteria = None
+        self.criteria: expression.Expression | None = None
         """ The criteria that defines this population.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ The human readable description of this population criteria.
         Type `str`. """
         
         super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MeasureGroupPopulation, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -343,7 +347,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
     
     resource_type = "MeasureGroupStratifier"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -351,25 +355,25 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Meaning of the stratifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.component = None
+        self.component: list[MeasureGroupStratifierComponent] | None = None
         """ Stratifier criteria component for the measure.
         List of `MeasureGroupStratifierComponent` items (represented as `dict` in JSON). """
         
-        self.criteria = None
+        self.criteria: expression.Expression | None = None
         """ How the measure should be stratified.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ The human readable description of this stratifier.
         Type `str`. """
         
         super(MeasureGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MeasureGroupStratifier, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -390,7 +394,7 @@ class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
     
     resource_type = "MeasureGroupStratifierComponent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -398,21 +402,21 @@ class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Meaning of the stratifier component.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criteria = None
+        self.criteria: expression.Expression | None = None
         """ Component of how the measure should be stratified.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ The human readable description of this stratifier component.
         Type `str`. """
         
         super(MeasureGroupStratifierComponent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MeasureGroupStratifierComponent, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
@@ -432,7 +436,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
     
     resource_type = "MeasureSupplementalData"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -440,25 +444,25 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Meaning of the supplemental data.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criteria = None
+        self.criteria: expression.Expression | None = None
         """ Expression describing additional data to be reported.
         Type `Expression` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ The human readable description of this supplemental data.
         Type `str`. """
         
-        self.usage = None
+        self.usage: list[codeableconcept.CodeableConcept] | None = None
         """ supplemental-data | risk-adjustment-factor.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(MeasureSupplementalData, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(MeasureSupplementalData, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),

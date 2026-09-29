@@ -5,6 +5,7 @@
 #  2014, SMART Health IT.
 
 from . import fhirabstractbase
+from .fhirabstractbase import JSONValue, FHIRValidationError
 
 
 class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
@@ -12,14 +13,14 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
     """
     resource_type = 'FHIRAbstractResource'
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         self._server = None
         """ The server the instance was read from. """
         
         # raise if "resourceType" does not match
         if jsondict is not None and 'resourceType' in jsondict \
             and jsondict['resourceType'] != self.resource_type:
-            raise Exception("Attempting to instantiate {} with resource data that defines a resourceType of \"{}\""
+            raise FHIRValidationError("Attempting to instantiate {} with resource data that defines a resourceType of \"{}\""
                 .format(self.__class__, jsondict['resourceType']))
         
         super(FHIRAbstractResource, self).__init__(jsondict=jsondict, strict=strict)
@@ -38,7 +39,7 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
             return fhirelementfactory.FHIRElementFactory.instantiate(res_type, jsondict)
         return super(FHIRAbstractResource, cls)._with_json_dict(jsondict)
     
-    def as_json(self):
+    def as_json(self) -> dict[str, JSONValue]:
         js = super(FHIRAbstractResource, self).as_json()
         js['resourceType'] = self.resource_type
         return js

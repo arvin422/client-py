@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClaimResponse).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class ClaimResponse(domainresource.DomainResource):
     
     resource_type = "ClaimResponse"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,117 +25,117 @@ class ClaimResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.addItem = None
+        self.addItem: list[ClaimResponseAddItem] | None = None
         """ Insurer added line items.
         List of `ClaimResponseAddItem` items (represented as `dict` in JSON). """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Header-level adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.communicationRequest = None
+        self.communicationRequest: list[fhirreference.FHIRReference] | None = None
         """ Request for additional information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Response creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.disposition = None
+        self.disposition: str | None = None
         """ Disposition Message.
         Type `str`. """
         
-        self.error = None
+        self.error: list[ClaimResponseError] | None = None
         """ Processing errors.
         List of `ClaimResponseError` items (represented as `dict` in JSON). """
         
-        self.form = None
+        self.form: attachment.Attachment | None = None
         """ Printed reference or actual form.
         Type `Attachment` (represented as `dict` in JSON). """
         
-        self.formCode = None
+        self.formCode: codeableconcept.CodeableConcept | None = None
         """ Printed form identifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.fundsReserve = None
+        self.fundsReserve: codeableconcept.CodeableConcept | None = None
         """ Funds reserved status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Business Identifier for a claim response.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.insurance = None
+        self.insurance: list[ClaimResponseInsurance] | None = None
         """ Patient insurance information.
         List of `ClaimResponseInsurance` items (represented as `dict` in JSON). """
         
-        self.insurer = None
+        self.insurer: fhirreference.FHIRReference | None = None
         """ Party responsible for reimbursement.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.item = None
+        self.item: list[ClaimResponseItem] | None = None
         """ Adjudication for claim line items.
         List of `ClaimResponseItem` items (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: str | None = None
         """ queued | complete | error | partial.
         Type `str`. """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ The recipient of the products and services.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.payeeType = None
+        self.payeeType: codeableconcept.CodeableConcept | None = None
         """ Party to be paid any benefits payable.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.payment = None
+        self.payment: ClaimResponsePayment | None = None
         """ Payment Details.
         Type `ClaimResponsePayment` (represented as `dict` in JSON). """
         
-        self.preAuthPeriod = None
+        self.preAuthPeriod: period.Period | None = None
         """ Preauthorization reference effective period.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.preAuthRef = None
+        self.preAuthRef: str | None = None
         """ Preauthorization reference.
         Type `str`. """
         
-        self.processNote = None
+        self.processNote: list[ClaimResponseProcessNote] | None = None
         """ Note concerning adjudication.
         List of `ClaimResponseProcessNote` items (represented as `dict` in JSON). """
         
-        self.request = None
+        self.request: fhirreference.FHIRReference | None = None
         """ Id of resource triggering adjudication.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.requestor = None
+        self.requestor: fhirreference.FHIRReference | None = None
         """ Party responsible for the claim.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | cancelled | draft | entered-in-error.
         Type `str`. """
         
-        self.subType = None
+        self.subType: codeableconcept.CodeableConcept | None = None
         """ More granular claim type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.total = None
+        self.total: list[ClaimResponseTotal] | None = None
         """ Adjudication totals.
         List of `ClaimResponseTotal` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ More granular claim type.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.use = None
+        self.use: str | None = None
         """ claim | preauthorization | predetermination.
         Type `str`. """
         
         super(ClaimResponse, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponse, self).elementProperties()
         js.extend([
             ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
@@ -176,7 +180,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseAddItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -184,93 +188,93 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Added items adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: codeableconcept.CodeableConcept | None = None
         """ Anatomical location.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: list[ClaimResponseAddItemDetail] | None = None
         """ Insurer added line details.
         List of `ClaimResponseAddItemDetail` items (represented as `dict` in JSON). """
         
-        self.detailSequence = None
+        self.detailSequence: list[int | None] | None = None
         """ Detail sequence number.
         List of `int` items. """
         
-        self.factor = None
+        self.factor: float | None = None
         """ Price scaling factor.
         Type `float`. """
         
-        self.itemSequence = None
+        self.itemSequence: list[int | None] | None = None
         """ Item sequence number.
         List of `int` items. """
         
-        self.locationAddress = None
+        self.locationAddress: address.Address | None = None
         """ Place of service or where product was supplied.
         Type `Address` (represented as `dict` in JSON). """
         
-        self.locationCodeableConcept = None
+        self.locationCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ Place of service or where product was supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.locationReference = None
+        self.locationReference: fhirreference.FHIRReference | None = None
         """ Place of service or where product was supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.modifier = None
+        self.modifier: list[codeableconcept.CodeableConcept] | None = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.net = None
+        self.net: money.Money | None = None
         """ Total item cost.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
-        self.productOrService = None
+        self.productOrService: codeableconcept.CodeableConcept | None = None
         """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.programCode = None
+        self.programCode: list[codeableconcept.CodeableConcept] | None = None
         """ Program the product or service is provided under.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.provider = None
+        self.provider: list[fhirreference.FHIRReference] | None = None
         """ Authorized providers.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.servicedDate = None
+        self.servicedDate: fhirdate.FHIRDate | None = None
         """ Date or dates of service or product delivery.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.servicedPeriod = None
+        self.servicedPeriod: period.Period | None = None
         """ Date or dates of service or product delivery.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.subSite = None
+        self.subSite: list[codeableconcept.CodeableConcept] | None = None
         """ Anatomical sub-location.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.subdetailSequence = None
+        self.subdetailSequence: list[int | None] | None = None
         """ Subdetail sequence number.
         List of `int` items. """
         
-        self.unitPrice = None
+        self.unitPrice: money.Money | None = None
         """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponseAddItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
@@ -306,7 +310,7 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseAddItemDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -314,45 +318,45 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Added items detail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.factor = None
+        self.factor: float | None = None
         """ Price scaling factor.
         Type `float`. """
         
-        self.modifier = None
+        self.modifier: list[codeableconcept.CodeableConcept] | None = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.net = None
+        self.net: money.Money | None = None
         """ Total item cost.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
-        self.productOrService = None
+        self.productOrService: codeableconcept.CodeableConcept | None = None
         """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.subDetail = None
+        self.subDetail: list[ClaimResponseAddItemDetailSubDetail] | None = None
         """ Insurer added line items.
         List of `ClaimResponseAddItemDetailSubDetail` items (represented as `dict` in JSON). """
         
-        self.unitPrice = None
+        self.unitPrice: money.Money | None = None
         """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponseAddItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
@@ -376,7 +380,7 @@ class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseAddItemDetailSubDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -384,41 +388,41 @@ class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Added items detail adjudication.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.factor = None
+        self.factor: float | None = None
         """ Price scaling factor.
         Type `float`. """
         
-        self.modifier = None
+        self.modifier: list[codeableconcept.CodeableConcept] | None = None
         """ Service/Product billing modifiers.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.net = None
+        self.net: money.Money | None = None
         """ Total item cost.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
-        self.productOrService = None
+        self.productOrService: codeableconcept.CodeableConcept | None = None
         """ Billing, service, product, or drug code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Count of products or services.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.unitPrice = None
+        self.unitPrice: money.Money | None = None
         """ Fee, charge or cost per item.
         Type `Money` (represented as `dict` in JSON). """
         
         super(ClaimResponseAddItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseAddItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
@@ -441,7 +445,7 @@ class ClaimResponseError(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseError"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -449,25 +453,25 @@ class ClaimResponseError(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Error code detailing processing issues.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.detailSequence = None
+        self.detailSequence: int | None = None
         """ Detail sequence number.
         Type `int`. """
         
-        self.itemSequence = None
+        self.itemSequence: int | None = None
         """ Item sequence number.
         Type `int`. """
         
-        self.subDetailSequence = None
+        self.subDetailSequence: int | None = None
         """ Subdetail sequence number.
         Type `int`. """
         
         super(ClaimResponseError, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseError, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
@@ -487,7 +491,7 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseInsurance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -495,29 +499,29 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.businessArrangement = None
+        self.businessArrangement: str | None = None
         """ Additional provider contract number.
         Type `str`. """
         
-        self.claimResponse = None
+        self.claimResponse: fhirreference.FHIRReference | None = None
         """ Adjudication results.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.coverage = None
+        self.coverage: fhirreference.FHIRReference | None = None
         """ Insurance information.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.focal = None
+        self.focal: bool | None = None
         """ Coverage to be used for adjudication.
         Type `bool`. """
         
-        self.sequence = None
+        self.sequence: int | None = None
         """ Insurance instance identifier.
         Type `int`. """
         
         super(ClaimResponseInsurance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseInsurance, self).elementProperties()
         js.extend([
             ("businessArrangement", "businessArrangement", str, False, None, False),
@@ -538,7 +542,7 @@ class ClaimResponseItem(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseItem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -546,25 +550,25 @@ class ClaimResponseItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Adjudication details.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.detail = None
+        self.detail: list[ClaimResponseItemDetail] | None = None
         """ Adjudication for claim details.
         List of `ClaimResponseItemDetail` items (represented as `dict` in JSON). """
         
-        self.itemSequence = None
+        self.itemSequence: int | None = None
         """ Claim item instance identifier.
         Type `int`. """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
         super(ClaimResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseItem, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
@@ -585,7 +589,7 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseItemAdjudication"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -593,25 +597,25 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Monetary amount.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ Type of adjudication information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.reason = None
+        self.reason: codeableconcept.CodeableConcept | None = None
         """ Explanation of adjudication outcome.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.value = None
+        self.value: float | None = None
         """ Non-monetary value.
         Type `float`. """
         
         super(ClaimResponseItemAdjudication, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, False),
@@ -631,7 +635,7 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseItemDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -639,25 +643,25 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Detail level adjudication details.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.detailSequence = None
+        self.detailSequence: int | None = None
         """ Claim detail instance identifier.
         Type `int`. """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
-        self.subDetail = None
+        self.subDetail: list[ClaimResponseItemDetailSubDetail] | None = None
         """ Adjudication for claim sub-details.
         List of `ClaimResponseItemDetailSubDetail` items (represented as `dict` in JSON). """
         
         super(ClaimResponseItemDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
@@ -676,7 +680,7 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseItemDetailSubDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -684,21 +688,21 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjudication = None
+        self.adjudication: list[ClaimResponseItemAdjudication] | None = None
         """ Subdetail level adjudication details.
         List of `ClaimResponseItemAdjudication` items (represented as `dict` in JSON). """
         
-        self.noteNumber = None
+        self.noteNumber: list[int | None] | None = None
         """ Applicable note numbers.
         List of `int` items. """
         
-        self.subDetailSequence = None
+        self.subDetailSequence: int | None = None
         """ Claim sub-detail instance identifier.
         Type `int`. """
         
         super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
@@ -716,7 +720,7 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponsePayment"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -724,33 +728,33 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.adjustment = None
+        self.adjustment: money.Money | None = None
         """ Payment adjustment for non-claim issues.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.adjustmentReason = None
+        self.adjustmentReason: codeableconcept.CodeableConcept | None = None
         """ Explanation for the adjustment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Payable amount after adjustment.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdate.FHIRDate | None = None
         """ Expected date of payment.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.identifier = None
+        self.identifier: identifier.Identifier | None = None
         """ Business identifier for the payment.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Partial or complete payment.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ClaimResponsePayment, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponsePayment, self).elementProperties()
         js.extend([
             ("adjustment", "adjustment", money.Money, False, None, False),
@@ -772,7 +776,7 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseProcessNote"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -780,25 +784,25 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.language = None
+        self.language: codeableconcept.CodeableConcept | None = None
         """ Language of the text.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.number = None
+        self.number: int | None = None
         """ Note instance identifier.
         Type `int`. """
         
-        self.text = None
+        self.text: str | None = None
         """ Note explanatory text.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ display | print | printoper.
         Type `str`. """
         
         super(ClaimResponseProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseProcessNote, self).elementProperties()
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, False),
@@ -817,7 +821,7 @@ class ClaimResponseTotal(backboneelement.BackboneElement):
     
     resource_type = "ClaimResponseTotal"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -825,17 +829,17 @@ class ClaimResponseTotal(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: money.Money | None = None
         """ Financial total for the category.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: codeableconcept.CodeableConcept | None = None
         """ Type of adjudication information.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(ClaimResponseTotal, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ClaimResponseTotal, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, True),

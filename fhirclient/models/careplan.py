@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CarePlan).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class CarePlan(domainresource.DomainResource):
     
     resource_type = "CarePlan"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,102 +26,102 @@ class CarePlan(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.activity = None
+        self.activity: list[CarePlanActivity] | None = None
         """ Action to occur as part of plan.
         List of `CarePlanActivity` items (represented as `dict` in JSON). """
         
-        self.addresses = None
+        self.addresses: list[fhirreference.FHIRReference] | None = None
         """ Health issues this plan addresses.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.author = None
+        self.author: fhirreference.FHIRReference | None = None
         """ Who is the designated responsible party.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfills CarePlan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.careTeam = None
+        self.careTeam: list[fhirreference.FHIRReference] | None = None
         """ Who's involved in plan?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.category = None
+        self.category: list[codeableconcept.CodeableConcept] | None = None
         """ Type of plan.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.contributor = None
+        self.contributor: list[fhirreference.FHIRReference] | None = None
         """ Who provided the content of the care plan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.created = None
+        self.created: fhirdatetime.FHIRDateTime | None = None
         """ Date record was first recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Summary of nature of plan.
         Type `str`. """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ Encounter created as part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.goal = None
+        self.goal: list[fhirreference.FHIRReference] | None = None
         """ Desired outcome of plan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External Ids for this plan.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | order | option.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments about the plan.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.partOf = None
+        self.partOf: list[fhirreference.FHIRReference] | None = None
         """ Part of referenced CarePlan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Time period plan covers.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.replaces = None
+        self.replaces: list[fhirreference.FHIRReference] | None = None
         """ CarePlan replaced by this CarePlan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | on-hold | revoked | completed | entered-in-error |
         unknown.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Who the care plan is for.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.supportingInfo = None
+        self.supportingInfo: list[fhirreference.FHIRReference] | None = None
         """ Information considered as part of plan.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Human-friendly name for the care plan.
         Type `str`. """
         
         super(CarePlan, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CarePlan, self).elementProperties()
         js.extend([
             ("activity", "activity", CarePlanActivity, True, None, False),
@@ -159,7 +163,7 @@ class CarePlanActivity(backboneelement.BackboneElement):
     
     resource_type = "CarePlanActivity"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -167,29 +171,29 @@ class CarePlanActivity(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.detail = None
+        self.detail: CarePlanActivityDetail | None = None
         """ In-line definition of activity.
         Type `CarePlanActivityDetail` (represented as `dict` in JSON). """
         
-        self.outcomeCodeableConcept = None
+        self.outcomeCodeableConcept: list[codeableconcept.CodeableConcept] | None = None
         """ Results of the activity.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.outcomeReference = None
+        self.outcomeReference: list[fhirreference.FHIRReference] | None = None
         """ Appointment, Encounter, Procedure, etc..
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.progress = None
+        self.progress: list[annotation.Annotation] | None = None
         """ Comments about the activity status/progress.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.reference = None
+        self.reference: fhirreference.FHIRReference | None = None
         """ Activity details defined in specific resource.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(CarePlanActivity, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CarePlanActivity, self).elementProperties()
         js.extend([
             ("detail", "detail", CarePlanActivityDetail, False, None, False),
@@ -211,7 +215,7 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     
     resource_type = "CarePlanActivityDetail"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -219,92 +223,92 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
+        self.code: codeableconcept.CodeableConcept | None = None
         """ Detail type of activity.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.dailyAmount = None
+        self.dailyAmount: quantity.Quantity | None = None
         """ How to consume/day?.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Extra info describing activity to perform.
         Type `str`. """
         
-        self.doNotPerform = None
+        self.doNotPerform: bool | None = None
         """ If true, activity is prohibiting action.
         Type `bool`. """
         
-        self.goal = None
+        self.goal: list[fhirreference.FHIRReference] | None = None
         """ Goals this activity relates to.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.kind = None
+        self.kind: str | None = None
         """ Appointment | CommunicationRequest | DeviceRequest |
         MedicationRequest | NutritionOrder | Task | ServiceRequest |
         VisionPrescription.
         Type `str`. """
         
-        self.location = None
+        self.location: fhirreference.FHIRReference | None = None
         """ Where it should happen.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.performer = None
+        self.performer: list[fhirreference.FHIRReference] | None = None
         """ Who will be responsible?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.productCodeableConcept = None
+        self.productCodeableConcept: codeableconcept.CodeableConcept | None = None
         """ What is to be administered/supplied.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.productReference = None
+        self.productReference: fhirreference.FHIRReference | None = None
         """ What is to be administered/supplied.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ How much to administer/supply/consume.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why activity should be done or why activity was prohibited.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why activity is needed.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.scheduledPeriod = None
+        self.scheduledPeriod: period.Period | None = None
         """ When activity is to occur.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.scheduledString = None
+        self.scheduledString: str | None = None
         """ When activity is to occur.
         Type `str`. """
         
-        self.scheduledTiming = None
+        self.scheduledTiming: timing.Timing | None = None
         """ When activity is to occur.
         Type `Timing` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ not-started | scheduled | in-progress | on-hold | completed |
         cancelled | stopped | unknown | entered-in-error.
         Type `str`. """
         
-        self.statusReason = None
+        self.statusReason: codeableconcept.CodeableConcept | None = None
         """ Reason for current status.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(CarePlanActivityDetail, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(CarePlanActivityDetail, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),

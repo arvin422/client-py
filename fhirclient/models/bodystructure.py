@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BodyStructure).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class BodyStructure(domainresource.DomainResource):
     
     resource_type = "BodyStructure"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,41 +26,41 @@ class BodyStructure(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this record is in active use.
         Type `bool`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Text description.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Bodystructure identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.image = None
+        self.image: list[attachment.Attachment] | None = None
         """ Attached images.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.location = None
+        self.location: codeableconcept.CodeableConcept | None = None
         """ Body site.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.locationQualifier = None
+        self.locationQualifier: list[codeableconcept.CodeableConcept] | None = None
         """ Body site modifier.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.morphology = None
+        self.morphology: codeableconcept.CodeableConcept | None = None
         """ Kind of Structure.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ Who this is about.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(BodyStructure, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(BodyStructure, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),

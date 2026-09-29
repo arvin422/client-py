@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NutritionOrder).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class NutritionOrder(domainresource.DomainResource):
     
     resource_type = "NutritionOrder"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,81 +25,81 @@ class NutritionOrder(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allergyIntolerance = None
+        self.allergyIntolerance: list[fhirreference.FHIRReference] | None = None
         """ List of the patient's food and nutrition-related allergies and
         intolerances.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.dateTime = None
+        self.dateTime: fhirdatetime.FHIRDateTime | None = None
         """ Date and time the nutrition order was requested.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.encounter = None
+        self.encounter: fhirreference.FHIRReference | None = None
         """ The encounter associated with this nutrition order.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.enteralFormula = None
+        self.enteralFormula: NutritionOrderEnteralFormula | None = None
         """ Enteral formula components.
         Type `NutritionOrderEnteralFormula` (represented as `dict` in JSON). """
         
-        self.excludeFoodModifier = None
+        self.excludeFoodModifier: list[codeableconcept.CodeableConcept] | None = None
         """ Order-specific modifier about the type of food that should not be
         given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.foodPreferenceModifier = None
+        self.foodPreferenceModifier: list[codeableconcept.CodeableConcept] | None = None
         """ Order-specific modifier about the type of food that should be given.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Identifiers assigned to this order.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instantiates = None
+        self.instantiates: list[str | None] | None = None
         """ Instantiates protocol or definition.
         List of `str` items. """
         
-        self.instantiatesCanonical = None
+        self.instantiatesCanonical: list[str | None] | None = None
         """ Instantiates FHIR protocol or definition.
         List of `str` items. """
         
-        self.instantiatesUri = None
+        self.instantiatesUri: list[str | None] | None = None
         """ Instantiates external protocol or definition.
         List of `str` items. """
         
-        self.intent = None
+        self.intent: str | None = None
         """ proposal | plan | directive | order | original-order | reflex-order
         | filler-order | instance-order | option.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Comments.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.oralDiet = None
+        self.oralDiet: NutritionOrderOralDiet | None = None
         """ Oral diet components.
         Type `NutritionOrderOralDiet` (represented as `dict` in JSON). """
         
-        self.orderer = None
+        self.orderer: fhirreference.FHIRReference | None = None
         """ Who ordered the diet, formula or nutritional supplement.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ The person who requires the diet, formula or nutritional supplement.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | on-hold | revoked | completed | entered-in-error |
         unknown.
         Type `str`. """
         
-        self.supplement = None
+        self.supplement: list[NutritionOrderSupplement] | None = None
         """ Supplement components.
         List of `NutritionOrderSupplement` items (represented as `dict` in JSON). """
         
         super(NutritionOrder, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrder, self).elementProperties()
         js.extend([
             ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
@@ -130,7 +134,7 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     
     resource_type = "NutritionOrderEnteralFormula"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -138,45 +142,45 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additiveProductName = None
+        self.additiveProductName: str | None = None
         """ Product or brand name of the modular additive.
         Type `str`. """
         
-        self.additiveType = None
+        self.additiveType: codeableconcept.CodeableConcept | None = None
         """ Type of modular component to add to the feeding.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.administration = None
+        self.administration: list[NutritionOrderEnteralFormulaAdministration] | None = None
         """ Formula feeding instruction as structured data.
         List of `NutritionOrderEnteralFormulaAdministration` items (represented as `dict` in JSON). """
         
-        self.administrationInstruction = None
+        self.administrationInstruction: str | None = None
         """ Formula feeding instructions expressed as text.
         Type `str`. """
         
-        self.baseFormulaProductName = None
+        self.baseFormulaProductName: str | None = None
         """ Product or brand name of the enteral or infant formula.
         Type `str`. """
         
-        self.baseFormulaType = None
+        self.baseFormulaType: codeableconcept.CodeableConcept | None = None
         """ Type of enteral or infant formula.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.caloricDensity = None
+        self.caloricDensity: quantity.Quantity | None = None
         """ Amount of energy per specified volume that is required.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.maxVolumeToDeliver = None
+        self.maxVolumeToDeliver: quantity.Quantity | None = None
         """ Upper limit on formula volume per unit of time.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.routeofAdministration = None
+        self.routeofAdministration: codeableconcept.CodeableConcept | None = None
         """ How the formula should enter the patient's gastrointestinal tract.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(NutritionOrderEnteralFormula, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderEnteralFormula, self).elementProperties()
         js.extend([
             ("additiveProductName", "additiveProductName", str, False, None, False),
@@ -203,7 +207,7 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
     
     resource_type = "NutritionOrderEnteralFormulaAdministration"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -211,25 +215,25 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The volume of formula to provide.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.rateQuantity = None
+        self.rateQuantity: quantity.Quantity | None = None
         """ Speed with which the formula is provided per period of time.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.rateRatio = None
+        self.rateRatio: ratio.Ratio | None = None
         """ Speed with which the formula is provided per period of time.
         Type `Ratio` (represented as `dict` in JSON). """
         
-        self.schedule = None
+        self.schedule: timing.Timing | None = None
         """ Scheduled frequency of enteral feeding.
         Type `Timing` (represented as `dict` in JSON). """
         
         super(NutritionOrderEnteralFormulaAdministration, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
         js.extend([
             ("quantity", "quantity", quantity.Quantity, False, None, False),
@@ -248,7 +252,7 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
     
     resource_type = "NutritionOrderOralDiet"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -256,35 +260,35 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.fluidConsistencyType = None
+        self.fluidConsistencyType: list[codeableconcept.CodeableConcept] | None = None
         """ The required consistency of fluids and liquids provided to the
         patient.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.instruction = None
+        self.instruction: str | None = None
         """ Instructions or additional information about the oral diet.
         Type `str`. """
         
-        self.nutrient = None
+        self.nutrient: list[NutritionOrderOralDietNutrient] | None = None
         """ Required  nutrient modifications.
         List of `NutritionOrderOralDietNutrient` items (represented as `dict` in JSON). """
         
-        self.schedule = None
+        self.schedule: list[timing.Timing] | None = None
         """ Scheduled frequency of diet.
         List of `Timing` items (represented as `dict` in JSON). """
         
-        self.texture = None
+        self.texture: list[NutritionOrderOralDietTexture] | None = None
         """ Required  texture modifications.
         List of `NutritionOrderOralDietTexture` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: list[codeableconcept.CodeableConcept] | None = None
         """ Type of oral diet or diet restrictions that describe what can be
         consumed orally.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(NutritionOrderOralDiet, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderOralDiet, self).elementProperties()
         js.extend([
             ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False),
@@ -306,7 +310,7 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     
     resource_type = "NutritionOrderOralDietNutrient"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -314,17 +318,17 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
+        self.amount: quantity.Quantity | None = None
         """ Quantity of the specified nutrient.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.modifier = None
+        self.modifier: codeableconcept.CodeableConcept | None = None
         """ Type of nutrient that is being modified.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(NutritionOrderOralDietNutrient, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderOralDietNutrient, self).elementProperties()
         js.extend([
             ("amount", "amount", quantity.Quantity, False, None, False),
@@ -342,7 +346,7 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     
     resource_type = "NutritionOrderOralDietTexture"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -350,18 +354,18 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.foodType = None
+        self.foodType: codeableconcept.CodeableConcept | None = None
         """ Concepts that are used to identify an entity that is ingested for
         nutritional purposes.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.modifier = None
+        self.modifier: codeableconcept.CodeableConcept | None = None
         """ Code to indicate how to alter the texture of the foods, e.g. pureed.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(NutritionOrderOralDietTexture, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderOralDietTexture, self).elementProperties()
         js.extend([
             ("foodType", "foodType", codeableconcept.CodeableConcept, False, None, False),
@@ -379,7 +383,7 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
     
     resource_type = "NutritionOrderSupplement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -387,29 +391,29 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.instruction = None
+        self.instruction: str | None = None
         """ Instructions or additional information about the oral supplement.
         Type `str`. """
         
-        self.productName = None
+        self.productName: str | None = None
         """ Product or brand name of the nutritional supplement.
         Type `str`. """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ Amount of the nutritional supplement.
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.schedule = None
+        self.schedule: list[timing.Timing] | None = None
         """ Scheduled frequency of supplement.
         List of `Timing` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of supplement product requested.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(NutritionOrderSupplement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NutritionOrderSupplement, self).elementProperties()
         js.extend([
             ("instruction", "instruction", str, False, None, False),

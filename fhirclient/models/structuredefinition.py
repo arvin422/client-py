@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class StructureDefinition(domainresource.DomainResource):
     
     resource_type = "StructureDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,118 +26,118 @@ class StructureDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.abstract = None
+        self.abstract: bool | None = None
         """ Whether the structure is abstract.
         Type `bool`. """
         
-        self.baseDefinition = None
+        self.baseDefinition: str | None = None
         """ Definition that this type is constrained/specialized from.
         Type `str`. """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.context = None
+        self.context: list[StructureDefinitionContext] | None = None
         """ If an extension, where it can be used in instances.
         List of `StructureDefinitionContext` items (represented as `dict` in JSON). """
         
-        self.contextInvariant = None
+        self.contextInvariant: list[str | None] | None = None
         """ FHIRPath invariants - when the extension can be used.
         List of `str` items. """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.derivation = None
+        self.derivation: str | None = None
         """ specialization | constraint - How relates to base definition.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the structure definition.
         Type `str`. """
         
-        self.differential = None
+        self.differential: StructureDefinitionDifferential | None = None
         """ Differential view of the structure.
         Type `StructureDefinitionDifferential` (represented as `dict` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.fhirVersion = None
+        self.fhirVersion: str | None = None
         """ FHIR Version this StructureDefinition targets.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the structure definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for structure definition (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.keyword = None
+        self.keyword: list[coding.Coding] | None = None
         """ Assist with indexing and finding.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ primitive-type | complex-type | resource | logical.
         Type `str`. """
         
-        self.mapping = None
+        self.mapping: list[StructureDefinitionMapping] | None = None
         """ External specification that the content is mapped to.
         List of `StructureDefinitionMapping` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this structure definition (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ Why this structure definition is defined.
         Type `str`. """
         
-        self.snapshot = None
+        self.snapshot: StructureDefinitionSnapshot | None = None
         """ Snapshot view of the structure.
         Type `StructureDefinitionSnapshot` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this structure definition (human friendly).
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ Type defined or constrained by this structure.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this structure definition, represented as
         a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the structure definition.
         Type `str`. """
         
         super(StructureDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(StructureDefinition, self).elementProperties()
         js.extend([
             ("abstract", "abstract", bool, False, None, True),
@@ -178,7 +182,7 @@ class StructureDefinitionContext(backboneelement.BackboneElement):
     
     resource_type = "StructureDefinitionContext"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -186,17 +190,17 @@ class StructureDefinitionContext(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expression = None
+        self.expression: str | None = None
         """ Where the extension can be used in instances.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ fhirpath | element | extension.
         Type `str`. """
         
         super(StructureDefinitionContext, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(StructureDefinitionContext, self).elementProperties()
         js.extend([
             ("expression", "expression", str, False, None, True),
@@ -214,7 +218,7 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     
     resource_type = "StructureDefinitionDifferential"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -222,13 +226,13 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.element = None
+        self.element: list[elementdefinition.ElementDefinition] | None = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
         super(StructureDefinitionDifferential, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(StructureDefinitionDifferential, self).elementProperties()
         js.extend([
             ("element", "element", elementdefinition.ElementDefinition, True, None, True),
@@ -244,7 +248,7 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     
     resource_type = "StructureDefinitionMapping"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -252,25 +256,25 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Versions, Issues, Scope limitations etc..
         Type `str`. """
         
-        self.identity = None
+        self.identity: str | None = None
         """ Internal id when this mapping is used.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Names what this mapping refers to.
         Type `str`. """
         
-        self.uri = None
+        self.uri: str | None = None
         """ Identifies what this mapping refers to.
         Type `str`. """
         
         super(StructureDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(StructureDefinitionMapping, self).elementProperties()
         js.extend([
             ("comment", "comment", str, False, None, False),
@@ -290,7 +294,7 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     
     resource_type = "StructureDefinitionSnapshot"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -298,13 +302,13 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.element = None
+        self.element: list[elementdefinition.ElementDefinition] | None = None
         """ Definition of elements in the resource (if no StructureDefinition).
         List of `ElementDefinition` items (represented as `dict` in JSON). """
         
         super(StructureDefinitionSnapshot, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(StructureDefinitionSnapshot, self).elementProperties()
         js.extend([
             ("element", "element", elementdefinition.ElementDefinition, True, None, True),

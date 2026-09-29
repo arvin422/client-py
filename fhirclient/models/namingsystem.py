@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NamingSystem).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class NamingSystem(domainresource.DomainResource):
     
     resource_type = "NamingSystem"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,61 +26,61 @@ class NamingSystem(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the naming system.
         Type `str`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for naming system (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.kind = None
+        self.kind: str | None = None
         """ codesystem | identifier | root.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this naming system (computer friendly).
         Type `str`. """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.responsible = None
+        self.responsible: str | None = None
         """ Who maintains system namespace?.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ e.g. driver,  provider,  patient, bank etc..
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.uniqueId = None
+        self.uniqueId: list[NamingSystemUniqueId] | None = None
         """ Unique identifiers used for system.
         List of `NamingSystemUniqueId` items (represented as `dict` in JSON). """
         
-        self.usage = None
+        self.usage: str | None = None
         """ How/where is it used.
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
         super(NamingSystem, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NamingSystem, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
@@ -107,7 +111,7 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     
     resource_type = "NamingSystemUniqueId"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -115,29 +119,29 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.comment = None
+        self.comment: str | None = None
         """ Notes about identifier usage.
         Type `str`. """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ When is identifier valid?.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.preferred = None
+        self.preferred: bool | None = None
         """ Is this the id that should be used for this type.
         Type `bool`. """
         
-        self.type = None
+        self.type: str | None = None
         """ oid | uuid | uri | other.
         Type `str`. """
         
-        self.value = None
+        self.value: str | None = None
         """ The unique identifier.
         Type `str`. """
         
         super(NamingSystemUniqueId, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(NamingSystemUniqueId, self).elementProperties()
         js.extend([
             ("comment", "comment", str, False, None, False),

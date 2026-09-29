@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceDefinition).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class DeviceDefinition(domainresource.DomainResource):
     
     resource_type = "DeviceDefinition"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,108 +25,108 @@ class DeviceDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.capability = None
+        self.capability: list[DeviceDefinitionCapability] | None = None
         """ Device capabilities.
         List of `DeviceDefinitionCapability` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactpoint.ContactPoint] | None = None
         """ Details for human/organization for support.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.deviceName = None
+        self.deviceName: list[DeviceDefinitionDeviceName] | None = None
         """ A name given to the device to identify it.
         List of `DeviceDefinitionDeviceName` items (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Instance identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.languageCode = None
+        self.languageCode: list[codeableconcept.CodeableConcept] | None = None
         """ Language code for the human-readable text strings produced by the
         device (all supported).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.manufacturerReference = None
+        self.manufacturerReference: fhirreference.FHIRReference | None = None
         """ Name of device manufacturer.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.manufacturerString = None
+        self.manufacturerString: str | None = None
         """ Name of device manufacturer.
         Type `str`. """
         
-        self.material = None
+        self.material: list[DeviceDefinitionMaterial] | None = None
         """ A substance used to create the material(s) of which the device is
         made.
         List of `DeviceDefinitionMaterial` items (represented as `dict` in JSON). """
         
-        self.modelNumber = None
+        self.modelNumber: str | None = None
         """ The model number for the device.
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Device notes and comments.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.onlineInformation = None
+        self.onlineInformation: str | None = None
         """ Access to on-line information.
         Type `str`. """
         
-        self.owner = None
+        self.owner: fhirreference.FHIRReference | None = None
         """ Organization responsible for device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.parentDevice = None
+        self.parentDevice: fhirreference.FHIRReference | None = None
         """ The parent device it can be part of.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.physicalCharacteristics = None
+        self.physicalCharacteristics: prodcharacteristic.ProdCharacteristic | None = None
         """ Dimensions, color etc..
         Type `ProdCharacteristic` (represented as `dict` in JSON). """
         
-        self.property = None
+        self.property: list[DeviceDefinitionProperty] | None = None
         """ The actual configuration settings of a device as it actually
         operates, e.g., regulation status, time properties.
         List of `DeviceDefinitionProperty` items (represented as `dict` in JSON). """
         
-        self.quantity = None
+        self.quantity: quantity.Quantity | None = None
         """ The quantity of the device present in the packaging (e.g. the
         number of devices present in a pack, or the number of devices in
         the same package of the medicinal product).
         Type `Quantity` (represented as `dict` in JSON). """
         
-        self.safety = None
+        self.safety: list[codeableconcept.CodeableConcept] | None = None
         """ Safety characteristics of the device.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.shelfLifeStorage = None
+        self.shelfLifeStorage: list[productshelflife.ProductShelfLife] | None = None
         """ Shelf Life and storage information.
         List of `ProductShelfLife` items (represented as `dict` in JSON). """
         
-        self.specialization = None
+        self.specialization: list[DeviceDefinitionSpecialization] | None = None
         """ The capabilities supported on a  device, the standards to which the
         device conforms for a particular purpose, and used for the
         communication.
         List of `DeviceDefinitionSpecialization` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ What kind of device or device system this is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.udiDeviceIdentifier = None
+        self.udiDeviceIdentifier: list[DeviceDefinitionUdiDeviceIdentifier] | None = None
         """ Unique Device Identifier (UDI) Barcode string.
         List of `DeviceDefinitionUdiDeviceIdentifier` items (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Network address to contact device.
         Type `str`. """
         
-        self.version = None
+        self.version: list[str | None] | None = None
         """ Available versions.
         List of `str` items. """
         
         super(DeviceDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinition, self).elementProperties()
         js.extend([
             ("capability", "capability", DeviceDefinitionCapability, True, None, False),
@@ -160,7 +164,7 @@ class DeviceDefinitionCapability(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionCapability"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -168,17 +172,17 @@ class DeviceDefinitionCapability(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: list[codeableconcept.CodeableConcept] | None = None
         """ Description of capability.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of capability.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DeviceDefinitionCapability, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionCapability, self).elementProperties()
         js.extend([
             ("description", "description", codeableconcept.CodeableConcept, True, None, False),
@@ -193,7 +197,7 @@ class DeviceDefinitionDeviceName(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionDeviceName"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -201,18 +205,18 @@ class DeviceDefinitionDeviceName(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.name = None
+        self.name: str | None = None
         """ The name of the device.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ udi-label-name | user-friendly-name | patient-reported-name |
         manufacturer-name | model-name | other.
         Type `str`. """
         
         super(DeviceDefinitionDeviceName, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionDeviceName, self).elementProperties()
         js.extend([
             ("name", "name", str, False, None, True),
@@ -227,7 +231,7 @@ class DeviceDefinitionMaterial(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionMaterial"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -235,21 +239,21 @@ class DeviceDefinitionMaterial(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allergenicIndicator = None
+        self.allergenicIndicator: bool | None = None
         """ Whether the substance is a known or suspected allergen.
         Type `bool`. """
         
-        self.alternate = None
+        self.alternate: bool | None = None
         """ Indicates an alternative material of the device.
         Type `bool`. """
         
-        self.substance = None
+        self.substance: codeableconcept.CodeableConcept | None = None
         """ The substance.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(DeviceDefinitionMaterial, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionMaterial, self).elementProperties()
         js.extend([
             ("allergenicIndicator", "allergenicIndicator", bool, False, None, False),
@@ -266,7 +270,7 @@ class DeviceDefinitionProperty(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionProperty"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -274,22 +278,22 @@ class DeviceDefinitionProperty(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Code that specifies the property DeviceDefinitionPropetyCode
         (Extensible).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.valueCode = None
+        self.valueCode: list[codeableconcept.CodeableConcept] | None = None
         """ Property value as a code, e.g., NTP4 (synced to NTP).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.valueQuantity = None
+        self.valueQuantity: list[quantity.Quantity] | None = None
         """ Property value as a quantity.
         List of `Quantity` items (represented as `dict` in JSON). """
         
         super(DeviceDefinitionProperty, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionProperty, self).elementProperties()
         js.extend([
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
@@ -306,7 +310,7 @@ class DeviceDefinitionSpecialization(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionSpecialization"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -314,17 +318,17 @@ class DeviceDefinitionSpecialization(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.systemType = None
+        self.systemType: str | None = None
         """ The standard that is used to operate and communicate.
         Type `str`. """
         
-        self.version = None
+        self.version: str | None = None
         """ The version of the standard that is used to operate and communicate.
         Type `str`. """
         
         super(DeviceDefinitionSpecialization, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionSpecialization, self).elementProperties()
         js.extend([
             ("systemType", "systemType", str, False, None, True),
@@ -344,7 +348,7 @@ class DeviceDefinitionUdiDeviceIdentifier(backboneelement.BackboneElement):
     
     resource_type = "DeviceDefinitionUdiDeviceIdentifier"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -352,23 +356,23 @@ class DeviceDefinitionUdiDeviceIdentifier(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.deviceIdentifier = None
+        self.deviceIdentifier: str | None = None
         """ The identifier that is to be associated with every Device that
         references this DeviceDefintiion for the issuer and jurisdication
         porvided in the DeviceDefinition.udiDeviceIdentifier.
         Type `str`. """
         
-        self.issuer = None
+        self.issuer: str | None = None
         """ The organization that assigns the identifier algorithm.
         Type `str`. """
         
-        self.jurisdiction = None
+        self.jurisdiction: str | None = None
         """ The jurisdiction to which the deviceIdentifier applies.
         Type `str`. """
         
         super(DeviceDefinitionUdiDeviceIdentifier, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceDefinitionUdiDeviceIdentifier, self).elementProperties()
         js.extend([
             ("deviceIdentifier", "deviceIdentifier", str, False, None, True),

@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/EffectEvidenceSynthesis).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -14,7 +18,7 @@ class EffectEvidenceSynthesis(domainresource.DomainResource):
     
     resource_type = "EffectEvidenceSynthesis"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -22,143 +26,143 @@ class EffectEvidenceSynthesis(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.approvalDate = None
+        self.approvalDate: fhirdate.FHIRDate | None = None
         """ When the effect evidence synthesis was approved by publisher.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.author = None
+        self.author: list[contactdetail.ContactDetail] | None = None
         """ Who authored the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.certainty = None
+        self.certainty: list[EffectEvidenceSynthesisCertainty] | None = None
         """ How certain is the effect.
         List of `EffectEvidenceSynthesisCertainty` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Natural language description of the effect evidence synthesis.
         Type `str`. """
         
-        self.editor = None
+        self.editor: list[contactdetail.ContactDetail] | None = None
         """ Who edited the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.effectEstimate = None
+        self.effectEstimate: list[EffectEvidenceSynthesisEffectEstimate] | None = None
         """ What was the estimated effect.
         List of `EffectEvidenceSynthesisEffectEstimate` items (represented as `dict` in JSON). """
         
-        self.effectivePeriod = None
+        self.effectivePeriod: period.Period | None = None
         """ When the effect evidence synthesis is expected to be used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.endorser = None
+        self.endorser: list[contactdetail.ContactDetail] | None = None
         """ Who endorsed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.exposure = None
+        self.exposure: fhirreference.FHIRReference | None = None
         """ What exposure?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.exposureAlternative = None
+        self.exposureAlternative: fhirreference.FHIRReference | None = None
         """ What comparison exposure?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the effect evidence synthesis.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for effect evidence synthesis (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.lastReviewDate = None
+        self.lastReviewDate: fhirdate.FHIRDate | None = None
         """ When the effect evidence synthesis was last reviewed.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this effect evidence synthesis (computer friendly).
         Type `str`. """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Used for footnotes or explanatory notes.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.outcome = None
+        self.outcome: fhirreference.FHIRReference | None = None
         """ What outcome?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.population = None
+        self.population: fhirreference.FHIRReference | None = None
         """ What population?.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.relatedArtifact = None
+        self.relatedArtifact: list[relatedartifact.RelatedArtifact] | None = None
         """ Additional documentation, citations, etc..
         List of `RelatedArtifact` items (represented as `dict` in JSON). """
         
-        self.resultsByExposure = None
+        self.resultsByExposure: list[EffectEvidenceSynthesisResultsByExposure] | None = None
         """ What was the result per exposure?.
         List of `EffectEvidenceSynthesisResultsByExposure` items (represented as `dict` in JSON). """
         
-        self.reviewer = None
+        self.reviewer: list[contactdetail.ContactDetail] | None = None
         """ Who reviewed the content.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.sampleSize = None
+        self.sampleSize: EffectEvidenceSynthesisSampleSize | None = None
         """ What sample size was involved?.
         Type `EffectEvidenceSynthesisSampleSize` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.studyType = None
+        self.studyType: codeableconcept.CodeableConcept | None = None
         """ Type of study.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.synthesisType = None
+        self.synthesisType: codeableconcept.CodeableConcept | None = None
         """ Type of synthesis.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Name for this effect evidence synthesis (human friendly).
         Type `str`. """
         
-        self.topic = None
+        self.topic: list[codeableconcept.CodeableConcept] | None = None
         """ The category of the EffectEvidenceSynthesis, such as Education,
         Treatment, Assessment, etc..
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this effect evidence synthesis,
         represented as a URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the effect evidence synthesis.
         Type `str`. """
         
         super(EffectEvidenceSynthesis, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesis, self).elementProperties()
         js.extend([
             ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
@@ -208,7 +212,7 @@ class EffectEvidenceSynthesisCertainty(backboneelement.BackboneElement):
     
     resource_type = "EffectEvidenceSynthesisCertainty"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -216,21 +220,21 @@ class EffectEvidenceSynthesisCertainty(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.certaintySubcomponent = None
+        self.certaintySubcomponent: list[EffectEvidenceSynthesisCertaintyCertaintySubcomponent] | None = None
         """ A component that contributes to the overall certainty.
         List of `EffectEvidenceSynthesisCertaintyCertaintySubcomponent` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Used for footnotes or explanatory notes.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.rating = None
+        self.rating: list[codeableconcept.CodeableConcept] | None = None
         """ Certainty rating.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(EffectEvidenceSynthesisCertainty, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisCertainty, self).elementProperties()
         js.extend([
             ("certaintySubcomponent", "certaintySubcomponent", EffectEvidenceSynthesisCertaintyCertaintySubcomponent, True, None, False),
@@ -248,7 +252,7 @@ class EffectEvidenceSynthesisCertaintyCertaintySubcomponent(backboneelement.Back
     
     resource_type = "EffectEvidenceSynthesisCertaintyCertaintySubcomponent"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -256,21 +260,21 @@ class EffectEvidenceSynthesisCertaintyCertaintySubcomponent(backboneelement.Back
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Used for footnotes or explanatory notes.
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.rating = None
+        self.rating: list[codeableconcept.CodeableConcept] | None = None
         """ Subcomponent certainty rating.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of subcomponent of certainty rating.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EffectEvidenceSynthesisCertaintyCertaintySubcomponent, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisCertaintyCertaintySubcomponent, self).elementProperties()
         js.extend([
             ("note", "note", annotation.Annotation, True, None, False),
@@ -288,7 +292,7 @@ class EffectEvidenceSynthesisEffectEstimate(backboneelement.BackboneElement):
     
     resource_type = "EffectEvidenceSynthesisEffectEstimate"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -296,33 +300,33 @@ class EffectEvidenceSynthesisEffectEstimate(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Description of effect estimate.
         Type `str`. """
         
-        self.precisionEstimate = None
+        self.precisionEstimate: list[EffectEvidenceSynthesisEffectEstimatePrecisionEstimate] | None = None
         """ How precise the estimate is.
         List of `EffectEvidenceSynthesisEffectEstimatePrecisionEstimate` items (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of efffect estimate.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.unitOfMeasure = None
+        self.unitOfMeasure: codeableconcept.CodeableConcept | None = None
         """ What unit is the outcome described in?.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.value = None
+        self.value: float | None = None
         """ Point estimate.
         Type `float`. """
         
-        self.variantState = None
+        self.variantState: codeableconcept.CodeableConcept | None = None
         """ Variant exposure states.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EffectEvidenceSynthesisEffectEstimate, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisEffectEstimate, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -343,7 +347,7 @@ class EffectEvidenceSynthesisEffectEstimatePrecisionEstimate(backboneelement.Bac
     
     resource_type = "EffectEvidenceSynthesisEffectEstimatePrecisionEstimate"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -351,25 +355,25 @@ class EffectEvidenceSynthesisEffectEstimatePrecisionEstimate(backboneelement.Bac
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.from_fhir = None
+        self.from_fhir: float | None = None
         """ Lower bound.
         Type `float`. """
         
-        self.level = None
+        self.level: float | None = None
         """ Level of confidence interval.
         Type `float`. """
         
-        self.to = None
+        self.to: float | None = None
         """ Upper bound.
         Type `float`. """
         
-        self.type = None
+        self.type: codeableconcept.CodeableConcept | None = None
         """ Type of precision estimate.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EffectEvidenceSynthesisEffectEstimatePrecisionEstimate, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisEffectEstimatePrecisionEstimate, self).elementProperties()
         js.extend([
             ("from_fhir", "from", float, False, None, False),
@@ -389,7 +393,7 @@ class EffectEvidenceSynthesisResultsByExposure(backboneelement.BackboneElement):
     
     resource_type = "EffectEvidenceSynthesisResultsByExposure"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -397,25 +401,25 @@ class EffectEvidenceSynthesisResultsByExposure(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Description of results by exposure.
         Type `str`. """
         
-        self.exposureState = None
+        self.exposureState: str | None = None
         """ exposure | exposure-alternative.
         Type `str`. """
         
-        self.riskEvidenceSynthesis = None
+        self.riskEvidenceSynthesis: fhirreference.FHIRReference | None = None
         """ Risk evidence synthesis.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.variantState = None
+        self.variantState: codeableconcept.CodeableConcept | None = None
         """ Variant exposure states.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
         super(EffectEvidenceSynthesisResultsByExposure, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisResultsByExposure, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -434,7 +438,7 @@ class EffectEvidenceSynthesisSampleSize(backboneelement.BackboneElement):
     
     resource_type = "EffectEvidenceSynthesisSampleSize"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -442,21 +446,21 @@ class EffectEvidenceSynthesisSampleSize(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ Description of sample size.
         Type `str`. """
         
-        self.numberOfParticipants = None
+        self.numberOfParticipants: int | None = None
         """ How many participants?.
         Type `int`. """
         
-        self.numberOfStudies = None
+        self.numberOfStudies: int | None = None
         """ How many studies?.
         Type `int`. """
         
         super(EffectEvidenceSynthesisSampleSize, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(EffectEvidenceSynthesisSampleSize, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),

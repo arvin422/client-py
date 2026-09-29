@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExampleScenario).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -10,7 +14,7 @@ class ExampleScenario(domainresource.DomainResource):
     
     resource_type = "ExampleScenario"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -18,78 +22,78 @@ class ExampleScenario(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actor = None
+        self.actor: list[ExampleScenarioActor] | None = None
         """ Actor participating in the resource.
         List of `ExampleScenarioActor` items (represented as `dict` in JSON). """
         
-        self.contact = None
+        self.contact: list[contactdetail.ContactDetail] | None = None
         """ Contact details for the publisher.
         List of `ContactDetail` items (represented as `dict` in JSON). """
         
-        self.copyright = None
+        self.copyright: str | None = None
         """ Use and/or publishing restrictions.
         Type `str`. """
         
-        self.date = None
+        self.date: fhirdatetime.FHIRDateTime | None = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.experimental = None
+        self.experimental: bool | None = None
         """ For testing purposes, not real usage.
         Type `bool`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ Additional identifier for the example scenario.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instance = None
+        self.instance: list[ExampleScenarioInstance] | None = None
         """ Each resource and each version that is present in the workflow.
         List of `ExampleScenarioInstance` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
+        self.jurisdiction: list[codeableconcept.CodeableConcept] | None = None
         """ Intended jurisdiction for example scenario (if applicable).
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: str | None = None
         """ Name for this example scenario (computer friendly).
         Type `str`. """
         
-        self.process = None
+        self.process: list[ExampleScenarioProcess] | None = None
         """ Each major process - a group of operations.
         List of `ExampleScenarioProcess` items (represented as `dict` in JSON). """
         
-        self.publisher = None
+        self.publisher: str | None = None
         """ Name of the publisher (organization or individual).
         Type `str`. """
         
-        self.purpose = None
+        self.purpose: str | None = None
         """ The purpose of the example, e.g. to illustrate a scenario.
         Type `str`. """
         
-        self.status = None
+        self.status: str | None = None
         """ draft | active | retired | unknown.
         Type `str`. """
         
-        self.url = None
+        self.url: str | None = None
         """ Canonical identifier for this example scenario, represented as a
         URI (globally unique).
         Type `str`. """
         
-        self.useContext = None
+        self.useContext: list[usagecontext.UsageContext] | None = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
+        self.version: str | None = None
         """ Business version of the example scenario.
         Type `str`. """
         
-        self.workflow = None
+        self.workflow: list[str | None] | None = None
         """ Another nested workflow.
         List of `str` items. """
         
         super(ExampleScenario, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenario, self).elementProperties()
         js.extend([
             ("actor", "actor", ExampleScenarioActor, True, None, False),
@@ -121,7 +125,7 @@ class ExampleScenarioActor(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioActor"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -129,25 +133,25 @@ class ExampleScenarioActor(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actorId = None
+        self.actorId: str | None = None
         """ ID or acronym of the actor.
         Type `str`. """
         
-        self.description = None
+        self.description: str | None = None
         """ The description of the actor.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ The name of the actor as shown in the page.
         Type `str`. """
         
-        self.type = None
+        self.type: str | None = None
         """ person | entity.
         Type `str`. """
         
         super(ExampleScenarioActor, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioActor, self).elementProperties()
         js.extend([
             ("actorId", "actorId", str, False, None, True),
@@ -164,7 +168,7 @@ class ExampleScenarioInstance(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioInstance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -172,33 +176,33 @@ class ExampleScenarioInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.containedInstance = None
+        self.containedInstance: list[ExampleScenarioInstanceContainedInstance] | None = None
         """ Resources contained in the instance.
         List of `ExampleScenarioInstanceContainedInstance` items (represented as `dict` in JSON). """
         
-        self.description = None
+        self.description: str | None = None
         """ Human-friendly description of the resource instance.
         Type `str`. """
         
-        self.name = None
+        self.name: str | None = None
         """ A short name for the resource instance.
         Type `str`. """
         
-        self.resourceId = None
+        self.resourceId: str | None = None
         """ The id of the resource for referencing.
         Type `str`. """
         
-        self.resourceType = None
+        self.resourceType: str | None = None
         """ The type of the resource.
         Type `str`. """
         
-        self.version = None
+        self.version: list[ExampleScenarioInstanceVersion] | None = None
         """ A specific version of the resource.
         List of `ExampleScenarioInstanceVersion` items (represented as `dict` in JSON). """
         
         super(ExampleScenarioInstance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioInstance, self).elementProperties()
         js.extend([
             ("containedInstance", "containedInstance", ExampleScenarioInstanceContainedInstance, True, None, False),
@@ -220,7 +224,7 @@ class ExampleScenarioInstanceContainedInstance(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioInstanceContainedInstance"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -228,17 +232,17 @@ class ExampleScenarioInstanceContainedInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.resourceId = None
+        self.resourceId: str | None = None
         """ Each resource contained in the instance.
         Type `str`. """
         
-        self.versionId = None
+        self.versionId: str | None = None
         """ A specific version of a resource contained in the instance.
         Type `str`. """
         
         super(ExampleScenarioInstanceContainedInstance, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioInstanceContainedInstance, self).elementProperties()
         js.extend([
             ("resourceId", "resourceId", str, False, None, True),
@@ -253,7 +257,7 @@ class ExampleScenarioInstanceVersion(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioInstanceVersion"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -261,17 +265,17 @@ class ExampleScenarioInstanceVersion(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ The description of the resource version.
         Type `str`. """
         
-        self.versionId = None
+        self.versionId: str | None = None
         """ The identifier of a specific version of a resource.
         Type `str`. """
         
         super(ExampleScenarioInstanceVersion, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioInstanceVersion, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, True),
@@ -286,7 +290,7 @@ class ExampleScenarioProcess(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioProcess"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -294,29 +298,29 @@ class ExampleScenarioProcess(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ A longer description of the group of operations.
         Type `str`. """
         
-        self.postConditions = None
+        self.postConditions: str | None = None
         """ Description of final status after the process ends.
         Type `str`. """
         
-        self.preConditions = None
+        self.preConditions: str | None = None
         """ Description of initial status before the process starts.
         Type `str`. """
         
-        self.step = None
+        self.step: list[ExampleScenarioProcessStep] | None = None
         """ Each step of the process.
         List of `ExampleScenarioProcessStep` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ The diagram title of the group of operations.
         Type `str`. """
         
         super(ExampleScenarioProcess, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioProcess, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -334,7 +338,7 @@ class ExampleScenarioProcessStep(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioProcessStep"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -342,25 +346,25 @@ class ExampleScenarioProcessStep(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.alternative = None
+        self.alternative: list[ExampleScenarioProcessStepAlternative] | None = None
         """ Alternate non-typical step action.
         List of `ExampleScenarioProcessStepAlternative` items (represented as `dict` in JSON). """
         
-        self.operation = None
+        self.operation: ExampleScenarioProcessStepOperation | None = None
         """ Each interaction or action.
         Type `ExampleScenarioProcessStepOperation` (represented as `dict` in JSON). """
         
-        self.pause = None
+        self.pause: bool | None = None
         """ If there is a pause in the flow.
         Type `bool`. """
         
-        self.process = None
+        self.process: list[ExampleScenarioProcess] | None = None
         """ Nested process.
         List of `ExampleScenarioProcess` items (represented as `dict` in JSON). """
         
         super(ExampleScenarioProcessStep, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioProcessStep, self).elementProperties()
         js.extend([
             ("alternative", "alternative", ExampleScenarioProcessStepAlternative, True, None, False),
@@ -380,7 +384,7 @@ class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioProcessStepAlternative"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -388,21 +392,21 @@ class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ A human-readable description of each option.
         Type `str`. """
         
-        self.step = None
+        self.step: list[ExampleScenarioProcessStep] | None = None
         """ What happens in each alternative option.
         List of `ExampleScenarioProcessStep` items (represented as `dict` in JSON). """
         
-        self.title = None
+        self.title: str | None = None
         """ Label for alternative.
         Type `str`. """
         
         super(ExampleScenarioProcessStepAlternative, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioProcessStepAlternative, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),
@@ -418,7 +422,7 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
     
     resource_type = "ExampleScenarioProcessStepOperation"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -426,49 +430,49 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
+        self.description: str | None = None
         """ A comment to be inserted in the diagram.
         Type `str`. """
         
-        self.initiator = None
+        self.initiator: str | None = None
         """ Who starts the transaction.
         Type `str`. """
         
-        self.initiatorActive = None
+        self.initiatorActive: bool | None = None
         """ Whether the initiator is deactivated right after the transaction.
         Type `bool`. """
         
-        self.name = None
+        self.name: str | None = None
         """ The human-friendly name of the interaction.
         Type `str`. """
         
-        self.number = None
+        self.number: str | None = None
         """ The sequential number of the interaction.
         Type `str`. """
         
-        self.receiver = None
+        self.receiver: str | None = None
         """ Who receives the transaction.
         Type `str`. """
         
-        self.receiverActive = None
+        self.receiverActive: bool | None = None
         """ Whether the receiver is deactivated right after the transaction.
         Type `bool`. """
         
-        self.request = None
+        self.request: ExampleScenarioInstanceContainedInstance | None = None
         """ Each resource instance used by the initiator.
         Type `ExampleScenarioInstanceContainedInstance` (represented as `dict` in JSON). """
         
-        self.response = None
+        self.response: ExampleScenarioInstanceContainedInstance | None = None
         """ Each resource instance used by the responder.
         Type `ExampleScenarioInstanceContainedInstance` (represented as `dict` in JSON). """
         
-        self.type = None
+        self.type: str | None = None
         """ The type of operation - CRUD.
         Type `str`. """
         
         super(ExampleScenarioProcessStepOperation, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(ExampleScenarioProcessStepOperation, self).elementProperties()
         js.extend([
             ("description", "description", str, False, None, False),

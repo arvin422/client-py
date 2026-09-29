@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RelatedPerson).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -15,7 +19,7 @@ class RelatedPerson(domainresource.DomainResource):
     
     resource_type = "RelatedPerson"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -23,58 +27,58 @@ class RelatedPerson(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
+        self.active: bool | None = None
         """ Whether this related person's record is in active use.
         Type `bool`. """
         
-        self.address = None
+        self.address: list[address.Address] | None = None
         """ Address where the related person can be contacted or visited.
         List of `Address` items (represented as `dict` in JSON). """
         
-        self.birthDate = None
+        self.birthDate: fhirdate.FHIRDate | None = None
         """ The date on which the related person was born.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.communication = None
+        self.communication: list[RelatedPersonCommunication] | None = None
         """ A language which may be used to communicate with about the
         patient's health.
         List of `RelatedPersonCommunication` items (represented as `dict` in JSON). """
         
-        self.gender = None
+        self.gender: str | None = None
         """ male | female | other | unknown.
         Type `str`. """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ A human identifier for this person.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.name = None
+        self.name: list[humanname.HumanName] | None = None
         """ A name associated with the person.
         List of `HumanName` items (represented as `dict` in JSON). """
         
-        self.patient = None
+        self.patient: fhirreference.FHIRReference | None = None
         """ The patient this person is related to.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.period = None
+        self.period: period.Period | None = None
         """ Period of time that this relationship is considered valid.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.photo = None
+        self.photo: list[attachment.Attachment] | None = None
         """ Image of the person.
         List of `Attachment` items (represented as `dict` in JSON). """
         
-        self.relationship = None
+        self.relationship: list[codeableconcept.CodeableConcept] | None = None
         """ The nature of the relationship.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.telecom = None
+        self.telecom: list[contactpoint.ContactPoint] | None = None
         """ A contact detail for the person.
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
         super(RelatedPerson, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
@@ -101,7 +105,7 @@ class RelatedPersonCommunication(backboneelement.BackboneElement):
     
     resource_type = "RelatedPersonCommunication"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -109,18 +113,18 @@ class RelatedPersonCommunication(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.language = None
+        self.language: codeableconcept.CodeableConcept | None = None
         """ The language which can be used to communicate with the patient
         about his or her health.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.preferred = None
+        self.preferred: bool | None = None
         """ Language preference indicator.
         Type `bool`. """
         
         super(RelatedPersonCommunication, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(RelatedPersonCommunication, self).elementProperties()
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, True),

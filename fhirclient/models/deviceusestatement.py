@@ -1,6 +1,10 @@
 # Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement).
 # 2024, SMART Health IT.
 
+from __future__ import annotations
+
+from .fhirabstractbase import FHIRProperty, JSONValue
+
 
 from . import domainresource
 
@@ -13,7 +17,7 @@ class DeviceUseStatement(domainresource.DomainResource):
     
     resource_type = "DeviceUseStatement"
     
-    def __init__(self, jsondict=None, strict=True):
+    def __init__(self, jsondict: dict[str, JSONValue] | None = None, strict: bool = True) -> None:
         """ Initialize all valid properties.
         
         :raises: FHIRValidationError on validation errors, unless strict is False
@@ -21,69 +25,69 @@ class DeviceUseStatement(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.basedOn = None
+        self.basedOn: list[fhirreference.FHIRReference] | None = None
         """ Fulfills plan, proposal or order.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.bodySite = None
+        self.bodySite: codeableconcept.CodeableConcept | None = None
         """ Target body site.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.derivedFrom = None
+        self.derivedFrom: list[fhirreference.FHIRReference] | None = None
         """ Supporting information.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.device = None
+        self.device: fhirreference.FHIRReference | None = None
         """ Reference to device used.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.identifier = None
+        self.identifier: list[identifier.Identifier] | None = None
         """ External identifier for this record.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.note = None
+        self.note: list[annotation.Annotation] | None = None
         """ Addition details (comments, instructions).
         List of `Annotation` items (represented as `dict` in JSON). """
         
-        self.reasonCode = None
+        self.reasonCode: list[codeableconcept.CodeableConcept] | None = None
         """ Why device was used.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
-        self.reasonReference = None
+        self.reasonReference: list[fhirreference.FHIRReference] | None = None
         """ Why was DeviceUseStatement performed?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.recordedOn = None
+        self.recordedOn: fhirdatetime.FHIRDateTime | None = None
         """ When statement was recorded.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.source = None
+        self.source: fhirreference.FHIRReference | None = None
         """ Who made the statement.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
+        self.status: str | None = None
         """ active | completed | entered-in-error +.
         Type `str`. """
         
-        self.subject = None
+        self.subject: fhirreference.FHIRReference | None = None
         """ Patient using device.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.timingDateTime = None
+        self.timingDateTime: fhirdatetime.FHIRDateTime | None = None
         """ How often  the device was used.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.timingPeriod = None
+        self.timingPeriod: period.Period | None = None
         """ How often  the device was used.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.timingTiming = None
+        self.timingTiming: timing.Timing | None = None
         """ How often  the device was used.
         Type `Timing` (represented as `dict` in JSON). """
         
         super(DeviceUseStatement, self).__init__(jsondict=jsondict, strict=strict)
     
-    def elementProperties(self):
+    def elementProperties(self) -> list[FHIRProperty]:
         js = super(DeviceUseStatement, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
