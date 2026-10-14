@@ -21,6 +21,7 @@ T = TypeVar("T", bound=Resource)
 Send = Callable[[httpx.Request], Awaitable[httpx.Response]]
 Observe = Callable[[httpx.Response], Awaitable[None]]
 ResourceId = Annotated[str, msgspec.Meta(pattern=r"^[A-Za-z0-9.-]{1,64}$")]
+ReadResourceId = Annotated[str, msgspec.Meta(pattern=r"^[A-Za-z0-9.-]{1,256}$")]
 _ID: msgspec.json.Decoder[ResourceId] = msgspec.json.Decoder(ResourceId)
 
 
@@ -28,6 +29,7 @@ class Limits(msgspec.Struct, forbid_unknown_fields=True):
     pages: Annotated[int, msgspec.Meta(gt=0)] = 16
     records: Annotated[int, msgspec.Meta(gt=0)] = 64
     bytes: Annotated[int, msgspec.Meta(gt=0)] = 65536
+    read_id_characters: Annotated[int, msgspec.Meta(ge=1, le=256)] = 64
 
 
 class SearchFailure(str, Enum):
@@ -219,7 +221,9 @@ class AsyncFHIRClient:
         *,
         observe: Observe | None = None,
     ) -> T:
-        identifier = msgspec.convert(identifier, type=ResourceId)
+        identifier = msgspec.convert(identifier, type=ReadResourceId)
+        if len(identifier) > self.limits.read_id_characters:
+            raise ValueError("FHIR identity exceeds the configured read limit")
         if identifier in (".", ".."):
             raise ValueError("FHIR identity is not a safe URL segment")
         response = await self._get(

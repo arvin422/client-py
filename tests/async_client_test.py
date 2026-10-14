@@ -20,6 +20,38 @@ from fhirclient.models.patient import Patient
 
 
 class AsyncClientTest(unittest.IsolatedAsyncioTestCase):
+    async def test_configured_read_id_limit_preserves_exact_binding(self):
+        identifier = "a" * 88
+        calls = []
+
+        def respond(request):
+            calls.append(request)
+            return httpx.Response(
+                200, json={"resourceType": "Patient", "id": identifier}
+            )
+
+        async with httpx.AsyncClient(
+            transport=httpx.MockTransport(respond)
+        ) as http:
+            standard = AsyncFHIRClient("https://ehr.test/fhir", http.send)
+            with self.assertRaises(ValueError):
+                await standard.read(Patient, identifier)
+            self.assertEqual(calls, [])
+            extended = AsyncFHIRClient(
+                "https://ehr.test/fhir",
+                http.send,
+                Limits(read_id_characters=256),
+            )
+            self.assertEqual(
+                (await extended.read(Patient, identifier)).id, identifier
+            )
+            with self.assertRaises(RequestError) as error:
+                await extended.read(Patient, "b" * 88)
+            self.assertEqual(
+                error.exception.failure.reason,
+                ResourceFailureReason.ID_MISMATCH,
+            )
+
     async def test_patient_read_rejects_invalid_and_changed_identity(self):
         cases = (
             (b"{", ResourceFailureReason.INVALID_JSON, ""),
