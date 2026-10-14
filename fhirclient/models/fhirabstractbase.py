@@ -26,8 +26,12 @@ class FHIRValidationError(Exception):
     
     errors: list[Exception]
     path: str | None
+    field_path: str | None
 
-    def __init__(self, errors: list[Exception] | str, path: str | None = None):
+    def __init__(
+        self, errors: list[Exception] | str, path: str | None = None,
+        *, field_path: str | None = None,
+    ):
         """ Initializer.
         
         :param errors: List of Exception instances. Also accepts a string,
@@ -46,13 +50,14 @@ class FHIRValidationError(Exception):
         TypeError, KeyError, possibly AttributeError and others. """
         
         self.path = path
+        self.field_path = field_path
         """ The path on the object where the errors occurred. """
     
     def prefixed(self, path_prefix):
         """ Creates a new instance of the receiver, with the given path prefix
         applied. """
         path = '{}.{}'.format(path_prefix, self.path) if self.path is not None else path_prefix
-        return self.__class__(self.errors, path)
+        return self.__class__(self.errors, path, field_path=self.field_path)
 
 
 class FHIRAbstractBase(object):
@@ -260,19 +265,23 @@ class FHIRAbstractBase(object):
         # were there missing non-optional entries?
         if len(nonoptionals) > 0:
             for miss in nonoptionals - found:
-                errs.append(FHIRValidationError(
-                    [KeyError("Required FHIR property is missing")], miss
-                ))
+                errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
+                    .format(miss, self)))
         
         # were there superfluous dictionary keys?
         if len(set(jsondict.keys()) - valid) > 0:
             for supflu in set(jsondict.keys()) - valid:
-                errs.append(FHIRValidationError(
-                    [AttributeError("Unexpected FHIR property")], supflu
-                ))
+                errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
+                    .format(supflu, self)))
         
         if len(errs) > 0:
-            raise FHIRValidationError(errs)
+            raise FHIRValidationError(
+                errs,
+                field_path=(
+                    next(iter(nonoptionals - found), None)
+                    or next(iter(set(jsondict) - valid), None)
+                ),
+            )
     
     def as_json(self) -> dict[str, JSONValue]:
         """ Serializes to JSON by inspecting `elementProperties()` and creating

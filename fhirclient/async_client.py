@@ -119,6 +119,8 @@ def _validation_path(error: FHIRValidationError) -> str:
     )
     if child is not None:
         path = ".".join(filter(None, (path, _validation_path(child))))
+    elif error.field_path is not None:
+        path = ".".join(filter(None, (path, error.field_path)))
     return path if re.fullmatch(r"[A-Za-z0-9_.]{0,256}", path) else ""
 
 
