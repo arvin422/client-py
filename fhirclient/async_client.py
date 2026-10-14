@@ -39,6 +39,27 @@ class SearchFailure(str, Enum):
     INCOMPLETE = "incomplete"
 
 
+class ResourceFailureReason(str, Enum):
+    INVALID_JSON = "invalid_json"
+    RESOURCE_TYPE = "resource_type"
+    FIELD_VALIDATION = "field_validation"
+    MISSING_ID = "missing_id"
+    ID_MISMATCH = "id_mismatch"
+
+
+class ResourceFailure(msgspec.Struct, kw_only=True):
+    reason: ResourceFailureReason
+    path: Annotated[str, msgspec.Meta(pattern=r"^[A-Za-z0-9_.]{0,256}$")] = ""
+
+
+class ResourceDecodeError(ValueError):
+    """Generated resource validation failed, with no patient values exposed."""
+
+    def __init__(self, failure: ResourceFailure) -> None:
+        self.failure = failure
+        super().__init__(failure.reason.value)
+
+
 class RequestError(Exception):
     """A received response did not satisfy the requested FHIR interaction."""
 
@@ -47,10 +68,12 @@ class RequestError(Exception):
         reason: SearchFailure,
         status: int | None = None,
         issues: tuple[OperationOutcomeIssue, ...] = (),
+        failure: ResourceFailure | None = None,
     ) -> None:
         self.reason = reason
         self.status = status
         self.issues = issues
+        self.failure = failure
         super().__init__(reason.value)
 
 
@@ -70,16 +93,49 @@ def _model(kind: type[T], value: JSONValue) -> T:
     if not isinstance(value, dict) or (
         value.get("resourceType") != kind.resource_type
     ):
-        raise ValueError("Expected the declared FHIR resourceType")
+        raise ResourceDecodeError(
+            ResourceFailure(reason=ResourceFailureReason.RESOURCE_TYPE)
+        )
     try:
         return kind(value)
     except FHIRValidationError as error:
-        raise ValueError(str(error)) from error
+        raise ResourceDecodeError(
+            ResourceFailure(
+                reason=ResourceFailureReason.FIELD_VALIDATION,
+                path=_validation_path(error),
+            )
+        ) from None
+
+
+def _validation_path(error: FHIRValidationError) -> str:
+    path = error.path or ""
+    child = next(
+        (
+            item
+            for item in error.errors
+            if isinstance(item, FHIRValidationError)
+        ),
+        None,
+    )
+    if child is not None:
+        path = ".".join(filter(None, (path, _validation_path(child))))
+    return path if re.fullmatch(r"[A-Za-z0-9_.]{0,256}", path) else ""
 
 
 def decode(kind: type[T], payload: bytes) -> T:
     """Validate a resource using its generated R4 definition."""
-    return msgspec.json.Decoder(kind, dec_hook=_model).decode(payload)
+    try:
+        return msgspec.json.Decoder(kind, dec_hook=_model).decode(payload)
+    except msgspec.ValidationError as error:
+        if isinstance(error.__cause__, ResourceDecodeError):
+            raise error.__cause__ from None
+        raise ResourceDecodeError(
+            ResourceFailure(reason=ResourceFailureReason.FIELD_VALIDATION)
+        ) from None
+    except msgspec.DecodeError:
+        raise ResourceDecodeError(
+            ResourceFailure(reason=ResourceFailureReason.INVALID_JSON)
+        ) from None
 
 
 def encode(value: Resource) -> bytes:
@@ -170,8 +226,23 @@ class AsyncFHIRClient:
         try:
             value = decode(kind, response.content)
             if value.id != identifier:
-                raise ValueError("FHIR resource identity changed")
+                raise ResourceDecodeError(
+                    ResourceFailure(
+                        reason=(
+                            ResourceFailureReason.MISSING_ID
+                            if value.id is None
+                            else ResourceFailureReason.ID_MISMATCH
+                        ),
+                        path="id",
+                    )
+                )
             return value
+        except ResourceDecodeError as error:
+            raise RequestError(
+                SearchFailure.MALFORMED,
+                response.status_code,
+                failure=error.failure,
+            ) from None
         except (ValueError, TypeError, msgspec.DecodeError):
             raise RequestError(
                 SearchFailure.MALFORMED, response.status_code

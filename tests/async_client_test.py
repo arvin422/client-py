@@ -10,6 +10,7 @@ from fhirclient.async_client import (
     Created,
     Limits,
     RequestError,
+    ResourceFailureReason,
     SearchFailure,
     Uncertain,
     async_client,
@@ -19,6 +20,47 @@ from fhirclient.models.patient import Patient
 
 
 class AsyncClientTest(unittest.IsolatedAsyncioTestCase):
+    async def test_patient_read_rejects_invalid_and_changed_identity(self):
+        cases = (
+            (b"{", ResourceFailureReason.INVALID_JSON, ""),
+            (
+                b'{"resourceType":"Observation"}',
+                ResourceFailureReason.RESOURCE_TYPE,
+                "",
+            ),
+            (
+                b'{"resourceType":"Patient","id":"one","active":"private"}',
+                ResourceFailureReason.FIELD_VALIDATION,
+                "active",
+            ),
+            (
+                b'{"resourceType":"Patient"}',
+                ResourceFailureReason.MISSING_ID,
+                "id",
+            ),
+            (
+                b'{"resourceType":"Patient","id":"other"}',
+                ResourceFailureReason.ID_MISMATCH,
+                "id",
+            ),
+        )
+        for payload, reason, path in cases:
+            async with httpx.AsyncClient(
+                transport=httpx.MockTransport(
+                    lambda request: httpx.Response(200, content=payload)
+                )
+            ) as http:
+                client = AsyncFHIRClient("https://ehr.test/fhir", http.send)
+                with self.assertRaises(RequestError) as error:
+                    await client.read(Patient, "one")
+                self.assertEqual(
+                    error.exception.reason, SearchFailure.MALFORMED
+                )
+                self.assertEqual(error.exception.status, 200)
+                self.assertEqual(error.exception.failure.reason, reason)
+                self.assertEqual(error.exception.failure.path, path)
+                self.assertNotIn("private", str(error.exception))
+
     async def test_borrowed_search_archives_before_validation(self):
         bodies = [
             b'{"resourceType":"Bundle","type":"searchset","total":2,'

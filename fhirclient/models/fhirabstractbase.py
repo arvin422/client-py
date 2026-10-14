@@ -24,7 +24,10 @@ class FHIRValidationError(Exception):
     validation.
     """
     
-    def __init__(self, errors, path=None):
+    errors: list[Exception]
+    path: str | None
+
+    def __init__(self, errors: list[Exception] | str, path: str | None = None):
         """ Initializer.
         
         :param errors: List of Exception instances. Also accepts a string,

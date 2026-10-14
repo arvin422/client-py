@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 import msgspec
 from msgspec import Meta, Struct
 
-from .async_client import ResourceId
+from .async_client import ResourceFailure, ResourceId
 
 
 class Check(str, Enum):
@@ -113,6 +113,7 @@ class CheckEvent(Struct, kw_only=True):
     status: int | None = None
     scopes: str | None = None
     error: str | None = None
+    resource_failure: ResourceFailure | None = None
 
 
 Observer = Callable[[CheckEvent], None]

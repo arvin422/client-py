@@ -36,6 +36,7 @@ from ._smart_types import (
 from .async_client import (
     AsyncFHIRClient,
     RequestError,
+    ResourceFailure,
     ResourceId,
     SearchFailure,
     Send,
@@ -76,6 +77,7 @@ def _emit(
     status: int | None = None,
     scopes: str | None = None,
     error: str | None = None,
+    resource_failure: ResourceFailure | None = None,
 ) -> None:
     if observer is not None:
         observer(
@@ -85,6 +87,7 @@ def _emit(
                 status=status,
                 scopes=scopes,
                 error=error,
+                resource_failure=resource_failure,
             )
         )
 
@@ -419,7 +422,13 @@ async def verify(
             patient = await fhir.read(Patient, tokens.patient)
             _emit(observer, check, status=200)
     except RequestError as error:
-        _emit(observer, check, CheckResult.REJECTED, status=error.status)
+        _emit(
+            observer,
+            check,
+            CheckResult.REJECTED,
+            status=error.status,
+            resource_failure=error.failure,
+        )
         if error.reason is SearchFailure.MALFORMED:
             raise InvalidIdentity from None
         raise ServiceUnavailable from None
