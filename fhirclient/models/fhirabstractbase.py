@@ -245,8 +245,8 @@ class FHIRAbstractBase(object):
                         extensions = [None if item is None else Element(item).as_json() for item in _value]
                         if not any(item is not None for item in extensions):
                             raise TypeError('Primitive extensions cannot be entirely null')
-                        if isinstance(value, list) and len(value) != len(extensions):
-                            raise TypeError('Primitive values and extensions must align')
+                        # Missing suffix entries represent absent metadata;
+                        # retain both original arrays without explicit padding.
                         self._primitive_extensions[_jsname] = extensions
                     else:
                         if not isinstance(_value, dict) or not _value:
@@ -361,8 +361,6 @@ class FHIRAbstractBase(object):
             value = values.get(json_name)
             details = values.get('_' + json_name)
             if is_list and isinstance(value, list):
-                if isinstance(details, list) and len(details) != len(value):
-                    errors.append(ValueError('Primitive values and extensions must align'))
                 for index, item in enumerate(value):
                     if item is None and not (
                         isinstance(details, list) and index < len(details)

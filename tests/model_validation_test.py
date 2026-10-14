@@ -64,3 +64,33 @@ def test_every_list_element_and_required_choice_is_validated():
         "code": {"text": "x"},
     })
     assert "_status" in value.as_json()
+
+
+def test_patient_preserves_names_with_shorter_primitive_metadata():
+    payload = {
+        "resourceType": "Patient",
+        "id": "epic-original.patient-identifier",
+        "name": [
+            {"use": "official", "given": ["First", "Middle"]},
+            {
+                "use": "usual",
+                "given": ["Preferred", "Middle"],
+                "_given": [{
+                    "extension": [{
+                        "url": "urn:test:given-name",
+                        "valueCode": "preferred",
+                    }],
+                }],
+            },
+        ],
+    }
+    patient = Patient(payload)
+    assert patient.id == payload["id"]
+    assert patient.as_json() == payload
+    patient.name[1].given.append("Additional")
+    assert patient.as_json()["name"][1] == {
+        **payload["name"][1],
+        "given": ["Preferred", "Middle", "Additional"],
+    }
+    with pytest.raises(FHIRValidationError):
+        Patient({"name": [{"given": ["Valid", None]}]})
