@@ -590,6 +590,7 @@ __all__ = [
     "Login",
     "PrivateKeyJwt",
     "RefreshedTokens",
+    "ResourceFailure",
     "ServiceUnavailable",
     "SmartTokens",
     "TokenRejected",

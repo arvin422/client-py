@@ -260,14 +260,16 @@ class FHIRAbstractBase(object):
         # were there missing non-optional entries?
         if len(nonoptionals) > 0:
             for miss in nonoptionals - found:
-                errs.append(KeyError("Non-optional property \"{}\" on {} is missing"
-                    .format(miss, self)))
+                errs.append(FHIRValidationError(
+                    [KeyError("Required FHIR property is missing")], miss
+                ))
         
         # were there superfluous dictionary keys?
         if len(set(jsondict.keys()) - valid) > 0:
             for supflu in set(jsondict.keys()) - valid:
-                errs.append(AttributeError("Superfluous entry \"{}\" in data for {}"
-                    .format(supflu, self)))
+                errs.append(FHIRValidationError(
+                    [AttributeError("Unexpected FHIR property")], supflu
+                ))
         
         if len(errs) > 0:
             raise FHIRValidationError(errs)
